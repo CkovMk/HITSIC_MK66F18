@@ -1,0 +1,3 @@
+[submodule "HITSIC_MK66F18_IAR/HITSIC"]
+	path = HITSIC_MK66F18_IAR/HITSIC
+	url = https://github.com/CkovMk/HITSIC_Middleware/

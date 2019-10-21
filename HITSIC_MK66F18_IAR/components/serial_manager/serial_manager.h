@@ -28,7 +28,7 @@
 
 /*! @brief Enable or disable uart port (1 - enable, 0 - disable) */
 #ifndef SERIAL_PORT_TYPE_UART
-#define SERIAL_PORT_TYPE_UART (1U)
+#define SERIAL_PORT_TYPE_UART (0U)
 #endif
 
 /*! @brief Enable or disable USB CDC port (1 - enable, 0 - disable) */
@@ -38,7 +38,7 @@
 
 /*! @brief Enable or disable SWO port (1 - enable, 0 - disable) */
 #ifndef SERIAL_PORT_TYPE_SWO
-#define SERIAL_PORT_TYPE_SWO (1U)
+#define SERIAL_PORT_TYPE_SWO (0U)
 #endif
 
 /*! @brief Enable or disable USB CDC virtual port (1 - enable, 0 - disable) */

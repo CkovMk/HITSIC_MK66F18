@@ -131,12 +131,12 @@
 /***************Debug console other configuration*********************/
 /*! @brief Definition to printf the float number. */
 #ifndef PRINTF_FLOAT_ENABLE
-#define PRINTF_FLOAT_ENABLE 0U
+#define PRINTF_FLOAT_ENABLE 1U
 #endif /* PRINTF_FLOAT_ENABLE */
 
 /*! @brief Definition to scanf the float number. */
 #ifndef SCANF_FLOAT_ENABLE
-#define SCANF_FLOAT_ENABLE 0U
+#define SCANF_FLOAT_ENABLE 1U
 #endif /* SCANF_FLOAT_ENABLE */
 
 /*! @brief Definition to support advanced format specifier for printf. */

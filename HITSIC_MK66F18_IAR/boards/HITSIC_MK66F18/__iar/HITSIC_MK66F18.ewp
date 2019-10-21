@@ -32,11 +32,11 @@
                 </option>
                 <option>
                     <name>Input description</name>
-                    <state>Full formatting, without multibyte support.</state>
+                    <state>Full formatting, with multibyte support.</state>
                 </option>
                 <option>
                     <name>Output description</name>
-                    <state>Full formatting, without multibyte support.</state>
+                    <state>Full formatting, with multibyte support.</state>
                 </option>
                 <option>
                     <name>GOutputBinary</name>
@@ -177,7 +177,7 @@
                 </option>
                 <option>
                     <name>OGPrintfMultibyteSupport</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>OGScanfVariant</name>
@@ -186,7 +186,7 @@
                 </option>
                 <option>
                     <name>OGScanfMultibyteSupport</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>GenLocaleTags</name>
@@ -224,6 +224,8 @@
                     <state>CPU_MK66FX1M0VLQ18</state>
                     <state>ARM_MATH_CM4</state>
                     <state>HITSIC_MK66F18</state>
+                    <state>SERIAL_PORT_TYPE_UART=1</state>
+                    <state>SERIAL_PORT_TYPE_SWO=0</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -360,6 +362,8 @@
                     <state>$PROJ_DIR$\..\..\..\components\lists</state>
                     <state>$PROJ_DIR$\..\..\..\components\serial_manager</state>
                     <state>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\MK66F18</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\Generic</state>
                     <state>$PROJ_DIR$\..\board</state>
                     <state>$PROJ_DIR$\..\main\drv</state>
                     <state>$PROJ_DIR$\..\main\app</state>
@@ -2092,12 +2096,6 @@
     <group>
         <name>board</name>
         <file>
-            <name>$PROJ_DIR$\..\board\board.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\board\board.h</name>
-        </file>
-        <file>
             <name>$PROJ_DIR$\..\board\clock_config.c</name>
         </file>
         <file>
@@ -2609,10 +2607,94 @@
         <name>hitsic</name>
         <group>
             <name>drv</name>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_disp_ssd1306.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_disp_ssd1306.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_flash.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_flash.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_imu_invensense.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_imu_invensense.h</name>
+            </file>
         </group>
         <group>
             <name>lib</name>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\lib_list.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\lib_list.h</name>
+            </file>
         </group>
+        <group>
+            <name>rte</name>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_i2c.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_i2c.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_softi2c.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_softi2c.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_spi.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_spi.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_uart.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_uart.h</name>
+            </file>
+        </group>
+        <group>
+            <name>sys</name>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_extint.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_extint.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_pitmgr.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_pitmgr.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_uartmgr.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_uartmgr.h</name>
+            </file>
+        </group>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\HITSIC\MK66F18\hitsic_def.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\HITSIC\MK66F18\hitsic_hal.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\HITSIC\MK66F18\hitsic_hal.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\HITSIC\MK66F18\inc_fsl_mk66f18.h</name>
+        </file>
     </group>
     <group>
         <name>main</name>
@@ -2622,9 +2704,6 @@
         <group>
             <name>drv</name>
         </group>
-        <file>
-            <name>$PROJ_DIR$\..\main\inc_fsl_mk66f18.h</name>
-        </file>
         <file>
             <name>$PROJ_DIR$\..\main\inc_generic.h</name>
         </file>

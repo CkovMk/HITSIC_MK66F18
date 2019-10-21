@@ -1,0 +1,563 @@
+###############################################################################
+#
+# IAR ELF Linker V8.32.3.193/W32 for ARM                  21/Oct/2019  11:49:10
+# Copyright 2007-2019 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Exe\HITSIC_MK66F18.out
+#    Map file     =  
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\List\HITSIC_MK66F18.map
+#    Command line =  
+#        -f C:\Users\CkovMk\AppData\Local\Temp\EWCFE1.tmp
+#        (C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\board.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\clock_config.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_adc16.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_assert.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_cache.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_clock.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_cmp.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_cmt.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_common.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_crc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_dac.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_debug_console.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_dmamux.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_dspi.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_dspi_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_enet.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_ewm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_flexbus.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_flexcan.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_ftfx_cache.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_ftfx_controller.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_ftfx_flash.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_ftfx_flexnvm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_ftm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_gpio.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_i2c.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_i2c_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_llwu.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_lmem_cache.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_lptmr.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_lpuart.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_lpuart_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_notifier.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_pdb.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_pit.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_pmc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_rcm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_rnga.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_rtc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_sai.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_sai_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_sbrk.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_sdhc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_sdramc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_shell.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_sim.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_smc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_str.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_sysmpu.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_tpm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_tsi_v4.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_uart.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_uart_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_vref.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\fsl_wdog.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\generic_list.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\main.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\peripherals.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\pin_mux.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\serial_manager.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\serial_port_uart.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\startup_MK66F18.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\stdafx.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\system_MK66F18.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj\uart_adapter.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull
+#        --no_out_extension -o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Exe\HITSIC_MK66F18.out
+#        --map
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\List\HITSIC_MK66F18.map
+#        --config
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\MK66FX1M0xxx18_flash.icf
+#        --semihosting --entry __iar_program_start --redirect
+#        __iar_sh_stdout=__iar_sh_stdout_swo --vfe --text_out locale
+#        --advanced_heap)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__Heap_Handler  = DLMalloc
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The advanced heap was selected because of --advanced_heap.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x0 { ro section .intvec };
+"P1":  place in [from 0x400 to 0x40f] { section FlashConfig };
+"P2":  place in [from 0x0 to 0x3ff] |
+                [from 0x410 to 0xf'ffff] { ro };
+define block RW { rw };
+"P3":  place in [from 0x1fff'0000 to 0x1fff'ffff] |
+                [from 0x2000'0000 to 0x2002'fbff] { block RW };
+define block ZI { zi };
+"P4":  place in [from 0x1fff'0000 to 0x1fff'ffff] |
+                [from 0x2000'0000 to 0x2002'fbff] { block ZI };
+define block NCACHE_VAR { section NonCacheable, section NonCacheable.init };
+"P7":  place in [from 0x1fff'0000 to 0x1fff'ffff] |
+                [from 0x2000'0000 to 0x2002'fbff] { block NCACHE_VAR };
+define block CSTACK with size = 1K, alignment = 8 { };
+"P6":  place in [from 0x2002'fc00 to 0x2002'ffff] { block CSTACK };
+
+No sections matched the following patterns:
+
+  section NonCacheable       in block NCACHE_VAR
+  section NonCacheable.init  in block NCACHE_VAR
+
+
+  Section          Kind         Address    Size  Object
+  -------          ----         -------    ----  ------
+"A0":                                     0x400
+  .intvec          ro code          0x0   0x400  startup_MK66F18.o [1]
+                                - 0x400   0x400
+
+"P1":                                      0x10
+  FlashConfig      ro code        0x400    0x10  startup_MK66F18.o [1]
+                                - 0x410    0x10
+
+"P2":                                    0x163a
+  .text            ro code        0x410   0x46c  fsl_edma.o [1]
+  .text            ro code        0x87c    0x18  fsl_assert.o [1]
+  .text            ro code        0x894    0xdc  fsl_debug_console.o [1]
+  .text            ro code        0x970    0xb0  serial_manager.o [1]
+  .text            ro code        0xa20     0x6  ABImemclr4.o [4]
+  .text            ro code        0xa26   0x2d0  fsl_str.o [1]
+  .text            ro code        0xcf6    0x3a  zero_init3.o [4]
+  .text            ro code        0xd30    0x60  serial_port_uart.o [1]
+  .text            ro code        0xd90    0x32  ABImemset48.o [4]
+  .text            ro code        0xdc2     0x2  startup_MK66F18.o [1]
+  .text            ro code        0xdc4    0x36  strlen.o [4]
+  .text            ro code        0xdfa     0x2  startup_MK66F18.o [1]
+  .text            ro code        0xdfc    0x70  uart_adapter.o [1]
+  .text            ro code        0xe6c    0xd4  fsl_uart.o [1]
+  .text            ro code        0xf40    0xd0  fsl_dspi.o [1]
+  .rodata          const         0x1010    0x80  fsl_debug_console.o [1]
+  .text            ro code       0x1090    0x80  fsl_i2c.o [1]
+  .text            ro code       0x1110    0x74  fsl_flexcan.o [1]
+  .rodata          const         0x1184    0x70  serial_manager.o [1]
+  .rodata          const         0x11f4    0x70  serial_port_uart.o [1]
+  .text            ro code       0x1264    0x70  fsl_sai.o [1]
+  .rodata          const         0x12d4    0x6c  fsl_flexcan.o [1]
+  .rodata          const         0x1340    0x68  fsl_dspi.o [1]
+  .rodata          const         0x13a8    0x68  fsl_edma.o [1]
+  .rodata          const         0x1410    0x68  fsl_sai.o [1]
+  .rodata          const         0x1478    0x68  fsl_sdhc.o [1]
+  .text            ro code       0x14e0    0x68  fsl_enet.o [1]
+  .rodata          const         0x1548    0x64  uart_adapter.o [1]
+  .text            ro code       0x15ac    0x40  fsl_sdhc.o [1]
+  .text            ro code       0x15ec    0x36  system_MK66F18.o [1]
+  .text            ro code       0x1622     0x2  startup_MK66F18.o [1]
+  .rodata          const         0x1624    0x2c  fsl_assert.o [1]
+  .text            ro code       0x1650    0x28  startup_MK66F18.o [1]
+  .text            ro code       0x1678    0x28  data_init.o [4]
+  .text            ro code       0x16a0    0x24  fsl_lpuart.o [1]
+  .text            ro code       0x16c4    0x22  fpinit_M.o [3]
+  .iar.init_table  const         0x16e8    0x10  - Linker created -
+  .text            ro code       0x16f8     0x2  startup_MK66F18.o [1]
+  .text            ro code       0x16fc    0x1e  cmain.o [4]
+  .text            ro code       0x171a     0x4  low_level_init.o [2]
+  .text            ro code       0x171e     0x4  main.o [1]
+  .text            ro code       0x1722     0x4  exit.o [2]
+  .text            ro code       0x1726     0x2  startup_MK66F18.o [1]
+  .text            ro code       0x1728     0xa  cexit.o [4]
+  .text            ro code       0x1732     0x2  startup_MK66F18.o [1]
+  .text            ro code       0x1734    0x14  exit.o [5]
+  .rodata          const         0x1748    0x1c  fsl_edma.o [1]
+  .rodata          const         0x1764    0x18  fsl_dspi.o [1]
+  .rodata          const         0x177c    0x18  fsl_dspi.o [1]
+  .rodata          const         0x1794    0x18  fsl_dspi.o [1]
+  .rodata          const         0x17ac    0x18  fsl_flexcan.o [1]
+  .rodata          const         0x17c4    0x18  fsl_flexcan.o [1]
+  .rodata          const         0x17dc    0x14  fsl_sai.o [1]
+  .rodata          const         0x17f0    0x14  fsl_sai.o [1]
+  .rodata          const         0x1804    0x14  uart_adapter.o [1]
+  .rodata          const         0x1818    0x10  fsl_sdhc.o [1]
+  .rodata          const         0x1828    0x10  serial_port_uart.o [1]
+  .rodata          const         0x1838     0xc  fsl_debug_console.o [1]
+  .rodata          const         0x1844     0xc  fsl_edma.o [1]
+  .rodata          const         0x1850     0xc  serial_manager.o [1]
+  .text            ro code       0x185c     0xc  cstartup_M.o [4]
+  .rodata          const         0x1868     0x8  fsl_debug_console.o [1]
+  .rodata          const         0x1870     0x8  serial_manager.o [1]
+  .rodata          const         0x1878     0x8  serial_manager.o [1]
+  .rodata          const         0x1880     0x8  serial_manager.o [1]
+  .rodata          const         0x1888     0x8  serial_port_uart.o [1]
+  .rodata          const         0x1890     0x8  serial_port_uart.o [1]
+  .rodata          const         0x1898     0x8  uart_adapter.o [1]
+  .rodata          const         0x18a0     0x8  uart_adapter.o [1]
+  .rodata          const         0x18a8     0x8  uart_adapter.o [1]
+  .text            ro code       0x18b0     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x18b8     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x18c0     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x18c8     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x18d0     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x18d8     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x18e0     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x18e8     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x18f0     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x18f8     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1900     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1908     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1910     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1918     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1920     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1928     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1930     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1938     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1940     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1948     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1950     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1958     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1960     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1968     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1970     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1978     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1980     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1988     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1990     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1998     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19a0     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19a8     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19b0     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19b8     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19c0     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19c8     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19d0     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19d8     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19e0     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19e8     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19f0     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x19f8     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1a00     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1a08     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1a10     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1a18     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1a20     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1a28     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1a30     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1a38     0x8  startup_MK66F18.o [1]
+  .text            ro code       0x1a40     0x4  startup_MK66F18.o [1]
+  .text            ro code       0x1a44     0x2  startup_MK66F18.o [1]
+  .text            ro code       0x1a46     0x2  startup_MK66F18.o [1]
+  .text            ro code       0x1a48     0x2  startup_MK66F18.o [1]
+  .rodata          const         0x1a4a     0x0  zero_init3.o [4]
+                               - 0x1a4a  0x163a
+
+"P3-P4|P7":                               0x124
+  ZI                        0x1fff'0000   0x124  <Block>
+    .bss           zero     0x1fff'0000    0x1c  fsl_debug_console.o [1]
+    .bss           zero     0x1fff'001c     0x4  fsl_debug_console.o [1]
+    .bss           zero     0x1fff'0020     0xc  fsl_dspi.o [1]
+    .bss           zero     0x1fff'002c     0x4  fsl_dspi.o [1]
+    .bss           zero     0x1fff'0030     0x4  fsl_dspi.o [1]
+    .bss           zero     0x1fff'0034    0x80  fsl_edma.o [1]
+    .bss           zero     0x1fff'00b4     0x4  fsl_enet.o [1]
+    .bss           zero     0x1fff'00b8     0x4  fsl_enet.o [1]
+    .bss           zero     0x1fff'00bc     0x4  fsl_enet.o [1]
+    .bss           zero     0x1fff'00c0     0x4  fsl_enet.o [1]
+    .bss           zero     0x1fff'00c4     0x4  fsl_enet.o [1]
+    .bss           zero     0x1fff'00c8     0x8  fsl_flexcan.o [1]
+    .bss           zero     0x1fff'00d0     0x4  fsl_flexcan.o [1]
+    .bss           zero     0x1fff'00d4    0x10  fsl_i2c.o [1]
+    .bss           zero     0x1fff'00e4     0x4  fsl_i2c.o [1]
+    .bss           zero     0x1fff'00e8     0x4  fsl_i2c.o [1]
+    .bss           zero     0x1fff'00ec     0x4  fsl_lpuart.o [1]
+    .bss           zero     0x1fff'00f0     0x4  fsl_lpuart.o [1]
+    .bss           zero     0x1fff'00f4     0x8  fsl_sai.o [1]
+    .bss           zero     0x1fff'00fc     0x4  fsl_sai.o [1]
+    .bss           zero     0x1fff'0100     0x4  fsl_sai.o [1]
+    .bss           zero     0x1fff'0104     0x4  fsl_sdhc.o [1]
+    .bss           zero     0x1fff'0108     0x4  fsl_sdhc.o [1]
+    .bss           zero     0x1fff'010c    0x14  fsl_uart.o [1]
+    .bss           zero     0x1fff'0120     0x4  fsl_uart.o [1]
+                          - 0x1fff'0124   0x124
+
+"P6":                                     0x400
+  CSTACK                    0x2002'fc00   0x400  <Block>
+    CSTACK         uninit   0x2002'fc00   0x400  <Block tail>
+                          - 0x2003'0000   0x400
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+       0x1a4a     0xf'ffff  0xf'e5b6
+  0x1fff'0124  0x1fff'ffff    0xfedc
+  0x2000'0000  0x2002'fbff  0x2'fc00
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x124:
+          0x1fff'0000  0x124
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module               ro code  ro data  rw data
+    ------               -------  -------  -------
+command line/config:
+    ----------------------------------------------
+    Total:
+
+C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj: [1]
+    fsl_assert.o              24       44
+    fsl_debug_console.o      220      148       32
+    fsl_dspi.o               208      176       20
+    fsl_edma.o             1 132      144      128
+    fsl_enet.o               104                20
+    fsl_flexcan.o            116      156       12
+    fsl_i2c.o                128                24
+    fsl_lpuart.o              36                 8
+    fsl_sai.o                112      144       16
+    fsl_sdhc.o                64      120        8
+    fsl_str.o                720
+    fsl_uart.o               212                24
+    main.o                     4
+    serial_manager.o         176      148
+    serial_port_uart.o        96      144
+    startup_MK66F18.o      1 502
+    system_MK66F18.o          54
+    uart_adapter.o           112      144
+    ----------------------------------------------
+    Total:                 5 020    1 368      292
+
+dl7M_tlf.a: [2]
+    exit.o                     4
+    low_level_init.o           4
+    ----------------------------------------------
+    Total:                     8
+
+m7M_tls.a: [3]
+    fpinit_M.o                34
+    ----------------------------------------------
+    Total:                    34
+
+rt7M_tl.a: [4]
+    ABImemclr4.o               6
+    ABImemset48.o             50
+    cexit.o                   10
+    cmain.o                   30
+    cstartup_M.o              12
+    data_init.o               40
+    strlen.o                  54
+    zero_init3.o              58
+    ----------------------------------------------
+    Total:                   260
+
+shb_l.a: [5]
+    exit.o                    20
+    ----------------------------------------------
+    Total:                    20
+
+    Gaps                       2        2
+    Linker created                     16    1 024
+--------------------------------------------------
+    Grand Total:           5 344    1 386    1 316
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base        0x16e8          --   Gb  - Linker created -
+.iar.init_table$$Limit       0x16f8          --   Gb  - Linker created -
+?main                        0x16fd         Code  Gb  cmain.o [4]
+CAN0_DriverIRQHandler        0x1111   0x2a  Code  Gb  fsl_flexcan.o [1]
+CAN1_DriverIRQHandler        0x113d   0x2a  Code  Gb  fsl_flexcan.o [1]
+CSTACK$$Base            0x2002'fc00          --   Gb  - Linker created -
+CSTACK$$Limit           0x2003'0000          --   Gb  - Linker created -
+ConvertRadixNumToString
+                              0xa27   0x8a  Code  Lc  fsl_str.o [1]
+DMA0_DMA16_DriverIRQHandler
+                              0x543   0x36  Code  Gb  fsl_edma.o [1]
+DMA10_DMA26_DriverIRQHandler
+                              0x73f   0x32  Code  Gb  fsl_edma.o [1]
+DMA11_DMA27_DriverIRQHandler
+                              0x771   0x32  Code  Gb  fsl_edma.o [1]
+DMA12_DMA28_DriverIRQHandler
+                              0x7a3   0x32  Code  Gb  fsl_edma.o [1]
+DMA13_DMA29_DriverIRQHandler
+                              0x7d5   0x32  Code  Gb  fsl_edma.o [1]
+DMA14_DMA30_DriverIRQHandler
+                              0x807   0x32  Code  Gb  fsl_edma.o [1]
+DMA15_DMA31_DriverIRQHandler
+                              0x839   0x32  Code  Gb  fsl_edma.o [1]
+DMA1_DMA17_DriverIRQHandler
+                              0x579   0x32  Code  Gb  fsl_edma.o [1]
+DMA2_DMA18_DriverIRQHandler
+                              0x5ab   0x32  Code  Gb  fsl_edma.o [1]
+DMA3_DMA19_DriverIRQHandler
+                              0x5df   0x32  Code  Gb  fsl_edma.o [1]
+DMA4_DMA20_DriverIRQHandler
+                              0x611   0x32  Code  Gb  fsl_edma.o [1]
+DMA5_DMA21_DriverIRQHandler
+                              0x643   0x32  Code  Gb  fsl_edma.o [1]
+DMA6_DMA22_DriverIRQHandler
+                              0x677   0x32  Code  Gb  fsl_edma.o [1]
+DMA7_DMA23_DriverIRQHandler
+                              0x6a9   0x32  Code  Gb  fsl_edma.o [1]
+DMA8_DMA24_DriverIRQHandler
+                              0x6db   0x32  Code  Gb  fsl_edma.o [1]
+DMA9_DMA25_DriverIRQHandler
+                              0x70d   0x32  Code  Gb  fsl_edma.o [1]
+DSPI_CommonIRQHandler         0xf4f   0x2c  Code  Lc  fsl_dspi.o [1]
+DSPI_IsMaster                 0xf41    0xe  Code  Lc  fsl_dspi.o [1]
+DbgConsole_PrintCallback
+                              0x8dd   0x3e  Code  Lc  fsl_debug_console.o [1]
+DbgConsole_Printf             0x91b   0x3c  Code  Gb  fsl_debug_console.o [1]
+DbgConsole_SendDataReliable
+                              0x895   0x48  Code  Gb  fsl_debug_console.o [1]
+EDMA_GetChannelStatusFlags
+                              0x411   0x46  Code  Gb  fsl_edma.o [1]
+EDMA_HandleIRQ                0x461   0xe2  Code  Gb  fsl_edma.o [1]
+ENET_1588_Timer_IRQHandler
+                             0x151d   0x14  Code  Gb  fsl_enet.o [1]
+ENET_Error_IRQHandler        0x1509   0x14  Code  Gb  fsl_enet.o [1]
+ENET_Receive_IRQHandler
+                             0x14f5   0x14  Code  Gb  fsl_enet.o [1]
+ENET_Transmit_IRQHandler
+                             0x14e1   0x14  Code  Gb  fsl_enet.o [1]
+HAL_UartSendBlocking          0xdfd   0x58  Code  Gb  uart_adapter.o [1]
+I2C0_DriverIRQHandler        0x10bd    0xe  Code  Gb  fsl_i2c.o [1]
+I2C1_DriverIRQHandler        0x10cb    0xe  Code  Gb  fsl_i2c.o [1]
+I2C2_DriverIRQHandler        0x10d9    0xe  Code  Gb  fsl_i2c.o [1]
+I2C3_DriverIRQHandler        0x10ed    0xe  Code  Gb  fsl_i2c.o [1]
+I2C_TransferCommonIRQHandler
+                             0x1091   0x28  Code  Lc  fsl_i2c.o [1]
+I2S0_Rx_DriverIRQHandler
+                             0x128f   0x2a  Code  Gb  fsl_sai.o [1]
+I2S0_Tx_DriverIRQHandler
+                             0x1265   0x2a  Code  Gb  fsl_sai.o [1]
+LPUART0_DriverIRQHandler
+                             0x16a1   0x14  Code  Gb  fsl_lpuart.o [1]
+Region$$Table$$Base          0x16e8          --   Gb  - Linker created -
+Region$$Table$$Limit         0x16f8          --   Gb  - Linker created -
+SDHC_DriverIRQHandler        0x15ad   0x2a  Code  Gb  fsl_sdhc.o [1]
+SPI0_DriverIRQHandler         0xf7b   0x24  Code  Gb  fsl_dspi.o [1]
+SPI1_DriverIRQHandler         0xf9f   0x24  Code  Gb  fsl_dspi.o [1]
+SPI2_DriverIRQHandler         0xfc3   0x24  Code  Gb  fsl_dspi.o [1]
+SerialManager_StartWriting
+                              0x971   0x2a  Code  Lc  serial_manager.o [1]
+SerialManager_Write           0x99b   0x68  Code  Lc  serial_manager.o [1]
+SerialManager_WriteBlocking
+                              0xa03    0x8  Code  Gb  serial_manager.o [1]
+Serial_UartWrite              0xd31   0x50  Code  Gb  serial_port_uart.o [1]
+StrFormatPrintf               0xab1  0x246  Code  Gb  fsl_str.o [1]
+SystemInit                   0x15ed   0x28  Code  Gb  system_MK66F18.o [1]
+UART0_DriverIRQHandler        0xe85   0x14  Code  Gb  fsl_uart.o [1]
+UART0_RX_TX_DriverIRQHandler
+                              0xe99    0xc  Code  Gb  fsl_uart.o [1]
+UART1_DriverIRQHandler        0xea5   0x14  Code  Gb  fsl_uart.o [1]
+UART1_RX_TX_DriverIRQHandler
+                              0xeb9    0xc  Code  Gb  fsl_uart.o [1]
+UART2_DriverIRQHandler        0xec5   0x14  Code  Gb  fsl_uart.o [1]
+UART2_RX_TX_DriverIRQHandler
+                              0xed9    0xc  Code  Gb  fsl_uart.o [1]
+UART3_DriverIRQHandler        0xee5   0x14  Code  Gb  fsl_uart.o [1]
+UART3_RX_TX_DriverIRQHandler
+                              0xef9    0xc  Code  Gb  fsl_uart.o [1]
+UART4_DriverIRQHandler        0xf05   0x14  Code  Gb  fsl_uart.o [1]
+UART4_RX_TX_DriverIRQHandler
+                              0xf35    0xc  Code  Gb  fsl_uart.o [1]
+UART_WriteBlocking            0xe6d   0x18  Code  Gb  fsl_uart.o [1]
+ZI$$Base                0x1fff'0000          --   Gb  - Linker created -
+ZI$$Limit               0x1fff'0124          --   Gb  - Linker created -
+__Vectors                       0x0          --   Gb  startup_MK66F18.o [1]
+__Vectors_End                 0x400         Data  Gb  startup_MK66F18.o [1]
+__Vectors_Size {Abs}          0x400          --   Gb  startup_MK66F18.o [1]
+__aeabi_assert                0x87d   0x18  Code  Gb  fsl_assert.o [1]
+__aeabi_memclr4               0xa21         Code  Gb  ABImemclr4.o [4]
+__cmain                      0x16fd         Code  Gb  cmain.o [4]
+__exit                       0x1735   0x14  Code  Gb  exit.o [5]
+__iar_Memset4_word            0xd91         Code  Gb  ABImemset48.o [4]
+__iar_Memset8_word            0xd91         Code  Gb  ABImemset48.o [4]
+__iar_data_init3             0x1679   0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp               0x16c5         Code  Gb  fpinit_M.o [3]
+__iar_program_start          0x185d         Code  Gb  cstartup_M.o [4]
+__iar_zero_init3              0xcf7   0x3a  Code  Gb  zero_init3.o [4]
+__low_level_init             0x171b    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0         Data  Gb  startup_MK66F18.o [1]
+__vector_table_0x1c            0x1c         Data  Gb  startup_MK66F18.o [1]
+_call_main                   0x1709         Code  Gb  cmain.o [4]
+_exit                        0x1729         Code  Gb  cexit.o [4]
+_main                        0x1717         Code  Gb  cmain.o [4]
+exit                         0x1723    0x4  Code  Gb  exit.o [2]
+g_dspiHandle            0x1fff'0020    0xc  Data  Lc  fsl_dspi.o [1]
+g_serialHandle          0x1fff'001c    0x4  Data  Gb  fsl_debug_console.o [1]
+main                         0x171f    0x4  Code  Gb  main.o [1]
+s_EDMAHandle            0x1fff'0034   0x80  Data  Lc  fsl_edma.o [1]
+s_ENETHandle            0x1fff'00b4    0x4  Data  Lc  fsl_enet.o [1]
+s_UartAdapterBase            0x1804   0x14  Data  Lc  uart_adapter.o [1]
+s_debugConsoleState     0x1fff'0000   0x1c  Data  Lc  fsl_debug_console.o [1]
+s_dspiMasterIsr         0x1fff'002c    0x4  Data  Lc  fsl_dspi.o [1]
+s_dspiSlaveIsr          0x1fff'0030    0x4  Data  Lc  fsl_dspi.o [1]
+s_enetErrIsr            0x1fff'00c0    0x4  Data  Lc  fsl_enet.o [1]
+s_enetRxIsr             0x1fff'00bc    0x4  Data  Lc  fsl_enet.o [1]
+s_enetTsIsr             0x1fff'00c4    0x4  Data  Lc  fsl_enet.o [1]
+s_enetTxIsr             0x1fff'00b8    0x4  Data  Lc  fsl_enet.o [1]
+s_flexcanHandle         0x1fff'00c8    0x8  Data  Lc  fsl_flexcan.o [1]
+s_flexcanIsr            0x1fff'00d0    0x4  Data  Lc  fsl_flexcan.o [1]
+s_i2cHandle             0x1fff'00d4   0x10  Data  Lc  fsl_i2c.o [1]
+s_i2cMasterIsr          0x1fff'00e4    0x4  Data  Lc  fsl_i2c.o [1]
+s_i2cSlaveIsr           0x1fff'00e8    0x4  Data  Lc  fsl_i2c.o [1]
+s_lpuartHandle          0x1fff'00ec    0x4  Data  Lc  fsl_lpuart.o [1]
+s_lpuartIsr             0x1fff'00f0    0x4  Data  Lc  fsl_lpuart.o [1]
+s_saiHandle             0x1fff'00f4    0x8  Data  Lc  fsl_sai.o [1]
+s_saiRxIsr              0x1fff'0100    0x4  Data  Lc  fsl_sai.o [1]
+s_saiTxIsr              0x1fff'00fc    0x4  Data  Lc  fsl_sai.o [1]
+s_sdhcHandle            0x1fff'0104    0x4  Data  Lc  fsl_sdhc.o [1]
+s_sdhcIsr               0x1fff'0108    0x4  Data  Lc  fsl_sdhc.o [1]
+s_uartHandle            0x1fff'010c   0x14  Data  Lc  fsl_uart.o [1]
+s_uartIsr               0x1fff'0120    0x4  Data  Lc  fsl_uart.o [1]
+strlen                        0xdc5         Code  Gb  strlen.o [4]
+
+
+[1] = C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR\Debug\Obj
+[2] = dl7M_tlf.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  5 344 bytes of readonly  code memory
+  1 386 bytes of readonly  data memory
+  1 316 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

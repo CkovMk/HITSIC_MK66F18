@@ -1,0 +1,18 @@
+!SESSION 2019-10-21 10:09:13.895 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\IAR
+
+!ENTRY com.iar.cdt.arm.toolchain.cmsis.adapter 1 0 2019-10-21 10:10:16.603
+!MESSAGE Using CMSIS pack repositories: http://links.iar.com/cmsis/pack
+
+!ENTRY com.iar.cmsismanager.product 1 0 2019-10-21 10:10:18.841
+!MESSAGE CMSIS Agent interface registered with service registry at ServiceLocation(host:\\.\pipe\iar-cspy-cpp-binary-com.iar.thrift.service.registry-a6ddacd7-9fa2-47cc-9978-ab0453edcef0-1, port:0, protocol:Binary, transport:Pipe)
+
+!ENTRY com.iar.cdt.arm.toolchain.cmsis.adapter 1 0 2019-10-21 10:51:18.897
+!MESSAGE Performing pack conversion...
+
+!ENTRY com.iar.cdt.arm.toolchain.cmsis.adapter 1 0 2019-10-21 10:51:40.805
+!MESSAGE Pack has been converted.

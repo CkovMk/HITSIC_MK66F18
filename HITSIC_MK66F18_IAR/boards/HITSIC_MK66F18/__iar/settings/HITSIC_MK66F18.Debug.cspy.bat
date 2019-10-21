@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\__iar\settings\HITSIC_MK66F18.Debug.general.xcl" --backend -f "C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\__iar\settings\HITSIC_MK66F18.Debug.driver.xcl" 
+"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\settings\HITSIC_MK66F18.Debug.general.xcl" --backend -f "C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\settings\HITSIC_MK66F18.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\__iar\settings\HITSIC_MK66F18.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F16_IAR\boards\HITSIC_MK66F18\__iar\settings\HITSIC_MK66F18.Debug.driver.xcl" 
+"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\settings\HITSIC_MK66F18.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\settings\HITSIC_MK66F18.Debug.driver.xcl" 
 
 @echo off 
 :end

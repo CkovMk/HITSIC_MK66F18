@@ -141,12 +141,12 @@
 
 /*! @brief Definition to support advanced format specifier for printf. */
 #ifndef PRINTF_ADVANCED_ENABLE
-#define PRINTF_ADVANCED_ENABLE 0U
+#define PRINTF_ADVANCED_ENABLE 1U
 #endif /* PRINTF_ADVANCED_ENABLE */
 
 /*! @brief Definition to support advanced format specifier for scanf. */
 #ifndef SCANF_ADVANCED_ENABLE
-#define SCANF_ADVANCED_ENABLE 0U
+#define SCANF_ADVANCED_ENABLE 1U
 #endif /* SCANF_ADVANCED_ENABLE */
 
 /*! @brief Definition to select virtual com(USB CDC) as the debug console. */

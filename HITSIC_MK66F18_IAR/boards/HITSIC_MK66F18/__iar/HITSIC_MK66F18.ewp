@@ -32,11 +32,11 @@
                 </option>
                 <option>
                     <name>Input description</name>
-                    <state>Full formatting, with multibyte support.</state>
+                    <state>Full formatting, without multibyte support.</state>
                 </option>
                 <option>
                     <name>Output description</name>
-                    <state>Full formatting, with multibyte support.</state>
+                    <state>Full formatting, without multibyte support.</state>
                 </option>
                 <option>
                     <name>GOutputBinary</name>
@@ -177,7 +177,7 @@
                 </option>
                 <option>
                     <name>OGPrintfMultibyteSupport</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>OGScanfVariant</name>
@@ -186,7 +186,7 @@
                 </option>
                 <option>
                     <name>OGScanfMultibyteSupport</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>GenLocaleTags</name>
@@ -359,6 +359,7 @@
                     <state>$PROJ_DIR$\..\..\..\components\uart</state>
                     <state>$PROJ_DIR$\..\..\..\components\lists</state>
                     <state>$PROJ_DIR$\..\..\..\components\serial_manager</state>
+                    <state>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace</state>
                     <state>$PROJ_DIR$\..\board</state>
                     <state>$PROJ_DIR$\..\main\drv</state>
                     <state>$PROJ_DIR$\..\main\app</state>
@@ -458,19 +459,19 @@
                 </option>
                 <option>
                     <name>CCEncSource</name>
-                    <state>0</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>CCEncOutput</name>
-                    <state>0</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>CCEncOutputBom</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CCEncInput</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IccExceptions2</name>
@@ -998,15 +999,15 @@
                 </option>
                 <option>
                     <name>IlinkEncInput</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IlinkEncOutput</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IlinkEncOutputBom</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>IlinkHeapSelect</name>
@@ -2202,6 +2203,12 @@
                         <name>$PROJ_DIR$\..\..\..\components\serial_manager\serial_port_internal.h</name>
                     </file>
                     <file>
+                        <name>$PROJ_DIR$\..\..\..\components\serial_manager\serial_port_swo.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\components\serial_manager\serial_port_swo.h</name>
+                    </file>
+                    <file>
                         <name>$PROJ_DIR$\..\..\..\components\serial_manager\serial_port_uart.c</name>
                     </file>
                     <file>
@@ -2545,9 +2552,6 @@
                     <name>$PROJ_DIR$\..\..\..\devices\MK66F18\utilities\fsl_notifier.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\devices\MK66F18\utilities\fsl_sbrk.c</name>
-                </file>
-                <file>
                     <name>$PROJ_DIR$\..\..\..\devices\MK66F18\utilities\fsl_shell.c</name>
                 </file>
                 <file>
@@ -2584,6 +2588,21 @@
         <name>extlib</name>
         <group>
             <name>cm_backtrace</name>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cm_backtrace.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cm_backtrace.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cmb_cfg.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cmb_def.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cmb_fault.S</name>
+            </file>
         </group>
     </group>
     <group>

@@ -2483,6 +2483,12 @@
                         <name>$PROJ_DIR$\..\..\..\components\serial_manager\serial_port_internal.h</name>
                     </file>
                     <file>
+                        <name>$PROJ_DIR$\..\..\..\components\serial_manager\serial_port_swo.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\components\serial_manager\serial_port_swo.h</name>
+                    </file>
+                    <file>
                         <name>$PROJ_DIR$\..\..\..\components\serial_manager\serial_port_uart.c</name>
                     </file>
                     <file>
@@ -2826,9 +2832,6 @@
                     <name>$PROJ_DIR$\..\..\..\devices\MK66F18\utilities\fsl_notifier.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\devices\MK66F18\utilities\fsl_sbrk.c</name>
-                </file>
-                <file>
                     <name>$PROJ_DIR$\..\..\..\devices\MK66F18\utilities\fsl_shell.c</name>
                 </file>
                 <file>
@@ -2865,6 +2868,21 @@
         <name>extlib</name>
         <group>
             <name>cm_backtrace</name>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cm_backtrace.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cm_backtrace.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cmb_cfg.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cmb_def.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cmb_fault.S</name>
+            </file>
         </group>
     </group>
     <group>

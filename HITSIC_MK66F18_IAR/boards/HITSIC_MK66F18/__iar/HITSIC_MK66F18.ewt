@@ -2372,6 +2372,12 @@
     <group>
         <name>board</name>
         <file>
+            <name>$PROJ_DIR$\..\board\board.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\board\board.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\board\clock_config.c</name>
         </file>
         <file>
@@ -2393,7 +2399,7 @@
     <group>
         <name>chip</name>
         <group>
-            <name>cmsis</name>
+            <name>cmsis_5.6.0</name>
             <group>
                 <name>core</name>
                 <file>
@@ -2859,118 +2865,136 @@
         </group>
     </group>
     <group>
-        <name>extlib</name>
-        <group>
-            <name>cm_backtrace</name>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cm_backtrace.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cm_backtrace.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cmb_cfg.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cmb_def.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\EXTLIB\cm_backtrace\cmb_fault.S</name>
-            </file>
-        </group>
-    </group>
-    <group>
         <name>hitsic</name>
         <group>
-            <name>drv</name>
+            <name>d_mk66f18</name>
+            <group>
+                <name>extlib_port</name>
+                <group>
+                    <name>cm_backtrace_1.3.0</name>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\cm_backtrace\cmb_1.3.0\cmb_cfg.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\cm_backtrace\cmb_1.3.0\cmb_def.h</name>
+                    </file>
+                </group>
+            </group>
             <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_disp_ssd1306.c</name>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\hitsic_common.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_disp_ssd1306.h</name>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\hitsic_common.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_flash.c</name>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\hitsic_def.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_flash.h</name>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\hitsic_hal.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_imu_invensense.c</name>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\hitsic_hal.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\drv_imu_invensense.h</name>
-            </file>
-        </group>
-        <group>
-            <name>lib</name>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\lib_list.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\lib_list.h</name>
-            </file>
-        </group>
-        <group>
-            <name>rte</name>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_i2c.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_i2c.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_softi2c.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_softi2c.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_spi.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_spi.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_uart.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\rte_uart.h</name>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\inc_fsl_mk66f18.h</name>
             </file>
         </group>
         <group>
-            <name>sys</name>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_extint.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_extint.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_pitmgr.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_pitmgr.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_uartmgr.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\..\HITSIC\Generic\sys_uartmgr.h</name>
-            </file>
+            <name>utilities</name>
+            <group>
+                <name>drv</name>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_disp_ssd1306.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_disp_ssd1306.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_flash.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_flash.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_imu_invensense.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_imu_invensense.h</name>
+                </file>
+            </group>
+            <group>
+                <name>extlib</name>
+                <group>
+                    <name>cm_backtrace_1.3.0</name>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\cm_backtrace\cmb_1.3.0\cm_backtrace.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\cm_backtrace\cmb_1.3.0\cm_backtrace.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\cm_backtrace\cmb_1.3.0\cmb_fault.S</name>
+                    </file>
+                </group>
+            </group>
+            <group>
+                <name>lib</name>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\lib\lib_list.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\lib\lib_list.h</name>
+                </file>
+            </group>
+            <group>
+                <name>rte</name>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_i2c.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_i2c.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_softi2c.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_softi2c.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_spi.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_spi.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_uart.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_uart.h</name>
+                </file>
+            </group>
+            <group>
+                <name>sys</name>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_extint.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_extint.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_pitmgr.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_pitmgr.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_uartmgr.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_uartmgr.h</name>
+                </file>
+            </group>
         </group>
-        <file>
-            <name>$PROJ_DIR$\..\..\..\HITSIC\MK66F18\hitsic_def.h</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\..\HITSIC\MK66F18\hitsic_hal.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\..\HITSIC\MK66F18\hitsic_hal.h</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\..\HITSIC\MK66F18\inc_fsl_mk66f18.h</name>
-        </file>
     </group>
     <group>
         <name>main</name>

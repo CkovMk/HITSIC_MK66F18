@@ -2638,10 +2638,10 @@
                     <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_disp_ssd1306.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_flash.c</name>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_ftfx_flash.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_flash.h</name>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_ftfx_flash.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_imu_invensense.c</name>

@@ -33,3 +33,6 @@
 #iar files
 *.pbi
 *.xcl
+
+
+HITSIC_MK66F18_IAR/boards/HITSIC_MK66F18/__iar/Debug

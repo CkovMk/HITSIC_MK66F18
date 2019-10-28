@@ -2348,6 +2348,10 @@
             <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\cm_backtrace\cmb_1.3.0\cm_backtrace.c</name>
             <outputs>
                 <tool>
+                    <name>ICCARM</name>
+                    <file> 165</file>
+                </tool>
+                <tool>
                     <name>__cstat</name>
                     <file> 215</file>
                 </tool>
@@ -2363,7 +2367,7 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 21 285 211 284 273 198 235 314 385 389 388 25 494 275 279 5 28 409 355 298 295 391 237 317 301 392 407 2 4 384 264 12</file>
+                    <file> 409 284 211 392 407 298 301 285 355 295 391 237 317 275 28 389 273 388 25 198 494 235 21 314 279 385 5 2 4 384 264 12</file>
                 </tool>
             </inputs>
         </file>

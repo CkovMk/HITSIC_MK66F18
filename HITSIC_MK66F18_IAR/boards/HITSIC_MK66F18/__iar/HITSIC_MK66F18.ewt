@@ -16,9 +16,9 @@
                     <useExtraArgs>0</useExtraArgs>
                     <extraArgs></extraArgs>
                     <analyzeTimeoutEnabled>1</analyzeTimeoutEnabled>
-                    <analyzeTimeout>600</analyzeTimeout>
+                    <analyzeTimeout>500</analyzeTimeout>
                     <enableParallel>1</enableParallel>
-                    <parallelThreads>4</parallelThreads>
+                    <parallelThreads>8</parallelThreads>
                     <enableFalsePositives>0</enableFalsePositives>
                     <messagesLimitEnabled>1</messagesLimitEnabled>
                     <messagesLimit>100</messagesLimit>
@@ -2902,7 +2902,22 @@
         <group>
             <name>utilities</name>
             <group>
+                <name>app</name>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu.h</name>
+                </file>
+            </group>
+            <group>
                 <name>drv</name>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_button.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_button.h</name>
+                </file>
                 <file>
                     <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_disp_ssd1306.c</name>
                 </file>

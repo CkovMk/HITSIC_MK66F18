@@ -265,7 +265,7 @@
                 </option>
                 <option>
                     <name>CCDiagSuppress</name>
-                    <state>pa082,pe223</state>
+                    <state>pa082,pe223,pe1665</state>
                 </option>
                 <option>
                     <name>CCDiagRemark</name>
@@ -2630,7 +2630,22 @@
         <group>
             <name>utilities</name>
             <group>
+                <name>app</name>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu.h</name>
+                </file>
+            </group>
+            <group>
                 <name>drv</name>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_button.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_button.h</name>
+                </file>
                 <file>
                     <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_disp_ssd1306.c</name>
                 </file>

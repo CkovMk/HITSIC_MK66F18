@@ -26,26 +26,7 @@
 
 
 
-#define BANNED(func) sorry_##func##_is_a_banned_function
 
-#undef strcpy
-#define strcpy(x,y) BANNED(strcpy)
-#undef strcat
-#define strcat(x,y) BANNED(strcat)
-#undef strncpy
-#define strncpy(x,y,n) BANNED(strncpy)
-#undef strncat
-#define strncat(x,y,n) BANNED(strncat)
-
-#undef sprintf
-#undef vsprintf
-//#ifdef HAVE_VARIADIC_MACROS
-#define sprintf(...) BANNED(sprintf)
-#define vsprintf(...) BANNED(vsprintf)
-//#else
-//#define sprintf(buf,fmt,arg) BANNED(sprintf)
-//#define vsprintf(buf,fmt,arg) BANNED(sprintf)
-//#endif
 
 #ifdef __cplusplus
 
@@ -96,6 +77,30 @@
 #include "utility"
 
 #endif // ! __cplusplus
+
+
+
+
+#define BANNED(func) sorry_##func##_is_a_banned_function
+
+#undef strcpy
+#define strcpy(x,y) BANNED(strcpy)
+#undef strcat
+#define strcat(x,y) BANNED(strcat)
+#undef strncpy
+#define strncpy(x,y,n) BANNED(strncpy)
+#undef strncat
+#define strncat(x,y,n) BANNED(strncat)
+
+#undef sprintf
+#undef vsprintf
+//#ifdef HAVE_VARIADIC_MACROS
+#define sprintf(...) BANNED(sprintf)
+#define vsprintf(...) BANNED(vsprintf)
+//#else
+//#define sprintf(buf,fmt,arg) BANNED(sprintf)
+//#define vsprintf(buf,fmt,arg) BANNED(sprintf)
+//#endif
 
 
 #endif // ! _INC_STDLIB_H_

@@ -158,77 +158,6 @@ void PIT_init(void) {
 }
 
 /***********************************************************************************************************************
- * UART0 initialization code
- **********************************************************************************************************************/
-/* clang-format off */
-/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-instance:
-- name: 'UART0'
-- type: 'uart'
-- mode: 'polling'
-- type_id: 'uart_cd31a12aa8c79051fda42cc851a27c37'
-- functional_group: 'RTEPIP_BasicPip'
-- peripheral: 'UART0'
-- config_sets:
-  - uartConfig_t:
-    - uartConfig:
-      - clockSource: 'BusInterfaceClock'
-      - clockSourceFreq: 'GetFreq'
-      - baudRate_Bps: '115200'
-      - parityMode: 'kUART_ParityDisabled'
-      - stopBitCount: 'kUART_OneStopBit'
-      - txFifoWatermark: '0'
-      - rxFifoWatermark: '1'
-      - idleType: 'kUART_IdleTypeStartBit'
-      - enableTx: 'true'
-      - enableRx: 'true'
-    - quick_selection: 'QuickSelection1'
- * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
-/* clang-format on */
-const uart_config_t UART0_config = {
-  .baudRate_Bps = 115200,
-  .parityMode = kUART_ParityDisabled,
-  .stopBitCount = kUART_OneStopBit,
-  .txFifoWatermark = 0,
-  .rxFifoWatermark = 1,
-  .idleType = kUART_IdleTypeStartBit,
-  .enableTx = true,
-  .enableRx = true
-};
-
-void UART0_init(void) {
-  UART_Init(UART0_PERIPHERAL, &UART0_config, UART0_CLOCK_SOURCE);
-}
-
-/***********************************************************************************************************************
- * VREF initialization code
- **********************************************************************************************************************/
-/* clang-format off */
-/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-instance:
-- name: 'VREF'
-- type: 'vref'
-- mode: 'vref'
-- type_id: 'vref_62f8e6ca39d44fd8d933f98728e18183'
-- functional_group: 'RTEPIP_BasicPip'
-- peripheral: 'VREF'
-- config_sets:
-  - fsl_vref:
-    - vref_config:
-      - bufferMode: 'kVREF_ModeHighPowerBuffer'
-    - vref_enable_trim: 'false'
- * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
-/* clang-format on */
-const vref_config_t VREF_config = {
-  .bufferMode = kVREF_ModeHighPowerBuffer,
-};
-
-void VREF_init(void) {
-  /* Initialize VREF module */
-  VREF_Init(VREF_PERIPHERAL, &VREF_config);
-}
-
-/***********************************************************************************************************************
  * GPIOA initialization code
  **********************************************************************************************************************/
 /* clang-format off */
@@ -392,14 +321,50 @@ void GPIOE_init(void) {
  * RTEPIP_Digital functional group
  **********************************************************************************************************************/
 /***********************************************************************************************************************
- * FTM0 initialization code
+ * I2C0_IMU initialization code
  **********************************************************************************************************************/
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 instance:
-- name: 'FTM0'
+- name: 'I2C0_IMU'
+- type: 'i2c'
+- mode: 'I2C_Polling'
+- type_id: 'i2c_2566d7363e7e9aaedabb432110e372d7'
+- functional_group: 'RTEPIP_Digital'
+- peripheral: 'I2C0'
+- config_sets:
+  - fsl_i2c:
+    - i2c_mode: 'kI2C_Master'
+    - clockSource: 'BusInterfaceClock'
+    - clockSourceFreq: 'GetFreq'
+    - i2c_master_config:
+      - enableMaster: 'true'
+      - enableStopHold: 'false'
+      - baudRate_Bps: '400000'
+      - glitchFilterWidth: '0'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const i2c_master_config_t I2C0_IMU_config = {
+  .enableMaster = true,
+  .enableStopHold = false,
+  .baudRate_Bps = 400000,
+  .glitchFilterWidth = 0
+};
+
+void I2C0_IMU_init(void) {
+  /* Initialization function */
+  I2C_MasterInit(I2C0_IMU_PERIPHERAL, &I2C0_IMU_config, I2C0_IMU_CLK_FREQ);
+}
+
+/***********************************************************************************************************************
+ * FTM0_MOTOR initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'FTM0_MOTOR'
 - type: 'ftm'
-- mode: 'EdgeAligned'
+- mode: 'CenterAligned'
 - type_id: 'ftm_04a15ae4af2b404bf2ae403c3dbe98b3'
 - functional_group: 'RTEPIP_Digital'
 - peripheral: 'FTM0'
@@ -409,7 +374,7 @@ instance:
       - clockSource: 'kFTM_SystemClock'
       - clockSourceFreq: 'GetFreq'
       - prescale: 'kFTM_Prescale_Divide_1'
-      - timerFrequency: '10000'
+      - timerFrequency: '12000'
       - bdmMode: 'kFTM_BdmMode_3'
       - pwmSyncMode: 'kFTM_SoftwareTrigger'
       - reloadPoints: ''
@@ -429,39 +394,31 @@ instance:
       - priority: '0'
       - enable_custom_name: 'false'
     - EnableTimerInInit: 'true'
-  - ftm_edge_aligned_mode:
-    - ftm_edge_aligned_channels_config:
+  - ftm_center_aligned_mode:
+    - ftm_center_aligned_channels_config:
       - 0:
-        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
-        - edge_aligned_pwm:
-          - chnlNumber: 'kFTM_Chnl_0'
-          - level: 'kFTM_HighTrue'
-          - dutyCyclePercent: '0'
-          - enable_chan_irq: 'false'
+        - chnlNumber: 'kFTM_Chnl_0'
+        - level: 'kFTM_HighTrue'
+        - dutyCyclePercent: '0'
+        - enable_chan_irq: 'false'
       - 1:
-        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
-        - edge_aligned_pwm:
-          - chnlNumber: 'kFTM_Chnl_1'
-          - level: 'kFTM_HighTrue'
-          - dutyCyclePercent: '0'
-          - enable_chan_irq: 'false'
+        - chnlNumber: 'kFTM_Chnl_1'
+        - level: 'kFTM_HighTrue'
+        - dutyCyclePercent: '0'
+        - enable_chan_irq: 'false'
       - 2:
-        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
-        - edge_aligned_pwm:
-          - chnlNumber: 'kFTM_Chnl_2'
-          - level: 'kFTM_HighTrue'
-          - dutyCyclePercent: '0'
-          - enable_chan_irq: 'false'
+        - chnlNumber: 'kFTM_Chnl_2'
+        - level: 'kFTM_HighTrue'
+        - dutyCyclePercent: '0'
+        - enable_chan_irq: 'false'
       - 3:
-        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
-        - edge_aligned_pwm:
-          - chnlNumber: 'kFTM_Chnl_3'
-          - level: 'kFTM_HighTrue'
-          - dutyCyclePercent: '0'
-          - enable_chan_irq: 'false'
+        - chnlNumber: 'kFTM_Chnl_3'
+        - level: 'kFTM_HighTrue'
+        - dutyCyclePercent: '0'
+        - enable_chan_irq: 'false'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
-const ftm_config_t FTM0_config = {
+const ftm_config_t FTM0_MOTOR_config = {
   .prescale = kFTM_Prescale_Divide_1,
   .bdmMode = kFTM_BdmMode_3,
   .pwmSyncMode = kFTM_SoftwareTrigger,
@@ -475,8 +432,7 @@ const ftm_config_t FTM0_config = {
   .chnlPolarity = 0,
   .useGlobalTimeBase = false
 };
-
-const ftm_chnl_pwm_signal_param_t FTM0_pwmSignalParams[] = { 
+const ftm_chnl_pwm_signal_param_t FTM0_MOTOR_centerPwmSignalParams[] = { 
   {
     .chnlNumber = kFTM_Chnl_0,
     .level = kFTM_HighTrue,
@@ -499,19 +455,19 @@ const ftm_chnl_pwm_signal_param_t FTM0_pwmSignalParams[] = {
   }
 };
 
-void FTM0_init(void) {
-  FTM_Init(FTM0_PERIPHERAL, &FTM0_config);
-  FTM_SetupPwm(FTM0_PERIPHERAL, FTM0_pwmSignalParams, sizeof(FTM0_pwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_EdgeAlignedPwm, 10000U, FTM0_CLOCK_SOURCE);
-  FTM_StartTimer(FTM0_PERIPHERAL, kFTM_SystemClock);
+void FTM0_MOTOR_init(void) {
+  FTM_Init(FTM0_MOTOR_PERIPHERAL, &FTM0_MOTOR_config);
+  FTM_SetupPwm(FTM0_MOTOR_PERIPHERAL, FTM0_MOTOR_centerPwmSignalParams, sizeof(FTM0_MOTOR_centerPwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_CenterAlignedPwm, 12000U, FTM0_MOTOR_CLOCK_SOURCE);
+  FTM_StartTimer(FTM0_MOTOR_PERIPHERAL, kFTM_SystemClock);
 }
 
 /***********************************************************************************************************************
- * FTM1 initialization code
+ * FTM1_ENC_L initialization code
  **********************************************************************************************************************/
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 instance:
-- name: 'FTM1'
+- name: 'FTM1_ENC_L'
 - type: 'ftm'
 - mode: 'QuadratureDecoder'
 - type_id: 'ftm_04a15ae4af2b404bf2ae403c3dbe98b3'
@@ -552,7 +508,7 @@ instance:
       - phasePolarity: 'kFTM_QuadPhaseNormal'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
-const ftm_config_t FTM1_config = {
+const ftm_config_t FTM1_ENC_L_config = {
   .prescale = kFTM_Prescale_Divide_1,
   .bdmMode = kFTM_BdmMode_3,
   .pwmSyncMode = kFTM_SoftwareTrigger,
@@ -566,32 +522,32 @@ const ftm_config_t FTM1_config = {
   .chnlPolarity = 0,
   .useGlobalTimeBase = false
 };
-const ftm_phase_params_t FTM1_phaseAParams = { 
+const ftm_phase_params_t FTM1_ENC_L_phaseAParams = { 
   .enablePhaseFilter = false,
   .phasePolarity = kFTM_QuadPhaseNormal
 
 };
-const ftm_phase_params_t FTM1_phaseBParams = { 
+const ftm_phase_params_t FTM1_ENC_L_phaseBParams = { 
   .enablePhaseFilter = false,
   .phasePolarity = kFTM_QuadPhaseNormal
 
 };
 
-void FTM1_init(void) {
-  FTM_Init(FTM1_PERIPHERAL, &FTM1_config);
+void FTM1_ENC_L_init(void) {
+  FTM_Init(FTM1_ENC_L_PERIPHERAL, &FTM1_ENC_L_config);
 /* Initialization of the timer initial value and modulo value */
-  FTM_SetQuadDecoderModuloValue(FTM1_PERIPHERAL, 0,1);
-  FTM_SetupQuadDecode(FTM1_PERIPHERAL, &FTM1_phaseAParams, &FTM1_phaseBParams, kFTM_QuadPhaseEncode);
-  FTM_StartTimer(FTM1_PERIPHERAL, kFTM_SystemClock);
+  FTM_SetQuadDecoderModuloValue(FTM1_ENC_L_PERIPHERAL, 0,1);
+  FTM_SetupQuadDecode(FTM1_ENC_L_PERIPHERAL, &FTM1_ENC_L_phaseAParams, &FTM1_ENC_L_phaseBParams, kFTM_QuadPhaseEncode);
+  FTM_StartTimer(FTM1_ENC_L_PERIPHERAL, kFTM_SystemClock);
 }
 
 /***********************************************************************************************************************
- * FTM2 initialization code
+ * FTM2_ENC_R initialization code
  **********************************************************************************************************************/
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 instance:
-- name: 'FTM2'
+- name: 'FTM2_ENC_R'
 - type: 'ftm'
 - mode: 'QuadratureDecoder'
 - type_id: 'ftm_04a15ae4af2b404bf2ae403c3dbe98b3'
@@ -632,7 +588,7 @@ instance:
       - phasePolarity: 'kFTM_QuadPhaseNormal'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
-const ftm_config_t FTM2_config = {
+const ftm_config_t FTM2_ENC_R_config = {
   .prescale = kFTM_Prescale_Divide_1,
   .bdmMode = kFTM_BdmMode_3,
   .pwmSyncMode = kFTM_SoftwareTrigger,
@@ -646,34 +602,34 @@ const ftm_config_t FTM2_config = {
   .chnlPolarity = 0,
   .useGlobalTimeBase = false
 };
-const ftm_phase_params_t FTM2_phaseAParams = { 
+const ftm_phase_params_t FTM2_ENC_R_phaseAParams = { 
   .enablePhaseFilter = false,
   .phasePolarity = kFTM_QuadPhaseNormal
 
 };
-const ftm_phase_params_t FTM2_phaseBParams = { 
+const ftm_phase_params_t FTM2_ENC_R_phaseBParams = { 
   .enablePhaseFilter = false,
   .phasePolarity = kFTM_QuadPhaseNormal
 
 };
 
-void FTM2_init(void) {
-  FTM_Init(FTM2_PERIPHERAL, &FTM2_config);
+void FTM2_ENC_R_init(void) {
+  FTM_Init(FTM2_ENC_R_PERIPHERAL, &FTM2_ENC_R_config);
 /* Initialization of the timer initial value and modulo value */
-  FTM_SetQuadDecoderModuloValue(FTM2_PERIPHERAL, 0,1);
-  FTM_SetupQuadDecode(FTM2_PERIPHERAL, &FTM2_phaseAParams, &FTM2_phaseBParams, kFTM_QuadPhaseEncode);
-  FTM_StartTimer(FTM2_PERIPHERAL, kFTM_SystemClock);
+  FTM_SetQuadDecoderModuloValue(FTM2_ENC_R_PERIPHERAL, 0,1);
+  FTM_SetupQuadDecode(FTM2_ENC_R_PERIPHERAL, &FTM2_ENC_R_phaseAParams, &FTM2_ENC_R_phaseBParams, kFTM_QuadPhaseEncode);
+  FTM_StartTimer(FTM2_ENC_R_PERIPHERAL, kFTM_SystemClock);
 }
 
 /***********************************************************************************************************************
- * FTM3 initialization code
+ * FTM3_SERVO initialization code
  **********************************************************************************************************************/
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 instance:
-- name: 'FTM3'
+- name: 'FTM3_SERVO'
 - type: 'ftm'
-- mode: 'EdgeAligned'
+- mode: 'CenterAligned'
 - type_id: 'ftm_04a15ae4af2b404bf2ae403c3dbe98b3'
 - functional_group: 'RTEPIP_Digital'
 - peripheral: 'FTM3'
@@ -703,25 +659,21 @@ instance:
       - priority: '0'
       - enable_custom_name: 'false'
     - EnableTimerInInit: 'true'
-  - ftm_edge_aligned_mode:
-    - ftm_edge_aligned_channels_config:
+  - ftm_center_aligned_mode:
+    - ftm_center_aligned_channels_config:
       - 0:
-        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
-        - edge_aligned_pwm:
-          - chnlNumber: 'kFTM_Chnl_0'
-          - level: 'kFTM_HighTrue'
-          - dutyCyclePercent: '0'
-          - enable_chan_irq: 'false'
+        - chnlNumber: 'kFTM_Chnl_6'
+        - level: 'kFTM_HighTrue'
+        - dutyCyclePercent: '0'
+        - enable_chan_irq: 'false'
       - 1:
-        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
-        - edge_aligned_pwm:
-          - chnlNumber: 'kFTM_Chnl_1'
-          - level: 'kFTM_HighTrue'
-          - dutyCyclePercent: '0'
-          - enable_chan_irq: 'false'
+        - chnlNumber: 'kFTM_Chnl_7'
+        - level: 'kFTM_HighTrue'
+        - dutyCyclePercent: '0'
+        - enable_chan_irq: 'false'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
-const ftm_config_t FTM3_config = {
+const ftm_config_t FTM3_SERVO_config = {
   .prescale = kFTM_Prescale_Divide_4,
   .bdmMode = kFTM_BdmMode_3,
   .pwmSyncMode = kFTM_SoftwareTrigger,
@@ -735,24 +687,202 @@ const ftm_config_t FTM3_config = {
   .chnlPolarity = 0,
   .useGlobalTimeBase = false
 };
-
-const ftm_chnl_pwm_signal_param_t FTM3_pwmSignalParams[] = { 
+const ftm_chnl_pwm_signal_param_t FTM3_SERVO_centerPwmSignalParams[] = { 
   {
-    .chnlNumber = kFTM_Chnl_0,
+    .chnlNumber = kFTM_Chnl_6,
     .level = kFTM_HighTrue,
     .dutyCyclePercent = 0
   },
   {
-    .chnlNumber = kFTM_Chnl_1,
+    .chnlNumber = kFTM_Chnl_7,
     .level = kFTM_HighTrue,
     .dutyCyclePercent = 0
   }
 };
 
-void FTM3_init(void) {
-  FTM_Init(FTM3_PERIPHERAL, &FTM3_config);
-  FTM_SetupPwm(FTM3_PERIPHERAL, FTM3_pwmSignalParams, sizeof(FTM3_pwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_EdgeAlignedPwm, 400U, FTM3_CLOCK_SOURCE);
-  FTM_StartTimer(FTM3_PERIPHERAL, kFTM_SystemClock);
+void FTM3_SERVO_init(void) {
+  FTM_Init(FTM3_SERVO_PERIPHERAL, &FTM3_SERVO_config);
+  FTM_SetupPwm(FTM3_SERVO_PERIPHERAL, FTM3_SERVO_centerPwmSignalParams, sizeof(FTM3_SERVO_centerPwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_CenterAlignedPwm, 400U, FTM3_SERVO_CLOCK_SOURCE);
+  FTM_StartTimer(FTM3_SERVO_PERIPHERAL, kFTM_SystemClock);
+}
+
+/***********************************************************************************************************************
+ * UART3_CAM initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'UART3_CAM'
+- type: 'uart'
+- mode: 'polling'
+- type_id: 'uart_cd31a12aa8c79051fda42cc851a27c37'
+- functional_group: 'RTEPIP_Digital'
+- peripheral: 'UART3'
+- config_sets:
+  - uartConfig_t:
+    - uartConfig:
+      - clockSource: 'BusInterfaceClock'
+      - clockSourceFreq: 'GetFreq'
+      - baudRate_Bps: '9600'
+      - parityMode: 'kUART_ParityDisabled'
+      - stopBitCount: 'kUART_OneStopBit'
+      - txFifoWatermark: '0'
+      - rxFifoWatermark: '1'
+      - idleType: 'kUART_IdleTypeStartBit'
+      - enableTx: 'true'
+      - enableRx: 'true'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const uart_config_t UART3_CAM_config = {
+  .baudRate_Bps = 9600,
+  .parityMode = kUART_ParityDisabled,
+  .stopBitCount = kUART_OneStopBit,
+  .txFifoWatermark = 0,
+  .rxFifoWatermark = 1,
+  .idleType = kUART_IdleTypeStartBit,
+  .enableTx = true,
+  .enableRx = true
+};
+
+void UART3_CAM_init(void) {
+  UART_Init(UART3_CAM_PERIPHERAL, &UART3_CAM_config, UART3_CAM_CLOCK_SOURCE);
+}
+
+/***********************************************************************************************************************
+ * RTEPIP_ANALOG functional group
+ **********************************************************************************************************************/
+/***********************************************************************************************************************
+ * ADC0 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'ADC0'
+- type: 'adc16'
+- mode: 'ADC'
+- type_id: 'adc16_7d827be2dc433dc756d94a7ce88cbcc5'
+- functional_group: 'RTEPIP_ANALOG'
+- peripheral: 'ADC0'
+- config_sets:
+  - fsl_adc16:
+    - adc16_config:
+      - referenceVoltageSource: 'kADC16_ReferenceVoltageSourceVref'
+      - clockSource: 'kADC16_ClockSourceAsynchronousClock'
+      - enableAsynchronousClock: 'true'
+      - clockDivider: 'kADC16_ClockDivider8'
+      - resolution: 'kADC16_ResolutionSE12Bit'
+      - longSampleMode: 'kADC16_LongSampleDisabled'
+      - enableHighSpeed: 'false'
+      - enableLowPower: 'false'
+      - enableContinuousConversion: 'false'
+    - adc16_channel_mux_mode: 'kADC16_ChannelMuxA'
+    - adc16_hardware_compare_config:
+      - hardwareCompareModeEnable: 'false'
+    - doAutoCalibration: 'true'
+    - trigger: 'false'
+    - hardwareAverageConfiguration: 'kADC16_HardwareAverageCount8'
+    - enable_dma: 'false'
+    - enable_irq: 'false'
+    - adc_interrupt:
+      - IRQn: 'ADC0_IRQn'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - adc16_channels_config: []
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const adc16_config_t ADC0_config = {
+  .referenceVoltageSource = kADC16_ReferenceVoltageSourceVref,
+  .clockSource = kADC16_ClockSourceAsynchronousClock,
+  .enableAsynchronousClock = true,
+  .clockDivider = kADC16_ClockDivider8,
+  .resolution = kADC16_ResolutionSE12Bit,
+  .longSampleMode = kADC16_LongSampleDisabled,
+  .enableHighSpeed = false,
+  .enableLowPower = false,
+  .enableContinuousConversion = false
+};
+const adc16_channel_mux_mode_t ADC0_muxMode = kADC16_ChannelMuxA;
+const adc16_hardware_average_mode_t ADC0_hardwareAverageMode = kADC16_HardwareAverageCount8;
+
+void ADC0_init(void) {
+  /* Initialize ADC16 converter */
+  ADC16_Init(ADC0_PERIPHERAL, &ADC0_config);
+  /* Make sure, that software trigger is used */
+  ADC16_EnableHardwareTrigger(ADC0_PERIPHERAL, false);
+  /* Configure hardware average mode */
+  ADC16_SetHardwareAverage(ADC0_PERIPHERAL, ADC0_hardwareAverageMode);
+  /* Configure channel multiplexing mode */
+  ADC16_SetChannelMuxMode(ADC0_PERIPHERAL, ADC0_muxMode);
+  /* Perform auto calibration */
+  ADC16_DoAutoCalibration(ADC0_PERIPHERAL);
+}
+
+/***********************************************************************************************************************
+ * ADC1 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'ADC1'
+- type: 'adc16'
+- mode: 'ADC'
+- type_id: 'adc16_7d827be2dc433dc756d94a7ce88cbcc5'
+- functional_group: 'RTEPIP_ANALOG'
+- peripheral: 'ADC1'
+- config_sets:
+  - fsl_adc16:
+    - adc16_config:
+      - referenceVoltageSource: 'kADC16_ReferenceVoltageSourceVref'
+      - clockSource: 'kADC16_ClockSourceAsynchronousClock'
+      - enableAsynchronousClock: 'true'
+      - clockDivider: 'kADC16_ClockDivider8'
+      - resolution: 'kADC16_ResolutionSE12Bit'
+      - longSampleMode: 'kADC16_LongSampleDisabled'
+      - enableHighSpeed: 'false'
+      - enableLowPower: 'false'
+      - enableContinuousConversion: 'false'
+    - adc16_channel_mux_mode: 'kADC16_ChannelMuxA'
+    - adc16_hardware_compare_config:
+      - hardwareCompareModeEnable: 'false'
+    - doAutoCalibration: 'true'
+    - trigger: 'false'
+    - hardwareAverageConfiguration: 'kADC16_HardwareAverageCount8'
+    - enable_dma: 'false'
+    - enable_irq: 'false'
+    - adc_interrupt:
+      - IRQn: 'ADC1_IRQn'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - adc16_channels_config: []
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const adc16_config_t ADC1_config = {
+  .referenceVoltageSource = kADC16_ReferenceVoltageSourceVref,
+  .clockSource = kADC16_ClockSourceAsynchronousClock,
+  .enableAsynchronousClock = true,
+  .clockDivider = kADC16_ClockDivider8,
+  .resolution = kADC16_ResolutionSE12Bit,
+  .longSampleMode = kADC16_LongSampleDisabled,
+  .enableHighSpeed = false,
+  .enableLowPower = false,
+  .enableContinuousConversion = false
+};
+const adc16_channel_mux_mode_t ADC1_muxMode = kADC16_ChannelMuxA;
+const adc16_hardware_average_mode_t ADC1_hardwareAverageMode = kADC16_HardwareAverageCount8;
+
+void ADC1_init(void) {
+  /* Initialize ADC16 converter */
+  ADC16_Init(ADC1_PERIPHERAL, &ADC1_config);
+  /* Make sure, that software trigger is used */
+  ADC16_EnableHardwareTrigger(ADC1_PERIPHERAL, false);
+  /* Configure hardware average mode */
+  ADC16_SetHardwareAverage(ADC1_PERIPHERAL, ADC1_hardwareAverageMode);
+  /* Configure channel multiplexing mode */
+  ADC16_SetChannelMuxMode(ADC1_PERIPHERAL, ADC1_muxMode);
+  /* Perform auto calibration */
+  ADC16_DoAutoCalibration(ADC1_PERIPHERAL);
 }
 
 /***********************************************************************************************************************
@@ -767,8 +897,6 @@ void RTEPIP_BasicPip(void)
   /* Initialize components */
   EDMA_init();
   PIT_init();
-  UART0_init();
-  VREF_init();
   GPIOA_init();
   GPIOB_init();
   GPIOC_init();
@@ -779,14 +907,19 @@ void RTEPIP_BasicPip(void)
 void RTEPIP_Digital(void)
 {
   /* Initialize components */
-  FTM0_init();
-  FTM1_init();
-  FTM2_init();
-  FTM3_init();
+  I2C0_IMU_init();
+  FTM0_MOTOR_init();
+  FTM1_ENC_L_init();
+  FTM2_ENC_R_init();
+  FTM3_SERVO_init();
+  UART3_CAM_init();
 }
 
 void RTEPIP_ANALOG(void)
 {
+  /* Initialize components */
+  ADC0_init();
+  ADC1_init();
 }
 
 /***********************************************************************************************************************

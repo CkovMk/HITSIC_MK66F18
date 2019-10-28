@@ -161,11 +161,11 @@ const osc_config_t oscConfig_RTECLK_HsRun_180MHz =
 void RTECLK_HsRun_180MHz(void)
 {
     /* Set HSRUN power mode */
-    SMC_SetPowerModeProtection(SMC, kSMC_AllowPowerModeAll);
-    SMC_SetPowerModeHsrun(SMC);
-    while (SMC_GetPowerModeState(SMC) != kSMC_PowerStateHsrun)
-    {
-    }
+    //SMC_SetPowerModeProtection(SMC, kSMC_AllowPowerModeAll);
+    //SMC_SetPowerModeHsrun(SMC);
+    //while (SMC_GetPowerModeState(SMC) != kSMC_PowerStateHsrun)
+    //{
+    //}
     /* Set the system clock dividers in SIM to safe value. */
     CLOCK_SetSimSafeDivs();
     /* Initializes OSC0 according to board configuration. */

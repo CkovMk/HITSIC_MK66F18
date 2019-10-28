@@ -12,8 +12,11 @@ package_id: MK66FX1M0VLQ18
 mcu_data: ksdk2_0
 processor_version: 6.0.1
 functionalGroups:
-- name: BOARD_InitPeripherals
-  called_from_default_init: true
+- name: RTEPIP_BasicPip
+  selectedCore: core0
+- name: RTEPIP_Digital
+  selectedCore: core0
+- name: RTEPIP_ANALOG
   selectedCore: core0
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 
@@ -38,23 +41,56 @@ component:
 #include "peripherals.h"
 
 /***********************************************************************************************************************
- * BOARD_InitPeripherals functional group
+ * RTEPIP_BasicPip functional group
  **********************************************************************************************************************/
 /***********************************************************************************************************************
- * PIT_1 initialization code
+ * EDMA initialization code
  **********************************************************************************************************************/
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 instance:
-- name: 'PIT_1'
+- name: 'EDMA'
+- type: 'edma'
+- mode: 'basic'
+- type_id: 'edma_a23fca76a894e1bcdf9d01a687505ff9'
+- functional_group: 'RTEPIP_BasicPip'
+- peripheral: 'DMA'
+- config_sets:
+  - fsl_edma:
+    - common_settings:
+      - enableContinuousLinkMode: 'false'
+      - enableHaltOnError: 'true'
+      - enableRoundRobinArbitration: 'false'
+      - enableDebugMode: 'true'
+    - dma_table: []
+    - edma_channels: []
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const edma_config_t EDMA_config = {
+  .enableContinuousLinkMode = false,
+  .enableHaltOnError = true,
+  .enableRoundRobinArbitration = false,
+  .enableDebugMode = true
+};
+
+void EDMA_init(void) {
+}
+
+/***********************************************************************************************************************
+ * PIT initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'PIT'
 - type: 'pit'
 - mode: 'LPTMR_GENERAL'
 - type_id: 'pit_a4782ba5223c8a2527ba91aeb2bc4159'
-- functional_group: 'BOARD_InitPeripherals'
+- functional_group: 'RTEPIP_BasicPip'
 - peripheral: 'PIT'
 - config_sets:
   - fsl_pit:
-    - enableRunInDebug: 'false'
+    - enableRunInDebug: 'true'
     - timingConfig:
       - clockSource: 'BusInterfaceClock'
       - clockSourceFreq: 'GetFreq'
@@ -62,7 +98,7 @@ instance:
       - 0:
         - channelNumber: '0'
         - enableChain: 'false'
-        - timerPeriod: '0xffffffff'
+        - timerPeriod: '0xffffffff ticks'
         - startTimer: 'true'
         - enableInterrupt: 'false'
         - interrupt:
@@ -92,31 +128,838 @@ instance:
           - enable_priority: 'false'
           - priority: '0'
           - enable_custom_name: 'false'
-      - 3:
-        - channelNumber: '3'
-        - enableChain: 'false'
-        - timerPeriod: '1s'
-        - startTimer: 'true'
-        - enableInterrupt: 'false'
-        - interrupt:
-          - IRQn: 'PIT3_IRQn'
-          - enable_priority: 'false'
-          - priority: '0'
-          - enable_custom_name: 'false'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const pit_config_t PIT_config = {
+  .enableRunInDebug = true
+};
+
+void PIT_init(void) {
+  /* Initialize the PIT. */
+  PIT_Init(PIT_PERIPHERAL, &PIT_config);
+  /* Set channel 0 period to N/A. */
+  PIT_SetTimerPeriod(PIT_PERIPHERAL, kPIT_Chnl_0, PIT_0_TICKS);
+  /* Set channel 1 period to N/A. */
+  PIT_SetTimerPeriod(PIT_PERIPHERAL, kPIT_Chnl_1, PIT_1_TICKS);
+  /* Chain the channel 1 to channel 0. */
+  PIT_SetTimerChainMode(PIT_PERIPHERAL, kPIT_Chnl_1, true);
+  /* Set channel 2 period to N/A. */
+  PIT_SetTimerPeriod(PIT_PERIPHERAL, kPIT_Chnl_2, PIT_2_TICKS);
+  /* Enable interrupts from channel 2. */
+  PIT_EnableInterrupts(PIT_PERIPHERAL, kPIT_Chnl_2, kPIT_TimerInterruptEnable);
+  /* Enable interrupt PIT_2_IRQN request in the NVIC */
+  EnableIRQ(PIT_2_IRQN);
+  /* Start channel 0. */
+  PIT_StartTimer(PIT_PERIPHERAL, kPIT_Chnl_0);
+  /* Start channel 1. */
+  PIT_StartTimer(PIT_PERIPHERAL, kPIT_Chnl_1);
+  /* Start channel 2. */
+  PIT_StartTimer(PIT_PERIPHERAL, kPIT_Chnl_2);
+}
+
+/***********************************************************************************************************************
+ * UART0 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'UART0'
+- type: 'uart'
+- mode: 'polling'
+- type_id: 'uart_cd31a12aa8c79051fda42cc851a27c37'
+- functional_group: 'RTEPIP_BasicPip'
+- peripheral: 'UART0'
+- config_sets:
+  - uartConfig_t:
+    - uartConfig:
+      - clockSource: 'BusInterfaceClock'
+      - clockSourceFreq: 'GetFreq'
+      - baudRate_Bps: '115200'
+      - parityMode: 'kUART_ParityDisabled'
+      - stopBitCount: 'kUART_OneStopBit'
+      - txFifoWatermark: '0'
+      - rxFifoWatermark: '1'
+      - idleType: 'kUART_IdleTypeStartBit'
+      - enableTx: 'true'
+      - enableRx: 'true'
+    - quick_selection: 'QuickSelection1'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const uart_config_t UART0_config = {
+  .baudRate_Bps = 115200,
+  .parityMode = kUART_ParityDisabled,
+  .stopBitCount = kUART_OneStopBit,
+  .txFifoWatermark = 0,
+  .rxFifoWatermark = 1,
+  .idleType = kUART_IdleTypeStartBit,
+  .enableTx = true,
+  .enableRx = true
+};
+
+void UART0_init(void) {
+  UART_Init(UART0_PERIPHERAL, &UART0_config, UART0_CLOCK_SOURCE);
+}
+
+/***********************************************************************************************************************
+ * VREF initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'VREF'
+- type: 'vref'
+- mode: 'vref'
+- type_id: 'vref_62f8e6ca39d44fd8d933f98728e18183'
+- functional_group: 'RTEPIP_BasicPip'
+- peripheral: 'VREF'
+- config_sets:
+  - fsl_vref:
+    - vref_config:
+      - bufferMode: 'kVREF_ModeHighPowerBuffer'
+    - vref_enable_trim: 'false'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const vref_config_t VREF_config = {
+  .bufferMode = kVREF_ModeHighPowerBuffer,
+};
+
+void VREF_init(void) {
+  /* Initialize VREF module */
+  VREF_Init(VREF_PERIPHERAL, &VREF_config);
+}
+
+/***********************************************************************************************************************
+ * GPIOA initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'GPIOA'
+- type: 'gpio'
+- mode: 'GPIO'
+- type_id: 'gpio_be9de87e5addb6b0f416d9acbab34797'
+- functional_group: 'RTEPIP_BasicPip'
+- peripheral: 'GPIOA'
+- config_sets:
+  - fsl_gpio:
+    - enable_irq: 'true'
+    - port_interrupt:
+      - IRQn: 'PORTA_IRQn'
+      - enable_priority: 'true'
+      - priority: '6'
+      - enable_custom_name: 'true'
+      - handler_custom_name: 'GPIOA_IRQHandler'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
 
-void PIT_1_init(void) {
-  /* Configuration of the component PIT_1 of functional group BOARD_InitPeripherals is not valid. */
+void GPIOA_init(void) {
+  /* Make sure, the clock gate for port A is enabled (e. g. in pin_mux.c) */
+  /* Interrupt vector PORTA_IRQn priority settings in the NVIC */
+  NVIC_SetPriority(PORTA_IRQn, GPIOA_IRQ_PRIORITY);
+  /* Enable interrupt PORTA_IRQn request in the NVIC */
+  EnableIRQ(PORTA_IRQn);
+}
+
+/***********************************************************************************************************************
+ * GPIOB initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'GPIOB'
+- type: 'gpio'
+- mode: 'GPIO'
+- type_id: 'gpio_be9de87e5addb6b0f416d9acbab34797'
+- functional_group: 'RTEPIP_BasicPip'
+- peripheral: 'GPIOB'
+- config_sets:
+  - fsl_gpio:
+    - enable_irq: 'true'
+    - port_interrupt:
+      - IRQn: 'PORTB_IRQn'
+      - enable_priority: 'true'
+      - priority: '6'
+      - enable_custom_name: 'true'
+      - handler_custom_name: 'GPIOB_IRQHandler'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+
+void GPIOB_init(void) {
+  /* Make sure, the clock gate for port B is enabled (e. g. in pin_mux.c) */
+  /* Interrupt vector PORTB_IRQn priority settings in the NVIC */
+  NVIC_SetPriority(PORTB_IRQn, GPIOB_IRQ_PRIORITY);
+  /* Enable interrupt PORTB_IRQn request in the NVIC */
+  EnableIRQ(PORTB_IRQn);
+}
+
+/***********************************************************************************************************************
+ * GPIOC initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'GPIOC'
+- type: 'gpio'
+- mode: 'GPIO'
+- type_id: 'gpio_be9de87e5addb6b0f416d9acbab34797'
+- functional_group: 'RTEPIP_BasicPip'
+- peripheral: 'GPIOC'
+- config_sets:
+  - fsl_gpio:
+    - enable_irq: 'true'
+    - port_interrupt:
+      - IRQn: 'PORTC_IRQn'
+      - enable_priority: 'true'
+      - priority: '6'
+      - enable_custom_name: 'true'
+      - handler_custom_name: 'GPIOC_IRQHandler'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+
+void GPIOC_init(void) {
+  /* Make sure, the clock gate for port C is enabled (e. g. in pin_mux.c) */
+  /* Interrupt vector PORTC_IRQn priority settings in the NVIC */
+  NVIC_SetPriority(PORTC_IRQn, GPIOC_IRQ_PRIORITY);
+  /* Enable interrupt PORTC_IRQn request in the NVIC */
+  EnableIRQ(PORTC_IRQn);
+}
+
+/***********************************************************************************************************************
+ * GPIOD initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'GPIOD'
+- type: 'gpio'
+- mode: 'GPIO'
+- type_id: 'gpio_be9de87e5addb6b0f416d9acbab34797'
+- functional_group: 'RTEPIP_BasicPip'
+- peripheral: 'GPIOD'
+- config_sets:
+  - fsl_gpio:
+    - enable_irq: 'true'
+    - port_interrupt:
+      - IRQn: 'PORTD_IRQn'
+      - enable_priority: 'true'
+      - priority: '6'
+      - enable_custom_name: 'true'
+      - handler_custom_name: 'GPIOD_IRQHandler'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+
+void GPIOD_init(void) {
+  /* Make sure, the clock gate for port D is enabled (e. g. in pin_mux.c) */
+  /* Interrupt vector PORTD_IRQn priority settings in the NVIC */
+  NVIC_SetPriority(PORTD_IRQn, GPIOD_IRQ_PRIORITY);
+  /* Enable interrupt PORTD_IRQn request in the NVIC */
+  EnableIRQ(PORTD_IRQn);
+}
+
+/***********************************************************************************************************************
+ * GPIOE initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'GPIOE'
+- type: 'gpio'
+- mode: 'GPIO'
+- type_id: 'gpio_be9de87e5addb6b0f416d9acbab34797'
+- functional_group: 'RTEPIP_BasicPip'
+- peripheral: 'GPIOE'
+- config_sets:
+  - fsl_gpio:
+    - enable_irq: 'true'
+    - port_interrupt:
+      - IRQn: 'PORTE_IRQn'
+      - enable_priority: 'true'
+      - priority: '6'
+      - enable_custom_name: 'true'
+      - handler_custom_name: 'GPIOE_IRQHandler'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+
+void GPIOE_init(void) {
+  /* Make sure, the clock gate for port E is enabled (e. g. in pin_mux.c) */
+  /* Interrupt vector PORTE_IRQn priority settings in the NVIC */
+  NVIC_SetPriority(PORTE_IRQn, GPIOE_IRQ_PRIORITY);
+  /* Enable interrupt PORTE_IRQn request in the NVIC */
+  EnableIRQ(PORTE_IRQn);
+}
+
+/***********************************************************************************************************************
+ * ADC0 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'ADC0'
+- type: 'adc16'
+- mode: 'ADC'
+- type_id: 'adc16_7d827be2dc433dc756d94a7ce88cbcc5'
+- functional_group: 'RTEPIP_BasicPip'
+- peripheral: 'ADC0'
+- config_sets:
+  - fsl_adc16:
+    - adc16_config:
+      - referenceVoltageSource: 'kADC16_ReferenceVoltageSourceVref'
+      - clockSource: 'kADC16_ClockSourceAsynchronousClock'
+      - enableAsynchronousClock: 'true'
+      - clockDivider: 'kADC16_ClockDivider8'
+      - resolution: 'kADC16_ResolutionSE12Bit'
+      - longSampleMode: 'kADC16_LongSampleDisabled'
+      - enableHighSpeed: 'false'
+      - enableLowPower: 'false'
+      - enableContinuousConversion: 'false'
+    - adc16_channel_mux_mode: 'kADC16_ChannelMuxA'
+    - adc16_hardware_compare_config:
+      - hardwareCompareModeEnable: 'false'
+    - doAutoCalibration: 'true'
+    - trigger: 'false'
+    - hardwareAverageConfiguration: 'kADC16_HardwareAverageCount8'
+    - enable_dma: 'false'
+    - enable_irq: 'false'
+    - adc_interrupt:
+      - IRQn: 'ADC0_IRQn'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - adc16_channels_config: []
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const adc16_config_t ADC0_config = {
+  .referenceVoltageSource = kADC16_ReferenceVoltageSourceVref,
+  .clockSource = kADC16_ClockSourceAsynchronousClock,
+  .enableAsynchronousClock = true,
+  .clockDivider = kADC16_ClockDivider8,
+  .resolution = kADC16_ResolutionSE12Bit,
+  .longSampleMode = kADC16_LongSampleDisabled,
+  .enableHighSpeed = false,
+  .enableLowPower = false,
+  .enableContinuousConversion = false
+};
+const adc16_channel_mux_mode_t ADC0_muxMode = kADC16_ChannelMuxA;
+const adc16_hardware_average_mode_t ADC0_hardwareAverageMode = kADC16_HardwareAverageCount8;
+
+void ADC0_init(void) {
+  /* Initialize ADC16 converter */
+  ADC16_Init(ADC0_PERIPHERAL, &ADC0_config);
+  /* Make sure, that software trigger is used */
+  ADC16_EnableHardwareTrigger(ADC0_PERIPHERAL, false);
+  /* Configure hardware average mode */
+  ADC16_SetHardwareAverage(ADC0_PERIPHERAL, ADC0_hardwareAverageMode);
+  /* Configure channel multiplexing mode */
+  ADC16_SetChannelMuxMode(ADC0_PERIPHERAL, ADC0_muxMode);
+  /* Perform auto calibration */
+  ADC16_DoAutoCalibration(ADC0_PERIPHERAL);
+}
+
+/***********************************************************************************************************************
+ * ADC1 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'ADC1'
+- type: 'adc16'
+- mode: 'ADC'
+- type_id: 'adc16_7d827be2dc433dc756d94a7ce88cbcc5'
+- functional_group: 'RTEPIP_BasicPip'
+- peripheral: 'ADC1'
+- config_sets:
+  - fsl_adc16:
+    - adc16_config:
+      - referenceVoltageSource: 'kADC16_ReferenceVoltageSourceVref'
+      - clockSource: 'kADC16_ClockSourceAsynchronousClock'
+      - enableAsynchronousClock: 'true'
+      - clockDivider: 'kADC16_ClockDivider8'
+      - resolution: 'kADC16_ResolutionSE12Bit'
+      - longSampleMode: 'kADC16_LongSampleDisabled'
+      - enableHighSpeed: 'false'
+      - enableLowPower: 'false'
+      - enableContinuousConversion: 'false'
+    - adc16_channel_mux_mode: 'kADC16_ChannelMuxA'
+    - adc16_hardware_compare_config:
+      - hardwareCompareModeEnable: 'false'
+    - doAutoCalibration: 'true'
+    - trigger: 'false'
+    - hardwareAverageConfiguration: 'kADC16_HardwareAverageCount8'
+    - enable_dma: 'false'
+    - enable_irq: 'false'
+    - adc_interrupt:
+      - IRQn: 'ADC1_IRQn'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - adc16_channels_config: []
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const adc16_config_t ADC1_config = {
+  .referenceVoltageSource = kADC16_ReferenceVoltageSourceVref,
+  .clockSource = kADC16_ClockSourceAsynchronousClock,
+  .enableAsynchronousClock = true,
+  .clockDivider = kADC16_ClockDivider8,
+  .resolution = kADC16_ResolutionSE12Bit,
+  .longSampleMode = kADC16_LongSampleDisabled,
+  .enableHighSpeed = false,
+  .enableLowPower = false,
+  .enableContinuousConversion = false
+};
+const adc16_channel_mux_mode_t ADC1_muxMode = kADC16_ChannelMuxA;
+const adc16_hardware_average_mode_t ADC1_hardwareAverageMode = kADC16_HardwareAverageCount8;
+
+void ADC1_init(void) {
+  /* Initialize ADC16 converter */
+  ADC16_Init(ADC1_PERIPHERAL, &ADC1_config);
+  /* Make sure, that software trigger is used */
+  ADC16_EnableHardwareTrigger(ADC1_PERIPHERAL, false);
+  /* Configure hardware average mode */
+  ADC16_SetHardwareAverage(ADC1_PERIPHERAL, ADC1_hardwareAverageMode);
+  /* Configure channel multiplexing mode */
+  ADC16_SetChannelMuxMode(ADC1_PERIPHERAL, ADC1_muxMode);
+  /* Perform auto calibration */
+  ADC16_DoAutoCalibration(ADC1_PERIPHERAL);
+}
+
+/***********************************************************************************************************************
+ * RTEPIP_Digital functional group
+ **********************************************************************************************************************/
+/***********************************************************************************************************************
+ * FTM0 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'FTM0'
+- type: 'ftm'
+- mode: 'EdgeAligned'
+- type_id: 'ftm_04a15ae4af2b404bf2ae403c3dbe98b3'
+- functional_group: 'RTEPIP_Digital'
+- peripheral: 'FTM0'
+- config_sets:
+  - ftm_main_config:
+    - ftm_config:
+      - clockSource: 'kFTM_SystemClock'
+      - clockSourceFreq: 'GetFreq'
+      - prescale: 'kFTM_Prescale_Divide_1'
+      - timerFrequency: '10000'
+      - bdmMode: 'kFTM_BdmMode_3'
+      - pwmSyncMode: 'kFTM_SoftwareTrigger'
+      - reloadPoints: ''
+      - faultMode: 'kFTM_Fault_Disable'
+      - faultFilterValue: '0'
+      - deadTimePrescale: 'kFTM_Deadtime_Prescale_1'
+      - deadTimeValue: '0'
+      - extTriggers: ''
+      - chnlInitState: ''
+      - chnlPolarity: ''
+      - useGlobalTimeBase: 'false'
+    - timer_interrupts: ''
+    - enable_irq: 'false'
+    - ftm_interrupt:
+      - IRQn: 'FTM0_IRQn'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - EnableTimerInInit: 'true'
+  - ftm_edge_aligned_mode:
+    - ftm_edge_aligned_channels_config:
+      - 0:
+        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
+        - edge_aligned_pwm:
+          - chnlNumber: 'kFTM_Chnl_0'
+          - level: 'kFTM_HighTrue'
+          - dutyCyclePercent: '0'
+          - enable_chan_irq: 'false'
+      - 1:
+        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
+        - edge_aligned_pwm:
+          - chnlNumber: 'kFTM_Chnl_1'
+          - level: 'kFTM_HighTrue'
+          - dutyCyclePercent: '0'
+          - enable_chan_irq: 'false'
+      - 2:
+        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
+        - edge_aligned_pwm:
+          - chnlNumber: 'kFTM_Chnl_2'
+          - level: 'kFTM_HighTrue'
+          - dutyCyclePercent: '0'
+          - enable_chan_irq: 'false'
+      - 3:
+        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
+        - edge_aligned_pwm:
+          - chnlNumber: 'kFTM_Chnl_3'
+          - level: 'kFTM_HighTrue'
+          - dutyCyclePercent: '0'
+          - enable_chan_irq: 'false'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const ftm_config_t FTM0_config = {
+  .prescale = kFTM_Prescale_Divide_1,
+  .bdmMode = kFTM_BdmMode_3,
+  .pwmSyncMode = kFTM_SoftwareTrigger,
+  .reloadPoints = 0,
+  .faultMode = kFTM_Fault_Disable,
+  .faultFilterValue = 0,
+  .deadTimePrescale = kFTM_Deadtime_Prescale_1,
+  .deadTimeValue = 0,
+  .extTriggers = 0,
+  .chnlInitState = 0,
+  .chnlPolarity = 0,
+  .useGlobalTimeBase = false
+};
+
+const ftm_chnl_pwm_signal_param_t FTM0_pwmSignalParams[] = { 
+  {
+    .chnlNumber = kFTM_Chnl_0,
+    .level = kFTM_HighTrue,
+    .dutyCyclePercent = 0
+  },
+  {
+    .chnlNumber = kFTM_Chnl_1,
+    .level = kFTM_HighTrue,
+    .dutyCyclePercent = 0
+  },
+  {
+    .chnlNumber = kFTM_Chnl_2,
+    .level = kFTM_HighTrue,
+    .dutyCyclePercent = 0
+  },
+  {
+    .chnlNumber = kFTM_Chnl_3,
+    .level = kFTM_HighTrue,
+    .dutyCyclePercent = 0
+  }
+};
+
+void FTM0_init(void) {
+  FTM_Init(FTM0_PERIPHERAL, &FTM0_config);
+  FTM_SetupPwm(FTM0_PERIPHERAL, FTM0_pwmSignalParams, sizeof(FTM0_pwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_EdgeAlignedPwm, 10000U, FTM0_CLOCK_SOURCE);
+  FTM_StartTimer(FTM0_PERIPHERAL, kFTM_SystemClock);
+}
+
+/***********************************************************************************************************************
+ * FTM1 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'FTM1'
+- type: 'ftm'
+- mode: 'QuadratureDecoder'
+- type_id: 'ftm_04a15ae4af2b404bf2ae403c3dbe98b3'
+- functional_group: 'RTEPIP_Digital'
+- peripheral: 'FTM1'
+- config_sets:
+  - ftm_main_config:
+    - ftm_config:
+      - prescale: 'kFTM_Prescale_Divide_1'
+      - bdmMode: 'kFTM_BdmMode_3'
+      - pwmSyncMode: 'kFTM_SoftwareTrigger'
+      - reloadPoints: ''
+      - faultMode: 'kFTM_Fault_Disable'
+      - faultFilterValue: '0'
+      - deadTimePrescale: 'kFTM_Deadtime_Prescale_1'
+      - deadTimeValue: '0'
+      - extTriggers: ''
+      - chnlInitState: ''
+      - chnlPolarity: ''
+      - useGlobalTimeBase: 'false'
+    - timer_interrupts: ''
+    - enable_irq: 'false'
+    - ftm_interrupt:
+      - IRQn: 'FTM1_IRQn'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - EnableTimerInInit: 'true'
+  - ftm_quadrature_decoder_mode:
+    - timerModuloVal: '1'
+    - timerInitVal: '0'
+    - ftm_quad_decoder_mode: 'kFTM_QuadPhaseEncode'
+    - ftm_phase_a_params:
+      - enablePhaseFilter: 'false'
+      - phasePolarity: 'kFTM_QuadPhaseNormal'
+    - ftm_phase_b_params:
+      - enablePhaseFilter: 'false'
+      - phasePolarity: 'kFTM_QuadPhaseNormal'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const ftm_config_t FTM1_config = {
+  .prescale = kFTM_Prescale_Divide_1,
+  .bdmMode = kFTM_BdmMode_3,
+  .pwmSyncMode = kFTM_SoftwareTrigger,
+  .reloadPoints = 0,
+  .faultMode = kFTM_Fault_Disable,
+  .faultFilterValue = 0,
+  .deadTimePrescale = kFTM_Deadtime_Prescale_1,
+  .deadTimeValue = 0,
+  .extTriggers = 0,
+  .chnlInitState = 0,
+  .chnlPolarity = 0,
+  .useGlobalTimeBase = false
+};
+const ftm_phase_params_t FTM1_phaseAParams = { 
+  .enablePhaseFilter = false,
+  .phasePolarity = kFTM_QuadPhaseNormal
+
+};
+const ftm_phase_params_t FTM1_phaseBParams = { 
+  .enablePhaseFilter = false,
+  .phasePolarity = kFTM_QuadPhaseNormal
+
+};
+
+void FTM1_init(void) {
+  FTM_Init(FTM1_PERIPHERAL, &FTM1_config);
+/* Initialization of the timer initial value and modulo value */
+  FTM_SetQuadDecoderModuloValue(FTM1_PERIPHERAL, 0,1);
+  FTM_SetupQuadDecode(FTM1_PERIPHERAL, &FTM1_phaseAParams, &FTM1_phaseBParams, kFTM_QuadPhaseEncode);
+  FTM_StartTimer(FTM1_PERIPHERAL, kFTM_SystemClock);
+}
+
+/***********************************************************************************************************************
+ * FTM2 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'FTM2'
+- type: 'ftm'
+- mode: 'QuadratureDecoder'
+- type_id: 'ftm_04a15ae4af2b404bf2ae403c3dbe98b3'
+- functional_group: 'RTEPIP_Digital'
+- peripheral: 'FTM2'
+- config_sets:
+  - ftm_main_config:
+    - ftm_config:
+      - prescale: 'kFTM_Prescale_Divide_1'
+      - bdmMode: 'kFTM_BdmMode_3'
+      - pwmSyncMode: 'kFTM_SoftwareTrigger'
+      - reloadPoints: ''
+      - faultMode: 'kFTM_Fault_Disable'
+      - faultFilterValue: '0'
+      - deadTimePrescale: 'kFTM_Deadtime_Prescale_1'
+      - deadTimeValue: '0'
+      - extTriggers: ''
+      - chnlInitState: ''
+      - chnlPolarity: ''
+      - useGlobalTimeBase: 'false'
+    - timer_interrupts: ''
+    - enable_irq: 'false'
+    - ftm_interrupt:
+      - IRQn: 'FTM2_IRQn'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - EnableTimerInInit: 'true'
+  - ftm_quadrature_decoder_mode:
+    - timerModuloVal: '1'
+    - timerInitVal: '0'
+    - ftm_quad_decoder_mode: 'kFTM_QuadPhaseEncode'
+    - ftm_phase_a_params:
+      - enablePhaseFilter: 'false'
+      - phasePolarity: 'kFTM_QuadPhaseNormal'
+    - ftm_phase_b_params:
+      - enablePhaseFilter: 'false'
+      - phasePolarity: 'kFTM_QuadPhaseNormal'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const ftm_config_t FTM2_config = {
+  .prescale = kFTM_Prescale_Divide_1,
+  .bdmMode = kFTM_BdmMode_3,
+  .pwmSyncMode = kFTM_SoftwareTrigger,
+  .reloadPoints = 0,
+  .faultMode = kFTM_Fault_Disable,
+  .faultFilterValue = 0,
+  .deadTimePrescale = kFTM_Deadtime_Prescale_1,
+  .deadTimeValue = 0,
+  .extTriggers = 0,
+  .chnlInitState = 0,
+  .chnlPolarity = 0,
+  .useGlobalTimeBase = false
+};
+const ftm_phase_params_t FTM2_phaseAParams = { 
+  .enablePhaseFilter = false,
+  .phasePolarity = kFTM_QuadPhaseNormal
+
+};
+const ftm_phase_params_t FTM2_phaseBParams = { 
+  .enablePhaseFilter = false,
+  .phasePolarity = kFTM_QuadPhaseNormal
+
+};
+
+void FTM2_init(void) {
+  FTM_Init(FTM2_PERIPHERAL, &FTM2_config);
+/* Initialization of the timer initial value and modulo value */
+  FTM_SetQuadDecoderModuloValue(FTM2_PERIPHERAL, 0,1);
+  FTM_SetupQuadDecode(FTM2_PERIPHERAL, &FTM2_phaseAParams, &FTM2_phaseBParams, kFTM_QuadPhaseEncode);
+  FTM_StartTimer(FTM2_PERIPHERAL, kFTM_SystemClock);
+}
+
+/***********************************************************************************************************************
+ * FTM3 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'FTM3'
+- type: 'ftm'
+- mode: 'EdgeAligned'
+- type_id: 'ftm_04a15ae4af2b404bf2ae403c3dbe98b3'
+- functional_group: 'RTEPIP_Digital'
+- peripheral: 'FTM3'
+- config_sets:
+  - ftm_main_config:
+    - ftm_config:
+      - clockSource: 'kFTM_SystemClock'
+      - clockSourceFreq: 'GetFreq'
+      - prescale: 'kFTM_Prescale_Divide_4'
+      - timerFrequency: '400'
+      - bdmMode: 'kFTM_BdmMode_3'
+      - pwmSyncMode: 'kFTM_SoftwareTrigger'
+      - reloadPoints: ''
+      - faultMode: 'kFTM_Fault_Disable'
+      - faultFilterValue: '0'
+      - deadTimePrescale: 'kFTM_Deadtime_Prescale_1'
+      - deadTimeValue: '0'
+      - extTriggers: ''
+      - chnlInitState: ''
+      - chnlPolarity: ''
+      - useGlobalTimeBase: 'false'
+    - timer_interrupts: ''
+    - enable_irq: 'false'
+    - ftm_interrupt:
+      - IRQn: 'FTM3_IRQn'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - EnableTimerInInit: 'true'
+  - ftm_edge_aligned_mode:
+    - ftm_edge_aligned_channels_config:
+      - 0:
+        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
+        - edge_aligned_pwm:
+          - chnlNumber: 'kFTM_Chnl_0'
+          - level: 'kFTM_HighTrue'
+          - dutyCyclePercent: '0'
+          - enable_chan_irq: 'false'
+      - 1:
+        - edge_aligned_mode: 'kFTM_EdgeAlignedPwm'
+        - edge_aligned_pwm:
+          - chnlNumber: 'kFTM_Chnl_1'
+          - level: 'kFTM_HighTrue'
+          - dutyCyclePercent: '0'
+          - enable_chan_irq: 'false'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const ftm_config_t FTM3_config = {
+  .prescale = kFTM_Prescale_Divide_4,
+  .bdmMode = kFTM_BdmMode_3,
+  .pwmSyncMode = kFTM_SoftwareTrigger,
+  .reloadPoints = 0,
+  .faultMode = kFTM_Fault_Disable,
+  .faultFilterValue = 0,
+  .deadTimePrescale = kFTM_Deadtime_Prescale_1,
+  .deadTimeValue = 0,
+  .extTriggers = 0,
+  .chnlInitState = 0,
+  .chnlPolarity = 0,
+  .useGlobalTimeBase = false
+};
+
+const ftm_chnl_pwm_signal_param_t FTM3_pwmSignalParams[] = { 
+  {
+    .chnlNumber = kFTM_Chnl_0,
+    .level = kFTM_HighTrue,
+    .dutyCyclePercent = 0
+  },
+  {
+    .chnlNumber = kFTM_Chnl_1,
+    .level = kFTM_HighTrue,
+    .dutyCyclePercent = 0
+  }
+};
+
+void FTM3_init(void) {
+  FTM_Init(FTM3_PERIPHERAL, &FTM3_config);
+  FTM_SetupPwm(FTM3_PERIPHERAL, FTM3_pwmSignalParams, sizeof(FTM3_pwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_EdgeAlignedPwm, 400U, FTM3_CLOCK_SOURCE);
+  FTM_StartTimer(FTM3_PERIPHERAL, kFTM_SystemClock);
+}
+
+/***********************************************************************************************************************
+ * I2C1_IMU initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'I2C1_IMU'
+- type: 'i2c'
+- mode: 'I2C_Polling'
+- type_id: 'i2c_2566d7363e7e9aaedabb432110e372d7'
+- functional_group: 'RTEPIP_Digital'
+- peripheral: 'I2C1'
+- config_sets:
+  - fsl_i2c:
+    - i2c_mode: 'kI2C_Master'
+    - clockSource: 'BusInterfaceClock'
+    - clockSourceFreq: 'GetFreq'
+    - i2c_master_config:
+      - enableMaster: 'true'
+      - enableStopHold: 'false'
+      - baudRate_Bps: '400000'
+      - glitchFilterWidth: '0'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const i2c_master_config_t I2C1_IMU_config = {
+  .enableMaster = true,
+  .enableStopHold = false,
+  .baudRate_Bps = 400000,
+  .glitchFilterWidth = 0
+};
+
+void I2C1_IMU_init(void) {
+  /* Initialization function */
+  I2C_MasterInit(I2C1_IMU_PERIPHERAL, &I2C1_IMU_config, I2C1_IMU_CLK_FREQ);
 }
 
 /***********************************************************************************************************************
  * Initialization functions
  **********************************************************************************************************************/
-void BOARD_InitPeripherals(void)
+void RTEPIP_BasicPip(void)
+{
+  /* Global initialization */
+  DMAMUX_Init(EDMA_DMAMUX_BASEADDR);
+  EDMA_Init(EDMA_DMA_BASEADDR, &EDMA_config);
+
+  /* Initialize components */
+  EDMA_init();
+  PIT_init();
+  UART0_init();
+  VREF_init();
+  GPIOA_init();
+  GPIOB_init();
+  GPIOC_init();
+  GPIOD_init();
+  GPIOE_init();
+  ADC0_init();
+  ADC1_init();
+}
+
+void RTEPIP_Digital(void)
 {
   /* Initialize components */
-  PIT_1_init();
+  FTM0_init();
+  FTM1_init();
+  FTM2_init();
+  FTM3_init();
+  I2C1_IMU_init();
+}
+
+void RTEPIP_ANALOG(void)
+{
 }
 
 /***********************************************************************************************************************
@@ -124,5 +967,4 @@ void BOARD_InitPeripherals(void)
  **********************************************************************************************************************/
 void BOARD_InitBootPeripherals(void)
 {
-  BOARD_InitPeripherals();
 }

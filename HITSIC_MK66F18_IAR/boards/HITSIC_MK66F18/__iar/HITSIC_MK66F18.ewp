@@ -362,6 +362,7 @@
                     <state>$PROJ_DIR$\..\..\..\components\lists</state>
                     <state>$PROJ_DIR$\..\..\..\components\serial_manager</state>
                     <state>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\cm_backtrace\cmb_1.3.0</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers</state>
                     <state>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18</state>
                     <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\cm_backtrace\cmb_1.3.0</state>
                     <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\lib</state>
@@ -483,11 +484,11 @@
                 </option>
                 <option>
                     <name>IccExceptions2</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IccRTTI2</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>OICompilerExtraOption</name>
@@ -667,7 +668,7 @@
                 <option>
                     <name>OOCOutputFormat</name>
                     <version>3</version>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>OCOutputOverride</name>
@@ -675,7 +676,7 @@
                 </option>
                 <option>
                     <name>OOCOutputFile</name>
-                    <state>HITSIC_MK66F18.srec</state>
+                    <state>HITSIC_MK66F18.hex</state>
                 </option>
                 <option>
                     <name>OOCCommandLineProducer</name>
@@ -683,7 +684,7 @@
                 </option>
                 <option>
                     <name>OOCObjCopyEnable</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
             </data>
         </settings>
@@ -1093,11 +1094,11 @@
                 </option>
                 <option>
                     <name>Input description</name>
-                    <state></state>
+                    <state>Full formatting, with multibyte support.</state>
                 </option>
                 <option>
                     <name>Output description</name>
-                    <state></state>
+                    <state>Full formatting, with multibyte support.</state>
                 </option>
                 <option>
                     <name>GOutputBinary</name>
@@ -1105,21 +1106,21 @@
                 </option>
                 <option>
                     <name>OGCoreOrChip</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>GRuntimeLibSelect</name>
                     <version>0</version>
-                    <state>1</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>GRuntimeLibSelectSlave</name>
                     <version>0</version>
-                    <state>1</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>RTDescription</name>
-                    <state></state>
+                    <state>Use the full configuration of the C/C++ runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
                 </option>
                 <option>
                     <name>OGProductVersion</name>
@@ -1127,7 +1128,7 @@
                 </option>
                 <option>
                     <name>OGLastSavedByProductVersion</name>
-                    <state></state>
+                    <state>8.32.4.20866</state>
                 </option>
                 <option>
                     <name>GeneralEnableMisra</name>
@@ -1139,15 +1140,15 @@
                 </option>
                 <option>
                     <name>OGChipSelectEditMenu</name>
-                    <state></state>
+                    <state>MK66FX1M0xxx18	NXP MK66FX1M0xxx18</state>
                 </option>
                 <option>
                     <name>GenLowLevelInterface</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>GEndianModeBE</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>OGBufferedTerminalOutput</name>
@@ -1155,7 +1156,7 @@
                 </option>
                 <option>
                     <name>GenStdoutInterface</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>GeneralMisraRules98</name>
@@ -1173,12 +1174,12 @@
                 </option>
                 <option>
                     <name>RTConfigPath2</name>
-                    <state></state>
+                    <state>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</state>
                 </option>
                 <option>
                     <name>GBECoreSlave</name>
                     <version>27</version>
-                    <state>38</state>
+                    <state>39</state>
                 </option>
                 <option>
                     <name>OGUseCmsis</name>
@@ -1195,21 +1196,21 @@
                 <option>
                     <name>CoreVariant</name>
                     <version>27</version>
-                    <state>38</state>
+                    <state>39</state>
                 </option>
                 <option>
                     <name>GFPUDeviceSlave</name>
-                    <state>-</state>
+                    <state>MK66FX1M0xxx18	NXP MK66FX1M0xxx18</state>
                 </option>
                 <option>
                     <name>FPU2</name>
                     <version>0</version>
-                    <state>0</state>
+                    <state>4</state>
                 </option>
                 <option>
                     <name>NrRegs</name>
                     <version>0</version>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>NEON</name>
@@ -1218,14 +1219,14 @@
                 <option>
                     <name>GFPUCoreSlave2</name>
                     <version>27</version>
-                    <state>38</state>
+                    <state>39</state>
                 </option>
                 <option>
                     <name>OGCMSISPackSelectDevice</name>
                 </option>
                 <option>
                     <name>OgLibHeap</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>OGLibAdditionalLocale</name>
@@ -1234,20 +1235,20 @@
                 <option>
                     <name>OGPrintfVariant</name>
                     <version>0</version>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>OGPrintfMultibyteSupport</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>OGScanfVariant</name>
                     <version>0</version>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>OGScanfMultibyteSupport</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>GenLocaleTags</name>
@@ -1259,7 +1260,7 @@
                 </option>
                 <option>
                     <name>DSPExtension</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>TrustZone</name>
@@ -1282,6 +1283,11 @@
                 <option>
                     <name>CCDefines</name>
                     <state>NDEBUG</state>
+                    <state>CPU_MK66FX1M0VLQ18</state>
+                    <state>ARM_MATH_CM4</state>
+                    <state>HITSIC_MK66F18</state>
+                    <state>SERIAL_PORT_TYPE_UART=1</state>
+                    <state>SERIAL_PORT_TYPE_SWO=0</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -1321,7 +1327,7 @@
                 </option>
                 <option>
                     <name>CCDiagSuppress</name>
-                    <state></state>
+                    <state>pa082,pe223,pe1665</state>
                 </option>
                 <option>
                     <name>CCDiagRemark</name>
@@ -1390,7 +1396,7 @@
                 </option>
                 <option>
                     <name>OutputFile</name>
-                    <state></state>
+                    <state>$FILE_BNAME$.o</state>
                 </option>
                 <option>
                     <name>CCLibConfigHeader</name>
@@ -1406,7 +1412,29 @@
                 </option>
                 <option>
                     <name>CCIncludePath2</name>
-                    <state></state>
+                    <state>$PROJ_DIR$\..\..\..\CMSIS_5.6.0\Core\Include</state>
+                    <state>$PROJ_DIR$\..\..\..\CMSIS_5.6.0\DSP\Include</state>
+                    <state>$PROJ_DIR$\..\..\..\CMSIS_5.6.0\NN\Include</state>
+                    <state>$PROJ_DIR$\..\..\..\devices\MK66F18\drivers</state>
+                    <state>$PROJ_DIR$\..\..\..\devices\MK66F18\utilities\str</state>
+                    <state>$PROJ_DIR$\..\..\..\devices\MK66F18\utilities\debug_console</state>
+                    <state>$PROJ_DIR$\..\..\..\devices\MK66F18\utilities</state>
+                    <state>$PROJ_DIR$\..\..\..\devices\MK66F18</state>
+                    <state>$PROJ_DIR$\..\..\..\components\uart</state>
+                    <state>$PROJ_DIR$\..\..\..\components\lists</state>
+                    <state>$PROJ_DIR$\..\..\..\components\serial_manager</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\cm_backtrace\cmb_1.3.0</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\cm_backtrace\cmb_1.3.0</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\lib</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\app</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\utilities</state>
+                    <state>$PROJ_DIR$\..\board</state>
+                    <state>$PROJ_DIR$\..\main</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -1427,11 +1455,11 @@
                 <option>
                     <name>CCOptStrategy</name>
                     <version>0</version>
-                    <state>0</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>CCOptLevelSlave</name>
-                    <state>1</state>
+                    <state>3</state>
                 </option>
                 <option>
                     <name>CompilerMisraRules98</name>
@@ -1485,7 +1513,7 @@
                 </option>
                 <option>
                     <name>CCOptimizationNoSizeConstraints</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>CCNoLiteralPool</name>
@@ -1494,7 +1522,7 @@
                 <option>
                     <name>CCOptStrategySlave</name>
                     <version>0</version>
-                    <state>0</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>CCGuardCalls</name>
@@ -1502,11 +1530,11 @@
                 </option>
                 <option>
                     <name>CCEncSource</name>
-                    <state>0</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>CCEncOutput</name>
-                    <state>0</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>CCEncOutputBom</name>
@@ -1514,7 +1542,7 @@
                 </option>
                 <option>
                     <name>CCEncInput</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IccExceptions2</name>
@@ -1660,7 +1688,7 @@
                 </option>
                 <option>
                     <name>AOutputFile</name>
-                    <state></state>
+                    <state>$FILE_BNAME$.o</state>
                 </option>
                 <option>
                     <name>ALimitErrorsCheck</name>
@@ -1702,7 +1730,7 @@
                 <option>
                     <name>OOCOutputFormat</name>
                     <version>3</version>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>OCOutputOverride</name>
@@ -1710,7 +1738,7 @@
                 </option>
                 <option>
                     <name>OOCOutputFile</name>
-                    <state></state>
+                    <state>HITSIC_MK66F18.hex</state>
                 </option>
                 <option>
                     <name>OOCCommandLineProducer</name>
@@ -1718,7 +1746,7 @@
                 </option>
                 <option>
                     <name>OOCObjCopyEnable</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
             </data>
         </settings>
@@ -1765,7 +1793,7 @@
                 </option>
                 <option>
                     <name>IlinkOutputFile</name>
-                    <state>###Unitialized###</state>
+                    <state>HITSIC_MK66F18.out</state>
                 </option>
                 <option>
                     <name>IlinkDebugInfoEnable</name>
@@ -1825,11 +1853,11 @@
                 </option>
                 <option>
                     <name>IlinkIcfOverride</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>lnk0t.icf</state>
+                    <state>$PROJ_DIR$\MK66FX1M0xxx18_flash.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -1877,7 +1905,7 @@
                 </option>
                 <option>
                     <name>IlinkAdditionalLibs</name>
-                    <state></state>
+                    <state>$PROJ_DIR$\..\..\..\CMSIS_5.6.0\DSP\Lib\IAR\iar_cortexM4lf_math.a</state>
                 </option>
                 <option>
                     <name>IlinkOverrideProgramEntryLabel</name>
@@ -1889,7 +1917,7 @@
                 </option>
                 <option>
                     <name>IlinkProgramEntryLabel</name>
-                    <state></state>
+                    <state>__iar_program_start</state>
                 </option>
                 <option>
                     <name>DoFill</name>
@@ -1996,7 +2024,7 @@
                 </option>
                 <option>
                     <name>IlinkOptMergeDuplSections</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IlinkOptUseVfe</name>
@@ -2062,7 +2090,7 @@
                 </option>
                 <option>
                     <name>IlinkTrustzoneImportLibraryOut</name>
-                    <state>###Unitialized###</state>
+                    <state>HITSIC_MK66F18_import_lib.o</state>
                 </option>
                 <option>
                     <name>OILinkExtraOption</name>
@@ -2607,6 +2635,39 @@
                         <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\cm_backtrace\cmb_1.3.0\cmb_def.h</name>
                     </file>
                 </group>
+            </group>
+            <group>
+                <name>legacy_drivers</name>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers\drv_cam.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers\drv_cam.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers\SmartCar_ADC.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers\SmartCar_ADC.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers\SmartCar_Ftm.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers\SmartCar_Ftm.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers\SmartCar_Upload.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers\SmartCar_Upload.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers\SmartCar_Wdog.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers\SmartCar_Wdog.h</name>
+                </file>
             </group>
             <file>
                 <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\hitsic_common.c</name>

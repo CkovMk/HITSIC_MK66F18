@@ -13,7 +13,7 @@
     </Stack>
     <PlDriver>
         <FirstRun>0</FirstRun>
-        <MemConfigValue>D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\CONFIG\debugger\NXP\MK66FX1M0xxx18.ddf</MemConfigValue>
+        <MemConfigValue>C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\CONFIG\debugger\NXP\MK66FX1M0xxx18.ddf</MemConfigValue>
     </PlDriver>
     <Jet>
         <JetConnSerialNo>CMSIS-DAP:070000000668ff343637554e43252632a5a5a5a597969908</JetConnSerialNo>

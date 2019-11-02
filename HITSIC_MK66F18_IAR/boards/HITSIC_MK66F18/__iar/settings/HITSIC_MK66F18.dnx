@@ -16,10 +16,10 @@
         <MemConfigValue>D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\CONFIG\debugger\NXP\MK66FX1M0xxx18.ddf</MemConfigValue>
     </PlDriver>
     <Jet>
-        <JetConnSerialNo>CMSIS-DAP:070000000668ff343637554e43252632a5a5a5a597969908</JetConnSerialNo>
-        <JetConnFoundProbes />
         <PrevWtdReset>System</PrevWtdReset>
         <OnlineReset>Software</OnlineReset>
+        <JetConnSerialNo>CMSIS-DAP:070000000668ff343637554e43252632a5a5a5a597969908</JetConnSerialNo>
+        <JetConnFoundProbes />
         <DisableInterrupts>0</DisableInterrupts>
         <LeaveRunning>0</LeaveRunning>
         <MultiCoreRunAll>0</MultiCoreRunAll>
@@ -47,8 +47,8 @@
     <SWOManager>
         <SamplingDivider>8192</SamplingDivider>
         <OverrideClock>0</OverrideClock>
-        <CpuClock>1</CpuClock>
-        <SwoClock>0</SwoClock>
+        <CpuClock>183595736</CpuClock>
+        <SwoClock>187302760</SwoClock>
         <DataLogMode>0</DataLogMode>
         <ItmPortsEnabled>63</ItmPortsEnabled>
         <ItmTermIOPorts>1</ItmTermIOPorts>
@@ -133,6 +133,9 @@
     <CallStackStripe>
         <ShowTiming>1</ShowTiming>
     </CallStackStripe>
+    <RecentFlashDownload>
+        <Path>C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Exe\HITSIC_MK66F18.out</Path>
+    </RecentFlashDownload>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>

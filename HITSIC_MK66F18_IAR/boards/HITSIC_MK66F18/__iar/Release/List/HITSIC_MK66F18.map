@@ -1,0 +1,1104 @@
+###############################################################################
+#
+# IAR ELF Linker V8.32.3.193/W32 for ARM                  02/Nov/2019  05:30:09
+# Copyright 2007-2019 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Exe\HITSIC_MK66F18.out
+#    Map file     =  
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\List\HITSIC_MK66F18.map
+#    Command line =  
+#        -f C:\Users\CkovMk\AppData\Local\Temp\EW49F2.tmp
+#        (C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\app_menu.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\app_menu_button.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\app_menu_nvm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\app_menu_type.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\board.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\clock_config.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\cm_backtrace.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\cmb_fault.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\drv_button.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\drv_cam.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\drv_disp_ssd1306.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\drv_ftfx_flash.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\drv_imu_invensense.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_adc16.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_assert.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_cache.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_clock.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_cmp.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_cmt.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_common.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_crc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_dac.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_debug_console.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_dmamux.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_dspi.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_dspi_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_enet.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_ewm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_flexbus.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_flexcan.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_ftfx_cache.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_ftfx_controller.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_ftfx_flash.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_ftfx_flexnvm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_ftm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_gpio.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_i2c.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_i2c_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_llwu.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_lmem_cache.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_lptmr.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_lpuart.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_lpuart_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_notifier.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_pdb.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_pit.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_pmc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_rcm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_rnga.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_rtc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_sai.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_sai_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_sdhc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_sdramc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_shell.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_sim.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_smc.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_str.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_sysmpu.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_tpm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_tsi_v4.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_uart.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_uart_edma.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_vref.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\fsl_wdog.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\generic_list.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\hitsic_common.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\hitsic_hal.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\lib_list.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\main.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\peripherals.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\pin_mux.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\rte_i2c.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\rte_softi2c.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\rte_spi.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\rte_uart.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\serial_manager.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\serial_port_swo.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\serial_port_uart.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\SmartCar_ADC.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\SmartCar_Ftm.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\SmartCar_Upload.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\SmartCar_Wdog.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\startup_MK66F18.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\stdafx.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\sys_extint.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\sys_pitmgr.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\sys_uartmgr.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\system_MK66F18.o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj\uart_adapter.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull
+#        --no_out_extension -o
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Exe\HITSIC_MK66F18.out
+#        --map
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\List\HITSIC_MK66F18.map
+#        --config
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\MK66FX1M0xxx18_flash.icf
+#        --semihosting
+#        C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\..\..\..\CMSIS_5.6.0\DSP\Lib\IAR\iar_cortexM4lf_math.a
+#        --entry __iar_program_start --redirect
+#        __iar_sh_stdout=__iar_sh_stdout_swo --inline
+#        --merge_duplicate_sections --vfe --text_out locale --advanced_heap)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__Heap_Handler  = DLMalloc
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The advanced heap was selected because of --advanced_heap.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x0 { ro section .intvec };
+"P1":  place in [from 0x400 to 0x40f] { section FlashConfig };
+"P2":  place in [from 0x0 to 0x3ff] |
+                [from 0x410 to 0xf'ffff] { ro };
+define block RW { rw };
+"P3":  place in [from 0x1fff'0000 to 0x1fff'ffff] |
+                [from 0x2000'0000 to 0x2002'fbff] { block RW };
+define block ZI { zi };
+"P4":  place in [from 0x1fff'0000 to 0x1fff'ffff] |
+                [from 0x2000'0000 to 0x2002'fbff] { block ZI };
+define block NCACHE_VAR { section NonCacheable, section NonCacheable.init };
+"P7":  place in [from 0x1fff'0000 to 0x1fff'ffff] |
+                [from 0x2000'0000 to 0x2002'fbff] { block NCACHE_VAR };
+define block HEAP with size = 64K, alignment = 8 { };
+"P5":  place in [from 0x1fff'0000 to 0x1fff'ffff] |
+                [from 0x2000'0000 to 0x2002'fbff] { last block HEAP };
+define block CSTACK with size = 1K, alignment = 8 { };
+"P6":  place in [from 0x2002'fc00 to 0x2002'ffff] { block CSTACK };
+initialize by copy { rw, section .textrw };
+
+No sections matched the following patterns:
+
+  section NonCacheable       in block NCACHE_VAR
+  section NonCacheable.init  in block NCACHE_VAR
+
+
+  Section            Kind         Address     Size  Object
+  -------            ----         -------     ----  ------
+"A0":                                        0x400
+  .intvec            ro code          0x0    0x400  startup_MK66F18.o [1]
+                                  - 0x400    0x400
+
+"P1":                                         0x10
+  FlashConfig        ro code        0x400     0x10  startup_MK66F18.o [1]
+                                  - 0x410     0x10
+
+"P2":                                       0xbd0b
+  .text                             0x410   0xa7ae  <Block>
+    .text            ro code        0x410    0x764  app_menu.o [1]
+    .text            ro code        0xb74   0x11b8  app_menu_type.o [1]
+    .text            ro code       0x1d2c    0x1ec  app_menu_button.o [1]
+    .text            ro code       0x1f18     0x3a  ABImemset48.o [5]
+    .text            ro code       0x1f52      0x2  startup_MK66F18.o [1]
+    .text            ro code       0x1f54    0xa18  drv_disp_ssd1306.o [1]
+    .text            ro code       0x296c   0x1520  dlmalloc.o [2]
+    .text            ro code       0x3e8c     0x98  app_menu_nvm.o [1]
+    .text            ro code       0x3f24    0x31c  drv_ftfx_flash.o [1]
+    .text            ro code       0x4240     0x22  S32ToDbl.o [4]
+    .text            ro code       0x4262     0x1a  xsnprout.o [2]
+    .text            ro code       0x427c    0x1a2  DblMul.o [4]
+    .text            ro code       0x441e      0xa  xsprout.o [2]
+    .text            ro code       0x4428     0x3a  DblToS32.o [4]
+    .text            ro code       0x4462     0x1e  xencoding_8859_1.o [2]
+    .text            ro code       0x4480     0x44  snprintf.o [2]
+    .text            ro code       0x44c4     0x48  FltToDbl.o [4]
+    .text            ro code       0x450c     0x70  strncpy.o [5]
+    .text            ro code       0x457c     0x28  strncmp.o [2]
+    .text            ro code       0x45a4    0x1cc  drv_button.o [1]
+    .text            ro code       0x4770    0x214  sys_extint.o [1]
+    .text            ro code       0x4984    0x154  sys_pitmgr.o [1]
+    .text            ro code       0x4ad8     0x28  fsl_gpio.o [1]
+    .text            ro code       0x4b00      0x6  abort.o [2]
+    .text            ro code       0x4b06     0x3a  zero_init3.o [5]
+    .text            ro code       0x4b40     0x2c  xgetmemchunk.o [2]
+    .text            ro code       0x4b6c      0x6  ABImemclr.o [5]
+    .text            ro code       0x4b74     0xa6  ABImemcpy.o [5]
+    .text            ro code       0x4c1c      0x6  ABImemclr4.o [5]
+    .text            ro code       0x4c24    0x27c  fsl_ftfx_flash.o [1]
+    .text            ro code       0x4ea0     0x74  fsl_ftfx_cache.o [1]
+    .text            ro code       0x4f14     0x28  printf.o [2]
+    .text            ro code       0x4f3c     0x20  fsl_cache.o [1]
+    .text            ro code       0x4f5c    0xf46  xprintffull.o [2]
+    .text            ro code       0x5ea4     0x5e  ABImemset.o [5]
+    .text            ro code       0x5f02     0xd8  lib_list.o [1]
+    .text            ro code       0x5fdc     0x9c  fsl_pit.o [1]
+    .text            ro code       0x6078    0xe70  fsl_clock.o [1]
+    .text            ro code       0x6ee8    0x230  I64DivMod.o [5]
+    .text            ro code       0x7118     0x14  exit.o [6]
+    .text            ro code       0x712c    0x3f0  fsl_ftfx_controller.o [1]
+    .text            ro code       0x751c     0x78  xlocale_c.o [2]
+    .text            ro code       0x7594     0x16  strchr.o [5]
+    .text            ro code       0x75ac     0x40  xfail_s.o [2]
+    .text            ro code       0x75ec     0x36  strlen.o [5]
+    .text            ro code       0x7624     0x58  memchr.o [5]
+    .text            ro code       0x767c      0xa  xmbcurmax.o [2]
+    .text            ro code       0x7688     0x70  frexp.o [4]
+    .text            ro code       0x76f8     0x2e  DblCmpLe.o [4]
+    .text            ro code       0x7728     0x2e  DblCmpGe.o [4]
+    .text            ro code       0x7758    0x13a  ldexp.o [4]
+    .text            ro code       0x7894     0xe2  DblSub.o [4]
+    .text            ro code       0x7978    0x246  DblDiv.o [4]
+    .text            ro code       0x7bc0     0x28  DblToU32.o [4]
+    .text            ro code       0x7be8     0x1a  U32ToDbl.o [4]
+    .text            ro code       0x7c04      0x2  I64DivZer.o [5]
+    .text            ro code       0x7c08    0x16a  DblAdd.o [4]
+    .text            ro code       0x7d74     0x7c  clock_config.o [1]
+    .text            ro code       0x7df0    0x6d4  cm_backtrace.o [1]
+    .text            ro code       0x84c4     0x8c  strcpy_fast.o [5]
+    .text            ro code       0x8550     0x40  sprintf.o [2]
+    .text            ro code       0x8590      0xc  cmb_fault.o [1]
+    .text            ro code       0x859c    0x1d4  fsl_adc16.o [1]
+    .text            ro code       0x8770     0xa8  fsl_debug_console.o [1]
+    .text            ro code       0x8818     0x90  serial_manager.o [1]
+    .text            ro code       0x88a8     0x3e  serial_port_uart.o [1]
+    .text            ro code       0x88e8     0xb0  uart_adapter.o [1]
+    .text            ro code       0x8998    0x244  fsl_uart.o [1]
+    .text            ro code       0x8bdc     0x34  fsl_dmamux.o [1]
+    .text            ro code       0x8c10     0x8c  fsl_dspi.o [1]
+    .text            ro code       0x8c9c    0x4f8  fsl_edma.o [1]
+    .text            ro code       0x9194     0x60  fsl_enet.o [1]
+    .text            ro code       0x91f4     0x3c  fsl_flexcan.o [1]
+    .text            ro code       0x9230    0x438  fsl_ftm.o [1]
+    .text            ro code       0x9668    0x26c  fsl_i2c.o [1]
+    .text            ro code       0x98d4     0x20  fsl_lpuart.o [1]
+    .text            ro code       0x98f4     0x34  fsl_sai.o [1]
+    .text            ro code       0x9928     0x20  fsl_sdhc.o [1]
+    .text            ro code       0x9948     0xa8  main.o [1]
+    .text            ro code       0x99f0    0x5da  pin_mux.o [1]
+    .text            ro code       0x9fcc    0x338  peripherals.o [1]
+    .text            ro code       0xa304     0x8c  arm_sin_f32.o [3]
+    .text            ro code       0xa390     0x28  startup_MK66F18.o [1]
+    .text            ro code       0xa3b8      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa3c0      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa3c8      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa3d0      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa3d8      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa3e0      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa3e8      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa3f0      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa3f8      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa400      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa408      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa410      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa418      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa420      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa428      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa430      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa438      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa440      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa448      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa450      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa458      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa460      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa468      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa470      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa478      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa480      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa488      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa490      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa498      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4a0      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4a8      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4b0      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4b8      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4c0      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4c8      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4d0      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4d8      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4e0      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4e8      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4f0      0x8  startup_MK66F18.o [1]
+    .text            ro code       0xa4f8     0x2e  system_MK66F18.o [1]
+    .text            ro code       0xa528     0x22  fpinit_M.o [4]
+    .text            ro code       0xa54c     0x1e  cmain.o [5]
+    .text            ro code       0xa56c     0x28  data_init.o [5]
+    .text            ro code       0xa594      0x4  exit.o [2]
+    .text            ro code       0xa598      0xe  cexit.o [5]
+    .text            ro code       0xa5a8     0x3c  xcloseall.o [2]
+    .text            ro code       0xa5e4     0x7e  fclose.o [2]
+    .text            ro code       0xa664     0x8c  xfofind.o [2]
+    .text            ro code       0xa6f0     0xac  fflush.o [2]
+    .text            ro code       0xa79c     0x18  close.o [6]
+    .text            ro code       0xa7b4     0x14  remove.o [6]
+    .text            ro code       0xa7c8     0xcc  XShHandles.o [2]
+    .text            ro code       0xa894      0xc  putchar.o [2]
+    .text            ro code       0xa8a0     0x54  fputc.o [2]
+    .text            ro code       0xa8f4     0xb4  xfwprep.o [2]
+    .text            ro code       0xa9a8     0x24  fseek.o [2]
+    .text            ro code       0xa9cc     0xd8  xfspos.o [2]
+    .text            ro code       0xaaa4      0xc  xfgpos.o [2]
+    .text            ro code       0xaab0     0x4a  lseek.o [6]
+    .text            ro code       0xaafc      0x0  cstart_closeall.o [5]
+    .text            ro code       0xaafc      0x4  startup_MK66F18.o [1]
+    .text            ro code       0xab00      0xc  cstartup_M.o [5]
+    .text            ro code       0xab0c     0x16  xprout.o [2]
+    .text            ro code       0xab22     0x9c  packbits_init.o [5]
+  .rodata            const         0xabc0    0x804  arm_common_tables.o [3]
+  .rodata            const         0xb3c4    0x5e4  cm_backtrace.o [1]
+  .rodata            const         0xb9a8    0x228  drv_disp_ssd1306.o [1]
+  .rodata            const         0xbbd0    0x218  cm_backtrace.o [1]
+  .rodata            const         0xbde8     0xbc  drv_ftfx_flash.o [1]
+  .rodata            const         0xbea4     0x80  fsl_i2c.o [1]
+  .rodata            const         0xbf24     0x64  cm_backtrace.o [1]
+  .iar.init_table    const         0xbf88     0x2c  - Linker created -
+  .rodata            const         0xbfb4     0x20  cm_backtrace.o [1]
+  .rodata            const         0xbfd4      0x6  xlocale_c.o [2]
+  .rodata            const         0xbfda      0x0  zero_init3.o [5]
+  .rodata            const         0xbfda      0x0  packbits_init.o [5]
+  Initializer bytes  const         0xbfda    0x141  <for RW-1>
+                                 - 0xc11b   0xbd0b
+
+"P3-P4|P7", part 1 of 2:                     0x34c
+  RW                          0x2000'0000    0x34c  <Block>
+    RW-1                      0x2000'0000    0x34c  <Init block>
+      .data          inited   0x2000'0000     0xa8  app_menu_button.o [1]
+      .data          inited   0x2000'00a8     0xe0  app_menu.o [1]
+      .data          inited   0x2000'0188      0x4  app_menu_nvm.o [1]
+      .data          inited   0x2000'018c      0x4  app_menu_nvm.o [1]
+      .data          inited   0x2000'0190      0x4  app_menu_nvm.o [1]
+      .data          inited   0x2000'0194      0x4  app_menu_nvm.o [1]
+      .data          inited   0x2000'0198     0x14  drv_button.o [1]
+      .data          inited   0x2000'01ac     0x14  fsl_clock.o [1]
+      .data          inited   0x2000'01c0      0x4  system_MK66F18.o [1]
+      .data          inited   0x2000'01c4     0x38  xlocale_c.o [2]
+      .data          inited   0x2000'01fc     0x48  xlocale_c.o [2]
+      .data          inited   0x2000'0244     0x48  xfiles.o [2]
+      .data          inited   0x2000'028c     0x48  xfiles.o [2]
+      .data          inited   0x2000'02d4     0x48  xfiles.o [2]
+      .data          inited   0x2000'031c     0x20  xfiles.o [2]
+      .data          inited   0x2000'033c     0x10  drv_disp_ssd1306.o [1]
+                            - 0x2000'034c    0x34c
+
+"P3-P4|P7", part 2 of 2:                     0x714
+  ZI                          0x2000'034c    0x714  <Block>
+    .bss             zero     0x2000'034c      0x4  app_menu_nvm.o [1]
+    .bss             zero     0x2000'0350      0xc  app_menu_nvm.o [1]
+    .bss             zero     0x2000'035c      0xc  app_menu_nvm.o [1]
+    .bss             zero     0x2000'0368      0x4  app_menu_nvm.o [1]
+    .bss             zero     0x2000'036c      0x8  app_menu_nvm.o [1]
+    .bss             zero     0x2000'0374      0x8  app_menu_type.o [1]
+    .bss             zero     0x2000'037c    0x148  cm_backtrace.o [1]
+    .bss             zero     0x2000'04c4     0x7c  drv_ftfx_flash.o [1]
+    .bss             zero     0x2000'0540     0x20  fsl_debug_console.o [1]
+    .bss             zero     0x2000'0560     0x18  fsl_dspi.o [1]
+    .bss             zero     0x2000'0578     0x80  fsl_edma.o [1]
+    .bss             zero     0x2000'05f8     0x10  fsl_enet.o [1]
+    .bss             zero     0x2000'0608      0xc  fsl_flexcan.o [1]
+    .bss             zero     0x2000'0614     0x40  fsl_ftfx_cache.o [1]
+    .bss             zero     0x2000'0654     0x40  fsl_ftfx_controller.o [1]
+    .bss             zero     0x2000'0694     0x18  fsl_i2c.o [1]
+    .bss             zero     0x2000'06ac      0x8  fsl_lpuart.o [1]
+    .bss             zero     0x2000'06b4     0x10  fsl_sai.o [1]
+    .bss             zero     0x2000'06c4      0x8  fsl_sdhc.o [1]
+    .bss             zero     0x2000'06cc     0x18  fsl_uart.o [1]
+    .bss             zero     0x2000'06e4     0x50  sys_extint.o [1]
+    .bss             zero     0x2000'0734     0x14  sys_pitmgr.o [1]
+    .bss             zero     0x2000'0748     0x18  dlmalloc.o [2]
+    .bss             zero     0x2000'0760    0x1d8  dlmalloc.o [2]
+    .bss             zero     0x2000'0938      0x4  xgetmemchunk.o [2]
+    .bss             zero     0x2000'093c      0x4  xfail_s.o [2]
+    .bss             zero     0x2000'0940     0x50  xfiles.o [2]
+    .bss             zero     0x2000'0990     0x50  xfiles.o [2]
+    .bss             zero     0x2000'09e0     0x80  XShHandles.o [2]
+                            - 0x2000'0a60    0x714
+
+"P5":                                      0x10000
+  HEAP                        0x2000'0a60  0x10000  <Block>
+    HEAP             uninit   0x2000'0a60  0x10000  <Block tail>
+                            - 0x2001'0a60  0x10000
+
+"P6":                                        0x400
+  CSTACK                      0x2002'fc00    0x400  <Block>
+    CSTACK           uninit   0x2002'fc00    0x400  <Block tail>
+                            - 0x2003'0000    0x400
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+       0xc11b     0xf'ffff  0xf'3ee5
+  0x1fff'0000  0x1fff'ffff  0x1'0000
+  0x2001'0a60  0x2002'fbff  0x1'f1a0
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x714:
+          0x2000'034c  0x714
+
+Copy/packbits (__iar_packbits_init3)
+    1 source range, total size 0x141 (38% of destination):
+               0xbfda  0x141
+    1 destination range, total size 0x34c:
+          0x2000'0000  0x34c
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+command line/config:
+    ------------------------------------------------
+    Total:
+
+C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj: [1]
+    app_menu.o               1 892       86      224
+    app_menu_button.o          492       63      168
+    app_menu_nvm.o             152        6       56
+    app_menu_type.o          4 536                 8
+    clock_config.o             124
+    cm_backtrace.o           1 748    2 176      328
+    cmb_fault.o                 12
+    drv_button.o               460        7       20
+    drv_disp_ssd1306.o       2 584      559       16
+    drv_ftfx_flash.o           796      188      124
+    fsl_adc16.o                468
+    fsl_cache.o                 32
+    fsl_clock.o              3 696        8       20
+    fsl_debug_console.o        168                32
+    fsl_dmamux.o                52
+    fsl_dspi.o                 140                24
+    fsl_edma.o               1 272               128
+    fsl_enet.o                  96                16
+    fsl_flexcan.o               60                12
+    fsl_ftfx_cache.o           116                64
+    fsl_ftfx_controller.o    1 008                64
+    fsl_ftfx_flash.o           636
+    fsl_ftm.o                1 080
+    fsl_gpio.o                  40
+    fsl_i2c.o                  620      128       24
+    fsl_lpuart.o                32                 8
+    fsl_pit.o                  156
+    fsl_sai.o                   52                16
+    fsl_sdhc.o                  32                 8
+    fsl_uart.o                 580                24
+    lib_list.o                 216
+    main.o                     168
+    peripherals.o              824
+    pin_mux.o                1 498
+    serial_manager.o           144
+    serial_port_uart.o          62
+    startup_MK66F18.o        1 406
+    sys_extint.o               532                80
+    sys_pitmgr.o               340                20
+    system_MK66F18.o            46        1        4
+    uart_adapter.o             176
+    ------------------------------------------------
+    Total:                  28 544    3 222    1 488
+
+dl7M_tlf.a: [2]
+    XShHandles.o               204               128
+    abort.o                      6
+    dlmalloc.o               5 408               496
+    exit.o                       4
+    fclose.o                   126
+    fflush.o                   172
+    fputc.o                     84
+    fseek.o                     36
+    printf.o                    40
+    putchar.o                   12
+    snprintf.o                  68
+    sprintf.o                   64
+    strncmp.o                   40
+    xcloseall.o                 60
+    xencoding_8859_1.o          30
+    xfail_s.o                   64                 4
+    xfgpos.o                    12
+    xfiles.o                             94      408
+    xfofind.o                  140
+    xfspos.o                   216
+    xfwprep.o                  180
+    xgetmemchunk.o              44                 4
+    xlocale_c.o                120       55      128
+    xmbcurmax.o                 10
+    xprintffull.o            3 910
+    xprout.o                    22
+    xsnprout.o                  26
+    xsprout.o                   10
+    ------------------------------------------------
+    Total:                  11 108      149    1 168
+
+iar_cortexM4lf_math.a: [3]
+    arm_common_tables.o               2 052
+    arm_sin_f32.o              140
+    ------------------------------------------------
+    Total:                     140    2 052
+
+m7M_tls.a: [4]
+    DblAdd.o                   362
+    DblCmpGe.o                  46
+    DblCmpLe.o                  46
+    DblDiv.o                   582
+    DblMul.o                   418
+    DblSub.o                   226
+    DblToS32.o                  58
+    DblToU32.o                  40
+    FltToDbl.o                  72
+    S32ToDbl.o                  34
+    U32ToDbl.o                  26
+    fpinit_M.o                  34
+    frexp.o                    112
+    ldexp.o                    314
+    ------------------------------------------------
+    Total:                   2 370
+
+rt7M_tl.a: [5]
+    ABImemclr.o                  6
+    ABImemclr4.o                 6
+    ABImemcpy.o                166
+    ABImemset.o                 94
+    ABImemset48.o               58
+    I64DivMod.o                560
+    I64DivZer.o                  2
+    cexit.o                     14
+    cmain.o                     30
+    cstart_closeall.o
+    cstartup_M.o                12
+    data_init.o                 40
+    memchr.o                    88
+    packbits_init.o            156
+    strchr.o                    22
+    strcpy_fast.o              140
+    strlen.o                    54
+    strncpy.o                  112
+    zero_init3.o                58
+    ------------------------------------------------
+    Total:                   1 618
+
+shb_l.a: [6]
+    close.o                     24
+    exit.o                      20
+    lseek.o                     74
+    remove.o                    20
+    ------------------------------------------------
+    Total:                     138
+
+    Gaps                        48        2
+    Linker created                       44   66 560
+----------------------------------------------------
+    Grand Total:            43 966    5 469   69 216
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base        0xbf88          --   Gb  - Linker created -
+.iar.init_table$$Limit       0xbfb4          --   Gb  - Linker created -
+.text$$Base                   0x410          --   Gb  - Linker created -
+.text$$Limit                 0xabbe          --   Gb  - Linker created -
+?main                        0xa54d         Code  Gb  cmain.o [5]
+ADC0_config                  0xa2ec    0xc  Data  Gb  peripherals.o [1]
+ADC16_DoAutoCalibration
+                             0x8651   0xec  Code  Gb  fsl_adc16.o [1]
+ADC16_Init                   0x859d   0xa8  Code  Gb  fsl_adc16.o [1]
+ADC16_SetChannelMuxMode
+                             0x873d   0x12  Code  Gb  fsl_adc16.o [1]
+ADC16_SetHardwareAverage
+                             0x874f   0x18  Code  Gb  fsl_adc16.o [1]
+ADC1_config                  0xa2f8    0xc  Data  Gb  peripherals.o [1]
+BUTTON_ExtIsr                0x45ed   0xb8  Code  Gb  drv_button.o [1]
+BUTTON_GetPortInst           0x45a5    0xe  Code  Gb  drv_button.o [1]
+BUTTON_GetPortInst::lut
+                        0x2000'0198   0x14  Data  Lc  drv_button.o [1]
+BUTTON_PitIsr                0x46a5   0xc2  Code  Gb  drv_button.o [1]
+BUTTON_Setup                 0x45b3   0x3a  Code  Gb  drv_button.o [1]
+CAN0_DriverIRQHandler        0x91f5   0x16  Code  Gb  fsl_flexcan.o [1]
+CAN1_DriverIRQHandler        0x920b   0x16  Code  Gb  fsl_flexcan.o [1]
+CLOCK_BootToPeeMode          0x6e0f   0xc8  Code  Gb  fsl_clock.o [1]
+CLOCK_GetFllFreq::fllFactorTable
+                             0x6d88   0x10  Data  Lc  fsl_clock.o [1]
+CLOCK_GetFreq                0x6079  0xcb4  Code  Gb  fsl_clock.o [1]
+CLOCK_InitOsc0               0x6da9   0x66  Code  Gb  fsl_clock.o [1]
+CLOCK_SetSimConfig           0x6d35   0x46  Code  Gb  fsl_clock.o [1]
+CSTACK$$Base            0x2002'fc00          --   Gb  - Linker created -
+CSTACK$$Limit           0x2003'0000          --   Gb  - Linker created -
+CacheMore                    0x7521   0x24  Code  Lc  xlocale_c.o [2]
+DC_config               0x2000'034a    0x2  Data  Gb  drv_disp_ssd1306.o [1]
+DC_port_config          0x2000'0342    0x2  Data  Gb  drv_disp_ssd1306.o [1]
+DMA0_DMA16_DriverIRQHandler
+                             0x8d93   0x3c  Code  Gb  fsl_edma.o [1]
+DMA10_DMA26_DriverIRQHandler
+                             0x8fe7   0x3a  Code  Gb  fsl_edma.o [1]
+DMA11_DMA27_DriverIRQHandler
+                             0x9021   0x3a  Code  Gb  fsl_edma.o [1]
+DMA12_DMA28_DriverIRQHandler
+                             0x905b   0x3a  Code  Gb  fsl_edma.o [1]
+DMA13_DMA29_DriverIRQHandler
+                             0x9099   0x3a  Code  Gb  fsl_edma.o [1]
+DMA14_DMA30_DriverIRQHandler
+                             0x90d3   0x3a  Code  Gb  fsl_edma.o [1]
+DMA15_DMA31_DriverIRQHandler
+                             0x910d   0x3a  Code  Gb  fsl_edma.o [1]
+DMA1_DMA17_DriverIRQHandler
+                             0x8dcf   0x40  Code  Gb  fsl_edma.o [1]
+DMA2_DMA18_DriverIRQHandler
+                             0x8e0f   0x40  Code  Gb  fsl_edma.o [1]
+DMA3_DMA19_DriverIRQHandler
+                             0x8e4f   0x3c  Code  Gb  fsl_edma.o [1]
+DMA4_DMA20_DriverIRQHandler
+                             0x8e8b   0x3a  Code  Gb  fsl_edma.o [1]
+DMA5_DMA21_DriverIRQHandler
+                             0x8ec5   0x3a  Code  Gb  fsl_edma.o [1]
+DMA6_DMA22_DriverIRQHandler
+                             0x8eff   0x3a  Code  Gb  fsl_edma.o [1]
+DMA7_DMA23_DriverIRQHandler
+                             0x8f39   0x3a  Code  Gb  fsl_edma.o [1]
+DMA8_DMA24_DriverIRQHandler
+                             0x8f73   0x3a  Code  Gb  fsl_edma.o [1]
+DMA9_DMA25_DriverIRQHandler
+                             0x8fad   0x3a  Code  Gb  fsl_edma.o [1]
+DMAMUX_Init                  0x8bdd   0x26  Code  Gb  fsl_dmamux.o [1]
+DbgConsole_Init              0x8771   0x6a  Code  Gb  fsl_debug_console.o [1]
+EDMA_HandleIRQ               0x8d01   0x92  Code  Gb  fsl_edma.o [1]
+EDMA_Init                    0x8c9d   0x5e  Code  Gb  fsl_edma.o [1]
+EDMA_config                  0xa210    0x4  Data  Gb  peripherals.o [1]
+ENET_1588_Timer_IRQHandler
+                             0x91d7   0x16  Code  Gb  fsl_enet.o [1]
+ENET_Error_IRQHandler        0x91c1   0x16  Code  Gb  fsl_enet.o [1]
+ENET_Receive_IRQHandler
+                             0x91ab   0x16  Code  Gb  fsl_enet.o [1]
+ENET_Transmit_IRQHandler
+                             0x9195   0x16  Code  Gb  fsl_enet.o [1]
+EXTINT_Init                  0x4771   0x38  Code  Gb  sys_extint.o [1]
+EXTINT_PortSetup             0x47a9   0xa6  Code  Gb  sys_extint.o [1]
+F6x8                         0xb9a8  0x228  Data  Gb  drv_disp_ssd1306.o [1]
+FLASH_AddressRead            0x4009   0x94  Code  Gb  drv_ftfx_flash.o [1]
+FLASH_Erase                  0x4cc1   0x4c  Code  Gb  fsl_ftfx_flash.o [1]
+FLASH_GetPhysicalAddress
+                             0x3fe7   0x22  Code  Gb  drv_ftfx_flash.o [1]
+FLASH_GetProperty            0x4e09   0x76  Code  Gb  fsl_ftfx_flash.o [1]
+FLASH_GetSecurityState       0x4dfd    0x4  Code  Gb  fsl_ftfx_flash.o [1]
+FLASH_Init                   0x4c25   0x9c  Code  Gb  fsl_ftfx_flash.o [1]
+FLASH_Program                0x4d0d   0x4c  Code  Gb  fsl_ftfx_flash.o [1]
+FLASH_SectorRead             0x409d   0x92  Code  Gb  drv_ftfx_flash.o [1]
+FLASH_SectorWrite            0x4135   0xc2  Code  Gb  drv_ftfx_flash.o [1]
+FLASH_SimpleInit             0x3f25   0xc2  Code  Gb  drv_ftfx_flash.o [1]
+FLASH_VerifyErase            0x4d59   0x4c  Code  Gb  fsl_ftfx_flash.o [1]
+FLASH_VerifyProgram          0x4da5   0x58  Code  Gb  fsl_ftfx_flash.o [1]
+FTFx_API_Init                0x712d   0x5a  Code  Gb  fsl_ftfx_controller.o [1]
+FTFx_CACHE_ClearCachePrefetchSpeculation
+                             0x4ec5   0x2c  Code  Gb  fsl_ftfx_cache.o [1]
+FTFx_CACHE_Init              0x4ea1   0x24  Code  Gb  fsl_ftfx_cache.o [1]
+FTFx_CMD_Erase               0x7195   0xaa  Code  Gb  fsl_ftfx_controller.o [1]
+FTFx_CMD_Program             0x723f   0xf6  Code  Gb  fsl_ftfx_controller.o [1]
+FTFx_CMD_VerifyErase         0x7335   0xd2  Code  Gb  fsl_ftfx_controller.o [1]
+FTFx_CMD_VerifyProgram       0x7407   0xcc  Code  Gb  fsl_ftfx_controller.o [1]
+FTFx_REG_GetSecurityState
+                             0x74d3   0x2e  Code  Gb  fsl_ftfx_controller.o [1]
+FTM0_MOTOR_centerPwmSignalParams
+                             0xa240   0x10  Data  Gb  peripherals.o [1]
+FTM0_MOTOR_config            0xa224   0x1c  Data  Gb  peripherals.o [1]
+FTM1_ENC_L_config            0xa250   0x1c  Data  Gb  peripherals.o [1]
+FTM1_ENC_L_phaseAParams
+                             0xa26c    0xc  Data  Gb  peripherals.o [1]
+FTM1_ENC_L_phaseBParams
+                             0xa278    0xc  Data  Gb  peripherals.o [1]
+FTM2_ENC_R_config            0xa284   0x1c  Data  Gb  peripherals.o [1]
+FTM2_ENC_R_phaseAParams
+                             0xa2a0    0xc  Data  Gb  peripherals.o [1]
+FTM2_ENC_R_phaseBParams
+                             0xa2ac    0xc  Data  Gb  peripherals.o [1]
+FTM3_SERVO_centerPwmSignalParams
+                             0xa2d4    0x8  Data  Gb  peripherals.o [1]
+FTM3_SERVO_config            0xa2b8   0x1c  Data  Gb  peripherals.o [1]
+FTM_Init                     0x9231  0x202  Code  Gb  fsl_ftm.o [1]
+FTM_SetupPwm                 0x9435  0x1a6  Code  Gb  fsl_ftm.o [1]
+FTM_SetupQuadDecode          0x95db   0x64  Code  Gb  fsl_ftm.o [1]
+GPIO_PinInit                 0x4ad9   0x28  Code  Gb  fsl_gpio.o [1]
+HAL_UartInit                 0x88e9   0x86  Code  Gb  uart_adapter.o [1]
+HAL_UartSendBlocking         0x8971   0x14  Code  Gb  uart_adapter.o [1]
+HEAP$$Base              0x2000'0a60          --   Gb  - Linker created -
+HEAP$$Limit             0x2001'0a60          --   Gb  - Linker created -
+HardFault_Handler            0x8591         Code  Gb  cmb_fault.o [1]
+I2C0_DriverIRQHandler        0x9809   0x28  Code  Gb  fsl_i2c.o [1]
+I2C0_IMU_config              0xa218    0xc  Data  Gb  peripherals.o [1]
+I2C1_DriverIRQHandler        0x9831   0x28  Code  Gb  fsl_i2c.o [1]
+I2C2_DriverIRQHandler        0x9861   0x28  Code  Gb  fsl_i2c.o [1]
+I2C3_DriverIRQHandler        0x9889   0x28  Code  Gb  fsl_i2c.o [1]
+I2C_MasterInit               0x9669  0x182  Code  Gb  fsl_i2c.o [1]
+I2S0_Rx_DriverIRQHandler
+                             0x990b   0x16  Code  Gb  fsl_sai.o [1]
+I2S0_Tx_DriverIRQHandler
+                             0x98f5   0x16  Code  Gb  fsl_sai.o [1]
+L1CACHE_InvalidateCodeCache
+                             0x4f3d   0x1a  Code  Gb  fsl_cache.o [1]
+LPUART0_DriverIRQHandler
+                             0x98d5   0x16  Code  Gb  fsl_lpuart.o [1]
+List_Constructor             0x5f03   0x2c  Code  Gb  lib_list.o [1]
+List_Create                  0x5f2f   0x32  Code  Gb  lib_list.o [1]
+List_Erase                   0x5fa3   0x30  Code  Gb  lib_list.o [1]
+List_Insert                  0x5f61   0x42  Code  Gb  lib_list.o [1]
+List_ItBegin                 0x5fd3    0x4  Code  Gb  lib_list.o [1]
+List_ItEnd                   0x5fd7    0x4  Code  Gb  lib_list.o [1]
+LoadInt                      0x511f   0x7a  Code  Lc  xprintffull.o [2]
+MENU_ButtonCallback          0x1e5d   0x8c  Code  Gb  app_menu_button.o [1]
+MENU_ButtonExtIsr0           0x1d2d    0x6  Code  Gb  app_menu_button.o [1]
+MENU_ButtonExtIsr1           0x1d33    0x6  Code  Gb  app_menu_button.o [1]
+MENU_ButtonExtIsr2           0x1d39    0x6  Code  Gb  app_menu_button.o [1]
+MENU_ButtonExtIsr3           0x1d3f    0x6  Code  Gb  app_menu_button.o [1]
+MENU_ButtonExtIsr4           0x1d45    0x6  Code  Gb  app_menu_button.o [1]
+MENU_ButtonPitIsr            0x1e2d   0x2e  Code  Gb  app_menu_button.o [1]
+MENU_ButtonSetup             0x1d4b   0xe2  Code  Gb  app_menu_button.o [1]
+MENU_DataSetUp::T_flt   0x2000'0184    0x4  Data  Lc  app_menu.o [1]
+MENU_DataSetUp::T_int   0x2000'0180    0x4  Data  Lc  app_menu.o [1]
+MENU_DataSetUp::testList
+                        0x2000'017c    0x4  Data  Lc  app_menu.o [1]
+MENU_Data_NvmCopy_boxed
+                              0x96d   0x4a  Code  Gb  app_menu.o [1]
+MENU_Data_NvmRead             0x855  0x118  Code  Gb  app_menu.o [1]
+MENU_Data_NvmSave             0x719  0x13c  Code  Gb  app_menu.o [1]
+MENU_Init                     0x411  0x24e  Code  Gb  app_menu.o [1]
+MENU_ItemConstruct           0x1111  0x17a  Code  Gb  app_menu_type.o [1]
+MENU_ItemGetData             0x12a1   0x2a  Code  Gb  app_menu_type.o [1]
+MENU_ItemKeyOp               0x133d   0x14  Code  Gb  app_menu_type.o [1]
+MENU_ItemKeyOp_varfType
+                              0xf59  0x1a4  Code  Gb  app_menu_type.o [1]
+MENU_ItemKeyOp_variType
+                              0xcc1  0x11e  Code  Gb  app_menu_type.o [1]
+MENU_ItemPrintDisp           0x1329   0x14  Code  Gb  app_menu_type.o [1]
+MENU_ItemPrintDisp_varfType
+                              0xde9  0x10a  Code  Gb  app_menu_type.o [1]
+MENU_ItemPrintDisp_variType
+                              0xb75  0x10a  Code  Gb  app_menu_type.o [1]
+MENU_ItemSetData             0x12cb   0x56  Code  Gb  app_menu_type.o [1]
+MENU_ListConstruct           0x1351  0x1cc  Code  Gb  app_menu_type.o [1]
+MENU_ListInsert              0x1535   0x20  Code  Gb  app_menu_type.o [1]
+MENU_ListKeyOp               0x174d  0x51e  Code  Gb  app_menu_type.o [1]
+MENU_ListPrintDisp           0x1555  0x1d8  Code  Gb  app_menu_type.o [1]
+MENU_NvmCacheable            0x3e91   0x1c  Code  Gb  app_menu_nvm.o [1]
+MENU_NvmRead                 0x3e8d    0x4  Code  Gb  app_menu_nvm.o [1]
+MENU_NvmUpdateCache          0x3eff   0x1e  Code  Gb  app_menu_nvm.o [1]
+MENU_NvmWriteCache           0x3ead   0x52  Code  Gb  app_menu_nvm.o [1]
+MENU_PrintDisp                0x65f   0xb4  Code  Gb  app_menu.o [1]
+OLED_Fill                    0x1f55  0x162  Code  Gb  drv_disp_ssd1306.o [1]
+OLED_Init                    0x20b7  0x6bc  Code  Gb  drv_disp_ssd1306.o [1]
+OLED_PrintStr_F6x8           0x2779  0x1e0  Code  Gb  drv_disp_ssd1306.o [1]
+PIT2_IRQHandler              0x49fb   0xce  Code  Gb  sys_pitmgr.o [1]
+PITMGR_GetLTC_ms             0x499b   0x34  Code  Gb  sys_pitmgr.o [1]
+PITMGR_HandleInsert          0x49cf   0x2c  Code  Gb  sys_pitmgr.o [1]
+PITMGR_Init                  0x4985   0x16  Code  Gb  sys_pitmgr.o [1]
+PIT_GetLifetimeTimerCount
+                             0x6061   0x12  Code  Gb  fsl_pit.o [1]
+PIT_Init                     0x5fdd   0x7a  Code  Gb  fsl_pit.o [1]
+PIT_config                   0xa214    0x1  Data  Gb  peripherals.o [1]
+PORTA_IRQHandler             0x484f   0x2e  Code  Gb  sys_extint.o [1]
+PORTA_irq_list          0x2000'06e4   0x10  Data  Gb  sys_extint.o [1]
+PORTB_IRQHandler             0x487d   0x32  Code  Gb  sys_extint.o [1]
+PORTB_irq_list          0x2000'06f4   0x10  Data  Gb  sys_extint.o [1]
+PORTC_IRQHandler             0x48af   0x32  Code  Gb  sys_extint.o [1]
+PORTC_irq_list          0x2000'0704   0x10  Data  Gb  sys_extint.o [1]
+PORTD_IRQHandler             0x48e1   0x32  Code  Gb  sys_extint.o [1]
+PORTD_irq_list          0x2000'0714   0x10  Data  Gb  sys_extint.o [1]
+PORTE_IRQHandler             0x4913   0x32  Code  Gb  sys_extint.o [1]
+PORTE_irq_list          0x2000'0724   0x10  Data  Gb  sys_extint.o [1]
+RST_config              0x2000'0348    0x2  Data  Gb  drv_disp_ssd1306.o [1]
+RST_port_config         0x2000'0340    0x2  Data  Gb  drv_disp_ssd1306.o [1]
+RTECLK_HsRun_180MHz          0x7d75   0x44  Code  Gb  clock_config.o [1]
+RTEPIN_BasicPin              0x99f1   0x32  Code  Gb  pin_mux.o [1]
+RTEPIN_Board                 0x9a5d  0x4e4  Code  Gb  pin_mux.o [1]
+RTEPIN_Uart0_SWO             0x9a23   0x36  Code  Gb  pin_mux.o [1]
+RTEPIP_ANALOG                0xa185   0x56  Code  Gb  peripherals.o [1]
+RTEPIP_BasicPip              0x9fcd   0xc4  Code  Gb  peripherals.o [1]
+RTEPIP_Digital               0xa091   0xf4  Code  Gb  peripherals.o [1]
+RW$$Base                0x2000'0000          --   Gb  - Linker created -
+RW$$Limit               0x2000'034c          --   Gb  - Linker created -
+Region$$Table$$Base          0xbf88          --   Gb  - Linker created -
+Region$$Table$$Limit         0xbfb4          --   Gb  - Linker created -
+Reserved71_IRQHandler         0x9b7   0xf2  Code  Gb  app_menu.o [1]
+SCL_config              0x2000'0344    0x2  Data  Gb  drv_disp_ssd1306.o [1]
+SCL_port_config         0x2000'033c    0x2  Data  Gb  drv_disp_ssd1306.o [1]
+SDA_config              0x2000'0346    0x2  Data  Gb  drv_disp_ssd1306.o [1]
+SDA_port_config         0x2000'033e    0x2  Data  Gb  drv_disp_ssd1306.o [1]
+SDHC_DriverIRQHandler        0x9929   0x16  Code  Gb  fsl_sdhc.o [1]
+SPI0_DriverIRQHandler        0x8c11   0x28  Code  Gb  fsl_dspi.o [1]
+SPI1_DriverIRQHandler        0x8c39   0x28  Code  Gb  fsl_dspi.o [1]
+SPI2_DriverIRQHandler        0x8c61   0x28  Code  Gb  fsl_dspi.o [1]
+SerialManager_Init           0x8819   0x2a  Code  Gb  serial_manager.o [1]
+SerialManager_OpenReadHandle
+                             0x8861   0x26  Code  Gb  serial_manager.o [1]
+SerialManager_OpenWriteHandle
+                             0x8843   0x1e  Code  Gb  serial_manager.o [1]
+SerialManager_WriteBlocking
+                             0x8887   0x22  Code  Gb  serial_manager.o [1]
+Serial_UartInit              0x88a9   0x3a  Code  Gb  serial_port_uart.o [1]
+Serial_UartWrite             0x88e3    0x4  Code  Gb  serial_port_uart.o [1]
+SystemCoreClock         0x2000'01c0    0x4  Data  Gb  system_MK66F18.o [1]
+SystemInit                   0xa4f9   0x22  Code  Gb  system_MK66F18.o [1]
+UART0_RX_TX_DriverIRQHandler
+                             0x8b1d   0x1a  Code  Gb  fsl_uart.o [1]
+UART1_RX_TX_DriverIRQHandler
+                             0x8b37   0x1a  Code  Gb  fsl_uart.o [1]
+UART2_RX_TX_DriverIRQHandler
+                             0x8b59   0x1a  Code  Gb  fsl_uart.o [1]
+UART3_CAM_config             0xa2dc   0x10  Data  Gb  peripherals.o [1]
+UART3_RX_TX_DriverIRQHandler
+                             0x8b79   0x1a  Code  Gb  fsl_uart.o [1]
+UART4_RX_TX_DriverIRQHandler
+                             0x8b93   0x1a  Code  Gb  fsl_uart.o [1]
+UART_GetDefaultConfig        0x8ac9   0x2a  Code  Gb  fsl_uart.o [1]
+UART_Init                    0x8999  0x130  Code  Gb  fsl_uart.o [1]
+UART_WriteBlocking           0x8af3   0x18  Code  Gb  fsl_uart.o [1]
+ZI$$Base                0x2000'034c          --   Gb  - Linker created -
+ZI$$Limit               0x2000'0a60          --   Gb  - Linker created -
+_Close_all                   0xa5a9   0x3c  Code  Gb  xcloseall.o [2]
+_Encoding_8859_1_Mbrlen
+                             0x4475    0x2  Code  Gb  xencoding_8859_1.o [2]
+_Encoding_8859_1_Wctomb
+                             0x4463   0x12  Code  Gb  xencoding_8859_1.o [2]
+_Files                  0x2000'031c   0x20  Data  Gb  xfiles.o [2]
+_Fofree                      0xa665   0x86  Code  Gb  xfofind.o [2]
+_Fspos                       0xa9cd   0xd8  Code  Gb  xfspos.o [2]
+_Fwprep                      0xa8f5   0xb4  Code  Gb  xfwprep.o [2]
+_GenldFull                   0x5b7d  0x274  Code  Lc  xprintffull.o [2]
+_LdtobFull                   0x5779  0x3d6  Code  Lc  xprintffull.o [2]
+_LitobFull                   0x5629  0x10a  Code  Lc  xprintffull.o [2]
+_Locale_lconv           0x2000'01c4   0x38  Data  Lc  xlocale_c.o [2]
+_Nnl                         0xaaa5    0xc  Code  Gb  xfgpos.o [2]
+_PrintfFull                  0x4f5d  0x1aa  Code  Gb  xprintffull.o [2]
+_Prout                       0xab0d   0x16  Code  Gb  xprout.o [2]
+_PutcharsFull                0x5df1   0x2e  Code  Lc  xprintffull.o [2]
+_PutfldFull                  0x5199  0x2d4  Code  Lc  xprintffull.o [2]
+_PutstrFull                  0x5563   0xc6  Code  Lc  xprintffull.o [2]
+_PuttxtFull                  0x546d   0xf6  Code  Lc  xprintffull.o [2]
+_SNProut                     0x4263   0x1a  Code  Gb  xsnprout.o [2]
+_SProut                      0x441f    0xa  Code  Gb  xsprout.o [2]
+__Vectors                       0x0          --   Gb  startup_MK66F18.o [1]
+__Vectors_End                 0x400         Data  Gb  startup_MK66F18.o [1]
+__Vectors_Size {Abs}          0x400          --   Gb  startup_MK66F18.o [1]
+__aeabi_cdcmple              0x76f9         Code  Gb  DblCmpLe.o [4]
+__aeabi_cdrcmple             0x7729         Code  Gb  DblCmpGe.o [4]
+__aeabi_d2iz                 0x4429         Code  Gb  DblToS32.o [4]
+__aeabi_d2uiz                0x7bc1         Code  Gb  DblToU32.o [4]
+__aeabi_ddiv                 0x7979         Code  Gb  DblDiv.o [4]
+__aeabi_dmul                 0x427d         Code  Gb  DblMul.o [4]
+__aeabi_dsub                 0x7895         Code  Gb  DblSub.o [4]
+__aeabi_f2d                  0x44c5         Code  Gb  FltToDbl.o [4]
+__aeabi_i2d                  0x4241         Code  Gb  S32ToDbl.o [4]
+__aeabi_ldiv0                0x7c05         Code  Gb  I64DivZer.o [5]
+__aeabi_memclr               0x4b6d         Code  Gb  ABImemclr.o [5]
+__aeabi_memclr4              0x4c1d         Code  Gb  ABImemclr4.o [5]
+__aeabi_memcpy               0x4b75         Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy4              0x4b95         Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy8              0x4b95         Code  Gb  ABImemcpy.o [5]
+__aeabi_memset4              0x1f19         Code  Gb  ABImemset48.o [5]
+__aeabi_memset8              0x1f19         Code  Gb  ABImemset48.o [5]
+__aeabi_ui2d                 0x7be9         Code  Gb  U32ToDbl.o [4]
+__aeabi_uldivmod             0x6ee9         Code  Gb  I64DivMod.o [5]
+__cexit_closeall             0xa59b         Code  Gb  cexit.o [5]
+__close                      0xa79d   0x18  Code  Gb  close.o [6]
+__cmain                      0xa54d         Code  Gb  cmain.o [5]
+__cstart_closeall            0xaafc         Data  Gb  cstart_closeall.o [5]
+__data_GetMemChunk           0x4b41   0x2c  Code  Gb  xgetmemchunk.o [2]
+__data_GetMemChunk::start
+                        0x2000'0938    0x4  Data  Lc  xgetmemchunk.o [2]
+__exit                       0x7119   0x14  Code  Gb  exit.o [6]
+__iar_Fail_s                 0x75ad   0x1c  Code  Gb  xfail_s.o [2]
+__iar_Mbcurmax               0x767d    0xa  Code  Gb  xmbcurmax.o [2]
+__iar_Memchr                 0x7625         Code  Gb  memchr.o [5]
+__iar_Memset4_word           0x1f21         Code  Gb  ABImemset48.o [5]
+__iar_Memset8_word           0x1f21         Code  Gb  ABImemset48.o [5]
+__iar_Memset_word            0x5ea5         Code  Gb  ABImemset.o [5]
+__iar_Stderr            0x2000'02d4   0x48  Data  Gb  xfiles.o [2]
+__iar_Stdin             0x2000'0244   0x48  Data  Gb  xfiles.o [2]
+__iar_Stdout            0x2000'028c   0x48  Data  Gb  xfiles.o [2]
+__iar_Strchr                 0x7595         Code  Gb  strchr.o [5]
+__iar_dadd                   0x78a5         Code  Gb  DblSub.o [4]
+__iar_data_init3             0xa56d   0x28  Code  Gb  data_init.o [5]
+__iar_dlcalloc               0x3e41   0x3e  Code  Gb  dlmalloc.o [2]
+__iar_dlfree                 0x394b  0x4f6  Code  Gb  dlmalloc.o [2]
+__iar_dlmalloc               0x3695  0x2b6  Code  Gb  dlmalloc.o [2]
+__iar_dsub                   0x7c09         Code  Gb  DblAdd.o [4]
+__iar_dsubStart              0x7c1b         Code  Gb  DblAdd.o [4]
+__iar_fast_strcpy            0x84c5         Code  Gb  strcpy_fast.o [5]
+__iar_frexp                  0x7695         Code  Gb  frexp.o [4]
+__iar_frexpl                 0x7695         Code  Gb  frexp.o [4]
+__iar_globLocale        0x2000'01fc   0x48  Data  Lc  xlocale_c.o [2]
+__iar_global_Locale          0x751d    0x4  Code  Gb  xlocale_c.o [2]
+__iar_init_vfp               0xa529         Code  Gb  fpinit_M.o [4]
+__iar_ldexp64                0x7759         Code  Gb  ldexp.o [4]
+__iar_packbits_init3         0xab23   0x9c  Code  Gb  packbits_init.o [5]
+__iar_program_start          0xab01         Code  Gb  cstartup_M.o [5]
+__iar_scalbln64              0x7759         Code  Gb  ldexp.o [4]
+__iar_scalbn64               0x7759         Code  Gb  ldexp.o [4]
+__iar_sh_Discard             0xa7c9   0x42  Code  Gb  XShHandles.o [2]
+__iar_sh_Move                0xa80b   0x46  Code  Gb  XShHandles.o [2]
+__iar_sh_Pos                 0xa851   0x3e  Code  Gb  XShHandles.o [2]
+__iar_softfp___iar_frexp64
+                             0x7689         Code  Gb  frexp.o [4]
+__iar_softfp_frexp           0x7689         Code  Gb  frexp.o [4]
+__iar_softfp_frexpl          0x7689         Code  Gb  frexp.o [4]
+__iar_zero_init3             0x4b07   0x3a  Code  Gb  zero_init3.o [5]
+__lseek                      0xaab1   0x4a  Code  Gb  lseek.o [6]
+__vector_table                  0x0         Data  Gb  startup_MK66F18.o [1]
+__vector_table_0x1c            0x1c         Data  Gb  startup_MK66F18.o [1]
+__write                      0x87f1   0x28  Code  Wk  fsl_debug_console.o [1]
+_call_main                   0xa559         Code  Gb  cmain.o [5]
+_exit                        0xa599         Code  Gb  cexit.o [5]
+_gLocale_mblen               0x7581    0x4  Code  Gb  xlocale_c.o [2]
+_gLocale_mblenInt            0x7545   0x2c  Code  Gb  xlocale_c.o [2]
+_gLocale_wctomb              0x7585    0x4  Code  Gb  xlocale_c.o [2]
+_gLocale_wctombInt           0x757d    0x4  Code  Gb  xlocale_c.o [2]
+_gm_                    0x2000'0760  0x1d8  Data  Lc  dlmalloc.o [2]
+_main                        0xa567         Code  Gb  cmain.o [5]
+abort                        0x4b01    0x6  Code  Gb  abort.o [2]
+add_segment                  0x2d35  0x1f2  Code  Lc  dlmalloc.o [2]
+arm_sin_f32                  0xa305   0x8c  Code  Gb  arm_sin_f32.o [3]
+call_stack_info         0x2000'03c0   0x90  Data  Lc  cm_backtrace.o [1]
+cm_backtrace_fault           0x80d5  0x312  Code  Gb  cm_backtrace.o [1]
+cm_backtrace_fault::__FUNCTION__
+                             0x8484   0x14  Data  Lc  cm_backtrace.o [1]
+cm_backtrace_init            0x7df1   0x68  Code  Gb  cm_backtrace.o [1]
+code_size               0x2000'0460    0x4  Data  Lc  cm_backtrace.o [1]
+code_start_addr         0x2000'045c    0x4  Data  Lc  cm_backtrace.o [1]
+ebuf                    0x2000'0940   0x50  Data  Lc  xfiles.o [2]
+exit                         0xa595    0x4  Code  Gb  exit.o [2]
+fault_diagnosis              0x7e5d  0x274  Code  Lc  cm_backtrace.o [1]
+fclose                       0xa5e5   0x7e  Code  Gb  fclose.o [2]
+fflush                       0xa765   0x34  Code  Gb  fflush.o [2]
+fflushOne                    0xa6f1   0x74  Code  Lc  fflush.o [2]
+flash_blockBaseAddr     0x2000'04c8    0x4  Data  Gb  drv_ftfx_flash.o [1]
+flash_cacheConfig       0x2000'0538    0x8  Data  Gb  drv_ftfx_flash.o [1]
+flash_config            0x2000'04d4   0x64  Data  Gb  drv_ftfx_flash.o [1]
+flash_sectorSize        0x2000'04d0    0x4  Data  Gb  drv_ftfx_flash.o [1]
+flash_securityStatus    0x2000'04c4    0x4  Data  Gb  drv_ftfx_flash.o [1]
+flash_totalSize         0x2000'04cc    0x4  Data  Gb  drv_ftfx_flash.o [1]
+fputc                        0xa8a1   0x54  Code  Gb  fputc.o [2]
+fseek                        0xa9a9   0x24  Code  Gb  fseek.o [2]
+fw_name                 0x2000'0464   0x20  Data  Lc  cm_backtrace.o [1]
+g_dspiDummyData         0x2000'0574    0x4  Data  Gb  fsl_dspi.o [1]
+g_dspiHandle            0x2000'0560    0xc  Data  Lc  fsl_dspi.o [1]
+g_serialHandle          0x2000'055c    0x4  Data  Gb  fsl_debug_console.o [1]
+g_xtal0Freq             0x2000'01b8    0x4  Data  Gb  fsl_clock.o [1]
+g_xtal32Freq            0x2000'01bc    0x4  Data  Gb  fsl_clock.o [1]
+hw_ver                  0x2000'0484   0x20  Data  Lc  cm_backtrace.o [1]
+init_mparams                 0x2987   0x32  Code  Lc  dlmalloc.o [2]
+init_ok                 0x2000'0450    0x1  Data  Lc  cm_backtrace.o [1]
+init_top                     0x29b9   0x36  Code  Lc  dlmalloc.o [2]
+kPFlashDensities             0x4e80   0x20  Data  Lc  fsl_ftfx_flash.o [1]
+ldexp                        0x7759         Code  Gb  ldexp.o [4]
+ldexpl                       0x7759         Code  Gb  ldexp.o [4]
+localeconv                   0x7589    0x4  Code  Gb  xlocale_c.o [2]
+main                         0x9949   0x72  Code  Gb  main.o [1]
+main_stack_size         0x2000'0458    0x4  Data  Lc  cm_backtrace.o [1]
+main_stack_start_addr   0x2000'0454    0x4  Data  Lc  cm_backtrace.o [1]
+mcgConfig_RTECLK_HsRun_180MHz
+                             0x7dd4    0xc  Data  Gb  clock_config.o [1]
+memchr                       0x7625         Code  Gb  memchr.o [5]
+menu_butonPitMgrHandle  0x2000'00a4    0x4  Data  Gb  app_menu_button.o [1]
+menu_button             0x2000'0000   0xa0  Data  Gb  app_menu_button.o [1]
+menu_currItem           0x2000'015c    0x4  Data  Gb  app_menu.o [1]
+menu_currList           0x2000'0158    0x4  Data  Gb  app_menu.o [1]
+menu_currRegionNum      0x2000'0168    0x4  Data  Gb  app_menu.o [1]
+menu_dispStrBuf         0x2000'00a8   0xb0  Data  Gb  app_menu.o [1]
+menu_itemAdjustLut           0x10fc   0x10  Data  Gb  app_menu_type.o [1]
+menu_itemCnt            0x2000'0374    0x4  Data  Gb  app_menu_type.o [1]
+menu_keyOpBuff          0x2000'00a0    0x4  Data  Gb  app_menu_button.o [1]
+menu_listCnt            0x2000'0378    0x4  Data  Gb  app_menu_type.o [1]
+menu_manageList         0x2000'0164    0x4  Data  Gb  app_menu.o [1]
+menu_menuRoot           0x2000'0160    0x4  Data  Gb  app_menu.o [1]
+menu_nvmCopyDst         0x2000'0178    0x4  Data  Gb  app_menu.o [1]
+menu_nvmCopySrc         0x2000'0174    0x4  Data  Gb  app_menu.o [1]
+menu_nvm_cache          0x2000'036c    0x4  Data  Gb  app_menu_nvm.o [1]
+menu_nvm_cachedSector   0x2000'0370    0x4  Data  Gb  app_menu_nvm.o [1]
+menu_nvm_dataSize       0x2000'0194    0x4  Data  Gb  app_menu_nvm.o [1]
+menu_nvm_glAddrOffset   0x2000'034c    0x4  Data  Gb  app_menu_nvm.o [1]
+menu_nvm_glSectCnt      0x2000'0188    0x4  Data  Gb  app_menu_nvm.o [1]
+menu_nvm_glSectOffset   0x2000'018c    0x4  Data  Gb  app_menu_nvm.o [1]
+menu_nvm_rgAddrOffset   0x2000'035c    0xc  Data  Gb  app_menu_nvm.o [1]
+menu_nvm_rgSectCnt      0x2000'0190    0x4  Data  Gb  app_menu_nvm.o [1]
+menu_nvm_rgSectOffset   0x2000'0350    0xc  Data  Gb  app_menu_nvm.o [1]
+menu_nvm_statusFlagAddr
+                        0x2000'0170    0x4  Data  Gb  app_menu.o [1]
+menu_nvm_totalSectCnt   0x2000'0368    0x4  Data  Gb  app_menu_nvm.o [1]
+menu_statusFlag         0x2000'016c    0x4  Data  Gb  app_menu.o [1]
+mparams                 0x2000'0748   0x18  Data  Lc  dlmalloc.o [2]
+obuf                    0x2000'0990   0x50  Data  Lc  xfiles.o [2]
+on_fault                0x2000'0451    0x1  Data  Lc  cm_backtrace.o [1]
+oscConfig_RTECLK_HsRun_180MHz
+                             0x7de8    0x8  Data  Gb  clock_config.o [1]
+pitmgr_isrSet           0x2000'0738   0x10  Data  Gb  sys_pitmgr.o [1]
+pitmgr_timer_ms         0x2000'0734    0x4  Data  Gb  sys_pitmgr.o [1]
+prepend_alloc                0x29ef  0x346  Code  Lc  dlmalloc.o [2]
+printf                       0x4f15   0x28  Code  Gb  printf.o [2]
+putchar                      0xa895    0xc  Code  Gb  putchar.o [2]
+regs                    0x2000'037c   0x44  Data  Lc  cm_backtrace.o [1]
+remove                       0xa7b5   0x14  Code  Gb  remove.o [6]
+sFileInfo               0x2000'09e0   0x80  Data  Lc  XShHandles.o [2]
+s_EDMAHandle            0x2000'0578   0x80  Data  Lc  fsl_edma.o [1]
+s_ENETHandle            0x2000'05f8    0x4  Data  Lc  fsl_enet.o [1]
+s_UartAdapterBase            0x8984   0x14  Data  Lc  uart_adapter.o [1]
+s_adc16Clocks                0x8768    0x8  Data  Lc  fsl_adc16.o [1]
+s_debugConsoleState     0x2000'0540   0x1c  Data  Lc  fsl_debug_console.o [1]
+s_dmamuxClockName            0x8c0c    0x4  Data  Lc  fsl_dmamux.o [1]
+s_dspiMasterIsr         0x2000'056c    0x4  Data  Lc  fsl_dspi.o [1]
+s_dspiSlaveIsr          0x2000'0570    0x4  Data  Lc  fsl_dspi.o [1]
+s_edmaClockName              0x8cfc    0x4  Data  Lc  fsl_edma.o [1]
+s_enetErrIsr            0x2000'0604    0x4  Data  Lc  fsl_enet.o [1]
+s_enetRxIsr             0x2000'0600    0x4  Data  Lc  fsl_enet.o [1]
+s_enetTxIsr             0x2000'05fc    0x4  Data  Lc  fsl_enet.o [1]
+s_extPllFreq            0x2000'01b4    0x4  Data  Lc  fsl_clock.o [1]
+s_fastIrcFreq           0x2000'01b0    0x4  Data  Lc  fsl_clock.o [1]
+s_flexcanHandle         0x2000'0608    0x8  Data  Lc  fsl_flexcan.o [1]
+s_flexcanIsr            0x2000'0610    0x4  Data  Lc  fsl_flexcan.o [1]
+s_ftfxCommonBitOperation
+                        0x2000'0614   0x40  Data  Lc  fsl_ftfx_cache.o [1]
+s_ftfxCommonBitOperationFunctionCode
+                             0x4ef8   0x1c  Data  Lc  fsl_ftfx_cache.o [1]
+s_ftfxRunCommand        0x2000'0654   0x40  Data  Lc  fsl_ftfx_controller.o [1]
+s_ftfxRunCommandFunctionCode
+                             0x7188    0xc  Data  Lc  fsl_ftfx_controller.o [1]
+s_ftmClocks                  0x9658   0x10  Data  Lc  fsl_ftm.o [1]
+s_i2cClocks                  0x98c4   0x10  Data  Lc  fsl_i2c.o [1]
+s_i2cDividerTable            0xbea4   0x80  Data  Lc  fsl_i2c.o [1]
+s_i2cHandle             0x2000'0694   0x10  Data  Lc  fsl_i2c.o [1]
+s_i2cMasterIsr          0x2000'06a4    0x4  Data  Lc  fsl_i2c.o [1]
+s_i2cSlaveIsr           0x2000'06a8    0x4  Data  Lc  fsl_i2c.o [1]
+s_lpuartHandle          0x2000'06ac    0x4  Data  Lc  fsl_lpuart.o [1]
+s_lpuartIsr             0x2000'06b0    0x4  Data  Lc  fsl_lpuart.o [1]
+s_pitClocks                  0x6074    0x4  Data  Lc  fsl_pit.o [1]
+s_saiHandle             0x2000'06b4    0x8  Data  Lc  fsl_sai.o [1]
+s_saiRxIsr              0x2000'06c0    0x4  Data  Lc  fsl_sai.o [1]
+s_saiTxIsr              0x2000'06bc    0x4  Data  Lc  fsl_sai.o [1]
+s_sdhcHandle            0x2000'06c4    0x4  Data  Lc  fsl_sdhc.o [1]
+s_sdhcIsr               0x2000'06c8    0x4  Data  Lc  fsl_sdhc.o [1]
+s_slowIrcFreq           0x2000'01ac    0x4  Data  Lc  fsl_clock.o [1]
+s_uartClock                  0x8bc8   0x14  Data  Lc  fsl_uart.o [1]
+s_uartHandle            0x2000'06cc   0x14  Data  Lc  fsl_uart.o [1]
+s_uartIsr               0x2000'06e0    0x4  Data  Lc  fsl_uart.o [1]
+scalbln                      0x7759         Code  Gb  ldexp.o [4]
+scalblnl                     0x7759         Code  Gb  ldexp.o [4]
+scalbn                       0x7759         Code  Gb  ldexp.o [4]
+scalbnl                      0x7759         Code  Gb  ldexp.o [4]
+scale                        0x5733   0x46  Code  Lc  xprintffull.o [2]
+sec_hand                0x2000'093c    0x4  Data  Lc  xfail_s.o [2]
+segment_holding              0x296d   0x1a  Code  Lc  dlmalloc.o [2]
+simConfig_RTECLK_HsRun_180MHz
+                             0x7de0    0x8  Data  Gb  clock_config.o [1]
+sinTable_f32                 0xabc0  0x804  Data  Gb  arm_common_tables.o [3]
+snprintf                     0x4481   0x44  Code  Gb  snprintf.o [2]
+sprintf                      0x8551   0x40  Code  Gb  sprintf.o [2]
+stack_is_overflow       0x2000'0452    0x1  Data  Lc  cm_backtrace.o [1]
+strchr                       0x7595         Code  Gb  strchr.o [5]
+strlen                       0x75ed         Code  Gb  strlen.o [5]
+strncmp                      0x457d   0x28  Code  Gb  strncmp.o [2]
+strncpy                      0x450d         Code  Gb  strncpy.o [5]
+sw_ver                  0x2000'04a4   0x20  Data  Lc  cm_backtrace.o [1]
+sys_alloc                    0x2f2d  0x164  Code  Lc  dlmalloc.o [2]
+sys_trim                     0x3091   0x64  Code  Lc  dlmalloc.o [2]
+tmalloc_large                0x3101  0x386  Code  Lc  dlmalloc.o [2]
+tmalloc_small                0x3487  0x200  Code  Lc  dlmalloc.o [2]
+
+
+[1] = C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Obj
+[2] = dl7M_tlf.a
+[3] = iar_cortexM4lf_math.a
+[4] = m7M_tls.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  43 966 bytes of readonly  code memory
+   5 469 bytes of readonly  data memory
+  69 216 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

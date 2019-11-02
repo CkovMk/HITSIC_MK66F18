@@ -88,9 +88,9 @@
 #undef strcat
 #define strcat(x,y) BANNED(strcat)
 #undef strncpy
-#define strncpy(x,y,n) BANNED(strncpy)
+//#define strncpy(x,y,n) BANNED(strncpy)
 #undef strncat
-#define strncat(x,y,n) BANNED(strncat)
+//#define strncat(x,y,n) BANNED(strncat)
 
 #undef sprintf
 #undef vsprintf

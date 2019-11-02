@@ -2942,6 +2942,24 @@
                 <file>
                     <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu.h</name>
                 </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_button.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_button.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_nvm.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_nvm.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_type.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_type.h</name>
+                </file>
             </group>
             <group>
                 <name>drv</name>

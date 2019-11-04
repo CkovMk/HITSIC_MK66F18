@@ -76,6 +76,7 @@ void main()
     //OLED_PrintStr_F6x8(10,2,"OLED Test !");
     //OLED_PrintStr_F6x8(10,4,"OLED Test !");
     
+    /** 初始化结束，开启总中断 */
     __enable_irq();
 	
 	

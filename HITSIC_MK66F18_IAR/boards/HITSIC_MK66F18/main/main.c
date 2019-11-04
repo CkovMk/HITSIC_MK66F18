@@ -17,8 +17,6 @@
 
 #include "stdafx.h"
 
-#include "cm_backtrace.h"
-
 #include "rte_i2c.h"
 #include "rte_spi.h"
 #include "rte_softi2c.h"
@@ -31,60 +29,89 @@
 //#include "drv_button.h"   //未使用
 //#include "app_menu.h"     //仍在开发中...
 
+#include "cm_backtrace.h"
+
+#include "easyflash.h"
 
 drvimu_inv_device_t imu;
 
 void main()
 {
-    /** 初始化阶段，关闭总中断 */
-    __disable_irq();
-    
-    /** 初始化时钟 */
+	/** 初始化阶段，关闭总中断 */
+	__disable_irq();
+
+	/** 初始化时钟 */
 	RTECLK_HsRun_180MHz();
-    /** 初始化引脚路由 */
+	/** 初始化引脚路由 */
 	RTEPIN_BasicPin();
-    RTEPIN_Board();
-    //RTEPIN_Uart0_SPP();
+	RTEPIN_Board();
+	//RTEPIN_Uart0_SPP();
 	RTEPIN_Uart0_SWO();
-    /** 初始化外设 */
+	/** 初始化外设 */
 	RTEPIP_BasicPip();
 	RTEPIP_Digital();
 	RTEPIP_ANALOG();
-    /** 初始化调试串口 */
-    DbgConsole_Init(0U, 115200U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
-    printf("Hello, World!\n");
-    /** 初始化CMBackTrace */
-    cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
-    /** 初始化PIT中断管理器 */
-    PITMGR_Init();
-    /** 初始化I/O中断管理器 */
-    EXTINT_Init();
-    /** 初始化串口管理器 */
-    //UARTMGR_DataInit();
-    /** 初始化ftfx_Flash */
-    FLASH_SimpleInit();
-    /** 初始化OLED屏幕 */
-    OLED_Init();
-    /** 初始化菜单 */
-    MENU_Init();
-    MENU_PrintDisp();
-    /** 初始化摄像头 */
-    //CAMERA_Init();
-    /** 初始化IMU */
-    //DRVIMU_INV_GetDefaultConfig(&imu);
-    //OLED_PrintStr_F6x8(10,0,"OLED Test !");
-    //OLED_PrintStr_F6x8(10,2,"OLED Test !");
-    //OLED_PrintStr_F6x8(10,4,"OLED Test !");
-    
-    __enable_irq();
-	
-	
+	/** 初始化ftfx_Flash */
+	FLASH_SimpleInit();
+	/** 初始化调试串口 */
+	DbgConsole_Init(0U, 115200U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
+	/** 初始化CMBackTrace */
+	cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
+	/** 初始化EasyFlash */
+	easyflash_init();
+
+	printf("Hello, World!\n");
+
+	/** 初始化PIT中断管理器 */
+	PITMGR_Init();
+	/** 初始化I/O中断管理器 */
+	EXTINT_Init();
+	/** 初始化串口管理器 */
+	//UARTMGR_DataInit();
+
+	/** 初始化OLED屏幕 */
+	OLED_Init();
+	/** 初始化菜单 */
+	MENU_Init();
+	MENU_PrintDisp();
+	/** 初始化摄像头 */
+	//CAMERA_Init();
+	/** 初始化IMU */
+	//DRVIMU_INV_GetDefaultConfig(&imu);
+	//OLED_PrintStr_F6x8(10,0,"OLED Test !");
+	//OLED_PrintStr_F6x8(10,2,"OLED Test !");
+	//OLED_PrintStr_F6x8(10,4,"OLED Test !");
+
+	__enable_irq();
+
 	float f = arm_sin_f32(0.6f);
-	
-	while(1)
-    {
-        
-    }
-	
+
+	while (1)
+	{
+	}
 }
 
+void EF_Demo(void)
+{
+	int32_t read_ef_status = 0;
+	if (4u == ef_get_env_blob("ef_status", &read_ef_status, sizeof(int32_t)))
+	{
+		printf("ef_status = %d", read_ef_status);
+	}
+	else
+	{
+		printf("ef_status error!");
+		return;
+	}
+	read_ef_status = 0x55 << 24u;
+	ef_set_env_blob("ef_status", &read_ef_status, sizeof(int32_t));
+	printf("ef_status set to %d", read_ef_status);
+	if (4u == ef_get_env_blob("ef_status", &read_ef_status, sizeof(int32_t)))
+	{
+		printf("ef_status = %d", read_ef_status);
+	}
+	else
+	{
+		printf("ef_status error!");
+	}
+}

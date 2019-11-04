@@ -66,7 +66,7 @@
                 </option>
                 <option>
                     <name>OGLastSavedByProductVersion</name>
-                    <state>8.32.4.20866</state>
+                    <state>8.32.3.20186</state>
                 </option>
                 <option>
                     <name>GeneralEnableMisra</name>
@@ -362,9 +362,13 @@
                     <state>$PROJ_DIR$\..\..\..\components\lists</state>
                     <state>$PROJ_DIR$\..\..\..\components\serial_manager</state>
                     <state>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\cm_backtrace\cmb_1.3.0</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port</state>
                     <state>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\legacy_drivers</state>
                     <state>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18</state>
                     <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\cm_backtrace\cmb_1.3.0</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\inc</state>
                     <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\lib</state>
                     <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte</state>
                     <state>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv</state>
@@ -2635,6 +2639,15 @@
                         <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\cm_backtrace\cmb_1.3.0\cmb_def.h</name>
                     </file>
                 </group>
+                <group>
+                    <name>easyflash_4.0.0</name>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port\ef_cfg.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port\ef_port.c</name>
+                    </file>
+                </group>
             </group>
             <group>
                 <name>legacy_drivers</name>
@@ -2756,6 +2769,54 @@
                     </file>
                     <file>
                         <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\cm_backtrace\cmb_1.3.0\cmb_fault.S</name>
+                    </file>
+                </group>
+                <group>
+                    <name>easyflash_4.0.0</name>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\src\cJSON.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc\cJSON.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\src\easyflash.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\inc\easyflash.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_env.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_env_legacy.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_env_legacy_wl.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_iap.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_log.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\ef_types.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\ef_types.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_utils.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\src\s2j.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc\s2j.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc\s2jdef.h</name>
                     </file>
                 </group>
             </group>

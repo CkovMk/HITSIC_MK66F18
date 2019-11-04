@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "xiosbase": "c",
+        "array": "c",
+        "vector": "c",
+        "xstring": "c",
+        "xutility": "c",
+        "*.ipp": "c"
+    }
+}

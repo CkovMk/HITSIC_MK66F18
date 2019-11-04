@@ -44,14 +44,15 @@ void main()
     /** 初始化引脚路由 */
 	RTEPIN_BasicPin();
     RTEPIN_Board();
-    RTEPIN_Uart0_SPP();
-	//RTEPIN_Uart0_SWO();
+    //RTEPIN_Uart0_SPP();
+	RTEPIN_Uart0_SWO();
     /** 初始化外设 */
 	RTEPIP_BasicPip();
 	RTEPIP_Digital();
 	RTEPIP_ANALOG();
     /** 初始化调试串口 */
     DbgConsole_Init(0U, 115200U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
+    printf("Hello, World!\n");
     /** 初始化CMBackTrace */
     cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
     /** 初始化PIT中断管理器 */
@@ -61,20 +62,23 @@ void main()
     /** 初始化串口管理器 */
     //UARTMGR_DataInit();
     /** 初始化ftfx_Flash */
-    //FLASH_SimpleInit();
+    FLASH_SimpleInit();
     /** 初始化OLED屏幕 */
     OLED_Init();
     /** 初始化菜单 */
-    
+    MENU_Init();
+    MENU_PrintDisp();
     /** 初始化摄像头 */
     //CAMERA_Init();
     /** 初始化IMU */
     //DRVIMU_INV_GetDefaultConfig(&imu);
-    
+    //OLED_PrintStr_F6x8(10,0,"OLED Test !");
+    //OLED_PrintStr_F6x8(10,2,"OLED Test !");
+    //OLED_PrintStr_F6x8(10,4,"OLED Test !");
     
     __enable_irq();
 	
-	printf("Hello, World!");
+	
 	float f = arm_sin_f32(0.6f);
 	
 	while(1)

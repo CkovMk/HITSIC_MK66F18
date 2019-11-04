@@ -16,7 +16,7 @@ functionalGroups:
   selectedCore: core0
 - name: RTEPIP_Digital
   selectedCore: core0
-- name: RTEPIP_ANALOG
+- name: RTEPIP_Analog
   selectedCore: core0
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 
@@ -749,7 +749,50 @@ void UART3_CAM_init(void) {
 }
 
 /***********************************************************************************************************************
- * RTEPIP_ANALOG functional group
+ * UART0 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'UART0'
+- type: 'uart'
+- mode: 'polling'
+- type_id: 'uart_cd31a12aa8c79051fda42cc851a27c37'
+- functional_group: 'RTEPIP_Digital'
+- peripheral: 'UART0'
+- config_sets:
+  - uartConfig_t:
+    - uartConfig:
+      - clockSource: 'BusInterfaceClock'
+      - clockSourceFreq: 'GetFreq'
+      - baudRate_Bps: '115200'
+      - parityMode: 'kUART_ParityDisabled'
+      - stopBitCount: 'kUART_OneStopBit'
+      - txFifoWatermark: '0'
+      - rxFifoWatermark: '1'
+      - idleType: 'kUART_IdleTypeStartBit'
+      - enableTx: 'true'
+      - enableRx: 'true'
+    - quick_selection: 'QuickSelection1'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const uart_config_t UART0_config = {
+  .baudRate_Bps = 115200,
+  .parityMode = kUART_ParityDisabled,
+  .stopBitCount = kUART_OneStopBit,
+  .txFifoWatermark = 0,
+  .rxFifoWatermark = 1,
+  .idleType = kUART_IdleTypeStartBit,
+  .enableTx = true,
+  .enableRx = true
+};
+
+void UART0_init(void) {
+  UART_Init(UART0_PERIPHERAL, &UART0_config, UART0_CLOCK_SOURCE);
+}
+
+/***********************************************************************************************************************
+ * RTEPIP_Analog functional group
  **********************************************************************************************************************/
 /***********************************************************************************************************************
  * ADC0 initialization code
@@ -761,7 +804,7 @@ instance:
 - type: 'adc16'
 - mode: 'ADC'
 - type_id: 'adc16_7d827be2dc433dc756d94a7ce88cbcc5'
-- functional_group: 'RTEPIP_ANALOG'
+- functional_group: 'RTEPIP_Analog'
 - peripheral: 'ADC0'
 - config_sets:
   - fsl_adc16:
@@ -828,7 +871,7 @@ instance:
 - type: 'adc16'
 - mode: 'ADC'
 - type_id: 'adc16_7d827be2dc433dc756d94a7ce88cbcc5'
-- functional_group: 'RTEPIP_ANALOG'
+- functional_group: 'RTEPIP_Analog'
 - peripheral: 'ADC1'
 - config_sets:
   - fsl_adc16:
@@ -913,9 +956,10 @@ void RTEPIP_Digital(void)
   FTM2_ENC_R_init();
   FTM3_SERVO_init();
   UART3_CAM_init();
+  UART0_init();
 }
 
-void RTEPIP_ANALOG(void)
+void RTEPIP_Analog(void)
 {
   /* Initialize components */
   ADC0_init();

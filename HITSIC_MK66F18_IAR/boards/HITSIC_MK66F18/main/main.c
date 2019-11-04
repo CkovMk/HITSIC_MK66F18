@@ -35,6 +35,9 @@
 
 drvimu_inv_device_t imu;
 
+void FLASH_Demo(void);
+void EF_Demo(void);
+
 void main()
 {
 	/** 初始化阶段，关闭总中断 */
@@ -50,18 +53,18 @@ void main()
 	/** 初始化外设 */
 	RTEPIP_BasicPip();
 	RTEPIP_Digital();
-	RTEPIP_ANALOG();
-	/** 初始化ftfx_Flash */
-	FLASH_SimpleInit();
+	RTEPIP_Analog();
+
 	/** 初始化调试串口 */
 	DbgConsole_Init(0U, 115200U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
 	/** 初始化CMBackTrace */
 	cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
+	printf("Hello, World!\n");
+    
+    /** 初始化ftfx_Flash */
+	FLASH_SimpleInit();
 	/** 初始化EasyFlash */
 	easyflash_init();
-
-	printf("Hello, World!\n");
-
 	/** 初始化PIT中断管理器 */
 	PITMGR_Init();
 	/** 初始化I/O中断管理器 */
@@ -83,6 +86,9 @@ void main()
 	//OLED_PrintStr_F6x8(10,4,"OLED Test !");
 
 	__enable_irq();
+    
+	FLASH_Demo();
+    //EF_Demo();
 
 	float f = arm_sin_f32(0.6f);
 
@@ -91,27 +97,44 @@ void main()
 	}
 }
 
+void FLASH_Demo(void)
+{
+	int32_t whatData = 19981214;
+	int32_t dataRead = 0;
+	status_t result = kStatus_Success;
+	result = FLASH_SectorErase(0);
+	result = FLASH_AddressProgram(4, &whatData, sizeof(int32_t));
+	result = FLASH_AddressRead(4, &dataRead, sizeof(int32_t));
+	if(dataRead == whatData)
+	{
+		printf("Data Matched !\n", dataRead);
+	}
+}
+
 void EF_Demo(void)
 {
 	int32_t read_ef_status = 0;
-	if (4u == ef_get_env_blob("ef_status", &read_ef_status, sizeof(int32_t)))
+    size_t len = 0;
+    ef_get_env_blob("ef_status", &read_ef_status, sizeof(int32_t), &len);
+	if (4u == len)
 	{
-		printf("ef_status = %d", read_ef_status);
+		printf("ef_status = %d\n", read_ef_status);
 	}
 	else
 	{
-		printf("ef_status error!");
-		return;
+		printf("ef_status error!len = %d\n",len);
+		//return;
 	}
 	read_ef_status = 0x55 << 24u;
 	ef_set_env_blob("ef_status", &read_ef_status, sizeof(int32_t));
-	printf("ef_status set to %d", read_ef_status);
-	if (4u == ef_get_env_blob("ef_status", &read_ef_status, sizeof(int32_t)))
+	printf("ef_status set to %d\n", read_ef_status);
+    ef_get_env_blob("ef_status", &read_ef_status, sizeof(int32_t), &len);
+	if (4u == len)
 	{
-		printf("ef_status = %d", read_ef_status);
+		printf("ef_status = %d\n", read_ef_status);
 	}
 	else
 	{
-		printf("ef_status error!");
+		printf("ef_status error!len = %d\n",len);
 	}
 }

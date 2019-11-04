@@ -145,8 +145,12 @@ extern "C" {
 #define UART3_CAM_PERIPHERAL UART3
 /* Definition of the clock source frequency */
 #define UART3_CAM_CLOCK_SOURCE CLOCK_GetFreq(UART3_CLK_SRC)
+/* Definition of peripheral ID */
+#define UART0_PERIPHERAL UART0
+/* Definition of the clock source frequency */
+#define UART0_CLOCK_SOURCE CLOCK_GetFreq(UART0_CLK_SRC)
 
-/* Definitions for RTEPIP_ANALOG functional group */
+/* Definitions for RTEPIP_Analog functional group */
 /* Alias for ADC0 peripheral */
 #define ADC0_PERIPHERAL ADC0
 /* ADC0 interrupt vector ID (number). */
@@ -171,6 +175,7 @@ extern const ftm_config_t FTM1_ENC_L_config;
 extern const ftm_config_t FTM2_ENC_R_config;
 extern const ftm_config_t FTM3_SERVO_config;
 extern const uart_config_t UART3_CAM_config;
+extern const uart_config_t UART0_config;
 extern const adc16_config_t ADC0_config;
 extern const adc16_channel_mux_mode_t ADC0_muxMode;
 extern const adc16_hardware_average_mode_t ADC0_hardwareAverageMode;
@@ -183,7 +188,7 @@ extern const adc16_hardware_average_mode_t ADC1_hardwareAverageMode;
  **********************************************************************************************************************/
 void RTEPIP_BasicPip(void);
 void RTEPIP_Digital(void);
-void RTEPIP_ANALOG(void);
+void RTEPIP_Analog(void);
 
 /***********************************************************************************************************************
  * BOARD_InitBootPeripherals function

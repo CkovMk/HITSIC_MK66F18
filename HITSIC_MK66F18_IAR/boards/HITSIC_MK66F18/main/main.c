@@ -87,16 +87,13 @@ void main()
 
 	__enable_irq();
     
-<<<<<<< HEAD
     /** 初始化结束，开启总中断 */
     __enable_irq();
 	
 	
-=======
 	FLASH_Demo();
     //EF_Demo();
 
->>>>>>> dev-port_ef
 	float f = arm_sin_f32(0.6f);
 
 	while (1)

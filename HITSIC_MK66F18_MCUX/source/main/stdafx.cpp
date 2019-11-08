@@ -1,5 +1,5 @@
 #include "stdafx.h"
 
 /*
- * Do NOT wtite any code in this file !
+ * Do NOT write any code in this file !
  */

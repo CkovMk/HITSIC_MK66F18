@@ -17,17 +17,17 @@
 
 #include "stdafx.h"
 
-#include "rte_i2c.h"
-#include "rte_spi.h"
-#include "rte_softi2c.h"
-#include "rte_uart.h"
+//#include "rte_i2c.h"
+//#include "rte_spi.h"
+//#include "rte_softi2c.h"
+//#include "rte_uart.h"
 
 #include "drv_ftfx_flash.h"
 #include "drv_disp_ssd1306.h"
 #include "drv_imu_invensense.h"
 #include "drv_cam.h"
 //#include "drv_button.h"   //未使用
-#include "app_menu.h"     //仍在开发中...
+#include "app_menu.h"
 
 #include "cm_backtrace.h"
 

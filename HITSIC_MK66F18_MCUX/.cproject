@@ -59,7 +59,6 @@
 									<listOptionValue builtIn="false" value="../sdmmc/inc"/>
 									<listOptionValue builtIn="false" value="../fatfs/fatfs_include"/>
 									<listOptionValue builtIn="false" value="../fatfs"/>
-									<listOptionValue builtIn="false" value="../drivers/freertos"/>
 									<listOptionValue builtIn="false" value="../component/serial_manager"/>
 									<listOptionValue builtIn="false" value="../sdmmc/port"/>
 									<listOptionValue builtIn="false" value="../device"/>
@@ -140,11 +139,11 @@
 									<listOptionValue builtIn="false" value="../HITSIC/d_mk66f18"/>
 									<listOptionValue builtIn="false" value="../HITSIC/d_mk66f18/extlib_port"/>
 									<listOptionValue builtIn="false" value="../HITSIC/d_mk66f18/extlib_port/CmBacktrace-1.3.0/cm_backtrace"/>
+									<listOptionValue builtIn="false" value="../HITSIC/d_mk66f18/extlib_port/CmBacktrace-1.3.0/cm_backtrace/fault_handler/gcc"/>
 									<listOptionValue builtIn="false" value="../HITSIC/d_mk66f18/legacy_drivers"/>
 									<listOptionValue builtIn="false" value="../sdmmc/inc"/>
 									<listOptionValue builtIn="false" value="../fatfs/fatfs_include"/>
 									<listOptionValue builtIn="false" value="../fatfs"/>
-									<listOptionValue builtIn="false" value="../drivers/freertos"/>
 									<listOptionValue builtIn="false" value="../component/serial_manager"/>
 									<listOptionValue builtIn="false" value="../sdmmc/port"/>
 									<listOptionValue builtIn="false" value="../device"/>
@@ -195,36 +194,39 @@
 								<option id="com.crt.advproject.gas.specs.999688112" name="Specs" superClass="com.crt.advproject.gas.specs" value="com.crt.advproject.gas.specs.newlibnano" valueType="enumerated"/>
 								<option id="com.crt.advproject.gas.arch.963630247" name="Architecture" superClass="com.crt.advproject.gas.arch" value="com.crt.advproject.gas.target.cm4" valueType="enumerated"/>
 								<option id="gnu.both.asm.option.flags.crt.738797380" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt"/>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.1490929579" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.1490929579" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="../drivers"/>
-									<listOptionValue builtIn="false" value="../CMSIS"/>
+									<listOptionValue builtIn="false" value="../CMSIS_5.6.0/Core/Include"/>
+									<listOptionValue builtIn="false" value="../CMSIS_5.6.0/DSP/Include"/>
+									<listOptionValue builtIn="false" value="../CMSIS_5.6.0/NN/Include"/>
+									<listOptionValue builtIn="false" value="../HITSIC/utilities"/>
+									<listOptionValue builtIn="false" value="../HITSIC/utilities/extlib"/>
+									<listOptionValue builtIn="false" value="../HITSIC/utilities/extlib/CmBacktrace-1.3.0/cm_backtrace"/>
+									<listOptionValue builtIn="false" value="../HITSIC/utilities/rte"/>
+									<listOptionValue builtIn="false" value="../HITSIC/utilities/drv"/>
+									<listOptionValue builtIn="false" value="../HITSIC/utilities/sys"/>
+									<listOptionValue builtIn="false" value="../HITSIC/utilities/lib"/>
+									<listOptionValue builtIn="false" value="../HITSIC/utilities/app"/>
+									<listOptionValue builtIn="false" value="../HITSIC/d_mk66f18"/>
+									<listOptionValue builtIn="false" value="../HITSIC/d_mk66f18/extlib_port"/>
+									<listOptionValue builtIn="false" value="../HITSIC/d_mk66f18/extlib_port/CmBacktrace-1.3.0/cm_backtrace"/>
+									<listOptionValue builtIn="false" value="../HITSIC/d_mk66f18/legacy_drivers"/>
 									<listOptionValue builtIn="false" value="../sdmmc/inc"/>
 									<listOptionValue builtIn="false" value="../fatfs/fatfs_include"/>
 									<listOptionValue builtIn="false" value="../fatfs"/>
-									<listOptionValue builtIn="false" value="../drivers/freertos"/>
 									<listOptionValue builtIn="false" value="../component/serial_manager"/>
 									<listOptionValue builtIn="false" value="../sdmmc/port"/>
 									<listOptionValue builtIn="false" value="../device"/>
 									<listOptionValue builtIn="false" value="../source"/>
+									<listOptionValue builtIn="false" value="../source/main"/>
+									<listOptionValue builtIn="false" value="../source/main/drv"/>
+									<listOptionValue builtIn="false" value="../source/main/app"/>
 									<listOptionValue builtIn="false" value="../component/lists"/>
 									<listOptionValue builtIn="false" value="../utilities"/>
-									<listOptionValue builtIn="false" value="../amazon-freertos/freertos/portable"/>
-									<listOptionValue builtIn="false" value="../amazon-freertos/include"/>
 									<listOptionValue builtIn="false" value="../usb/host/class"/>
 									<listOptionValue builtIn="false" value="../component/uart"/>
-									<listOptionValue builtIn="false" value="../usb/host"/>
 									<listOptionValue builtIn="false" value="../board"/>
 									<listOptionValue builtIn="false" value="../"/>
-									<listOptionValue builtIn="false" value="../usb/device/class"/>
-									<listOptionValue builtIn="false" value="../usb/device/include"/>
-									<listOptionValue builtIn="false" value="../usb/device/source"/>
-									<listOptionValue builtIn="false" value="../usb/device/source/ehci"/>
-									<listOptionValue builtIn="false" value="../usb/device/source/khci"/>
-									<listOptionValue builtIn="false" value="../usb/device/source/lpcip3511"/>
-									<listOptionValue builtIn="false" value="../source/generated"/>
-									<listOptionValue builtIn="false" value="../usb/include"/>
-									<listOptionValue builtIn="false" value="../osa"/>
-									<listOptionValue builtIn="false" value="../usb/phy"/>
 								</option>
 								<option id="gnu.both.asm.option.warnings.nowarn.681254264" name="Suppress warnings (-W)" superClass="gnu.both.asm.option.warnings.nowarn"/>
 								<option id="gnu.both.asm.option.version.591509170" name="Announce version (-v)" superClass="gnu.both.asm.option.version"/>

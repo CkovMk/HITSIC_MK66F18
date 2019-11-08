@@ -2871,16 +2871,16 @@
             <group>
                 <name>extlib_port</name>
                 <group>
-                    <name>cm_backtrace_1.3.0</name>
+                    <name>cmBacktrace</name>
                     <file>
-                        <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\cm_backtrace\cmb_1.3.0\cmb_cfg.h</name>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\CmBacktrace-1.3.0\cm_backtrace\cmb_cfg.h</name>
                     </file>
                     <file>
-                        <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\cm_backtrace\cmb_1.3.0\cmb_def.h</name>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\CmBacktrace-1.3.0\cm_backtrace\cmb_def.h</name>
                     </file>
                 </group>
                 <group>
-                    <name>easyflash_4.0.0</name>
+                    <name>easyFlash</name>
                     <file>
                         <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port\ef_cfg.h</name>
                     </file>
@@ -3000,19 +3000,19 @@
             <group>
                 <name>extlib</name>
                 <group>
-                    <name>cm_backtrace_1.3.0</name>
+                    <name>cmBacktrace</name>
                     <file>
-                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\cm_backtrace\cmb_1.3.0\cm_backtrace.c</name>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\CmBacktrace-1.3.0\cm_backtrace\cm_backtrace.c</name>
                     </file>
                     <file>
-                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\cm_backtrace\cmb_1.3.0\cm_backtrace.h</name>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\CmBacktrace-1.3.0\cm_backtrace\cm_backtrace.h</name>
                     </file>
                     <file>
-                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\cm_backtrace\cmb_1.3.0\cmb_fault.S</name>
+                        <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\CmBacktrace-1.3.0\cm_backtrace\fault_handler\iar\cmb_fault.S</name>
                     </file>
                 </group>
                 <group>
-                    <name>easyflash_4.0.0</name>
+                    <name>easyFlash</name>
                     <file>
                         <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\src\cJSON.c</name>
                     </file>

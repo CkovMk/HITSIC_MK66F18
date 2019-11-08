@@ -16,19 +16,19 @@
         <MemConfigValue>D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\CONFIG\debugger\NXP\MK66FX1M0xxx18.ddf</MemConfigValue>
     </PlDriver>
     <Jet>
-        <PrevWtdReset>System</PrevWtdReset>
-        <OnlineReset>Software</OnlineReset>
         <JetConnSerialNo>CMSIS-DAP:070000000668ff343637554e43252632a5a5a5a597969908</JetConnSerialNo>
         <JetConnFoundProbes />
+        <PrevWtdReset>System</PrevWtdReset>
         <DisableInterrupts>0</DisableInterrupts>
         <LeaveRunning>0</LeaveRunning>
         <MultiCoreRunAll>0</MultiCoreRunAll>
+        <OnlineReset>Software</OnlineReset>
     </Jet>
     <ArmDriver>
         <EnableCache>1</EnableCache>
     </ArmDriver>
     <DebugChecksum>
-        <Checksum>1344342509</Checksum>
+        <Checksum>2779978427</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -90,6 +90,9 @@
     <Registers>
         <regBase0>GPIOE_PDIR 2</regBase0>
     </Registers>
+    <RecentFlashDownload>
+        <Path>C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Exe\HITSIC_MK66F18.out</Path>
+    </RecentFlashDownload>
     <Trace1>
         <Enabled>0</Enabled>
         <ShowSource>1</ShowSource>
@@ -120,6 +123,17 @@
         <EventLSU>0</EventLSU>
         <EventSLEEP>0</EventSLEEP>
     </SWOTraceWindow>
+    <DisassembleMode>
+        <mode>0</mode>
+    </DisassembleMode>
+    <Breakpoints2>
+        <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port\ef_port.c}.107.3" 0 0 1 "" 0 "" 0</Bp0>
+        <Bp1>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port\ef_port.c}.133.30" 0 0 1 "" 0 "" 0</Bp1>
+        <Bp2>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\HITSIC\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_env.c}.1720.5" 0 0 1 "" 0 "" 0</Bp2>
+        <Bp3>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\main\main.c}.90.2" 0 0 1 "" 0 "" 0</Bp3>
+        <Bp4>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\main\main.c}.106.2" 0 0 1 "" 0 "" 0</Bp4>
+        <Count>5</Count>
+    </Breakpoints2>
     <DriverProfiling>
         <Enabled>0</Enabled>
         <Mode>2</Mode>
@@ -133,9 +147,6 @@
     <CallStackStripe>
         <ShowTiming>1</ShowTiming>
     </CallStackStripe>
-    <RecentFlashDownload>
-        <Path>C:\Users\CkovMk\Documents\GitHub\HTISIC_MK66F18\HITSIC_MK66F18_IAR\boards\HITSIC_MK66F18\__iar\Release\Exe\HITSIC_MK66F18.out</Path>
-    </RecentFlashDownload>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
@@ -145,14 +156,9 @@
         <LogFile>_ ""</LogFile>
         <Category>_ 0</Category>
     </LogFile>
-    <DisassembleMode>
-        <mode>0</mode>
-    </DisassembleMode>
-    <Breakpoints2>
-        <Count>0</Count>
-    </Breakpoints2>
     <Aliases>
-        <Count>0</Count>
+        <A0>_ "C:\Users\thomasto\Projects\CMSIS_5\CMSIS\DSP\Source\FastMathFunctions\arm_sin_f32.c" ""</A0>
+        <Count>1</Count>
         <SuppressDialog>0</SuppressDialog>
     </Aliases>
 </settings>

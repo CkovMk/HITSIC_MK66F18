@@ -48,3 +48,8 @@ HITSIC_MK66F18_IAR/boards/HITSIC_MK66F18/__iar/settings/HITSIC_MK66F18.wsdt
 *.pbw
 *.dep
 *.linf
+*.pbw
+*.browse
+*.pbd
+*.pbd
+*.pbw

@@ -2923,6 +2923,18 @@
                 </file>
             </group>
             <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\app_menu_port.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\app_menu_port.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\drv_imu_port.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\drv_imu_port.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\hitsic_common.c</name>
             </file>
             <file>
@@ -2940,63 +2952,15 @@
             <file>
                 <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\inc_fsl_mk66f18.h</name>
             </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\stdafx.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\d_mk66f18\stdafx.h</name>
+            </file>
         </group>
         <group>
             <name>utilities</name>
-            <group>
-                <name>app</name>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_button.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_button.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_nvm.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_nvm.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_type.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app\app_menu_type.h</name>
-                </file>
-            </group>
-            <group>
-                <name>drv</name>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_button.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_button.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_disp_ssd1306.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_disp_ssd1306.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_ftfx_flash.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_ftfx_flash.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_imu_invensense.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv\drv_imu_invensense.h</name>
-                </file>
-            </group>
             <group>
                 <name>extlib</name>
                 <group>
@@ -3060,63 +3024,108 @@
                     </file>
                 </group>
             </group>
-            <group>
-                <name>lib</name>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\lib\lib_list.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\lib\lib_list.h</name>
-                </file>
-            </group>
-            <group>
-                <name>rte</name>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_i2c.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_i2c.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_softi2c.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_softi2c.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_spi.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_spi.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_uart.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte\rte_uart.h</name>
-                </file>
-            </group>
-            <group>
-                <name>sys</name>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_extint.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_extint.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_pitmgr.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_pitmgr.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_uartmgr.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys\sys_uartmgr.h</name>
-                </file>
-            </group>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app_menu.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app_menu.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app_menu_button.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app_menu_button.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app_menu_def.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app_menu_nvm.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app_menu_nvm.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app_menu_type.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\app_menu_type.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv_button.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv_button.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv_disp_ssd1306.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv_disp_ssd1306.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv_ftfx_flash.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv_ftfx_flash.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv_imu_invensense.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\drv_imu_invensense.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\inc_stdlib.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\lib_list.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\lib_list.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte_i2c.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte_i2c.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte_softi2c.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte_softi2c.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte_spi.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte_spi.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte_uart.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\rte_uart.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys_extint.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys_extint.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys_pitmgr.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys_pitmgr.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys_uartmgr.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\HITSIC\utilities\sys_uartmgr.h</name>
+            </file>
         </group>
     </group>
     <group>
@@ -3131,16 +3140,7 @@
             <name>$PROJ_DIR$\..\main\inc_generic.h</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\main\inc_stdlib.h</name>
-        </file>
-        <file>
             <name>$PROJ_DIR$\..\main\main.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\main\stdafx.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\main\stdafx.h</name>
         </file>
     </group>
     <group>

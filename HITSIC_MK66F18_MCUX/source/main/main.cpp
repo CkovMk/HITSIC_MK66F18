@@ -28,9 +28,9 @@
 #include "drv_cam.h"
 //#include "drv_button.h"   //未使用
 #include "app_menu.h"
-
+//extern "C"{
 #include "cm_backtrace.h"
-
+//}
 //#include "easyflash.h"
 
 drvimu_inv_device_t imu;

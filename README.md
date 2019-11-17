@@ -7,7 +7,7 @@ HITSIC_MK66F18是哈工大智能车创新俱乐部NXP MK66单片机的底层。�
 
 ### 1.1. 目录说明
 
-/HITSIC_MK66F18_IAR 是底层主目录，包含一个IAR EWARM工程。当前工具链版本是IAR EWARM
+/HITSIC_MK66F18_IAR 是IAR底层主目录，包含一个IAR EWARM工程。当前工具链版本是IAR EWARM
 
  8.32.4。根目录下各文件夹作用如下：
 

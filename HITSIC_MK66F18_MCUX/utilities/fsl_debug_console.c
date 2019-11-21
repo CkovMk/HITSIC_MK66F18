@@ -207,6 +207,12 @@ serial_handle_t g_serialHandle; /*!< serial manager handle */
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
+
+#if defined(__cplusplus)
+extern "C" {
+#endif /* __cplusplus */
+
+
 /*!
  * @brief This is a printf call back function which is used to relocate the log to buffer
  * or print the log immediately when the local buffer is full.
@@ -1121,3 +1127,10 @@ int __attribute__((weak)) _read(int handle, char *buffer, int size)
 #endif
 
 #endif /* __ICCARM__ */
+
+
+#if defined(__cplusplus)
+}
+#endif /* __cplusplus */
+
+

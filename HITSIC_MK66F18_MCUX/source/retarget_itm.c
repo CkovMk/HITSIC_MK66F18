@@ -62,6 +62,10 @@
 // variable to receive ITM input characters
 volatile int32_t ITM_RxBuffer = ITM_RXBUFFER_EMPTY;
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 // ******************************************************************
 // Redlib C Library function : __sys_write
 // Newlib C library function : _write
@@ -75,31 +79,31 @@ volatile int32_t ITM_RxBuffer = ITM_RXBUFFER_EMPTY;
 #if defined (__REDLIB__)
 int __sys_write(int iFileHandle, char *pcBuffer, int iLength) {
 #elif defined (__NEWLIB__)
-//int _write(int iFileHandle, char *pcBuffer, int iLength) {
+int _write(int iFileHandle, char *pcBuffer, int iLength) {
 #endif
-//
-//	int32_t num = 0;
-//
-//	// TODO : Should potentially check that iFileHandle == 1 to confirm
-//	// that write is to stdout
-//
-//	// check if debugger connected and ITM channel enabled for tracing
-//	if ((DEMCR & TRCENA) &&
-//	// ITM enabled
-//			(ITM_TCR & ITM_TCR_ITMENA) &&
-//			// ITM Port #0 enabled
-//			(ITM_TER & ITM_TER_PORT0ENA)) {
-//
-//		while (num < iLength) {
-//			while (ITM_Port32(0) == 0) {
-//			}
-//			ITM_Port8(0) = pcBuffer[num++];
-//		}
-//		return 0;
-//	} else
-//		// Function returns number of unwritten bytes if error
-//		return (iLength);
-//}
+
+	int32_t num = 0;
+
+	// TODO : Should potentially check that iFileHandle == 1 to confirm
+	// that write is to stdout
+
+	// check if debugger connected and ITM channel enabled for tracing
+	if ((DEMCR & TRCENA) &&
+	// ITM enabled
+			(ITM_TCR & ITM_TCR_ITMENA) &&
+			// ITM Port #0 enabled
+			(ITM_TER & ITM_TER_PORT0ENA)) {
+
+		while (num < iLength) {
+			while (ITM_Port32(0) == 0) {
+			}
+			ITM_Port8(0) = pcBuffer[num++];
+		}
+		return 0;
+	} else
+		// Function returns number of unwritten bytes if error
+		return (iLength);
+}
 
 #if defined (__REDLIB__)
 // ******************************************************************
@@ -143,45 +147,48 @@ int __sys_readc(void) {
 // acts as stdin). But this version reads the characters from a buffer
 // which acts as a pseudo-interface to the Cortex-M3/M4 ITM.
 // ******************************************************************
-//int _read(int iFileHandle, char *pcBuffer, int iLength) {
-//
-//	// TODO : Should potentially check that iFileHandle == 0 to confirm
-//	// that read is from stdin
-//
-//	int iCcount = 0x00; // Count of characters read
-//
-//	// check if debugger connected and ITM channel enabled for tracing
-//	if ((DEMCR & TRCENA) &&
-//	// ITM enabled
-//			(ITM_TCR & ITM_TCR_ITMENA) &&
-//			// ITM Port #0 enabled
-//			(ITM_TER & ITM_TER_PORT0ENA)) {
-//
-//		// Read up to 'iLength' characters
-//		for (; iLength > 0x00; --iLength) {
-//			int32_t c = -1;
-//			do {
-//				if (ITM_RxBuffer != ITM_RXBUFFER_EMPTY) {
-//					// Read from buffer written to by tools
-//					c = ITM_RxBuffer;
-//					// Flag ready for next character
-//					ITM_RxBuffer = ITM_RXBUFFER_EMPTY;
-//				}
-//			} while (c == -1);
-//
-//			iCcount++;  // Increase char counter
-//			*pcBuffer = (char) c; // Save character into the receive buffer
-//
-//			// Non-printable character is received ?
-//			if (*pcBuffer < 32 || *pcBuffer > 126) {
-//				*pcBuffer = '\n'; // Yes, convert  to '\n' char.
-//				break; // Stop loop and return received char(s)
-//			}
-//			(char*) pcBuffer++;  // Increase buffer pointer
-//		}
-//	}
-//	return iCcount;
-//}
+int _read(int iFileHandle, char *pcBuffer, int iLength) {
+
+	// TODO : Should potentially check that iFileHandle == 0 to confirm
+	// that read is from stdin
+
+	int iCcount = 0x00; // Count of characters read
+
+	// check if debugger connected and ITM channel enabled for tracing
+	if ((DEMCR & TRCENA) &&
+	// ITM enabled
+			(ITM_TCR & ITM_TCR_ITMENA) &&
+			// ITM Port #0 enabled
+			(ITM_TER & ITM_TER_PORT0ENA)) {
+
+		// Read up to 'iLength' characters
+		for (; iLength > 0x00; --iLength) {
+			int32_t c = -1;
+			do {
+				if (ITM_RxBuffer != ITM_RXBUFFER_EMPTY) {
+					// Read from buffer written to by tools
+					c = ITM_RxBuffer;
+					// Flag ready for next character
+					ITM_RxBuffer = ITM_RXBUFFER_EMPTY;
+				}
+			} while (c == -1);
+
+			iCcount++;  // Increase char counter
+			*pcBuffer = (char) c; // Save character into the receive buffer
+
+			// Non-printable character is received ?
+			if (*pcBuffer < 32 || *pcBuffer > 126) {
+				*pcBuffer = '\n'; // Yes, convert  to '\n' char.
+				break; // Stop loop and return received char(s)
+			}
+			(char*) pcBuffer++;  // Increase buffer pointer
+		}
+	}
+	return iCcount;
+}
 
 #endif // NEWLIB _read()
 
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,35 @@
+#include "rte_baseio.hpp"
+
+
+
+
+/*
+----------GPIO peripheral----------
+*/
+
+status_t rte_gpio_init(void)
+{
+    status_t rStatus = kStatus_Success;
+
+    EnableIRQ(GPIO1_Combined_0_15_IRQn);
+    NVIC_SetPriority(GPIO1_Combined_0_15_IRQn, 4);
+    EnableIRQ(GPIO1_Combined_16_31_IRQn);
+    NVIC_SetPriority(GPIO1_Combined_0_15_IRQn, 4);
+    EnableIRQ(GPIO2_Combined_0_15_IRQn);
+    NVIC_SetPriority(GPIO1_Combined_0_15_IRQn, 4);
+    EnableIRQ(GPIO2_Combined_16_31_IRQn);
+    NVIC_SetPriority(GPIO1_Combined_0_15_IRQn, 4);
+    EnableIRQ(GPIO3_Combined_0_15_IRQn);
+    NVIC_SetPriority(GPIO1_Combined_0_15_IRQn, 4);
+    EnableIRQ(GPIO3_Combined_16_31_IRQn);
+    NVIC_SetPriority(GPIO1_Combined_0_15_IRQn, 4);
+
+    return rStatus;
+}
+status_t rte_gpio_deInit(void)
+{
+    status_t rStatus = kStatus_Success;
+
+    return rStatus;
+}
+

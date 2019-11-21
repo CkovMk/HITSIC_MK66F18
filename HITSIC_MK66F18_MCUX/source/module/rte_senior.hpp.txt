@@ -1,0 +1,98 @@
+/*
+ * Beta-Cat Controll @ HSIC
+ * @name	rte_senior.h
+ * Runtime Environment Senior Peripheral include file. 
+ * Define all Senior Peripheral lowlevel definitions HERE!
+*/
+#ifndef _RTE_SENIOR_H_
+#define _RTE_SENIOR_H_
+
+#include <include.hpp>
+#include "inc_fsl.h"
+#include "inc_gnc.h"
+#include "inc_std.h"
+#include "inc_stl.h"
+
+/*
+----------I2C peripheral----------
+*/
+ /*
+//I2C Global Definition
+#define RTE_I2C_CLKFREQ 60000000	//60MHz
+
+//I2C1 Definition
+#define RTE_I2C1_ADDR (LPI2C1)
+#define RTE_I2C1_BAUD 100000U
+
+
+status_t rte_i2c_init(void);
+status_t rte_i2c_deInit(void);
+*/
+
+/*
+----------SPI peripheral----------
+*/
+
+//SPI Global Definition
+#define RTE_SPI_CLKFREQ 120000000UL	//120MHz
+
+//SPI3 Definition
+//#define RTE_SPI3_ADDR (LPSPI3)
+//#define RTE_SPI3_PCS (kLPSPI_Pcs0)
+//#define RTE_SPI3_MASTERPCS (kLPSPI_MasterPcs0)
+//#define RTE_SPI3_BAUD 500000U /*! Transfer baudrate - 500k */
+
+status_t rte_spi_init(void);
+status_t rte_spi_deInit(void);
+
+/*
+----------UART peripheral----------
+*/
+
+//UART Global Definition
+#define RTE_UART_CLKFREQ 80000000UL	//80MHz
+#define RTE_UART_BACK_BUFFER_SIZE 1024
+
+//UART1 Definition
+//#define RTE_UART_DBUG_ADDR (LPUART1)
+#define RTE_UART_DBUG_BAUD (921600U)
+//UART4 Definition
+//#define RTE_UART_WLAN_ADDR (LPUART4)
+#define RTE_UART_WLAN_BAUD (921600U)
+//UART5 Definition
+//#define RTE_UART_INTC_ADDR (LPUART5)
+#define RTE_UART_INTC_BAUD (1152000U)
+
+
+status_t rte_uart_init(void);
+status_t rte_uart_deInit(void);
+
+
+
+/*
+----------CSI peripheral----------
+*/
+
+
+//CSI Global Definition
+#define RTE_CSI_CLKFREQ 80000000UL //BOARD_DebugConsoleSrcFreq()
+
+//CSI Definition
+#define RTE_CSI_ADDR (CSI)
+
+extern csi_handle_t rte_csi_xferHandle;
+extern std::vector<gnc_rgbCamImg_t> rte_csi_xferQue;
+
+status_t rte_csi_init(void);
+status_t rte_csi_deInit(void);
+
+void rte_csi_xferCallbackFunc(CSI_Type *base, csi_handle_t *handle, status_t status, void *userData);
+
+
+/*
+----------SDHC peripheral----------
+*/
+
+
+
+#endif // ! _RTE_SENIOR_H_

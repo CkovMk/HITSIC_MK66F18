@@ -1,0 +1,82 @@
+/*
+ * Beta-Cat Controll @ HSIC
+ * @name	rte_timer.hpp
+ * Runtime Environment Timer include file. 
+ * Define all Timers lowlevel definitions HERE!
+*/
+#ifndef _RTE_TIMER_H_
+#define _RTE_TIMER_H_
+
+#include "inc_fsl.h"
+#include "inc_gnc.h"
+#include "inc_std.h"
+#include "inc_stl.hpp"
+
+/*
+----------PIT peripheral----------
+*/
+
+#define RTE_PIT_CLKFREQ 10000000
+
+status_t rte_pit_init(void);
+status_t rte_pit_deInit(void);
+
+/*
+----------GPT peripheral----------
+*/
+
+#define RTE_GPT1_ADDR GPT1
+
+status_t rte_gpt_init(void);
+status_t rte_gpt_deInit(void);
+
+/*
+----------QTM peripheral----------
+*/
+
+status_t rte_qtm_init(void);
+status_t rte_qtm_deInit(void);
+
+
+
+/*
+----------PWM peripheral----------
+*/
+
+//PWM Global Definition
+#define RTE_PWM_CLKSRC	kCLOCK_IpgClk
+#define RTE_PWM_CLKFREQ CLOCK_GetFreq(RTE_PWM_CLKSRC)
+
+//PWM0 Definition
+#define RTE_PWM_ADDR PWM2
+#define RTE_PWM_MODULE0_PWMFREQ 10000 //MOTOR
+#define RTE_PWM_MODULE1_PWMFREQ 10000 //MOTOR
+#define RTE_PWM_MODULE2_PWMFREQ 250   //SERVO
+
+extern bool rte_logicInitFlag;
+
+extern bool rte_pwmInitFlag;
+
+status_t rte_pwm_init(void);
+status_t rte_pwm_deInit(void);
+
+/*
+----------ENC peripheral----------
+*/
+
+//ENC Global Definition
+//#define RTE_ENC_CLKSRC
+//#define RTE_ENC_CLKFREQ CLOCK_GetFreq(RTE_ENC_CLKSRC) //fix this
+
+//ENC1 definition
+#define RTE_ENC1_ADDR ENC1
+
+//ENC2 definition
+#define RTE_ENC2_ADDR ENC2
+
+status_t rte_enc_init(void);
+status_t rte_enc_deInit(void);
+
+
+
+#endif // ! _RTE_TIMER_H_

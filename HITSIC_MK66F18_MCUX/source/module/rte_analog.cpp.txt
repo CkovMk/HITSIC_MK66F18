@@ -1,0 +1,86 @@
+#include "rte_analog.hpp"
+
+/*
+----------CMP peripheral----------
+*/
+
+status_t rte_cmp_init(void)
+{
+    status_t rStatus = kStatus_Success;
+
+    cmp_config_t cmp_cfg;
+    cmp_dac_config_t cmd_dacCfg;
+
+    {
+        cmp_cfg.enableCmp = true;
+        cmp_cfg.hysteresisMode = kCMP_HysteresisLevel2;
+        cmp_cfg.enableHighSpeed = false;
+        cmp_cfg.enableInvertOutput = false;
+        cmp_cfg.useUnfilteredOutput = false;
+        cmp_cfg.enablePinOut = true;
+        //cmp_cfg.enableTriggerMode = true;
+    }
+
+    {
+        cmd_dacCfg.referenceVoltageSource = kCMP_VrefSourceVin2; /* VCC. */
+        cmd_dacCfg.DACValue = 32U;
+    }
+    CMP_Init(CMP1, &cmp_cfg);
+    CMP_SetDACConfig(CMP1, &cmd_dacCfg);
+    CMP_SetInputChannels(CMP1, 7 /*dac channel */, 3 /*user channel*/);
+    {
+        cmd_dacCfg.referenceVoltageSource = kCMP_VrefSourceVin2; /* VCC. */
+        cmd_dacCfg.DACValue = 32U;
+    }
+    CMP_Init(CMP2, &cmp_cfg);
+    CMP_SetDACConfig(CMP2, &cmd_dacCfg);
+    CMP_SetInputChannels(CMP2, 7 /*dac channel */, 2 /*user channel*/);
+    {
+        cmd_dacCfg.referenceVoltageSource = kCMP_VrefSourceVin2; /* VCC. */
+        cmd_dacCfg.DACValue = 32U;
+    }
+    CMP_Init(CMP3, &cmp_cfg);
+    CMP_SetDACConfig(CMP3, &cmd_dacCfg);
+    CMP_SetInputChannels(CMP3, 7 /*dac channel */, 2 /*user channel*/);
+    {
+        cmd_dacCfg.referenceVoltageSource = kCMP_VrefSourceVin2; /* VCC. */
+        cmd_dacCfg.DACValue = 32U;
+    }
+    CMP_Init(CMP4, &cmp_cfg);
+    CMP_SetDACConfig(CMP4, &cmd_dacCfg);
+    CMP_SetInputChannels(CMP4, 7 /*dac channel */, 2 /*user channel*/);
+
+    return rStatus;
+}
+
+/*
+----------ADC peripheral----------
+*/
+
+status_t rte_adc_init()
+{
+
+    status_t rStatus = kStatus_Success;
+
+    adc_config_t adc_cfg;
+    {
+        adc_cfg.enableAsynchronousClockOutput = true;
+        adc_cfg.enableOverWrite = false;
+        adc_cfg.enableContinuousConversion = false;
+        adc_cfg.enableHighSpeed = false;
+        adc_cfg.enableLowPower = false;
+        adc_cfg.enableLongSample = false;
+        adc_cfg.referenceVoltageSource = kADC_ReferenceVoltageSourceAlt0;
+        adc_cfg.samplePeriodMode = kADC_SamplePeriod2or12Clocks;
+        adc_cfg.clockSource = kADC_ClockSourceAD;
+        adc_cfg.clockDriver = kADC_ClockDriver1;
+        adc_cfg.resolution = kADC_Resolution12Bit;
+    }
+    ADC_Init(ADC1, &adc_cfg);
+    ADC_EnableHardwareTrigger(ADC1, false);
+    rStatus = ADC_DoAutoCalibration(ADC1);
+
+   
+
+    return rStatus;
+}

@@ -1,0 +1,30 @@
+/*
+ * Beta-Cat Controll @ HSIC
+ * @name	rte_baseio.h
+ * Runtime Environment Basic I/O include file. 
+ * Define all Basic I/O lowlevel definitions HERE!
+*/
+
+#ifndef _RTE_BASEIO_H_
+#define _RTE_BASEIO_H_
+
+#include <include.hpp>
+#include "inc_fsl.h"
+#include "inc_gnc.h"
+#include "inc_std.h"
+#include "inc_stl.h"
+
+
+
+/*
+----------GPIO peripheral----------
+*/
+
+status_t rte_gpio_init(void);
+status_t rte_gpio_deInit(void);
+
+
+
+
+
+#endif // ! _RTE_BASEIO_H_

@@ -1,6 +1,6 @@
 [submodule "HITSIC_MK66F18_IAR/HITSIC"]
 	path = HITSIC_MK66F18_IAR/HITSIC
 	url = https://github.com/CkovMk/HITSIC_Module
-[submodule ".\\HITSIC_MK66F18_MCUX\\HITSIC"]
-	path = .\\HITSIC_MK66F18_MCUX\\HITSIC
+[submodule "HITSIC_MK66F18_MCUX/HITSIC"]
+	path = HITSIC_MK66F18_MCUX/HITSIC
 	url = https://github.com/CkovMk/HITSIC_Module

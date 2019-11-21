@@ -635,7 +635,7 @@ status_t DbgConsole_Init(uint8_t instance, uint32_t baudRate, serial_port_type_t
         .baudRate     = baudRate,
         .parityMode   = kSerialManager_UartParityDisabled,
         .stopBitCount = kSerialManager_UartOneStopBit,
-		.instance     = instance,
+        .instance     = instance,
         .enableRx     = 1,
         .enableTx     = 1,
     };

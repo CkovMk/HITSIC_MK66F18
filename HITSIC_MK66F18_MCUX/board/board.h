@@ -43,13 +43,6 @@
  */
 #define BOARD_NAME "board"
 
-#define BOARD_SDHC_CD_GPIO_BASE GPIOA
-#define BOARD_SDHC_CD_PORT_BASE PORTA
-#define BOARD_SDHC_CD_GPIO_PIN  15
-
-#define BOARD_SDHC_CD_PORT_IRQ  PORTA_IRQn
-
-
 #if defined(__cplusplus)
 extern "C" {
 #endif /* __cplusplus */

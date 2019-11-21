@@ -1,0 +1,28 @@
+/*
+ * Beta-Cat Controll @ HSIC
+ * @name	rte_analog.h
+ * Runtime Environment Analog I/O include file. 
+ * Define all Analog I/O lowlevel definitions HERE!
+*/
+#ifndef _RTE_ANALOG_H_
+#define _RTE_ANALOG_H_
+
+#include <include.hpp>
+#include "inc_fsl.h"
+#include "inc_gnc.h"
+#include "inc_std.h"
+#include "inc_stl.h"
+
+/*
+----------CMP peripheral----------
+*/
+
+status_t rte_cmp_init(void);
+
+/*
+----------ADC peripheral----------
+*/
+
+status_t rte_adc_init(void);
+
+#endif // ! _RTE_ANALOG_H_

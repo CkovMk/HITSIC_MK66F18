@@ -1,0 +1,35 @@
+#pragma once
+#ifndef _DRV_BETACAT_H_
+#define _DRV_BETACAT_H_
+
+class betaCat_t
+{
+public:
+    //motor
+    void motor_enable(bool b);
+    bool motor_isFault(void);
+    void motor_clearFault(void);
+    void motor_setPWMDuty(int32_t L,int32_t R);
+    void motor_getCurrent(uint16_t& IL,uint16& IR);
+    //servo
+    void servo_enable(bool b);
+    void servo_setPWMDuty(int32_t F,int32_t B);
+
+
+    //enco
+
+
+    //tof
+
+    //tcs
+
+    //imu
+
+    //cam
+
+
+    //led
+};
+
+
+#endif // ! _DRV_BETACAT_H_

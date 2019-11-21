@@ -1,0 +1,177 @@
+/*
+ * drv_keybt.hpp
+ *
+ *  Created on: 2019年8月4日
+ *      Author: CkovMk
+ */
+
+#ifndef _DRV_KEYBT_HPP_
+#define _DRV_KEYBT_HPP_
+
+#include "inc_std.h"
+#include "inc_stl.h"
+#include "inc_fsl.h"
+
+#include "drv_pitmgr.hpp"
+#include "drv_extInt.hpp"
+
+class key_bt_t
+{
+public:
+	static key_bt_t& getInst(uint32_t num)
+	{
+		static key_bt_t instUP(RTE_KEY_BTUP_GPIO, RTE_KEY_BTUP_PIN, isr_btUP);
+		static key_bt_t instDN(RTE_KEY_BTDN_GPIO, RTE_KEY_BTDN_PIN, isr_btDN);
+		static key_bt_t instLF(RTE_KEY_BTLF_GPIO, RTE_KEY_BTLF_PIN, isr_btLF);
+		static key_bt_t instRT(RTE_KEY_BTRT_GPIO, RTE_KEY_BTRT_PIN, isr_btRT);
+		static key_bt_t instOK(RTE_KEY_BTOK_GPIO, RTE_KEY_BTOK_PIN, isr_btOK);
+
+		static key_bt_t instUS(RTE_KEY_BTUS_GPIO, RTE_KEY_BTUS_PIN, isr_btUS);
+		static key_bt_t instME(RTE_KEY_BTME_GPIO, RTE_KEY_BTME_PIN, isr_btME);
+		static key_bt_t instSE(RTE_KEY_BTSE_GPIO, RTE_KEY_BTSE_PIN, isr_btSE);
+
+		static key_bt_t& instLUT[8] = { instUP,instDN,instLF,instRT,instOK,instUS,instME,instSE };
+
+		return instLUT[num];
+	}
+
+	const static uint32_t BT_UP = 0;
+	const static uint32_t BT_DN = 1;
+	const static uint32_t BT_LF = 2;
+	const static uint32_t BT_RT = 3;
+	const static uint32_t BT_OK = 4;
+	const static uint32_t BT_US = 5;
+	const static uint32_t BT_ME = 6;
+	const static uint32_t BT_SE = 7;
+
+	const static uint64_t TIME_SHRT = MSEC_TO_COUNT(100, RTE_PIT_CLKFREQ);
+	const static uint64_t TIME_LONG = MSEC_TO_COUNT(500, RTE_PIT_CLKFREQ);
+	const static uint64_t TIME_LRPT = MSEC_TO_COUNT(250, RTE_PIT_CLKFREQ);
+	const static uint64_t TIME_TOUT = MSEC_TO_COUNT(750, RTE_PIT_CLKFREQ);
+
+	//pitIsr for all button(s)
+	static void pitIsr(void)
+	{
+		for (uint8_t i = 0; i < 8; i++)
+		{
+			key_bt_t& inst = getInst(i);
+			if (inst.extInt.mode == kGPIO_IntRisingEdge)	//pressed down
+			{
+
+			}
+			else
+			{
+
+			}
+		}
+	}
+
+	//extIsr for 5-axis button UP
+	static void isr_btUP(void)
+	{
+		getInst(BT_UP).btIsr();
+	}
+	static void isr_btDN(void)
+	{
+
+	}
+	static void isr_btLF(void)
+	{
+
+	}
+	static void isr_btRT(void)
+	{
+
+	}
+	static void isr_btOK(void)
+	{
+
+	}
+	//extIsr for isolated button USER
+	static void isr_btUS(void)
+	{
+
+	}
+	//extIsr for isolated button MOROT_EN
+	static void isr_btME(void)
+	{
+
+	}
+	//extIsr for isolated button SERVO_EN
+	static void isr_btSE(void)
+	{
+
+	}
+	
+	uint64_t tStamp[4];
+	uint32_t tStampCnt;
+
+	extInt_t& extInt;
+
+	void tStampPush(uint64_t _t)
+	{
+		if (tStampCnt > 3)
+		{
+			return;
+		}
+		tStamp[tStampCnt++] = _t;
+	}
+
+	void tStampClear(void)
+	{
+		tStampCnt = 0;
+	}
+
+	uint32_t btRead(void)
+	{
+		return GPIO_PinRead(extInt.gpio, extInt.pin);
+		return 0;
+	}
+
+	void btIsr(void)
+	{
+		if (extInt.mode == kGPIO_IntFallingEdge)
+		{
+			extInt.setMode(kGPIO_IntRisingEdge);
+			//tStampClear();
+			tStampPush(pitmgr_t::getLTC());
+		}
+		else if (extInt.mode == kGPIO_IntRisingEdge)
+		{
+			extInt.setMode(kGPIO_IntFallingEdge);
+			tStampPush(pitmgr_t::getLTC());
+			uint64_t cnt = tStamp[0] - tStamp[1];
+			if (cnt < TIME_SHRT || cnt > TIME_TOUT)
+			{
+				tStampClear();
+			}
+			else if (cnt < TIME_LONG)
+			{
+				//generate a SHRT_PRES
+			}
+			else
+			{
+				//generate a LONG_PRES
+			}
+		}
+		else
+		{
+#ifdef DEBUG
+			throw std::runtime_error(std::string("key_bt: invalid Interrupt Flag!"));
+#endif
+		}
+	}
+
+
+private:
+	key_bt_t(GPIO_Type* _gpio, uint32_t _pin, extInt_t::handler_t _handle)
+	{
+		memset(tStamp, 0, 4 * sizeof(uint32_t));
+		tStampCnt = 0;
+		exInt = extInt_t::insert(_gpio, _pin, _handle, kGPIO_IntFallingEdge, true);
+	}
+};
+
+
+
+#endif // ! _DRV_KEYBT_HPP_

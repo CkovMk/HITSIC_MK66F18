@@ -1,0 +1,192 @@
+#include "rte_timer.hpp"
+
+/*
+----------PIT peripheral----------
+*/
+/*
+status_t rte_pit_init(void)
+{
+    status_t rStatus = kStatus_Success;
+
+    pit_config_t pit_cfg =
+    {
+        .enableRunInDebug = true,
+    };
+    PIT_Init(PIT, &pit_cfg);
+
+    NVIC_SetPriority(PIT_IRQn, 4);
+    EnableIRQ(PIT_IRQn);
+
+    //Lifetime Counter: kPIT_Chnl1 & kPIT_Chnl0
+    PIT_SetTimerChainMode(PIT,kPIT_Chnl_1,true);
+    PIT_SetTimerPeriod(PIT, kPIT_Chnl_0, 0xffffffff);
+    PIT_StartTimer(PIT, kPIT_Chnl_0);
+    //kPIT_Chnl2 used for generating interrupts
+    PIT_SetTimerPeriod(PIT, kPIT_Chnl_2, MSEC_TO_COUNT(1, 10000000));
+    PIT_EnableInterrupts(PIT, kPIT_Chnl_2, kPIT_TimerInterruptEnable);
+    PIT_StartTimer(PIT, kPIT_Chnl_2);
+    //kPIT_Chnl1
+    //PIT_SetTimerPeriod(PIT, kPIT_Chnl_1, MSEC_TO_COUNT(1000, 10000000));
+    //PIT_EnableInterrupts(PIT, kPIT_Chnl_1, kPIT_TimerInterruptEnable);
+    //PIT_StartTimer(RTE_PIT_ADDR, kPIT_Chnl_1);
+
+    return rStatus;
+}
+status_t rte_pit_deInit(void)
+{
+    status_t rStatus = kStatus_Success;
+    PIT_Deinit(PIT);
+    return rStatus;
+}
+*/
+/*
+----------GPT peripheral----------
+*/
+/*
+status_t rte_gpt_init(void)
+{
+    status_t rStatus = kStatus_Success;
+
+    return rStatus;
+}
+status_t rte_gpt_deInit(void)
+{
+    status_t rStatus = kStatus_Success;
+
+    return rStatus;
+}
+*/
+/*
+----------QTM peripheral----------
+*/
+/*
+status_t rte_qtm_init(void)
+{
+    status_t rStatus = kStatus_Success;
+
+    return rStatus;
+}
+status_t rte_qtm_deInit(void)
+{
+    status_t rStatus = kStatus_Success;
+
+    return rStatus;
+}
+*/
+/*
+----------PWM peripheral----------
+*/
+
+bool rte_pwmInitFlag = false;
+
+status_t rte_pwm_init(void)
+{
+    status_t rStatus = kStatus_Success;
+    if (rte_logicInitFlag)
+    {
+        XBARA_SetSignalsConnection(XBARA1, kXBARA1_InputLogicHigh, kXBARA1_OutputFlexpwm1Fault0);
+        XBARA_SetSignalsConnection(XBARA1, kXBARA1_InputLogicHigh, kXBARA1_OutputFlexpwm1Fault1);
+        XBARA_SetSignalsConnection(XBARA1, kXBARA1_InputLogicHigh, kXBARA1_OutputFlexpwm4Fault0);
+        XBARA_SetSignalsConnection(XBARA1, kXBARA1_InputLogicHigh, kXBARA1_OutputFlexpwm4Fault1);
+        XBARA_SetSignalsConnection(XBARA1, kXBARA1_InputLogicHigh, kXBARA1_OutputFlexpwm1234Fault2);
+        XBARA_SetSignalsConnection(XBARA1, kXBARA1_InputLogicHigh, kXBARA1_OutputFlexpwm1234Fault3);
+    }
+    else
+    {
+        rStatus = kStatus_Fail;
+        return rStatus;
+    }
+    pwm_config_t pwm_cfg;
+    pwm_signal_param_t pwm_pwmCfg[2];
+
+    {
+        pwm_cfg.enableDebugMode = true;
+        pwm_cfg.enableWait = false;
+        pwm_cfg.faultFilterCount = 0;
+        pwm_cfg.faultFilterPeriod = 0;
+        pwm_cfg.initializationControl = kPWM_Initialize_LocalSync;
+        pwm_cfg.clockSource = kPWM_BusClock;
+        pwm_cfg.prescale = kPWM_Prescale_Divide_1;
+        pwm_cfg.pairOperation = kPWM_Independent;
+        pwm_cfg.reloadLogic = kPWM_ReloadPwmFullCycle;
+        pwm_cfg.reloadSelect = kPWM_LocalReload;
+        pwm_cfg.reloadFrequency = kPWM_LoadEveryOportunity;
+        pwm_cfg.forceTrigger = kPWM_Force_Local;
+    }
+
+    {
+        pwm_pwmCfg[0].pwmChannel = kPWM_PwmA;
+        pwm_pwmCfg[0].level = kPWM_HighTrue;
+        pwm_pwmCfg[0].dutyCyclePercent = 0;
+        pwm_pwmCfg[0].deadtimeValue = 0;
+    }
+
+    {
+        pwm_pwmCfg[1].pwmChannel = kPWM_PwmB;
+        pwm_pwmCfg[1].level = kPWM_HighTrue;
+        pwm_pwmCfg[1].dutyCyclePercent = 0;
+        pwm_pwmCfg[1].deadtimeValue = 0;
+    }
+
+    /* Init submodule 0 */
+    rStatus = PWM_Init(RTE_PWM_ADDR, kPWM_Module_0, &pwm_cfg);
+    rStatus = PWM_SetupPwm(RTE_PWM_ADDR, kPWM_Module_0, pwm_pwmCfg, 2, kPWM_CenterAligned, RTE_PWM_MODULE0_PWMFREQ, RTE_PWM_CLKFREQ);
+    /* Init submodule 1 */
+    rStatus = PWM_Init(RTE_PWM_ADDR, kPWM_Module_1, &pwm_cfg);
+    rStatus = PWM_SetupPwm(RTE_PWM_ADDR, kPWM_Module_1, pwm_pwmCfg, 2, kPWM_CenterAligned, RTE_PWM_MODULE1_PWMFREQ, RTE_PWM_CLKFREQ);
+    /* Init submodule 2 */
+    rStatus = PWM_Init(RTE_PWM_ADDR, kPWM_Module_2, &pwm_cfg);
+    rStatus = PWM_SetupPwm(RTE_PWM_ADDR, kPWM_Module_2, pwm_pwmCfg, 2, kPWM_EdgeAligned, RTE_PWM_MODULE2_PWMFREQ, RTE_PWM_CLKFREQ);
+    
+
+    PWM_SetPwmLdok(RTE_PWM_ADDR, kPWM_Control_Module_0 | kPWM_Control_Module_1 | kPWM_Control_Module_2, true);
+    PWM_StartTimer(RTE_PWM_ADDR, kPWM_Control_Module_0 | kPWM_Control_Module_1 | kPWM_Control_Module_2);
+
+    if(rStatus == kStatus_Success)
+    {
+        rte_pwmInitFlag = true;
+    }
+    return rStatus;
+}
+status_t rte_pwm_deInit(void)
+{
+    status_t rStatus = kStatus_Success;
+    PWM_Deinit(RTE_PWM_ADDR, kPWM_Module_0);
+    PWM_Deinit(RTE_PWM_ADDR, kPWM_Module_1);
+    PWM_Deinit(RTE_PWM_ADDR, kPWM_Module_2);
+
+    if (rStatus == kStatus_Success)
+    {
+        rte_pwmInitFlag = false;
+    }
+    return rStatus;
+}
+
+/*
+----------ENC peripheral----------
+*/
+/*
+status_t rte_enc_init(void)
+{
+    status_t rStatus = kStatus_Success;
+
+    // XBARA_SetSignalsConnection(XBARA1, kXBARA1_InputIomuxXbarIn21, kXBARA1_OutputEnc1PhaseAInput);
+    // XBARA_SetSignalsConnection(XBARA1, kXBARA1_InputIomuxXbarIn22, kXBARA1_OutputEnc1PhaseBInput);
+    // XBARA_SetSignalsConnection(XBARA1, kXBARA1_InputIomuxXbarIn23, kXBARA1_OutputEnc1Index);
+
+    enc_config_t enc_cfg;
+    ENC_GetDefaultConfig(&enc_cfg);
+    ENC_Init(RTE_ENC1_ADDR, &enc_cfg);
+    ENC_DoSoftwareLoadInitialPositionValue(RTE_ENC1_ADDR);
+    ENC_Init(RTE_ENC2_ADDR, &enc_cfg);
+    ENC_DoSoftwareLoadInitialPositionValue(RTE_ENC2_ADDR);
+
+    return rStatus;
+}
+status_t rte_enc_deInit(void)
+{
+    status_t rStatus = kStatus_Success;
+    ENC_Deinit(RTE_ENC1_ADDR);
+    return rStatus;
+}
+*/

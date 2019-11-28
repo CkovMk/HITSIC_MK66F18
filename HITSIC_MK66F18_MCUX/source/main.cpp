@@ -102,7 +102,7 @@ void main()
     /** 初始化ftfx_Flash */
 	FLASH_SimpleInit();
 	/** 初始化EasyFlash */
-	//easyflash_init();
+	easyflash_init();
 	/** 初始化PIT中断管理器 */
 	PITMGR_Init();
 	/** 初始化I/O中断管理器 */

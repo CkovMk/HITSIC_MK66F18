@@ -121,9 +121,6 @@ void main()
 	//CAMERA_Init();
 	/** 初始化IMU */
 	//DRVIMU_INV_GetDefaultConfig(&imu);
-	//OLED_PrintStr_F6x8(10,0,"OLED Test !");
-	//OLED_PrintStr_F6x8(10,2,"OLED Test !");
-	//OLED_PrintStr_F6x8(10,4,"OLED Test !");
 
     /** 初始化结束，开启总中断 */
 	HAL_ExitCritical();

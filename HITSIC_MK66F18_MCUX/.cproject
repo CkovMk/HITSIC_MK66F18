@@ -210,7 +210,7 @@
 								<option id="com.crt.advproject.gas.hdrlib.577369184" name="Library headers" superClass="com.crt.advproject.gas.hdrlib" useByScannerDiscovery="false" value="com.crt.advproject.gas.hdrlib.newlib" valueType="enumerated"/>
 								<option id="com.crt.advproject.gas.specs.100527350" name="Specs" superClass="com.crt.advproject.gas.specs" useByScannerDiscovery="false" value="com.crt.advproject.gas.specs.newlib" valueType="enumerated"/>
 								<option id="com.crt.advproject.gas.arch.31622649" name="Architecture" superClass="com.crt.advproject.gas.arch" useByScannerDiscovery="false" value="com.crt.advproject.gas.target.cm4" valueType="enumerated"/>
-								<option id="gnu.both.asm.option.flags.crt.29458380" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt" useByScannerDiscovery="false"/>
+								<option id="gnu.both.asm.option.flags.crt.29458380" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt" useByScannerDiscovery="false" value="-c -x assembler-with-cpp -D__NEWLIB__" valueType="string"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.364015244" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="../board"/>
 									<listOptionValue builtIn="false" value="../source"/>
@@ -592,7 +592,7 @@
 								<option id="com.crt.advproject.gas.hdrlib.93257429" name="Library headers" superClass="com.crt.advproject.gas.hdrlib" value="com.crt.advproject.gas.hdrlib.newlib" valueType="enumerated"/>
 								<option id="com.crt.advproject.gas.specs.777587434" name="Specs" superClass="com.crt.advproject.gas.specs" value="com.crt.advproject.gas.specs.newlib" valueType="enumerated"/>
 								<option id="com.crt.advproject.gas.arch.2126664661" name="Architecture" superClass="com.crt.advproject.gas.arch" value="com.crt.advproject.gas.target.cm4" valueType="enumerated"/>
-								<option id="gnu.both.asm.option.flags.crt.574181703" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt"/>
+								<option id="gnu.both.asm.option.flags.crt.574181703" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt" value="-c -x assembler-with-cpp -D__NEWLIB__" valueType="string"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.1299065218" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="../board"/>
 									<listOptionValue builtIn="false" value="../source"/>
@@ -785,27 +785,6 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="MK66FX1M0xxx18_Project.null.853576200" name="MK66FX1M0xxx18_Project" projectType="com.crt.advproject.projecttype.exe"/>
 	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.debug.894819615;com.crt.advproject.config.exe.debug.894819615.;com.crt.advproject.cpp.exe.debug.1664834564;com.crt.advproject.compiler.cpp.input.1199747414">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.debug.894819615;com.crt.advproject.config.exe.debug.894819615.;com.crt.advproject.gas.exe.debug.1429284088;com.crt.advproject.assembler.input.1741858930">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.release.2026446262;com.crt.advproject.config.exe.release.2026446262.;com.crt.advproject.gas.exe.release.185429730;com.crt.advproject.assembler.input.1599339512">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.debug.894819615;com.crt.advproject.config.exe.debug.894819615.;com.crt.advproject.gcc.exe.debug.1721079970;com.crt.advproject.compiler.input.1685859236">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.release.2026446262;com.crt.advproject.config.exe.release.2026446262.;com.crt.advproject.gcc.exe.release.1015017579;com.crt.advproject.compiler.input.1074685820">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.exe.release.2026446262;com.crt.advproject.config.exe.release.2026446262.;com.crt.advproject.cpp.exe.release.463041255;com.crt.advproject.compiler.cpp.input.1175837132">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="com.nxp.mcuxpresso.core.datamodels">
 		<sdkName>SDK_2.x_MK66FX1M0xxx18</sdkName>
@@ -827,10 +806,10 @@
 &lt;vendor&gt;NXP&lt;/vendor&gt;&#13;
 &lt;memory can_program="true" id="Flash" is_ro="true" size="1024" type="Flash"/&gt;&#13;
 &lt;memory id="RAM" size="256" type="RAM"/&gt;&#13;
-&lt;memoryInstance derived_from="Flash" driver="FTFE_4K.cfx" id="PROGRAM_FLASH" location="0x0" size="0x100000"/&gt;&#13;
-&lt;memoryInstance derived_from="RAM" id="SRAM_UPPER" location="0x20000000" size="0x30000"/&gt;&#13;
-&lt;memoryInstance derived_from="RAM" id="SRAM_LOWER" location="0x1fff0000" size="0x10000"/&gt;&#13;
-&lt;memoryInstance derived_from="RAM" id="FLEX_RAM" location="0x14000000" size="0x1000"/&gt;&#13;
+&lt;memoryInstance derived_from="Flash" driver="FTFE_4K.cfx" id="PROGRAM_FLASH" location="0x00000000" size="0x00100000"/&gt;&#13;
+&lt;memoryInstance derived_from="RAM" id="SRAM_UPPER" location="0x20000000" size="0x00030000"/&gt;&#13;
+&lt;memoryInstance derived_from="RAM" id="SRAM_LOWER" location="0x1fff0000" size="0x00010000"/&gt;&#13;
+&lt;memoryInstance derived_from="RAM" id="FLEX_RAM" location="0x14000000" size="0x00001000"/&gt;&#13;
 &lt;/chip&gt;&#13;
 &lt;processor&gt;&#13;
 &lt;name gcc_name="cortex-m4"&gt;Cortex-M4&lt;/name&gt;&#13;
@@ -849,4 +828,6 @@
 			<resource resourceType="PROJECT" workspacePath="/HITSIC_MK66F18_MCUX"/>
 		</configuration>
 	</storageModule>
+	<storageModule moduleId="scannerConfiguration"/>
+	<storageModule moduleId="org.eclipse.cdt.core.pathentry"/>
 </cproject>

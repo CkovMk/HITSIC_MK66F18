@@ -28,12 +28,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * @file    main.cpp
- * @brief   Application entry point.
- */
-
-
 
 /**
  * Copyright 2018 - 2019 HITSIC
@@ -52,7 +46,7 @@
  * limitations under the License.
  */
 
-#include "stdafx.h"
+//#include "stdafx.h"
 
 #include "rte_i2c.h"
 #include "rte_spi.h"
@@ -62,9 +56,10 @@
 #include "drv_ftfx_flash.h"
 #include "drv_disp_ssd1306.h"
 #include "drv_imu_invensense.h"
-#include "drv_cam.h"
-#include "drv_button.h"   //未使用
-#include "app_menu.h"     //仍在开发中...
+//#include "drv_cam.h"
+#include "app_menu.h"
+
+#include "sys_pitmgr.hpp"
 
 //#include "cm_backtrace.h"
 
@@ -136,53 +131,6 @@ void main()
 	}
 }
 
-void FLASH_Demo(void)
-{
-	static int32_t whatData[1024] = {19981214, 0,1,2,3,4,5,6,7,8,9};
-	static int32_t dataRead[1024];
-	status_t result = kStatus_Success;
-	result = FLASH_SectorErase(0);
-
-//	uint32_t destAdrss = flash_blockBaseAddr + (flash_totalSize - (1 * flash_sectorSize * 2));
-
-
-	//result = FLASH_SectorProgram(0,whatData);
-//	result = FLASH_AddressProgram(0, whatData, 8);
-
-	//result = FLASH_Program(&flash_config, destAdrss, (uint8_t *)whatData, sizeof(whatData));
-
-
-
-//	if(result == kStatus_FTFx_Success)
-//	{
-//		printf("Data stored = %d\n", dataRead[0]);
-//	}
-//	result = FLASH_SectorRead(0, dataRead);
-//	if(result == kStatus_FTFx_Success)
-//	{
-//		printf("Data read = %d\n", dataRead[0]);
-//	}
-//
-//	if(dataRead[0] == whatData[0])
-//	{
-//		printf("Data Matched !\n", dataRead);
-//	}
-
-	result = MENU_NvmCacheSector(1);
-	result = MENU_NvmWriteCache(4096, whatData, 4 * 11);
-	result = MENU_NvmUpdateCache();
-
-	result = MENU_NvmRead(4096, dataRead, 4 * 11);
-		if(result == kStatus_FTFx_Success)
-		{
-			printf("Data read = %d\n", dataRead[0]);
-		}
-
-		if(dataRead[0] == whatData[0])
-		{
-			printf("Data Matched !\n", dataRead);
-		}
-}
 
 void EF_Demo(void)
 {

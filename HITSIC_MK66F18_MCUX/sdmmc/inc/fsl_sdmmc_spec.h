@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2015, Freescale Semiconductor, Inc.
- * Copyright 2016-2018 NXP
+ * Copyright 2016-2020 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -12,7 +12,7 @@
 #include <stdint.h>
 
 /*!
- * @addtogroup CARD
+ * @addtogroup SDMMC_COMMON
  * @{
  */
 
@@ -242,13 +242,6 @@ enum _sd_specification_version
     kSD_SpecificationVersion3_0 = (1U << 3U), /*!< SD card version 3.0 */
 };
 
-/*! @brief SD card bus width */
-typedef enum _sd_data_bus_width
-{
-    kSD_DataBusWidth1Bit = 0U, /*!< SD data bus width 1-bit mode */
-    kSD_DataBusWidth4Bit = 1U, /*!< SD data bus width 4-bit mode */
-} sd_data_bus_width_t;
-
 /*! @brief SD card switch mode */
 typedef enum _sd_switch_mode
 {
@@ -411,24 +404,24 @@ typedef enum _sdio_func_num
     kSDIO_FunctionMemory, /*!< for combo card*/
 } sdio_func_num_t;
 
-#define SDIO_CMD_ARGUMENT_RW_POS (31U)             /*!< read/write flag position */
-#define SDIO_CMD_ARGUMENT_FUNC_NUM_POS (28U)       /*!< function number position */
-#define SDIO_DIRECT_CMD_ARGUMENT_RAW_POS (27U)     /*!< direct raw flag position */
-#define SDIO_CMD_ARGUMENT_REG_ADDR_POS (9U)        /*!< direct reg addr position */
-#define SDIO_CMD_ARGUMENT_REG_ADDR_MASK (0x1FFFFU) /*!< direct reg addr mask */
-#define SDIO_DIRECT_CMD_DATA_MASK (0xFFU)          /*!< data mask */
+#define SDIO_CMD_ARGUMENT_RW_POS         (31U)      /*!< read/write flag position */
+#define SDIO_CMD_ARGUMENT_FUNC_NUM_POS   (28U)      /*!< function number position */
+#define SDIO_DIRECT_CMD_ARGUMENT_RAW_POS (27U)      /*!< direct raw flag position */
+#define SDIO_CMD_ARGUMENT_REG_ADDR_POS   (9U)       /*!< direct reg addr position */
+#define SDIO_CMD_ARGUMENT_REG_ADDR_MASK  (0x1FFFFU) /*!< direct reg addr mask */
+#define SDIO_DIRECT_CMD_DATA_MASK        (0xFFU)    /*!< data mask */
 
-#define SDIO_EXTEND_CMD_ARGUMENT_BLOCK_MODE_POS (27U) /*!< extended command argument block mode bit position */
-#define SDIO_EXTEND_CMD_ARGUMENT_OP_CODE_POS (26U)    /*!< extended command argument OP Code bit position */
-#define SDIO_EXTEND_CMD_BLOCK_MODE_MASK (0x08000000U) /*!< block mode mask */
-#define SDIO_EXTEND_CMD_OP_CODE_MASK (0x04000000U)    /*!< op code mask */
-#define SDIO_EXTEND_CMD_COUNT_MASK (0x1FFU)           /*!< byte/block count mask */
-#define SDIO_MAX_BLOCK_SIZE (2048U)                   /*!< max block size */
-#define SDIO_FBR_BASE(x) (x * 0x100U)                 /*!< function basic register */
-#define SDIO_TPL_CODE_END (0xFFU)                     /*!< tuple end */
-#define SDIO_TPL_CODE_MANIFID (0x20U)                 /*!< manufacturer ID */
-#define SDIO_TPL_CODE_FUNCID (0x21U)                  /*!< function ID */
-#define SDIO_TPL_CODE_FUNCE (0x22U)                   /*!< function extension tuple*/
+#define SDIO_EXTEND_CMD_ARGUMENT_BLOCK_MODE_POS (27U)         /*!< extended command argument block mode bit position */
+#define SDIO_EXTEND_CMD_ARGUMENT_OP_CODE_POS    (26U)         /*!< extended command argument OP Code bit position */
+#define SDIO_EXTEND_CMD_BLOCK_MODE_MASK         (0x08000000U) /*!< block mode mask */
+#define SDIO_EXTEND_CMD_OP_CODE_MASK            (0x04000000U) /*!< op code mask */
+#define SDIO_EXTEND_CMD_COUNT_MASK              (0x1FFU)      /*!< byte/block count mask */
+#define SDIO_MAX_BLOCK_SIZE                     (2048U)       /*!< max block size */
+#define SDIO_FBR_BASE(x)                        (x * 0x100U)  /*!< function basic register */
+#define SDIO_TPL_CODE_END                       (0xFFU)       /*!< tuple end */
+#define SDIO_TPL_CODE_MANIFID                   (0x20U)       /*!< manufacturer ID */
+#define SDIO_TPL_CODE_FUNCID                    (0x21U)       /*!< function ID */
+#define SDIO_TPL_CODE_FUNCE                     (0x22U)       /*!< function extension tuple*/
 /*! @brief sdio command response flag */
 enum _sdio_status_flag
 {
@@ -485,34 +478,34 @@ enum _sdio_capability_flag
     kSDIO_CCCRSupportContinuousSPIInt         = (1U << 10U), /*!< support continuous SPI interrupt */
 };
 /*! @brief UHS timing mode flag */
-#define SDIO_CCCR_SUPPORT_HIGHSPEED (1u << 9U)
-#define SDIO_CCCR_SUPPORT_SDR50 (1U << 11U)
-#define SDIO_CCCR_SUPPORT_SDR104 (1U << 12U)
-#define SDIO_CCCR_SUPPORT_DDR50 (1U << 13U)
+#define SDIO_CCCR_SUPPORT_HIGHSPEED     (1u << 9U)
+#define SDIO_CCCR_SUPPORT_SDR50         (1U << 11U)
+#define SDIO_CCCR_SUPPORT_SDR104        (1U << 12U)
+#define SDIO_CCCR_SUPPORT_DDR50         (1U << 13U)
 #define SDIO_CCCR_SUPPORT_DRIVER_TYPE_A (1U << 14U)
 #define SDIO_CCCR_SUPPORT_DRIVER_TYPE_C (1U << 15U)
 #define SDIO_CCCR_SUPPORT_DRIVER_TYPE_D (1U << 16U)
-#define SDIO_CCCR_SUPPORT_ASYNC_INT (1U << 17U)
+#define SDIO_CCCR_SUPPORT_ASYNC_INT     (1U << 17U)
 
-#define SDIO_CCCR_BUS_SPEED_MASK (7U << 1U)
+#define SDIO_CCCR_BUS_SPEED_MASK        (7U << 1U)
 #define SDIO_CCCR_ENABLE_HIGHSPEED_MODE (1U << 1U)
-#define SDIO_CCCR_ENABLE_SDR50_MODE (2U << 1U)
-#define SDIO_CCCR_ENABLE_SDR104_MODE (3U << 1U)
-#define SDIO_CCCR_ENABLE_DDR50_MODE (4U << 1U)
+#define SDIO_CCCR_ENABLE_SDR50_MODE     (2U << 1U)
+#define SDIO_CCCR_ENABLE_SDR104_MODE    (3U << 1U)
+#define SDIO_CCCR_ENABLE_DDR50_MODE     (4U << 1U)
 
 /*! @brief Driver type flag */
-#define SDIO_CCCR_DRIVER_TYPE_MASK (3U << 4U)
+#define SDIO_CCCR_DRIVER_TYPE_MASK     (3U << 4U)
 #define SDIO_CCCR_ENABLE_DRIVER_TYPE_B (0U << 4U)
 #define SDIO_CCCR_ENABLE_DRIVER_TYPE_A (1U << 4U)
 #define SDIO_CCCR_ENABLE_DRIVER_TYPE_C (2U << 4U)
 #define SDIO_CCCR_ENABLE_DRIVER_TYPE_D (3U << 4U)
 
 /*! @brief aync interrupt flag*/
-#define SDIO_CCCR_ASYNC_INT_MASK (1U)
+#define SDIO_CCCR_ASYNC_INT_MASK  (1U)
 #define SDIO_CCCR_ENABLE_AYNC_INT (1U << 1U)
 
 /*! @brief 8 bit data bus flag*/
-#define SDIO_CCCR_SUPPORT_8BIT_BUS (1U << 18U)
+#define SDIO_CCCR_SUPPORT_8BIT_BUS           (1U << 18U)
 #define SDIO_CCCR_SUPPORT_LOW_SPEED_4BIT_BUS (1U << 7U)
 /*! @brief sdio fbr flag */
 enum _sdio_fbr_flag
@@ -673,10 +666,11 @@ enum _mmc_support_boot_mode
 /*! @brief MMC card high-speed timing(HS_TIMING in Extended CSD) */
 typedef enum _mmc_high_speed_timing
 {
-    kMMC_HighSpeedTimingNone = 0U, /*!< MMC card using none high-speed timing */
-    kMMC_HighSpeedTiming     = 1U, /*!< MMC card using high-speed timing */
-    kMMC_HighSpeed200Timing  = 2U, /*!< MMC card high speed 200 timing*/
-    kMMC_HighSpeed400Timing  = 3U, /*!< MMC card high speed 400 timing*/
+    kMMC_HighSpeedTimingNone       = 0U, /*!< MMC card using none high-speed timing */
+    kMMC_HighSpeedTiming           = 1U, /*!< MMC card using high-speed timing */
+    kMMC_HighSpeed200Timing        = 2U, /*!< MMC card high speed 200 timing*/
+    kMMC_HighSpeed400Timing        = 3U, /*!< MMC card high speed 400 timing*/
+    kMMC_EnhanceHighSpeed400Timing = 4U, /*!< MMC card high speed 400 timing*/
 } mmc_high_speed_timing_t;
 
 /*! @brief The number of data bus width type */
@@ -684,11 +678,12 @@ typedef enum _mmc_high_speed_timing
 /*! @brief MMC card data bus width(BUS_WIDTH in Extended CSD) */
 typedef enum _mmc_data_bus_width
 {
-    kMMC_DataBusWidth1bit    = 0U, /*!< MMC data bus width is 1 bit */
-    kMMC_DataBusWidth4bit    = 1U, /*!< MMC data bus width is 4 bits */
-    kMMC_DataBusWidth8bit    = 2U, /*!< MMC data bus width is 8 bits */
-    kMMC_DataBusWidth4bitDDR = 5U, /*!< MMC data bus width is 4 bits ddr */
-    kMMC_DataBusWidth8bitDDR = 6U, /*!< MMC data bus width is 8 bits ddr */
+    kMMC_DataBusWidth1bit          = 0U,    /*!< MMC data bus width is 1 bit */
+    kMMC_DataBusWidth4bit          = 1U,    /*!< MMC data bus width is 4 bits */
+    kMMC_DataBusWidth8bit          = 2U,    /*!< MMC data bus width is 8 bits */
+    kMMC_DataBusWidth4bitDDR       = 5U,    /*!< MMC data bus width is 4 bits ddr */
+    kMMC_DataBusWidth8bitDDR       = 6U,    /*!< MMC data bus width is 8 bits ddr */
+    kMMC_DataBusWidth8bitDDRSTROBE = 0x86U, /*!< MMC data bus width is 8 bits ddr  strobe mode */
 } mmc_data_bus_width_t;
 
 /*! @brief MMC card boot partition enabled(BOOT_PARTITION_ENABLE in Extended CSD) */
@@ -705,9 +700,9 @@ typedef enum _mmc_boot_partition_enable
  */
 typedef enum _mmc_boot_timing_mode
 {
-    kMMC_BootModeSDRWithDefaultTiming   = 0U << 3U, /*!< boot mode single data rate with backward compatiable timings */
-    kMMC_BootModeSDRWithHighSpeedTiming = 1U << 3U, /*!< boot mode single data rate with high speed timing */
-    kMMC_BootModeDDRTiming              = 2U << 3U, /*!< boot mode dual date rate */
+    kMMC_BootModeSDRWithDefaultTiming   = 0U, /*!< boot mode single data rate with backward compatiable timings */
+    kMMC_BootModeSDRWithHighSpeedTiming = 1U, /*!< boot mode single data rate with high speed timing */
+    kMMC_BootModeDDRTiming              = 2U, /*!< boot mode dual date rate */
 } mmc_boot_timing_mode_t;
 
 /*! @brief MMC card boot partition write protect configurations
@@ -779,7 +774,9 @@ typedef enum _mmc_access_partition
 #define MMC_BOOT_BUS_CONDITION_RESET_BUS_CONDITION_SHIFT (2U)
 /*! @brief The bit mask for BOOT BUS WIDTH RESET field in BOOT CONFIG */
 #define MMC_BOOT_BUS_CONDITION_RESET_BUS_CONDITION_MASK (4U)
-/*! @brief The bit mask for BOOT BUS WIDTH RESET field in BOOT CONFIG */
+/*! @brief The bit shift for BOOT MODE field in BOOT CONFIG */
+#define MMC_BOOT_BUS_CONDITION_BOOT_MODE_SHIFT (3U)
+/*! @brief The bit mask for BOOT MODE field in BOOT CONFIG */
 #define MMC_BOOT_BUS_CONDITION_BOOT_MODE_MASK (0x18U)
 
 /*! @brief MMC card CSD register flags */
@@ -844,11 +841,11 @@ typedef enum _mmc_extended_csd_flags
 } mmc_extended_csd_flags_t;
 
 /*! @brief MMC card boot mode */
-enum _mmc_boot_mode
+typedef enum _mmc_boot_mode
 {
     kMMC_BootModeNormal      = 0U, /*!< Normal boot */
     kMMC_BootModeAlternative = 1U, /*!< Alternative boot */
-};
+} mmc_boot_mode_t;
 
 /*! @brief The length of Extended CSD register, unit as bytes. */
 #define MMC_EXTENDED_CSD_BYTES (512U)
@@ -1195,6 +1192,7 @@ typedef struct _mmc_extended_csd_config
 /*! @brief MMC card boot configuration definition. */
 typedef struct _mmc_boot_config
 {
+    mmc_boot_mode_t bootMode;                  /*!< mmc boot mode */
     bool enableBootAck;                        /*!< Enable boot ACK */
     mmc_boot_partition_enable_t bootPartition; /*!< Boot partition */
 

@@ -12,12 +12,12 @@
 #include "fsl_edma.h"
 #include "fsl_dmamux.h"
 #include "fsl_common.h"
-#include "fsl_pit.h"
 #include "fsl_gpio.h"
 #include "fsl_port.h"
-#include "fsl_i2c.h"
+#include "fsl_pit.h"
 #include "fsl_clock.h"
 #include "fsl_ftm.h"
+#include "fsl_i2c.h"
 #include "fsl_uart.h"
 #include "fsl_adc16.h"
 
@@ -33,23 +33,6 @@ extern "C" {
 #define EDMA_DMA_BASEADDR DMA0
 /* Associated DMAMUX device that is used for muxing of requests. */
 #define EDMA_DMAMUX_BASEADDR DMAMUX
-/* RTEPIP_BasicPip defines for PIT */
-/* Definition of peripheral ID. */
-#define PIT_PERIPHERAL PIT
-/* Definition of clock source. */
-#define PIT_CLOCK_SOURCE kCLOCK_BusClk
-/* Definition of clock source frequency. */
-#define PIT_CLK_FREQ CLOCK_GetFreq(PIT_CLOCK_SOURCE)
-/* Definition of ticks count for channel 0. */
-#define PIT_0_TICKS 4294967294U
-/* Definition of ticks count for cahnnel 1. */
-#define PIT_1_TICKS 4294967294U
-/* Definition of ticks count for channel 2. */
-#define PIT_2_TICKS USEC_TO_COUNT(1000U, PIT_CLK_FREQ) - 1U
-/* PIT interrupt vector ID (number). */
-#define PIT_2_IRQN PIT2_IRQn
-/* PIT interrupt handler identifier. */
-#define PIT_2_IRQHANDLER PIT2_IRQHandler
 /* Alias for GPIOA peripheral */
 #define GPIOA_GPIO GPIOA
 /* Alias for PORTA */
@@ -100,15 +83,31 @@ extern "C" {
 #define GPIOE_IRQ_PRIORITY 6
 /* GPIOE interrupt handler identifier. */
 #define GPIOE_IRQHandler PORTE_IRQHandler
+/* RTEPIP_BasicPip defines for PIT */
+/* Definition of peripheral ID. */
+#define PIT_PERIPHERAL PIT
+/* Definition of clock source. */
+#define PIT_CLOCK_SOURCE kCLOCK_BusClk
+/* Definition of clock source frequency. */
+#define PIT_CLK_FREQ CLOCK_GetFreq(PIT_CLOCK_SOURCE)
+/* Definition of ticks count for channel 0 - deprecated. */
+#define PIT_0_TICKS 4294967294U
+/* Definition of ticks count for channel 1 - deprecated. */
+#define PIT_1_TICKS 4294967294U
+/* Definition of ticks count for channel 2 - deprecated. */
+#define PIT_2_TICKS USEC_TO_COUNT(1000U, PIT_CLK_FREQ) - 1U
+/* Definition of channel number for channel 0. */
+#define PIT_0 kPIT_Chnl_0
+/* Definition of channel number for channel 1. */
+#define PIT_1 kPIT_Chnl_1
+/* Definition of channel number for channel 2. */
+#define PIT_2 kPIT_Chnl_2
+/* PIT interrupt vector ID (number). */
+#define PIT_2_IRQN PIT2_IRQn
+/* PIT interrupt handler identifier. */
+#define PIT_2_IRQHANDLER PIT2_IRQHandler
 
 /* Definitions for RTEPIP_Digital functional group */
-/* RTEPIP_Digital defines for I2C0 */
-/* Definition of peripheral ID */
-#define I2C0_IMU_PERIPHERAL I2C0
-/* Definition of the clock source */
-#define I2C0_IMU_CLOCK_SOURCE I2C0_CLK_SRC
-/* Definition of the clock source frequency */
-#define I2C0_IMU_CLK_FREQ CLOCK_GetFreq(I2C0_IMU_CLOCK_SOURCE)
 /* Definition of peripheral ID */
 #define FTM0_MOTOR_PERIPHERAL FTM0
 /* Definition of the clock source frequency */
@@ -141,14 +140,21 @@ extern "C" {
 #define FTM3_SERVO_IRQN FTM3_IRQn
 /* FTM3_SERVO interrupt handler identifier. */
 #define FTM3_SERVO_IRQHANDLER FTM3_IRQHandler
+/* RTEPIP_Digital defines for I2C0 */
 /* Definition of peripheral ID */
-#define UART3_CAM_PERIPHERAL UART3
+#define I2C0_IMU_PERIPHERAL I2C0
+/* Definition of the clock source */
+#define I2C0_IMU_CLOCK_SOURCE I2C0_CLK_SRC
 /* Definition of the clock source frequency */
-#define UART3_CAM_CLOCK_SOURCE CLOCK_GetFreq(UART3_CLK_SRC)
+#define I2C0_IMU_CLK_FREQ CLOCK_GetFreq(I2C0_IMU_CLOCK_SOURCE)
 /* Definition of peripheral ID */
 #define UART0_PERIPHERAL UART0
 /* Definition of the clock source frequency */
 #define UART0_CLOCK_SOURCE CLOCK_GetFreq(UART0_CLK_SRC)
+/* Definition of peripheral ID */
+#define UART3_CAM_PERIPHERAL UART3
+/* Definition of the clock source frequency */
+#define UART3_CAM_CLOCK_SOURCE CLOCK_GetFreq(UART3_CLK_SRC)
 
 /* Definitions for RTEPIP_Analog functional group */
 /* Alias for ADC0 peripheral */
@@ -169,13 +175,13 @@ extern "C" {
  **********************************************************************************************************************/
 extern const edma_config_t EDMA_config;
 extern const pit_config_t PIT_config;
-extern const i2c_master_config_t I2C0_IMU_config;
 extern const ftm_config_t FTM0_MOTOR_config;
 extern const ftm_config_t FTM1_ENC_L_config;
 extern const ftm_config_t FTM2_ENC_R_config;
 extern const ftm_config_t FTM3_SERVO_config;
-extern const uart_config_t UART3_CAM_config;
+extern const i2c_master_config_t I2C0_IMU_config;
 extern const uart_config_t UART0_config;
+extern const uart_config_t UART3_CAM_config;
 extern const adc16_config_t ADC0_config;
 extern const adc16_channel_mux_mode_t ADC0_muxMode;
 extern const adc16_hardware_average_mode_t ADC0_hardwareAverageMode;

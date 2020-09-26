@@ -46,26 +46,18 @@
  * limitations under the License.
  */
 
-//#include "stdafx.h"
-
-#include "rte_i2c.h"
-#include "rte_spi.h"
-#include "rte_softi2c.h"
-#include "rte_uart.h"
-
 #include "drv_ftfx_flash.h"
-#include "drv_disp_ssd1306.h"
-#include "drv_imu_invensense.h"
+#include "drv_disp_ssd1306.hpp"
+//#include "drv_imu_invensense.h"
 //#include "drv_cam.h"
 #include "app_menu.h"
 
 #include "sys_pitmgr.hpp"
 
-//#include "cm_backtrace.h"
+#include "cm_backtrace.h"
 
 #include "easyflash.h"
 
-drvimu_inv_device_t imu;
 
 void FLASH_Demo(void);
 void EF_Demo(void);
@@ -90,7 +82,7 @@ void main()
 	/** 初始化调试串口 */
 	DbgConsole_Init(0U, 115200U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
 	/** 初始化CMBackTrace */
-	//cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
+	cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
 	printf("Hello, World!\n");
 
 
@@ -99,14 +91,14 @@ void main()
 	/** 初始化EasyFlash */
 	//easyflash_init();
 	/** 初始化PIT中断管理器 */
-	PITMGR_Init();
+	pitMgr_t::init();
 	/** 初始化I/O中断管理器 */
-	EXTINT_Init();
+	extInt_t::init();
 	/** 初始化串口管理器 */
 	//UARTMGR_DataInit();
 
 	/** 初始化OLED屏幕 */
-	OLED_Init();
+	DISP_SSD1306_Init();
 	/** 初始化菜单 */
 	MENU_Init();
 	MENU_Data_NvmReadRegionConfig();

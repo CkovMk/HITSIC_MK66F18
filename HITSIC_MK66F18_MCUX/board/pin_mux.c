@@ -7,16 +7,16 @@
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!GlobalInfo
-product: Pins v6.0
+product: Pins v8.0
 processor: MK66FX1M0xxx18
 package_id: MK66FX1M0VLQ18
 mcu_data: ksdk2_0
-processor_version: 6.0.1
+processor_version: 8.0.1
 pin_labels:
-- {pin_num: '141', pin_signal: PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20, label: OLED_1, identifier: OLED_1}
-- {pin_num: '142', pin_signal: PTD13/SPI2_SOUT/SDHC0_D5/FB_A21, label: OLED_3, identifier: OLED_3}
-- {pin_num: '143', pin_signal: PTD14/SPI2_SIN/SDHC0_D6/FB_A22, label: OLED_2, identifier: OLED_2}
-- {pin_num: '144', pin_signal: PTD15/SPI2_PCS1/SDHC0_D7/FB_A23, label: OLED_4, identifier: OLED_4}
+- {pin_num: '141', pin_signal: PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20, label: OLED_1, identifier: OLED_SCK}
+- {pin_num: '142', pin_signal: PTD13/SPI2_SOUT/SDHC0_D5/FB_A21, label: OLED_3, identifier: OLED_SOT}
+- {pin_num: '143', pin_signal: PTD14/SPI2_SIN/SDHC0_D6/FB_A22, label: OLED_2, identifier: OLED_D_C}
+- {pin_num: '144', pin_signal: PTD15/SPI2_PCS1/SDHC0_D7/FB_A23, label: OLED_4, identifier: OLED_RST}
 - {pin_num: '137', pin_signal: PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16, label: IMU_SCL, identifier: IMU_SCL}
 - {pin_num: '138', pin_signal: PTD9/I2C0_SDA/LPUART0_TX/FB_A17, label: IMU_SDA, identifier: IMU_SDA}
 - {pin_num: '14', pin_signal: PTE11/I2C3_SCL/I2S0_TX_FS/LPUART0_RTS_b/FTM3_CH6, label: SERVO_1, identifier: SERVO_1}
@@ -185,10 +185,6 @@ void RTEPIN_Uart0_SWO(void)
 RTEPIN_Board:
 - options: {callFromInitBoot: 'false', coreID: core0, enableClock: 'true'}
 - pin_list:
-  - {pin_num: '141', peripheral: GPIOD, signal: 'GPIO, 12', pin_signal: PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20, direction: OUTPUT}
-  - {pin_num: '142', peripheral: GPIOD, signal: 'GPIO, 13', pin_signal: PTD13/SPI2_SOUT/SDHC0_D5/FB_A21, direction: OUTPUT}
-  - {pin_num: '143', peripheral: GPIOD, signal: 'GPIO, 14', pin_signal: PTD14/SPI2_SIN/SDHC0_D6/FB_A22, direction: OUTPUT}
-  - {pin_num: '144', peripheral: GPIOD, signal: 'GPIO, 15', pin_signal: PTD15/SPI2_PCS1/SDHC0_D7/FB_A23, direction: OUTPUT}
   - {pin_num: '137', peripheral: I2C0, signal: SCL, pin_signal: PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16, open_drain: enable, pull_select: up, pull_enable: enable}
   - {pin_num: '138', peripheral: I2C0, signal: SDA, pin_signal: PTD9/I2C0_SDA/LPUART0_TX/FB_A17, open_drain: enable, pull_select: up, pull_enable: enable}
   - {pin_num: '14', peripheral: FTM3, signal: 'CH, 6', pin_signal: PTE11/I2C3_SCL/I2S0_TX_FS/LPUART0_RTS_b/FTM3_CH6, direction: OUTPUT}
@@ -236,6 +232,10 @@ RTEPIN_Board:
   - {pin_num: '123', peripheral: UART3, signal: RX, pin_signal: PTC16/CAN1_RX/UART3_RX/ENET0_1588_TMR0/FB_CS5_b/FB_TSIZ1/FB_BE23_16_BLS15_8_b/SDRAM_DQM2}
   - {pin_num: '124', peripheral: UART3, signal: TX, pin_signal: PTC17/CAN1_TX/UART3_TX/ENET0_1588_TMR1/FB_CS4_b/FB_TSIZ0/FB_BE31_24_BLS7_0_b/SDRAM_DQM3, direction: OUTPUT}
   - {pin_num: '125', peripheral: GPIOC, signal: 'GPIO, 18', pin_signal: PTC18/UART3_RTS_b/ENET0_1588_TMR2/FB_TBST_b/FB_CS2_b/FB_BE15_8_BLS23_16_b/SDRAM_DQM1, direction: INPUT}
+  - {pin_num: '141', peripheral: SPI2, signal: SCK, pin_signal: PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20, identifier: ''}
+  - {pin_num: '142', peripheral: SPI2, signal: SOUT, pin_signal: PTD13/SPI2_SOUT/SDHC0_D5/FB_A21, identifier: ''}
+  - {pin_num: '143', peripheral: GPIOD, signal: 'GPIO, 14', pin_signal: PTD14/SPI2_SIN/SDHC0_D6/FB_A22}
+  - {pin_num: '144', peripheral: GPIOD, signal: 'GPIO, 15', pin_signal: PTD15/SPI2_PCS1/SDHC0_D7/FB_A23}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -356,34 +356,6 @@ void RTEPIN_Board(void)
     };
     /* Initialize GPIO functionality on pin PTC18 (pin 125)  */
     GPIO_PinInit(RTEPIN_BOARD_CAM_PCLK_GPIO, RTEPIN_BOARD_CAM_PCLK_PIN, &CAM_PCLK_config);
-
-    gpio_pin_config_t OLED_1_config = {
-        .pinDirection = kGPIO_DigitalOutput,
-        .outputLogic = 0U
-    };
-    /* Initialize GPIO functionality on pin PTD12 (pin 141)  */
-    GPIO_PinInit(RTEPIN_BOARD_OLED_1_GPIO, RTEPIN_BOARD_OLED_1_PIN, &OLED_1_config);
-
-    gpio_pin_config_t OLED_3_config = {
-        .pinDirection = kGPIO_DigitalOutput,
-        .outputLogic = 0U
-    };
-    /* Initialize GPIO functionality on pin PTD13 (pin 142)  */
-    GPIO_PinInit(RTEPIN_BOARD_OLED_3_GPIO, RTEPIN_BOARD_OLED_3_PIN, &OLED_3_config);
-
-    gpio_pin_config_t OLED_2_config = {
-        .pinDirection = kGPIO_DigitalOutput,
-        .outputLogic = 0U
-    };
-    /* Initialize GPIO functionality on pin PTD14 (pin 143)  */
-    GPIO_PinInit(RTEPIN_BOARD_OLED_2_GPIO, RTEPIN_BOARD_OLED_2_PIN, &OLED_2_config);
-
-    gpio_pin_config_t OLED_4_config = {
-        .pinDirection = kGPIO_DigitalOutput,
-        .outputLogic = 0U
-    };
-    /* Initialize GPIO functionality on pin PTD15 (pin 144)  */
-    GPIO_PinInit(RTEPIN_BOARD_OLED_4_GPIO, RTEPIN_BOARD_OLED_4_PIN, &OLED_4_config);
 
     gpio_pin_config_t BUTTON_DN_config = {
         .pinDirection = kGPIO_DigitalInput,
@@ -530,17 +502,17 @@ void RTEPIN_Board(void)
     /* PORTC9 (pin 114) is configured as PTC9 */
     PORT_SetPinMux(RTEPIN_BOARD_CAM_D1_PORT, RTEPIN_BOARD_CAM_D1_PIN, kPORT_MuxAsGpio);
 
-    /* PORTD12 (pin 141) is configured as PTD12 */
-    PORT_SetPinMux(RTEPIN_BOARD_OLED_1_PORT, RTEPIN_BOARD_OLED_1_PIN, kPORT_MuxAsGpio);
+    /* PORTD12 (pin 141) is configured as SPI2_SCK */
+    PORT_SetPinMux(PORTD, 12U, kPORT_MuxAlt2);
 
-    /* PORTD13 (pin 142) is configured as PTD13 */
-    PORT_SetPinMux(RTEPIN_BOARD_OLED_3_PORT, RTEPIN_BOARD_OLED_3_PIN, kPORT_MuxAsGpio);
+    /* PORTD13 (pin 142) is configured as SPI2_SOUT */
+    PORT_SetPinMux(PORTD, 13U, kPORT_MuxAlt2);
 
     /* PORTD14 (pin 143) is configured as PTD14 */
-    PORT_SetPinMux(RTEPIN_BOARD_OLED_2_PORT, RTEPIN_BOARD_OLED_2_PIN, kPORT_MuxAsGpio);
+    PORT_SetPinMux(RTEPIN_BOARD_OLED_D_C_PORT, RTEPIN_BOARD_OLED_D_C_PIN, kPORT_MuxAsGpio);
 
     /* PORTD15 (pin 144) is configured as PTD15 */
-    PORT_SetPinMux(RTEPIN_BOARD_OLED_4_PORT, RTEPIN_BOARD_OLED_4_PIN, kPORT_MuxAsGpio);
+    PORT_SetPinMux(RTEPIN_BOARD_OLED_RST_PORT, RTEPIN_BOARD_OLED_RST_PIN, kPORT_MuxAsGpio);
 
     /* PORTD8 (pin 137) is configured as I2C0_SCL */
     PORT_SetPinMux(RTEPIN_BOARD_IMU_SCL_PORT, RTEPIN_BOARD_IMU_SCL_PIN, kPORT_MuxAlt2);
@@ -643,7 +615,7 @@ void RTEPIN_Board(void)
 /* clang-format off */
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-RTEPIN_Uart0_SPP:
+RTEPIN_Uart0_EXT:
 - options: {callFromInitBoot: 'false', coreID: core0, enableClock: 'true'}
 - pin_list:
   - {pin_num: '133', peripheral: UART0, signal: RX, pin_signal: ADC0_SE7b/PTD6/LLWU_P15/SPI0_PCS3/UART0_RX/FTM0_CH6/FB_AD0/FTM0_FLT0/SPI1_SOUT}
@@ -654,20 +626,20 @@ RTEPIN_Uart0_SPP:
 
 /* FUNCTION ************************************************************************************************************
  *
- * Function Name : RTEPIN_Uart0_SPP
+ * Function Name : RTEPIN_Uart0_EXT
  * Description   : Configures pin routing and optionally pin electrical features.
  *
  * END ****************************************************************************************************************/
-void RTEPIN_Uart0_SPP(void)
+void RTEPIN_Uart0_EXT(void)
 {
     /* Port D Clock Gate Control: Clock enabled */
     CLOCK_EnableClock(kCLOCK_PortD);
 
     /* PORTD6 (pin 133) is configured as UART0_RX */
-    PORT_SetPinMux(RTEPIN_UART0_SPP_UART0_SPP_RX_PORT, RTEPIN_UART0_SPP_UART0_SPP_RX_PIN, kPORT_MuxAlt3);
+    PORT_SetPinMux(RTEPIN_UART0_EXT_UART0_SPP_RX_PORT, RTEPIN_UART0_EXT_UART0_SPP_RX_PIN, kPORT_MuxAlt3);
 
     /* PORTD7 (pin 136) is configured as UART0_TX */
-    PORT_SetPinMux(RTEPIN_UART0_SPP_UART0_SPP_TX_PORT, RTEPIN_UART0_SPP_UART0_SPP_TX_PIN, kPORT_MuxAlt3);
+    PORT_SetPinMux(RTEPIN_UART0_EXT_UART0_SPP_TX_PORT, RTEPIN_UART0_EXT_UART0_SPP_TX_PIN, kPORT_MuxAlt3);
 
     SIM->SOPT5 = ((SIM->SOPT5 &
                    /* Mask bits to zero which are setting */

@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2015, Freescale Semiconductor, Inc.
- * Copyright 2016-2018 NXP
+ * Copyright 2016-2019 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -18,15 +18,18 @@
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
+/*! @brief Driver version. */
+#define FSL_SD_DRIVER_VERSION (MAKE_VERSION(2U, 3U, 0U)) /*2.3.0*/
+
 /*! @brief SD card flags */
 enum _sd_card_flag
 {
-    kSD_SupportHighCapacityFlag = (1U << 1U),     /*!< Support high capacity */
-    kSD_Support4BitWidthFlag = (1U << 2U),        /*!< Support 4-bit data width */
-    kSD_SupportSdhcFlag = (1U << 3U),             /*!< Card is SDHC */
-    kSD_SupportSdxcFlag = (1U << 4U),             /*!< Card is SDXC */
-    kSD_SupportVoltage180v = (1U << 5U),          /*!< card support 1.8v voltage*/
-    kSD_SupportSetBlockCountCmd = (1U << 6U),     /*!< card support cmd23 flag*/
+    kSD_SupportHighCapacityFlag     = (1U << 1U), /*!< Support high capacity */
+    kSD_Support4BitWidthFlag        = (1U << 2U), /*!< Support 4-bit data width */
+    kSD_SupportSdhcFlag             = (1U << 3U), /*!< Card is SDHC */
+    kSD_SupportSdxcFlag             = (1U << 4U), /*!< Card is SDXC */
+    kSD_SupportVoltage180v          = (1U << 5U), /*!< card support 1.8v voltage*/
+    kSD_SupportSetBlockCountCmd     = (1U << 6U), /*!< card support cmd23 flag*/
     kSD_SupportSpeedClassControlCmd = (1U << 7U), /*!< card support speed class control flag */
 };
 
@@ -37,30 +40,28 @@ enum _sd_card_flag
  */
 typedef struct _sd_card
 {
-    SDMMCHOST_CONFIG host; /*!< Host information */
+    sdmmchost_t *host; /*!< Host configuration */
 
-    sdcard_usr_param_t usrParam;    /*!< user parameter */
-    bool isHostReady;               /*!< use this flag to indicate if need host re-init or not*/
-    bool noInteralAlign;            /*!< use this flag to disable sdmmc align. If disable, sdmmc will not make sure the
-                                    data buffer address is word align, otherwise all the transfer are align to low level driver */
-    uint32_t busClock_Hz;           /*!< SD bus clock frequency united in Hz */
-    uint32_t relativeAddress;       /*!< Relative address of the card */
-    uint32_t version;               /*!< Card version */
-    uint32_t flags;                 /*!< Flags in _sd_card_flag */
-    uint32_t rawCid[4U];            /*!< Raw CID content */
-    uint32_t rawCsd[4U];            /*!< Raw CSD content */
-    uint32_t rawScr[2U];            /*!< Raw CSD content */
-    uint32_t ocr;                   /*!< Raw OCR content */
-    sd_cid_t cid;                   /*!< CID */
-    sd_csd_t csd;                   /*!< CSD */
-    sd_scr_t scr;                   /*!< SCR */
-    sd_status_t stat;               /*!< sd 512 bit status */
-    uint32_t blockCount;            /*!< Card total block number */
-    uint32_t blockSize;             /*!< Card block size */
-    sd_timing_mode_t currentTiming; /*!< current timing mode */
-    sd_driver_strength_t driverStrength;        /*!< driver strength */
-    sd_max_current_t maxCurrent;                /*!< card current limit */
-    sdmmc_operation_voltage_t operationVoltage; /*!< card operation voltage */
+    sd_usr_param_t usrParam; /*!< user parameter */
+    bool isHostReady;        /*!< use this flag to indicate if need host re-init or not*/
+
+    bool noInteralAlign;      /*!< used to enable/disable the functionality of the exchange buffer */
+    uint32_t busClock_Hz;     /*!< SD bus clock frequency united in Hz */
+    uint32_t relativeAddress; /*!< Relative address of the card */
+    uint32_t version;         /*!< Card version */
+    uint32_t flags;           /*!< Flags in _sd_card_flag */
+    uint8_t internalBuffer[FSL_SDMMC_CARD_INTERNAL_BUFFER_SIZE]; /*!< internal buffer */
+    uint32_t ocr;                                                /*!< Raw OCR content */
+    sd_cid_t cid;                                                /*!< CID */
+    sd_csd_t csd;                                                /*!< CSD */
+    sd_scr_t scr;                                                /*!< SCR */
+    sd_status_t stat;                                            /*!< sd 512 bit status */
+    uint32_t blockCount;                                         /*!< Card total block number */
+    uint32_t blockSize;                                          /*!< Card block size */
+    sd_timing_mode_t currentTiming;                              /*!< current timing mode */
+    sd_driver_strength_t driverStrength;                         /*!< driver strength */
+    sd_max_current_t maxCurrent;                                 /*!< card current limit */
+    sdmmc_operation_voltage_t operationVoltage;                  /*!< card operation voltage */
 } sd_card_t;
 
 /*************************************************************************************************
@@ -164,14 +165,24 @@ void SD_HostDeinit(sd_card_t *card);
  *
  * This function reset the specific host.
  *
+ * @param card Card descriptor.
+ */
+void SD_HostDoReset(sd_card_t *card);
+
+/*!
+ * @brief reset the host.
+ *
+ * This function reset the specific host.
+ * @deprecated Do not use this function. It has been superceded by @ref SD_HostDoReset.
+ *
  * @param host host descriptor.
  */
 void SD_HostReset(SDMMCHOST_CONFIG *host);
 
 /*!
  * @brief power on card.
- *
  * The power on operation depend on host or the user define power on function.
+ * @deprecated Do not use this function.  It has been superceded by @ref SD_SetCardPower.
  * @param base host base address.
  * @param pwr user define power control configuration
  */
@@ -179,23 +190,41 @@ void SD_PowerOnCard(SDMMCHOST_TYPE *base, const sdmmchost_pwr_card_t *pwr);
 
 /*!
  * @brief power off card.
- *
  * The power off operation depend on host or the user define power on function.
+ * @deprecated Do not use this function.  It has been superceded by @ref SD_SetCardPower.
  * @param base host base address.
  * @param pwr user define power control configuration
  */
 void SD_PowerOffCard(SDMMCHOST_TYPE *base, const sdmmchost_pwr_card_t *pwr);
 
 /*!
+ * @brief set card power.
+ *
+ * The power off operation depend on host or the user define power on function.
+ * @param card card descriptor.
+ * @param enable true is power on, false is power off.
+ */
+void SD_SetCardPower(sd_card_t *card, bool enable);
+
+/*!
  * @brief sd wait card detect function.
  *
  * Detect card through GPIO, CD, DATA3.
- *
- * @param card card descriptor.
- * @param card detect configuration
+ * @deprecated Do not use this function.  It has been superceded by @ref SD_PollingCardInsert.
+ * @param hostBase host base address.
+ * @param cd card detect configuration
  * @param waitCardStatus wait card detect status
  */
 status_t SD_WaitCardDetectStatus(SDMMCHOST_TYPE *hostBase, const sdmmchost_detect_card_t *cd, bool waitCardStatus);
+
+/*!
+ * @brief sd wait card detect function.
+ *
+ * Detect card through GPIO, CD, DATA3.
+ * @param card card descriptor.
+ * @param status detect status, kSD_Inserted or kSD_Removed.
+ */
+status_t SD_PollingCardInsert(sd_card_t *card, uint32_t status);
 
 /*!
  * @brief sd card present check function.

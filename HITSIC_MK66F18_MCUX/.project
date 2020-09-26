@@ -31,26 +31,4 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>doc/amazon-freertos/ChangeLogKSDK.txt</name>
-			<type>1</type>
-			<locationURI>SDK_2_x_MK66FX1M0xxx18/rtos/amazon-freertos/ChangeLogKSDK.txt</locationURI>
-		</link>
-		<link>
-			<name>doc/amazon-freertos/directories.txt</name>
-			<type>1</type>
-			<locationURI>SDK_2_x_MK66FX1M0xxx18/rtos/amazon-freertos/directories.txt</locationURI>
-		</link>
-		<link>
-			<name>doc/amazon-freertos/license/directories.txt</name>
-			<type>1</type>
-			<locationURI>SDK_2_x_MK66FX1M0xxx18/rtos/amazon-freertos/lib/directories.txt</locationURI>
-		</link>
-		<link>
-			<name>doc/amazon-freertos/freertos/portable/readme.txt</name>
-			<type>1</type>
-			<locationURI>SDK_2_x_MK66FX1M0xxx18/rtos/amazon-freertos/lib/FreeRTOS/portable/readme.txt</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>

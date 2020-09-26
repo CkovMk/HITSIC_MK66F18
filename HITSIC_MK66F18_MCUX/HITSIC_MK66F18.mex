@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding= "UTF-8" ?>
-<configuration name="HITSIC_MK66F18" version="1.6" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.6 http://mcuxpresso.nxp.com/XSD/mex_configuration_1.6.xsd" uuid="fcaace92-e1ab-468d-afed-d858b7217154" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<configuration name="HITSIC_MK66F18" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.8 http://mcuxpresso.nxp.com/XSD/mex_configuration_1.8.xsd" uuid="fcaace92-e1ab-468d-afed-d858b7217154" version="1.8" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <common>
       <processor>MK66FX1M0xxx18</processor>
       <package>MK66FX1M0VLQ18</package>
-      <board></board>
       <mcu_data>ksdk2_0</mcu_data>
       <cores selected="core0">
          <core name="Cortex-M4F" id="core0" description="M4 core"/>
@@ -16,18 +15,18 @@
       <generate_code_modified_registers_only>false</generate_code_modified_registers_only>
    </preferences>
    <tools>
-      <pins name="Pins" version="6.0" enabled="true" update_project_code="true">
+      <pins name="Pins" version="8.0" enabled="true" update_project_code="true">
          <generated_project_files>
             <file path="board/pin_mux.c" update_enabled="true"/>
             <file path="board/pin_mux.h" update_enabled="true"/>
          </generated_project_files>
          <pins_profile>
-            <processor_version>6.0.1</processor_version>
+            <processor_version>8.0.1</processor_version>
             <pin_labels>
-               <pin_label pin_num="141" pin_signal="PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20" label="OLED_1" identifier="OLED_1"/>
-               <pin_label pin_num="142" pin_signal="PTD13/SPI2_SOUT/SDHC0_D5/FB_A21" label="OLED_3" identifier="OLED_3"/>
-               <pin_label pin_num="143" pin_signal="PTD14/SPI2_SIN/SDHC0_D6/FB_A22" label="OLED_2" identifier="OLED_2"/>
-               <pin_label pin_num="144" pin_signal="PTD15/SPI2_PCS1/SDHC0_D7/FB_A23" label="OLED_4" identifier="OLED_4"/>
+               <pin_label pin_num="141" pin_signal="PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20" label="OLED_1" identifier="OLED_SCK"/>
+               <pin_label pin_num="142" pin_signal="PTD13/SPI2_SOUT/SDHC0_D5/FB_A21" label="OLED_3" identifier="OLED_SOT"/>
+               <pin_label pin_num="143" pin_signal="PTD14/SPI2_SIN/SDHC0_D6/FB_A22" label="OLED_2" identifier="OLED_D_C"/>
+               <pin_label pin_num="144" pin_signal="PTD15/SPI2_PCS1/SDHC0_D7/FB_A23" label="OLED_4" identifier="OLED_RST"/>
                <pin_label pin_num="137" pin_signal="PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16" label="IMU_SCL" identifier="IMU_SCL"/>
                <pin_label pin_num="138" pin_signal="PTD9/I2C0_SDA/LPUART0_TX/FB_A17" label="IMU_SDA" identifier="IMU_SDA"/>
                <pin_label pin_num="14" pin_signal="PTE11/I2C3_SCL/I2S0_TX_FS/LPUART0_RTS_b/FTM3_CH6" label="SERVO_1" identifier="SERVO_1"/>
@@ -240,6 +239,11 @@
                         <data>true</data>
                      </feature>
                   </dependency>
+                  <dependency resourceType="Peripheral" resourceId="SPI2" description="Peripheral SPI2 is not initialized" problem_level="1" source="Pins:RTEPIN_Board">
+                     <feature name="initialized" evaluation="equal">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
                   <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Pins initialization requires the COMMON Driver in the project." problem_level="2" source="Pins:RTEPIN_Board">
                      <feature name="enabled" evaluation="equal" configuration="core0">
                         <data>true</data>
@@ -257,26 +261,6 @@
                   </dependency>
                </dependencies>
                <pins>
-                  <pin peripheral="GPIOD" signal="GPIO, 12" pin_num="141" pin_signal="PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20">
-                     <pin_features>
-                        <pin_feature name="direction" value="OUTPUT"/>
-                     </pin_features>
-                  </pin>
-                  <pin peripheral="GPIOD" signal="GPIO, 13" pin_num="142" pin_signal="PTD13/SPI2_SOUT/SDHC0_D5/FB_A21">
-                     <pin_features>
-                        <pin_feature name="direction" value="OUTPUT"/>
-                     </pin_features>
-                  </pin>
-                  <pin peripheral="GPIOD" signal="GPIO, 14" pin_num="143" pin_signal="PTD14/SPI2_SIN/SDHC0_D6/FB_A22">
-                     <pin_features>
-                        <pin_feature name="direction" value="OUTPUT"/>
-                     </pin_features>
-                  </pin>
-                  <pin peripheral="GPIOD" signal="GPIO, 15" pin_num="144" pin_signal="PTD15/SPI2_PCS1/SDHC0_D7/FB_A23">
-                     <pin_features>
-                        <pin_feature name="direction" value="OUTPUT"/>
-                     </pin_features>
-                  </pin>
                   <pin peripheral="I2C0" signal="SCL" pin_num="137" pin_signal="PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16">
                      <pin_features>
                         <pin_feature name="open_drain" value="enable"/>
@@ -450,9 +434,21 @@
                         <pin_feature name="direction" value="INPUT"/>
                      </pin_features>
                   </pin>
+                  <pin peripheral="SPI2" signal="SCK" pin_num="141" pin_signal="PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20">
+                     <pin_features>
+                        <pin_feature name="identifier" value=""/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="SPI2" signal="SOUT" pin_num="142" pin_signal="PTD13/SPI2_SOUT/SDHC0_D5/FB_A21">
+                     <pin_features>
+                        <pin_feature name="identifier" value=""/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="GPIOD" signal="GPIO, 14" pin_num="143" pin_signal="PTD14/SPI2_SIN/SDHC0_D6/FB_A22"/>
+                  <pin peripheral="GPIOD" signal="GPIO, 15" pin_num="144" pin_signal="PTD15/SPI2_PCS1/SDHC0_D7/FB_A23"/>
                </pins>
             </function>
-            <function name="RTEPIN_Uart0_SPP">
+            <function name="RTEPIN_Uart0_EXT">
                <description>Configures pin routing and optionally pin electrical features.</description>
                <options>
                   <callFromInitBoot>false</callFromInitBoot>
@@ -460,17 +456,17 @@
                   <enableClock>true</enableClock>
                </options>
                <dependencies>
-                  <dependency resourceType="Peripheral" resourceId="UART0" description="Peripheral UART0 is not initialized" problem_level="1" source="Pins:RTEPIN_Uart0_SPP">
+                  <dependency resourceType="Peripheral" resourceId="UART0" description="Peripheral UART0 is not initialized" problem_level="1" source="Pins:RTEPIN_Uart0_EXT">
                      <feature name="initialized" evaluation="equal">
                         <data>true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Pins initialization requires the COMMON Driver in the project." problem_level="2" source="Pins:RTEPIN_Uart0_SPP">
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Pins initialization requires the COMMON Driver in the project." problem_level="2" source="Pins:RTEPIN_Uart0_EXT">
                      <feature name="enabled" evaluation="equal" configuration="core0">
                         <data>true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="SWComponent" resourceId="platform.drivers.port" description="Pins initialization requires the PORT Driver in the project." problem_level="2" source="Pins:RTEPIN_Uart0_SPP">
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.port" description="Pins initialization requires the PORT Driver in the project." problem_level="2" source="Pins:RTEPIN_Uart0_EXT">
                      <feature name="enabled" evaluation="equal" configuration="core0">
                         <data>true</data>
                      </feature>
@@ -483,13 +479,13 @@
             </function>
          </functions_list>
       </pins>
-      <clocks name="Clocks" version="6.0" enabled="true" update_project_code="false">
+      <clocks name="Clocks" version="7.0" enabled="true" update_project_code="false">
          <generated_project_files>
-            <file path="board/clock_config.c" update_enabled="false"/>
-            <file path="board/clock_config.h" update_enabled="false"/>
+            <file path="board/clock_config.c" update_enabled="true"/>
+            <file path="board/clock_config.h" update_enabled="true"/>
          </generated_project_files>
          <clocks_profile>
-            <processor_version>6.0.1</processor_version>
+            <processor_version>8.0.1</processor_version>
          </clocks_profile>
          <clock_configurations>
             <clock_configuration name="RTECLK_HsRun_180MHz">
@@ -645,74 +641,74 @@
          </dcdx_profile>
          <dcdx_configurations/>
       </dcdx>
-      <periphs name="Peripherals" version="6.0" enabled="true" update_project_code="true">
+      <periphs name="Peripherals" version="8.0" enabled="true" update_project_code="true">
          <dependencies>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.pit" description="在工具链/IDT 工程中未找到 PIT Driver。" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.edma" description="工具链/IDE工程中未找到EDMA Driver。工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.pit" description="工具链/IDT 工程中，该版本的 PIT Driver 不被支持。所需的：${required_value},，实际的： ${actual_value}。" problem_level="1" source="Peripherals">
-               <feature name="version" evaluation="equivalent">
-                  <data type="Version">2.0.0</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.gpio" description="在工具链/IDT 工程中未找到 GPIO Driver。" problem_level="2" source="Peripherals">
-               <feature name="enabled" evaluation="equal">
-                  <data type="Boolean">true</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.gpio" description="工具链/IDT 工程中，该版本的 GPIO Driver 不被支持。所需的：${required_value},，实际的： ${actual_value}。" problem_level="1" source="Peripherals">
-               <feature name="version" evaluation="equivalent">
-                  <data type="Version">2.3.1</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.edma" description="在工具链/IDT 工程中未找到 EDMA Driver。" problem_level="2" source="Peripherals">
-               <feature name="enabled" evaluation="equal">
-                  <data type="Boolean">true</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.edma" description="工具链/IDT 工程中，该版本的 EDMA Driver 不被支持。所需的：${required_value},，实际的： ${actual_value}。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.edma" description="工具链/IDE工程不支持EDMA Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.1.1</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.i2c" description="在工具链/IDT 工程中未找到 I2C Driver。" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.gpio" description="工具链/IDE工程中未找到GPIO Driver。工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.i2c" description="工具链/IDT 工程中，该版本的 I2C Driver 不被支持。所需的：${required_value},，实际的： ${actual_value}。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.gpio" description="工具链/IDE工程不支持GPIO Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">2.3.1</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.pit" description="工具链/IDE工程中未找到PIT Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.pit" description="工具链/IDE工程不支持PIT Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">2.0.0</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.ftm" description="工具链/IDE工程中未找到FTM Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.ftm" description="工具链/IDE工程不支持FTM Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="compatible">
+                  <data type="Version">2.1.0</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.i2c" description="工具链/IDE工程中未找到I2C Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.i2c" description="工具链/IDE工程不支持I2C Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.0.5</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.ftm" description="在工具链/IDT 工程中未找到 FTM Driver。" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.uart" description="工具链/IDE工程中未找到UART Driver。工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.ftm" description="工具链/IDT 工程中，该版本的 FTM Driver 不被支持。所需的：${required_value},，实际的： ${actual_value}。" problem_level="1" source="Peripherals">
-               <feature name="version" evaluation="equivalent">
-                  <data type="Version">2.1.0</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.uart" description="在工具链/IDT 工程中未找到 UART Driver。" problem_level="2" source="Peripherals">
-               <feature name="enabled" evaluation="equal">
-                  <data type="Boolean">true</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.uart" description="工具链/IDT 工程中，该版本的 UART Driver 不被支持。所需的：${required_value},，实际的： ${actual_value}。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.uart" description="工具链/IDE工程不支持UART Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.1.5</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.adc16" description="在工具链/IDT 工程中未找到 ADC16 Driver。" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.adc16" description="工具链/IDE工程中未找到ADC16 Driver。工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.adc16" description="工具链/IDT 工程中，该版本的 ADC16 Driver 不被支持。所需的：${required_value},，实际的： ${actual_value}。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.adc16" description="工具链/IDE工程不支持ADC16 Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.0.0</data>
                </feature>
@@ -723,141 +719,31 @@
             <file path="board/peripherals.h" update_enabled="true"/>
          </generated_project_files>
          <peripherals_profile>
-            <processor_version>6.0.1</processor_version>
+            <processor_version>8.0.1</processor_version>
          </peripherals_profile>
          <functional_groups>
             <functional_group name="RTEPIP_BasicPip" uuid="42ed13d3-6282-46e3-ae99-1dfb10997aed" called_from_default_init="false" id_prefix="" core="core0">
                <description></description>
                <options/>
                <dependencies>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.dmamux" description="The fsl_dmamux driver is missing in the project (required for the eDMA)." problem_level="1" source="Peripherals:RTEPIP_BasicPip">
+                     <feature name="enabled" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.dmamux" description="The compatible version of the fsl_dmamux driver is not available in the project (required for the eDMA)." problem_level="1" source="Peripherals:RTEPIP_BasicPip">
+                     <feature name="version" evaluation="compatible">
+                        <data type="Version">2.0.2</data>
+                     </feature>
+                  </dependency>
                   <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_BasicPip">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="SWComponent" resourceId="platform.drivers.dmamux" description="The fsl_flexio_uart_dma driver is missing in the project (required for the eDMA)." problem_level="1" source="Peripherals:RTEPIP_BasicPip">
-                     <feature name="enabled" evaluation="equal">
-                        <data type="Boolean">true</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="SWComponent" resourceId="platform.drivers.dmamux" description="The compatible version of the fsl_flexio_uart_dma driver is not available in the project (required for the eDMA)." problem_level="1" source="Peripherals:RTEPIP_BasicPip">
-                     <feature name="version" evaluation="compatible">
-                        <data type="Version">2.0.2</data>
-                     </feature>
-                  </dependency>
                </dependencies>
                <instances>
-                  <instance name="PIT" type="pit" type_id="pit_a4782ba5223c8a2527ba91aeb2bc4159" mode="LPTMR_GENERAL" peripheral="PIT" enabled="true">
-                     <config_set name="fsl_pit">
-                        <setting name="enableRunInDebug" value="true"/>
-                        <struct name="timingConfig">
-                           <setting name="clockSource" value="BusInterfaceClock"/>
-                           <setting name="clockSourceFreq" value="GetFreq"/>
-                        </struct>
-                        <array name="channels">
-                           <struct name="0">
-                              <setting name="channelNumber" value="0"/>
-                              <setting name="enableChain" value="false"/>
-                              <setting name="timerPeriod" value="0xffffffff ticks"/>
-                              <setting name="startTimer" value="true"/>
-                              <setting name="enableInterrupt" value="false"/>
-                              <struct name="interrupt">
-                                 <setting name="IRQn" value="PIT0_IRQn"/>
-                                 <setting name="enable_priority" value="false"/>
-                                 <setting name="priority" value="0"/>
-                                 <setting name="enable_custom_name" value="false"/>
-                              </struct>
-                           </struct>
-                           <struct name="1">
-                              <setting name="channelNumber" value="1"/>
-                              <setting name="enableChain" value="true"/>
-                              <setting name="timerMultiplier" value="0xffffffff"/>
-                              <setting name="startTimer" value="true"/>
-                              <setting name="enableInterrupt" value="false"/>
-                              <struct name="interrupt">
-                                 <setting name="IRQn" value="PIT1_IRQn"/>
-                                 <setting name="enable_priority" value="false"/>
-                                 <setting name="priority" value="0"/>
-                                 <setting name="enable_custom_name" value="false"/>
-                              </struct>
-                           </struct>
-                           <struct name="2">
-                              <setting name="channelNumber" value="2"/>
-                              <setting name="enableChain" value="false"/>
-                              <setting name="timerPeriod" value="1ms"/>
-                              <setting name="startTimer" value="true"/>
-                              <setting name="enableInterrupt" value="true"/>
-                              <struct name="interrupt">
-                                 <setting name="IRQn" value="PIT2_IRQn"/>
-                                 <setting name="enable_priority" value="false"/>
-                                 <setting name="priority" value="0"/>
-                                 <setting name="enable_custom_name" value="false"/>
-                              </struct>
-                           </struct>
-                        </array>
-                     </config_set>
-                  </instance>
-                  <instance name="GPIOA" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOA" enabled="true">
-                     <config_set name="fsl_gpio">
-                        <setting name="enable_irq" value="true"/>
-                        <struct name="port_interrupt">
-                           <setting name="IRQn" value="PORTA_IRQn"/>
-                           <setting name="enable_priority" value="true"/>
-                           <setting name="priority" value="6"/>
-                           <setting name="enable_custom_name" value="true"/>
-                           <setting name="handler_custom_name" value="GPIOA_IRQHandler"/>
-                        </struct>
-                     </config_set>
-                  </instance>
-                  <instance name="GPIOB" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOB" enabled="true">
-                     <config_set name="fsl_gpio">
-                        <setting name="enable_irq" value="true"/>
-                        <struct name="port_interrupt">
-                           <setting name="IRQn" value="PORTB_IRQn"/>
-                           <setting name="enable_priority" value="true"/>
-                           <setting name="priority" value="6"/>
-                           <setting name="enable_custom_name" value="true"/>
-                           <setting name="handler_custom_name" value="GPIOB_IRQHandler"/>
-                        </struct>
-                     </config_set>
-                  </instance>
-                  <instance name="GPIOC" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOC" enabled="true">
-                     <config_set name="fsl_gpio">
-                        <setting name="enable_irq" value="true"/>
-                        <struct name="port_interrupt">
-                           <setting name="IRQn" value="PORTC_IRQn"/>
-                           <setting name="enable_priority" value="true"/>
-                           <setting name="priority" value="6"/>
-                           <setting name="enable_custom_name" value="true"/>
-                           <setting name="handler_custom_name" value="GPIOC_IRQHandler"/>
-                        </struct>
-                     </config_set>
-                  </instance>
-                  <instance name="GPIOD" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOD" enabled="true">
-                     <config_set name="fsl_gpio">
-                        <setting name="enable_irq" value="true"/>
-                        <struct name="port_interrupt">
-                           <setting name="IRQn" value="PORTD_IRQn"/>
-                           <setting name="enable_priority" value="true"/>
-                           <setting name="priority" value="6"/>
-                           <setting name="enable_custom_name" value="true"/>
-                           <setting name="handler_custom_name" value="GPIOD_IRQHandler"/>
-                        </struct>
-                     </config_set>
-                  </instance>
-                  <instance name="GPIOE" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOE" enabled="true">
-                     <config_set name="fsl_gpio">
-                        <setting name="enable_irq" value="true"/>
-                        <struct name="port_interrupt">
-                           <setting name="IRQn" value="PORTE_IRQn"/>
-                           <setting name="enable_priority" value="true"/>
-                           <setting name="priority" value="6"/>
-                           <setting name="enable_custom_name" value="true"/>
-                           <setting name="handler_custom_name" value="GPIOE_IRQHandler"/>
-                        </struct>
-                     </config_set>
-                  </instance>
-                  <instance name="EDMA" type="edma" type_id="edma_a23fca76a894e1bcdf9d01a687505ff9" mode="basic" peripheral="DMA" enabled="true">
+                  <instance name="EDMA" uuid="e149e515-3462-428d-a2ab-0c4ad5d38c56" type="edma" type_id="edma_a23fca76a894e1bcdf9d01a687505ff9" mode="basic" peripheral="DMA" enabled="true" comment="" custom_name_enabled="true">
                      <config_set name="fsl_edma">
                         <struct name="common_settings">
                            <setting name="enableContinuousLinkMode" value="false"/>
@@ -869,27 +755,133 @@
                         <array name="edma_channels"/>
                      </config_set>
                   </instance>
+                  <instance name="GPIOA" uuid="88c41041-e34c-4d92-a12e-ca1b52625e66" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOA" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="fsl_gpio">
+                        <setting name="enable_irq" value="true"/>
+                        <struct name="port_interrupt">
+                           <setting name="IRQn" value="PORTA_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
+                           <setting name="enable_priority" value="true"/>
+                           <setting name="priority" value="6"/>
+                           <setting name="enable_custom_name" value="true"/>
+                           <setting name="handler_custom_name" value="GPIOA_IRQHandler"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="GPIOB" uuid="18e78a06-e2a7-40b5-9950-246d18d3672b" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOB" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="fsl_gpio">
+                        <setting name="enable_irq" value="true"/>
+                        <struct name="port_interrupt">
+                           <setting name="IRQn" value="PORTB_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
+                           <setting name="enable_priority" value="true"/>
+                           <setting name="priority" value="6"/>
+                           <setting name="enable_custom_name" value="true"/>
+                           <setting name="handler_custom_name" value="GPIOB_IRQHandler"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="GPIOC" uuid="f98e7fad-1b00-450f-a3a0-5e70921684e8" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOC" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="fsl_gpio">
+                        <setting name="enable_irq" value="true"/>
+                        <struct name="port_interrupt">
+                           <setting name="IRQn" value="PORTC_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
+                           <setting name="enable_priority" value="true"/>
+                           <setting name="priority" value="6"/>
+                           <setting name="enable_custom_name" value="true"/>
+                           <setting name="handler_custom_name" value="GPIOC_IRQHandler"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="GPIOD" uuid="763fdaee-6652-43ac-ac38-51146fe818b4" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOD" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="fsl_gpio">
+                        <setting name="enable_irq" value="true"/>
+                        <struct name="port_interrupt">
+                           <setting name="IRQn" value="PORTD_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
+                           <setting name="enable_priority" value="true"/>
+                           <setting name="priority" value="6"/>
+                           <setting name="enable_custom_name" value="true"/>
+                           <setting name="handler_custom_name" value="GPIOD_IRQHandler"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="GPIOE" uuid="ddab9ea4-db57-4e67-87d1-e687134ba23a" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOE" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="fsl_gpio">
+                        <setting name="enable_irq" value="true"/>
+                        <struct name="port_interrupt">
+                           <setting name="IRQn" value="PORTE_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
+                           <setting name="enable_priority" value="true"/>
+                           <setting name="priority" value="6"/>
+                           <setting name="enable_custom_name" value="true"/>
+                           <setting name="handler_custom_name" value="GPIOE_IRQHandler"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="PIT" uuid="f01b4715-8ccf-4922-8d3c-fa65fbbb418c" type="pit" type_id="pit_a4782ba5223c8a2527ba91aeb2bc4159" mode="LPTMR_GENERAL" peripheral="PIT" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="fsl_pit">
+                        <setting name="enableRunInDebug" value="true"/>
+                        <struct name="timingConfig">
+                           <setting name="clockSource" value="BusInterfaceClock"/>
+                           <setting name="clockSourceFreq" value="GetFreq"/>
+                        </struct>
+                        <array name="channels">
+                           <struct name="0">
+                              <setting name="channel_id" value=""/>
+                              <setting name="channelNumber" value="0"/>
+                              <setting name="enableChain" value="false"/>
+                              <setting name="timerPeriod" value="0xffffffff ticks"/>
+                              <setting name="startTimer" value="true"/>
+                              <setting name="enableInterrupt" value="false"/>
+                              <struct name="interrupt">
+                                 <setting name="IRQn" value="PIT0_IRQn"/>
+                                 <setting name="enable_interrrupt" value="enabled"/>
+                                 <setting name="enable_priority" value="false"/>
+                                 <setting name="priority" value="0"/>
+                                 <setting name="enable_custom_name" value="false"/>
+                              </struct>
+                           </struct>
+                           <struct name="1">
+                              <setting name="channel_id" value=""/>
+                              <setting name="channelNumber" value="1"/>
+                              <setting name="enableChain" value="true"/>
+                              <setting name="timerMultiplier" value="0xffffffff"/>
+                              <setting name="startTimer" value="true"/>
+                              <setting name="enableInterrupt" value="false"/>
+                              <struct name="interrupt">
+                                 <setting name="IRQn" value="PIT1_IRQn"/>
+                                 <setting name="enable_interrrupt" value="enabled"/>
+                                 <setting name="enable_priority" value="false"/>
+                                 <setting name="priority" value="0"/>
+                                 <setting name="enable_custom_name" value="false"/>
+                              </struct>
+                           </struct>
+                           <struct name="2">
+                              <setting name="channel_id" value=""/>
+                              <setting name="channelNumber" value="2"/>
+                              <setting name="enableChain" value="false"/>
+                              <setting name="timerPeriod" value="1ms"/>
+                              <setting name="startTimer" value="true"/>
+                              <setting name="enableInterrupt" value="true"/>
+                              <struct name="interrupt">
+                                 <setting name="IRQn" value="PIT2_IRQn"/>
+                                 <setting name="enable_interrrupt" value="enabled"/>
+                                 <setting name="enable_priority" value="false"/>
+                                 <setting name="priority" value="0"/>
+                                 <setting name="enable_custom_name" value="false"/>
+                              </struct>
+                           </struct>
+                        </array>
+                     </config_set>
+                  </instance>
                </instances>
             </functional_group>
             <functional_group name="RTEPIP_Digital" uuid="f3be970c-684b-4396-9c43-4a139153400a" called_from_default_init="false" id_prefix="" core="core0">
                <description></description>
                <options/>
                <dependencies>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="I2C0.i2c_scl" description="Signal serial clock of the peripheral I2C0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
-                     <feature name="routed" evaluation="">
-                        <data type="Boolean">true</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="I2C0.i2c_sda" description="Signal serial data of the peripheral I2C0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
-                     <feature name="routed" evaluation="">
-                        <data type="Boolean">true</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
-                     <feature name="frequency" evaluation="greaterThan">
-                        <data type="Frequency" unit="Hz">0</data>
-                     </feature>
-                  </dependency>
                   <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
@@ -970,19 +962,19 @@
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="I2C0.i2c_scl" description="Signal serial clock of the peripheral I2C0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="I2C0.i2c_sda" description="Signal serial data of the peripheral I2C0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
                   <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART3.uart_tx" description="Signal TX of the peripheral UART3 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
-                     <feature name="routed" evaluation="equal">
-                        <data type="Boolean">true</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART3.uart_rx" description="Signal RX of the peripheral UART3 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
-                     <feature name="routed" evaluation="equal">
-                        <data type="Boolean">true</data>
                      </feature>
                   </dependency>
                   <dependency resourceType="ClockOutput" resourceId="System_clock" description="System clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
@@ -1000,22 +992,24 @@
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
+                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="frequency" evaluation="greaterThan">
+                        <data type="Frequency" unit="Hz">0</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART3.uart_tx" description="Signal TX of the peripheral UART3 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART3.uart_rx" description="Signal RX of the peripheral UART3 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
                </dependencies>
                <instances>
-                  <instance name="I2C0_IMU" type="i2c" type_id="i2c_2566d7363e7e9aaedabb432110e372d7" mode="I2C_Polling" peripheral="I2C0" enabled="true">
-                     <config_set name="fsl_i2c">
-                        <setting name="i2c_mode" value="kI2C_Master"/>
-                        <setting name="clockSource" value="BusInterfaceClock"/>
-                        <setting name="clockSourceFreq" value="GetFreq"/>
-                        <struct name="i2c_master_config">
-                           <setting name="enableMaster" value="true"/>
-                           <setting name="enableStopHold" value="false"/>
-                           <setting name="baudRate_Bps" value="400000"/>
-                           <setting name="glitchFilterWidth" value="0"/>
-                        </struct>
-                     </config_set>
-                  </instance>
-                  <instance name="FTM0_MOTOR" type="ftm" type_id="ftm_04a15ae4af2b404bf2ae403c3dbe98b3" mode="CenterAligned" peripheral="FTM0" enabled="true">
+                  <instance name="FTM0_MOTOR" uuid="203567ad-899e-4de6-b457-718a30abe62e" type="ftm" type_id="ftm_04a15ae4af2b404bf2ae403c3dbe98b3" mode="CenterAligned" peripheral="FTM0" enabled="true" comment="" custom_name_enabled="true">
                      <config_set name="ftm_main_config">
                         <struct name="ftm_config">
                            <setting name="clockSource" value="kFTM_SystemClock"/>
@@ -1052,6 +1046,7 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="ftm_interrupt">
                            <setting name="IRQn" value="FTM0_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1087,7 +1082,7 @@
                         </array>
                      </config_set>
                   </instance>
-                  <instance name="FTM1_ENC_L" type="ftm" type_id="ftm_04a15ae4af2b404bf2ae403c3dbe98b3" mode="QuadratureDecoder" peripheral="FTM1" enabled="true">
+                  <instance name="FTM1_ENC_L" uuid="4ce4f41c-f4db-4fc2-9756-d912c5e963ef" type="ftm" type_id="ftm_04a15ae4af2b404bf2ae403c3dbe98b3" mode="QuadratureDecoder" peripheral="FTM1" enabled="true" comment="" custom_name_enabled="true">
                      <config_set name="ftm_main_config">
                         <struct name="ftm_config">
                            <setting name="prescale" value="kFTM_Prescale_Divide_1"/>
@@ -1121,6 +1116,7 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="ftm_interrupt">
                            <setting name="IRQn" value="FTM1_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1141,7 +1137,7 @@
                         </struct>
                      </config_set>
                   </instance>
-                  <instance name="FTM2_ENC_R" type="ftm" type_id="ftm_04a15ae4af2b404bf2ae403c3dbe98b3" mode="QuadratureDecoder" peripheral="FTM2" enabled="true">
+                  <instance name="FTM2_ENC_R" uuid="61c5f812-abe6-447c-99b7-a4be22c14092" type="ftm" type_id="ftm_04a15ae4af2b404bf2ae403c3dbe98b3" mode="QuadratureDecoder" peripheral="FTM2" enabled="true" comment="" custom_name_enabled="true">
                      <config_set name="ftm_main_config">
                         <struct name="ftm_config">
                            <setting name="prescale" value="kFTM_Prescale_Divide_1"/>
@@ -1175,6 +1171,7 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="ftm_interrupt">
                            <setting name="IRQn" value="FTM2_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1195,7 +1192,7 @@
                         </struct>
                      </config_set>
                   </instance>
-                  <instance name="FTM3_SERVO" type="ftm" type_id="ftm_04a15ae4af2b404bf2ae403c3dbe98b3" mode="CenterAligned" peripheral="FTM3" enabled="true">
+                  <instance name="FTM3_SERVO" uuid="33d829c2-4099-4196-adc5-db6537a6e796" type="ftm" type_id="ftm_04a15ae4af2b404bf2ae403c3dbe98b3" mode="CenterAligned" peripheral="FTM3" enabled="true" comment="" custom_name_enabled="true">
                      <config_set name="ftm_main_config">
                         <struct name="ftm_config">
                            <setting name="clockSource" value="kFTM_SystemClock"/>
@@ -1232,6 +1229,7 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="ftm_interrupt">
                            <setting name="IRQn" value="FTM3_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1255,12 +1253,25 @@
                         </array>
                      </config_set>
                   </instance>
-                  <instance name="UART3_CAM" type="uart" type_id="uart_cd31a12aa8c79051fda42cc851a27c37" mode="polling" peripheral="UART3" enabled="true">
-                     <config_set name="uartConfig_t">
+                  <instance name="I2C0_IMU" uuid="c81f18fc-8402-471c-85b9-77a6286a1285" type="i2c" type_id="i2c_2566d7363e7e9aaedabb432110e372d7" mode="I2C_Polling" peripheral="I2C0" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="fsl_i2c">
+                        <setting name="i2c_mode" value="kI2C_Master"/>
+                        <setting name="clockSource" value="BusInterfaceClock"/>
+                        <setting name="clockSourceFreq" value="GetFreq"/>
+                        <struct name="i2c_master_config">
+                           <setting name="enableMaster" value="true"/>
+                           <setting name="enableStopHold" value="false"/>
+                           <setting name="baudRate_Bps" value="400000"/>
+                           <setting name="glitchFilterWidth" value="0"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="UART0" uuid="57d95f09-5822-449d-846c-ae54001b1aca" type="uart" type_id="uart_cd31a12aa8c79051fda42cc851a27c37" mode="polling" peripheral="UART0" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="uartConfig_t" quick_selection="QuickSelection1">
                         <struct name="uartConfig">
                            <setting name="clockSource" value="BusInterfaceClock"/>
                            <setting name="clockSourceFreq" value="GetFreq"/>
-                           <setting name="baudRate_Bps" value="9600"/>
+                           <setting name="baudRate_Bps" value="115200"/>
                            <setting name="parityMode" value="kUART_ParityDisabled"/>
                            <setting name="stopBitCount" value="kUART_OneStopBit"/>
                            <setting name="txFifoWatermark" value="0"/>
@@ -1271,12 +1282,12 @@
                         </struct>
                      </config_set>
                   </instance>
-                  <instance name="UART0" type="uart" type_id="uart_cd31a12aa8c79051fda42cc851a27c37" mode="polling" peripheral="UART0" enabled="true">
-                     <config_set name="uartConfig_t" quick_selection="QuickSelection1">
+                  <instance name="UART3_CAM" uuid="9d696871-375d-43c0-9614-2dd41978c57d" type="uart" type_id="uart_cd31a12aa8c79051fda42cc851a27c37" mode="polling" peripheral="UART3" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="uartConfig_t">
                         <struct name="uartConfig">
                            <setting name="clockSource" value="BusInterfaceClock"/>
                            <setting name="clockSourceFreq" value="GetFreq"/>
-                           <setting name="baudRate_Bps" value="115200"/>
+                           <setting name="baudRate_Bps" value="9600"/>
                            <setting name="parityMode" value="kUART_ParityDisabled"/>
                            <setting name="stopBitCount" value="kUART_OneStopBit"/>
                            <setting name="txFifoWatermark" value="0"/>
@@ -1294,7 +1305,7 @@
                <options/>
                <dependencies/>
                <instances>
-                  <instance name="ADC0" type="adc16" type_id="adc16_7d827be2dc433dc756d94a7ce88cbcc5" mode="ADC" peripheral="ADC0" enabled="true">
+                  <instance name="ADC0" uuid="1f80ab61-4214-48db-a44a-2a667f58404d" type="adc16" type_id="adc16_7d827be2dc433dc756d94a7ce88cbcc5" mode="ADC" peripheral="ADC0" enabled="true" comment="" custom_name_enabled="true">
                      <config_set name="fsl_adc16">
                         <struct name="adc16_config">
                            <setting name="referenceVoltageSource" value="kADC16_ReferenceVoltageSourceVref"/>
@@ -1318,6 +1329,7 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="adc_interrupt">
                            <setting name="IRQn" value="ADC0_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1325,7 +1337,7 @@
                         <array name="adc16_channels_config"/>
                      </config_set>
                   </instance>
-                  <instance name="ADC1" type="adc16" type_id="adc16_7d827be2dc433dc756d94a7ce88cbcc5" mode="ADC" peripheral="ADC1" enabled="true">
+                  <instance name="ADC1" uuid="71afe8d6-e814-4218-96fc-e32a43a2f450" type="adc16" type_id="adc16_7d827be2dc433dc756d94a7ce88cbcc5" mode="ADC" peripheral="ADC1" enabled="true" comment="" custom_name_enabled="true">
                      <config_set name="fsl_adc16">
                         <struct name="adc16_config">
                            <setting name="referenceVoltageSource" value="kADC16_ReferenceVoltageSourceVref"/>
@@ -1349,6 +1361,7 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="adc_interrupt">
                            <setting name="IRQn" value="ADC1_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1360,15 +1373,24 @@
             </functional_group>
          </functional_groups>
          <components>
-            <component name="system" type_id="system_54b53072540eeeb8f8e9343e71f28176">
-               <config_set_global name="global_system_definitions"/>
+            <component name="system" uuid="94838ca2-0efb-47b2-a4e2-449f54344af5" type_id="system_54b53072540eeeb8f8e9343e71f28176">
+               <config_set_global name="global_system_definitions">
+                  <setting name="user_definitions" value=""/>
+                  <setting name="user_includes" value=""/>
+               </config_set_global>
             </component>
-            <component name="msg" type_id="msg_6e2baaf3b97dbeef01c0043275f9a0e7">
+            <component name="msg" uuid="6f63bde5-2238-4131-a9fb-23572bca742e" type_id="msg_6e2baaf3b97dbeef01c0043275f9a0e7">
                <config_set_global name="global_messages"/>
+            </component>
+            <component name="generic_uart" uuid="004abe0e-6fa2-48a8-ad8c-cedf6850d803" type_id="generic_uart_8cae00565451cf2346eb1b8c624e73a6">
+               <config_set_global name="global_uart"/>
+            </component>
+            <component name="generic_can" uuid="405e0eb5-2104-4c73-b114-a55b7685e1e4" type_id="generic_can_1bfdd78b1af214566c1f23cf6a582d80">
+               <config_set_global name="global_can"/>
             </component>
          </components>
       </periphs>
-      <tee name="TEE" version="1.0" enabled="false" update_project_code="true">
+      <tee name="TEE" version="2.0" enabled="false" update_project_code="true">
          <generated_project_files/>
          <tee_profile>
             <processor_version>N/A</processor_version>

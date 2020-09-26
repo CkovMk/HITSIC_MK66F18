@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2015, Freescale Semiconductor, Inc.
- * Copyright 2016-2018 NXP
+ * Copyright 2016-2020 NXP
  * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -15,15 +15,13 @@
 #include "stdlib.h"
 
 /*!
- * @addtogroup CARD
+ * @addtogroup SDMMC_COMMON
  * @{
  */
 
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-/*! @brief Middleware version. */
-#define FSL_SDMMC_DRIVER_VERSION (MAKE_VERSION(2U, 2U, 11U)) /*2.2.11*/
 
 /*! @brief Reverse byte sequence in uint32_t */
 #define SWAP_WORD_BYTE_SEQUENCE(x) (__REV(x))
@@ -35,13 +33,8 @@
 #define FSL_SDMMC_MAX_CMD_RETRIES (10U)
 /*! @brief Default block size */
 #define FSL_SDMMC_DEFAULT_BLOCK_SIZE (512U)
-#ifndef SDMMC_GLOBAL_BUFFER_SIZE
-/*! @brief SDMMC global data buffer size, word unit*/
-#define SDMMC_GLOBAL_BUFFER_SIZE (128U)
-#endif
-/*! @brief SDMMC enable software tuning */
-#define SDMMC_ENABLE_SOFTWARE_TUNING (0U)
-/* Common definition for cache line size align */
+
+/*! @brief make sure the internal buffer address is cache align */
 #if defined(FSL_SDK_ENABLE_DRIVER_CACHE_CONTROL) && FSL_SDK_ENABLE_DRIVER_CACHE_CONTROL
 #if defined(FSL_FEATURE_L1DCACHE_LINESIZE_BYTE)
 #if defined(FSL_FEATURE_L2DCACHE_LINESIZE_BYTE)
@@ -50,12 +43,19 @@
 #define SDMMC_DATA_BUFFER_ALIGN_CACHE FSL_FEATURE_L1DCACHE_LINESIZE_BYTE
 #endif
 #else
-#define SDMMC_DATA_BUFFER_ALIGN_CACHE 1
+#define SDMMC_DATA_BUFFER_ALIGN_CACHE sizeof(uint32_t)
 #endif
 #else
-#define SDMMC_DATA_BUFFER_ALIGN_CACHE 1
+#define SDMMC_DATA_BUFFER_ALIGN_CACHE sizeof(uint32_t)
 #endif
 
+/*! @brief sdmmc card internal buffer size */
+#define FSL_SDMMC_CARD_INTERNAL_BUFFER_SIZE (FSL_SDMMC_DEFAULT_BLOCK_SIZE + SDMMC_DATA_BUFFER_ALIGN_CACHE)
+#define FSL_SDMMC_CARD_INTERNAL_BUFFER_ALIGN_ADDR(buffer)          \
+    (uint8_t *)((uint32_t)buffer + SDMMC_DATA_BUFFER_ALIGN_CACHE - \
+                ((uint32_t)buffer & (SDMMC_DATA_BUFFER_ALIGN_CACHE - 1)))
+/*! @brief get maximum freq */
+#define FSL_SDMMC_CARD_MAX_BUS_FREQ(max, target) (max == 0U ? target : (max > target ? target : max))
 /*! @brief SD/MMC error log. */
 #if defined SDMMC_ENABLE_LOG_PRINT
 #include "fsl_debug_console.h"
@@ -119,14 +119,136 @@ enum _sdmmc_status
 
 };
 
+/*! @brief sdmmc signal line  */
+enum _sdmmc_signal_line
+{
+    kSDMMC_SignalLineCmd   = 1U,   /*!< cmd line */
+    kSDMMC_SignalLineData0 = 2U,   /*!< data line */
+    kSDMMC_SignalLineData1 = 4U,   /*!< data line */
+    kSDMMC_SignalLineData2 = 8U,   /*!< data line */
+    kSDMMC_SignalLineData3 = 16U,  /*!< data line */
+    kSDMMC_SignalLineData4 = 32U,  /*!< data line */
+    kSDMMC_SignalLineData5 = 64U,  /*!< data line */
+    kSDMMC_SignalLineData6 = 128U, /*!< data line */
+    kSDMMC_SignalLineData7 = 256U, /*!< data line */
+};
+
 /*! @brief card operation voltage */
 typedef enum _sdmmc_operation_voltage
 {
-    kCARD_OperationVoltageNone = 0U, /*!< indicate current voltage setting is not setting by suser*/
-    kCARD_OperationVoltage330V = 1U, /*!< card operation voltage around 3.3v */
-    kCARD_OperationVoltage300V = 2U, /*!< card operation voltage around 3.0v */
-    kCARD_OperationVoltage180V = 3U, /*!< card operation voltage around 1.8v */
+    kSDMMC_OperationVoltageNone = 0U, /*!< indicate current voltage setting is not setting by suser*/
+    kSDMMC_OperationVoltage330V = 1U, /*!< card operation voltage around 3.3v */
+    kSDMMC_OperationVoltage300V = 2U, /*!< card operation voltage around 3.0v */
+    kSDMMC_OperationVoltage180V = 3U, /*!< card operation voltage around 1.8v */
 } sdmmc_operation_voltage_t;
+
+/*!@brief card bus width */
+enum _sdmmc_bus_width
+{
+    kSDMMC_BusWdith1Bit = 0U, /*!< card bus 1 width */
+    kSDMMC_BusWdith4Bit = 1U, /*!< card bus 4 width */
+    kSDMMC_BusWdith8Bit = 2U, /*!< card bus 8 width */
+};
+
+/*!@brief sdmmc capability flag */
+enum _sdmmc_capability_flag
+{
+    kSDMMC_Support8BitWidth = 1U, /*!< 8 bit data width capability */
+};
+
+/*! @brief sd card detect type */
+typedef enum _sd_detect_card_type
+{
+    kSD_DetectCardByGpioCD,    /*!< sd card detect by CD pin through GPIO */
+    kSD_DetectCardByHostCD,    /*!< sd card detect by CD pin through host */
+    kSD_DetectCardByHostDATA3, /*!< sd card detect by DAT3 pin through host */
+} sd_detect_card_type_t;
+
+/*!@ brief SD card detect status */
+enum _sd_card_cd_status
+{
+    kSD_Inserted = 1U, /*!< card is inserted*/
+    kSD_Removed  = 0U, /*!< card is removed */
+};
+
+/*! @brief card detect aoolication callback definition */
+typedef void (*sd_cd_t)(bool isInserted, void *userData);
+/*! @brief card detect status */
+typedef bool (*sd_cd_status_t)(void);
+
+/*! @brief sd card detect */
+typedef struct _sd_detect_card
+{
+    sd_detect_card_type_t type;  /*!< card detect type */
+    uint32_t cdDebounce_ms;      /*!< card detect debounce delay ms */
+    sd_cd_t callback;            /*!< card inserted callback which is meaningful for interrupt case */
+    sd_cd_status_t cardDetected; /*!< used to check sd cd status when card detect through GPIO */
+    void *userData;              /*!< user data */
+} sd_detect_card_t;
+
+/*!@brief io voltage control type*/
+typedef enum _sd_io_voltage_ctrl_type
+{
+    kSD_IOVoltageCtrlNotSupport = 0U, /*!< io voltage control not support */
+    kSD_IOVoltageCtrlByHost     = 1U, /*!< io voltage control by host */
+    kSD_IOVoltageCtrlByGpio     = 2U, /*!< io voltage control by gpio */
+} sd_io_voltage_ctrl_type_t;
+
+/*! @brief card switch voltage function pointer */
+typedef void (*sd_io_voltage_func_t)(sdmmc_operation_voltage_t voltage);
+
+/*!@brief io voltage control configuration */
+typedef struct _sd_io_voltage
+{
+    sd_io_voltage_ctrl_type_t type; /*!< io voltage switch type */
+    sd_io_voltage_func_t func;      /*!< io voltage switch function */
+} sd_io_voltage_t;
+
+/*! @brief card power control function pointer */
+typedef void (*sd_pwr_t)(bool enable);
+/*! @brief card io strength control */
+typedef void (*sd_io_strength_t)(uint32_t busFreq);
+/*! @brief sdcard user parameter */
+typedef struct _sd_usr_param
+{
+    sd_pwr_t pwr;                /*!< power control configuration pointer */
+    sd_io_strength_t ioStrength; /*!< swicth sd io strength */
+    sd_io_voltage_t *ioVoltage;  /*!< switch io voltage */
+    sd_detect_card_t *cd;        /*!< card detect */
+
+    uint32_t maxFreq;    /*!< board support maximum frequency */
+    uint32_t capability; /*!< board capability flag */
+} sd_usr_param_t;
+
+/*! @brief card interrupt function pointer */
+typedef void (*sdio_int_t)(void *userData);
+
+/*! @brief card interrupt application callback */
+typedef struct _sdio_card_int
+{
+    void *userData;           /*!< user data */
+    sdio_int_t cardInterrupt; /*!< card int call back */
+} sdio_card_int_t;
+
+/*! @brief sdio user parameter */
+typedef struct _sdio_usr_param
+{
+    sd_pwr_t pwr;                /*!< power control configuration pointer */
+    sd_io_strength_t ioStrength; /*!< swicth sd io strength */
+    sd_io_voltage_t *ioVoltage;  /*!< switch io voltage */
+    sd_detect_card_t *cd;        /*!< card detect */
+    sdio_card_int_t *sdioInt;    /*!< card int */
+    uint32_t maxFreq;            /*!< board support maximum frequency */
+    uint32_t capability;         /*!< board capability flag */
+} sdio_usr_param_t;
+
+/*! @brief tuning pattern */
+#if SDMMCHOST_SUPPORT_DDR50 || SDMMCHOST_SUPPORT_SDR104 || SDMMCHOST_SUPPORT_SDR50 || SDMMCHOST_SUPPORT_HS200 || \
+    SDMMCHOST_SUPPORT_HS400
+/* sdmmc tuning block */
+extern const uint32_t SDMMC_TuningBlockPattern4Bit[16U];
+extern const uint32_t SDMMC_TuningBlockPattern8Bit[32U];
+#endif
 
 /*************************************************************************************************
  * API
@@ -142,113 +264,61 @@ extern "C" {
 /*!
  * @brief Selects the card to put it into transfer state.
  *
- * @param base SDMMCHOST peripheral base address.
- * @param transfer SDMMCHOST transfer function.
+ * @param host host handler.
  * @param relativeAddress Relative address.
  * @param isSelected True to put card into transfer state.
  * @retval kStatus_SDMMC_TransferFailed Transfer failed.
  * @retval kStatus_Success Operate successfully.
  */
-status_t SDMMC_SelectCard(SDMMCHOST_TYPE *base,
-                          SDMMCHOST_TRANSFER_FUNCTION transfer,
-                          uint32_t relativeAddress,
-                          bool isSelected);
+status_t SDMMC_SelectCard(sdmmchost_t *host, uint32_t relativeAddress, bool isSelected);
 
 /*!
  * @brief Sends an application command.
  *
- * @param base SDMMCHOST peripheral base address.
- * @param transfer SDMMCHOST transfer function.
+ * @param host host handler.
  * @param relativeAddress Card relative address.
  * @retval kStatus_SDMMC_TransferFailed Transfer failed.
  * @retval kStatus_SDMMC_CardNotSupport Card doesn't support.
  * @retval kStatus_Success Operate successfully.
  */
-status_t SDMMC_SendApplicationCommand(SDMMCHOST_TYPE *base,
-                                      SDMMCHOST_TRANSFER_FUNCTION transfer,
-                                      uint32_t relativeAddress);
+status_t SDMMC_SendApplicationCommand(sdmmchost_t *host, uint32_t relativeAddress);
 
 /*!
  * @brief Sets the block count.
  *
- * @param base SDMMCHOST peripheral base address.
- * @param transfer SDMMCHOST transfer function.
+ * @param host host handler.
  * @param blockCount Block count.
  * @retval kStatus_SDMMC_TransferFailed Transfer failed.
  * @retval kStatus_Success Operate successfully.
  */
-status_t SDMMC_SetBlockCount(SDMMCHOST_TYPE *base, SDMMCHOST_TRANSFER_FUNCTION transfer, uint32_t blockCount);
+status_t SDMMC_SetBlockCount(sdmmchost_t *host, uint32_t blockCount);
 
 /*!
  * @brief Sets the card to be idle state.
  *
- * @param base SDMMCHOST peripheral base address.
- * @param transfer SDMMCHOST transfer function.
+ * @param host host handler.
  * @retval kStatus_SDMMC_TransferFailed Transfer failed.
  * @retval kStatus_Success Operate successfully.
  */
-status_t SDMMC_GoIdle(SDMMCHOST_TYPE *base, SDMMCHOST_TRANSFER_FUNCTION transfer);
-
+status_t SDMMC_GoIdle(sdmmchost_t *host);
 /*!
  * @brief Sets data block size.
  *
- * @param base SDMMCHOST peripheral base address.
- * @param transfer SDMMCHOST transfer function.
+ * @param host host handler.
  * @param blockSize Block size.
  * @retval kStatus_SDMMC_TransferFailed Transfer failed.
  * @retval kStatus_Success Operate successfully.
  */
-status_t SDMMC_SetBlockSize(SDMMCHOST_TYPE *base, SDMMCHOST_TRANSFER_FUNCTION transfer, uint32_t blockSize);
-
+status_t SDMMC_SetBlockSize(sdmmchost_t *host, uint32_t blockSize);
 /*!
  * @brief Sets card to inactive status
  *
- * @param base SDMMCHOST peripheral base address.
- * @param transfer SDMMCHOST transfer function.
+ * @param host host handler.
  * @retval kStatus_SDMMC_TransferFailed Transfer failed.
  * @retval kStatus_Success Operate successfully.
  */
-status_t SDMMC_SetCardInactive(SDMMCHOST_TYPE *base, SDMMCHOST_TRANSFER_FUNCTION transfer);
+status_t SDMMC_SetCardInactive(sdmmchost_t *host);
 
-/*!
- * @brief provide a simple delay function for sdmmc
- *
- * @param num Delay num*10000.
- */
-void SDMMC_Delay(uint32_t num);
-
-/*!
- * @brief provide a voltage switch function for SD/SDIO card
- * @deprecated Do not use this function, it has been superceded by SDMMC_SwitchToVoltage.
- * @param base SDMMCHOST peripheral base address.
- * @param transfer SDMMCHOST transfer function.
- */
-status_t SDMMC_SwitchVoltage(SDMMCHOST_TYPE *base, SDMMCHOST_TRANSFER_FUNCTION transfer);
-
-/*!
- * @brief provide a voltage switch function for SD/SDIO card
- *
- * @param base SDMMCHOST peripheral base address.
- * @param transfer SDMMCHOST transfer function.
- * @param switchVoltageFunc voltage switch function.
- * @return error code.
- */
-
-status_t SDMMC_SwitchToVoltage(SDMMCHOST_TYPE *base,
-                               SDMMCHOST_TRANSFER_FUNCTION transfer,
-                               sdmmchost_card_switch_voltage_t switchVoltageFunc);
-/*!
- * @brief excute tuning
- *
- * @param base SDMMCHOST peripheral base address.
- * @param transfer Host transfer function
- * @param tuningCmd Tuning cmd
- * @param blockSize Tuning block size
- */
-status_t SDMMC_ExecuteTuning(SDMMCHOST_TYPE *base,
-                             SDMMCHOST_TRANSFER_FUNCTION transfer,
-                             uint32_t tuningCmd,
-                             uint32_t blockSize);
 /* @} */
 
 #if defined(__cplusplus)

@@ -33,11 +33,11 @@
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!GlobalInfo
-product: Clocks v6.0
+product: Clocks v7.0
 processor: MK66FX1M0xxx18
 package_id: MK66FX1M0VLQ18
 mcu_data: ksdk2_0
-processor_version: 6.0.1
+processor_version: 8.0.1
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
 
@@ -96,6 +96,8 @@ outputs:
 - {id: FlexBus_clock.outFreq, value: 60 MHz}
 - {id: LPO_clock.outFreq, value: 1 kHz}
 - {id: MCGFFCLK.outFreq, value: 12.5 MHz}
+- {id: OSCERCLK.outFreq, value: 50 MHz}
+- {id: OSCERCLK_UNDIV.outFreq, value: 50 MHz}
 - {id: System_clock.outFreq, value: 180 MHz}
 settings:
 - {id: MCGMode, value: PEE}
@@ -105,6 +107,8 @@ settings:
 - {id: MCG.PLLS.sel, value: MCG.PLLCS}
 - {id: MCG.PRDIV.scale, value: '5', locked: true}
 - {id: MCG.VDIV.scale, value: '36', locked: true}
+- {id: OSC_CR_ERCLKEN_CFG, value: Enabled}
+- {id: OSC_CR_ERCLKEN_UNDIV_CFG, value: Enabled}
 - {id: SIM.OUTDIV1.scale, value: '1', locked: true}
 - {id: SIM.OUTDIV2.scale, value: '3'}
 - {id: SIM.OUTDIV3.scale, value: '3', locked: true}
@@ -150,7 +154,7 @@ const osc_config_t oscConfig_RTECLK_HsRun_180MHz =
         .workMode = kOSC_ModeExt,                 /* Use external clock */
         .oscerConfig =
             {
-                .enableMode = OSC_ER_CLK_DISABLE, /* Disable external reference clock */
+                .enableMode = kOSC_ErClkEnable,   /* Enable external reference clock, disable external reference clock in STOP mode */
                 .erclkDiv = 0,                    /* Divider for OSCERCLK: divided by 1 */
             }
     };
@@ -161,12 +165,12 @@ const osc_config_t oscConfig_RTECLK_HsRun_180MHz =
 void RTECLK_HsRun_180MHz(void)
 {
     /* Set HSRUN power mode */
-//    SMC_SetPowerModeProtection(SMC, kSMC_AllowPowerModeAll);
-//    SMC_SetPowerModeHsrun(SMC);
-//    while (SMC_GetPowerModeState(SMC) != kSMC_PowerStateHsrun)
-//    {
-//    }
-//    /* Set the system clock dividers in SIM to safe value. */
+    SMC_SetPowerModeProtection(SMC, kSMC_AllowPowerModeAll);
+    SMC_SetPowerModeHsrun(SMC);
+    while (SMC_GetPowerModeState(SMC) != kSMC_PowerStateHsrun)
+    {
+    }
+    /* Set the system clock dividers in SIM to safe value. */
     CLOCK_SetSimSafeDivs();
     /* Initializes OSC0 according to board configuration. */
     CLOCK_InitOsc0(&oscConfig_RTECLK_HsRun_180MHz);

@@ -69,15 +69,15 @@ void main()
 
 	/** 初始化时钟 */
 	RTECLK_HsRun_180MHz();
+
 	/** 初始化引脚路由 */
-	RTEPIN_BasicPin();
-	RTEPIN_Board();
-	//RTEPIN_Uart0_SPP();
-	RTEPIN_Uart0_SWO();
+	RTEPIN_Basic();
+	RTEPIN_UART0_DBG();
+	RTEPIN_UART0_WLAN();
+
 	/** 初始化外设 */
-	RTEPIP_BasicPip();
-	RTEPIP_Digital();
-	RTEPIP_Analog();
+	RTEPIN_Digital();
+	RTEPIN_Analog();
 
 	/** 初始化调试串口 */
 	DbgConsole_Init(0U, 115200U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));

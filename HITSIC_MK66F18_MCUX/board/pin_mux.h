@@ -25,512 +25,918 @@ extern "C" {
  */
 void BOARD_InitBootPins(void);
 
-/*!
- * @brief Configures pin routing and optionally pin electrical features.
- *
- */
-void RTEPIN_BasicPin(void);
+/*! @name PORTC6 (number 111), CAM_VSNC
+  @{ */
 
-#define SOPT5_UART0TXSRC_UART_TX 0x00u /*!<@brief UART 0 transmit data source select: UART0_TX pin */
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_CAM_VSNC_GPIO GPIOC               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_CAM_VSNC_GPIO_PIN_MASK (1U << 6U) /*!<@brief GPIO pin mask */
 
-/*! @name PORTA1 (number 51), UART0_SWO_RX
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_CAM_VSNC_PORT PORTC               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_CAM_VSNC_PIN 6U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_CAM_VSNC_PIN_MASK (1U << 6U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTC8 (number 113), CAM_D_0
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_CAM_D_0_GPIO GPIOC               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_0_GPIO_PIN_MASK (1U << 8U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_CAM_D_0_PORT PORTC               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_0_PIN 8U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_CAM_D_0_PIN_MASK (1U << 8U)      /*!<@brief PORT pin mask */
+                                                      /* @} */
+
+/*! @name PORTC9 (number 114), CAM_D_1
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_CAM_D_1_GPIO GPIOC               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_1_GPIO_PIN_MASK (1U << 9U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_CAM_D_1_PORT PORTC               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_1_PIN 9U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_CAM_D_1_PIN_MASK (1U << 9U)      /*!<@brief PORT pin mask */
+                                                      /* @} */
+
+/*! @name PORTC10 (number 115), CAM_D_2
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_CAM_D_2_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_2_GPIO_PIN_MASK (1U << 10U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_CAM_D_2_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_2_PIN 10U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_CAM_D_2_PIN_MASK (1U << 10U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTC11 (number 116), CAM_D_3
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_CAM_D_3_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_3_GPIO_PIN_MASK (1U << 11U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_CAM_D_3_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_3_PIN 11U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_CAM_D_3_PIN_MASK (1U << 11U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTC14 (number 119), CAM_D_6
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_CAM_D_6_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_6_GPIO_PIN_MASK (1U << 14U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_CAM_D_6_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_6_PIN 14U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_CAM_D_6_PIN_MASK (1U << 14U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTC13 (number 118), CAM_D_5
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_CAM_D_5_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_5_GPIO_PIN_MASK (1U << 13U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_CAM_D_5_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_5_PIN 13U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_CAM_D_5_PIN_MASK (1U << 13U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTC12 (number 117), CAM_D_4
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_CAM_D_4_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_4_GPIO_PIN_MASK (1U << 12U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_CAM_D_4_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_4_PIN 12U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_CAM_D_4_PIN_MASK (1U << 12U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTC15 (number 120), CAM_D_7
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_CAM_D_7_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_7_GPIO_PIN_MASK (1U << 15U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_CAM_D_7_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_CAM_D_7_PIN 15U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_CAM_D_7_PIN_MASK (1U << 15U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTC18 (number 125), CAM_PCLK
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_CAM_PCLK_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_CAM_PCLK_GPIO_PIN_MASK (1U << 18U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_CAM_PCLK_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_CAM_PCLK_PIN 18U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_CAM_PCLK_PIN_MASK (1U << 18U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
+/*! @name PORTE4 (number 7), SD_D_3
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_SD_D_3_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_SD_D_3_GPIO_PIN_MASK (1U << 4U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_SD_D_3_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SD_D_3_PIN 4U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SD_D_3_PIN_MASK (1U << 4U)      /*!<@brief PORT pin mask */
+                                                     /* @} */
+
+/*! @name PORTE5 (number 8), SD_D_2
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_SD_D_2_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_SD_D_2_GPIO_PIN_MASK (1U << 5U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_SD_D_2_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SD_D_2_PIN 5U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SD_D_2_PIN_MASK (1U << 5U)      /*!<@brief PORT pin mask */
+                                                     /* @} */
+
+/*! @name PORTA0 (number 50), SWO_CLK
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_UART0_SWO_UART0_SWO_RX_PORT PORTA               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_UART0_SWO_UART0_SWO_RX_PIN 1U                   /*!<@brief PORT pin number */
-#define RTEPIN_UART0_SWO_UART0_SWO_RX_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
-                                                               /* @} */
+#define RTEPIN_BASIC_SWO_CLK_PORT PORTA               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SWO_CLK_PIN 0U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SWO_CLK_PIN_MASK (1U << 0U)      /*!<@brief PORT pin mask */
+                                                      /* @} */
 
-/*! @name PORTA2 (number 52), UART0_SWO_TX
+/*! @name PORTA3 (number 53), SWO_DIO
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_UART0_SWO_UART0_SWO_TX_PORT PORTA               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_UART0_SWO_UART0_SWO_TX_PIN 2U                   /*!<@brief PORT pin number */
-#define RTEPIN_UART0_SWO_UART0_SWO_TX_PIN_MASK (1U << 2U)      /*!<@brief PORT pin mask */
-                                                               /* @} */
+#define RTEPIN_BASIC_SWO_DIO_PORT PORTA               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SWO_DIO_PIN 3U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SWO_DIO_PIN_MASK (1U << 3U)      /*!<@brief PORT pin mask */
+                                                      /* @} */
 
-/*!
- * @brief Configures pin routing and optionally pin electrical features.
- *
- */
-void RTEPIN_Uart0_SWO(void);
+/*! @name PORTA5 (number 55), RST
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_RST_PORT PORTA               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_RST_PIN 5U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_RST_PIN_MASK (1U << 5U)      /*!<@brief PORT pin mask */
+                                                  /* @} */
 
 /*! @name PORTD8 (number 137), IMU_SCL
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_IMU_SCL_PORT PORTD               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_IMU_SCL_PIN 8U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_IMU_SCL_PIN_MASK (1U << 8U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_IMU_SCL_PORT PORTD               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_IMU_SCL_PIN 8U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_IMU_SCL_PIN_MASK (1U << 8U)      /*!<@brief PORT pin mask */
                                                       /* @} */
 
 /*! @name PORTD9 (number 138), IMU_SDA
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_IMU_SDA_PORT PORTD               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_IMU_SDA_PIN 9U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_IMU_SDA_PIN_MASK (1U << 9U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_IMU_SDA_PORT PORTD               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_IMU_SDA_PIN 9U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_IMU_SDA_PIN_MASK (1U << 9U)      /*!<@brief PORT pin mask */
                                                       /* @} */
 
-/*! @name PORTE11 (number 14), SERVO_1
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_SERVO_1_PORT PORTE                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_SERVO_1_PIN 11U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_SERVO_1_PIN_MASK (1U << 11U)      /*!<@brief PORT pin mask */
-                                                       /* @} */
-
-/*! @name PORTE12 (number 15), SERVO_2
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_SERVO_2_PORT PORTE                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_SERVO_2_PIN 12U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_SERVO_2_PIN_MASK (1U << 12U)      /*!<@brief PORT pin mask */
-                                                       /* @} */
-
-/*! @name PORTE6 (number 9), BUTTON_DN
+/*! @name PORTD14 (number 143), OLED_RST
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_BUTTON_DN_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_BUTTON_DN_GPIO_PIN_MASK (1U << 6U) /*!<@brief GPIO pin mask */
+#define RTEPIN_BASIC_OLED_RST_GPIO GPIOD                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_OLED_RST_GPIO_PIN_MASK (1U << 14U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_BUTTON_DN_PORT PORTE               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_BUTTON_DN_PIN 6U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_BUTTON_DN_PIN_MASK (1U << 6U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_OLED_RST_PORT PORTD                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_OLED_RST_PIN 14U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_OLED_RST_PIN_MASK (1U << 14U)      /*!<@brief PORT pin mask */
                                                         /* @} */
 
-/*! @name PORTE7 (number 10), BUTTON_RT
+/*! @name PORTD15 (number 144), OLED_D_C
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_BUTTON_RT_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_BUTTON_RT_GPIO_PIN_MASK (1U << 7U) /*!<@brief GPIO pin mask */
+#define RTEPIN_BASIC_OLED_D_C_GPIO GPIOD                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_OLED_D_C_GPIO_PIN_MASK (1U << 15U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_BUTTON_RT_PORT PORTE               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_BUTTON_RT_PIN 7U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_BUTTON_RT_PIN_MASK (1U << 7U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_OLED_D_C_PORT PORTD                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_OLED_D_C_PIN 15U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_OLED_D_C_PIN_MASK (1U << 15U)      /*!<@brief PORT pin mask */
                                                         /* @} */
 
-/*! @name PORTE8 (number 11), BUTTON_OK
+/*! @name PORTE7 (number 10), BUTTON_OK
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_BUTTON_OK_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_BUTTON_OK_GPIO_PIN_MASK (1U << 8U) /*!<@brief GPIO pin mask */
+#define RTEPIN_BASIC_BUTTON_OK_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_BUTTON_OK_GPIO_PIN_MASK (1U << 7U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_BUTTON_OK_PORT PORTE               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_BUTTON_OK_PIN 8U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_BUTTON_OK_PIN_MASK (1U << 8U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_BUTTON_OK_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_BUTTON_OK_PIN 7U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_BUTTON_OK_PIN_MASK (1U << 7U)      /*!<@brief PORT pin mask */
                                                         /* @} */
 
-/*! @name PORTE9 (number 12), BUTTON_UP
+/*! @name PORTE8 (number 11), BUTTON_LF
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_BUTTON_UP_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_BUTTON_UP_GPIO_PIN_MASK (1U << 9U) /*!<@brief GPIO pin mask */
+#define RTEPIN_BASIC_BUTTON_LF_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_BUTTON_LF_GPIO_PIN_MASK (1U << 8U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_BUTTON_UP_PORT PORTE               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_BUTTON_UP_PIN 9U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_BUTTON_UP_PIN_MASK (1U << 9U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_BUTTON_LF_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_BUTTON_LF_PIN 8U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_BUTTON_LF_PIN_MASK (1U << 8U)      /*!<@brief PORT pin mask */
                                                         /* @} */
 
-/*! @name PORTE10 (number 13), BUTTON_LF
+/*! @name PORTE9 (number 12), BUTTON_RT
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_BUTTON_LF_GPIO GPIOE                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_BUTTON_LF_GPIO_PIN_MASK (1U << 10U) /*!<@brief GPIO pin mask */
+#define RTEPIN_BASIC_BUTTON_RT_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_BUTTON_RT_GPIO_PIN_MASK (1U << 9U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_BUTTON_LF_PORT PORTE                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_BUTTON_LF_PIN 10U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_BUTTON_LF_PIN_MASK (1U << 10U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_BUTTON_RT_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_BUTTON_RT_PIN 9U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_BUTTON_RT_PIN_MASK (1U << 9U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
+/*! @name PORTE10 (number 13), BUTTON_UP
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_BUTTON_UP_GPIO GPIOE                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_BUTTON_UP_GPIO_PIN_MASK (1U << 10U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_BUTTON_UP_PORT PORTE                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_BUTTON_UP_PIN 10U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_BUTTON_UP_PIN_MASK (1U << 10U)      /*!<@brief PORT pin mask */
                                                          /* @} */
 
-/*! @name ADC0_SE16 (number 36), MAG_0
-  @{ */
-/* @} */
-
-/*! @name ADC0_SE23 (number 38), MAG_1
-  @{ */
-/* @} */
-
-/*! @name PORTE24 (number 45), MAG_2
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_MAG_2_PORT PORTE                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_MAG_2_PIN 24U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_MAG_2_PIN_MASK (1U << 24U)      /*!<@brief PORT pin mask */
-                                                     /* @} */
-
-/*! @name PORTE25 (number 46), MAG_3
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_MAG_3_PORT PORTE                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_MAG_3_PIN 25U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_MAG_3_PIN_MASK (1U << 25U)      /*!<@brief PORT pin mask */
-                                                     /* @} */
-
-/*! @name PORTA7 (number 59), MAG_4
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_MAG_4_PORT PORTA               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_MAG_4_PIN 7U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_MAG_4_PIN_MASK (1U << 7U)      /*!<@brief PORT pin mask */
-                                                    /* @} */
-
-/*! @name PORTA8 (number 60), MAG_5
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_MAG_5_PORT PORTA               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_MAG_5_PIN 8U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_MAG_5_PIN_MASK (1U << 8U)      /*!<@brief PORT pin mask */
-                                                    /* @} */
-
-/*! @name PORTA12 (number 64), SWITCH_1
+/*! @name PORTE11 (number 14), BUTTON_DN
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_SWITCH_1_GPIO GPIOA                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_SWITCH_1_GPIO_PIN_MASK (1U << 12U) /*!<@brief GPIO pin mask */
+#define RTEPIN_BASIC_BUTTON_DN_GPIO GPIOE                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_BUTTON_DN_GPIO_PIN_MASK (1U << 11U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_SWITCH_1_PORT PORTA                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_SWITCH_1_PIN 12U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_SWITCH_1_PIN_MASK (1U << 12U)      /*!<@brief PORT pin mask */
-                                                        /* @} */
+#define RTEPIN_BASIC_BUTTON_DN_PORT PORTE                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_BUTTON_DN_PIN 11U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_BUTTON_DN_PIN_MASK (1U << 11U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
 
-/*! @name PORTA14 (number 66), SWITCH_2
+/*! @name PORTA9 (number 61), SWITCH_0
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_SWITCH_2_GPIO GPIOA                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_SWITCH_2_GPIO_PIN_MASK (1U << 14U) /*!<@brief GPIO pin mask */
+#define RTEPIN_BASIC_SWITCH_0_GPIO GPIOA               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_SWITCH_0_GPIO_PIN_MASK (1U << 9U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_SWITCH_2_PORT PORTA                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_SWITCH_2_PIN 14U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_SWITCH_2_PIN_MASK (1U << 14U)      /*!<@brief PORT pin mask */
-                                                        /* @} */
+#define RTEPIN_BASIC_SWITCH_0_PORT PORTA               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SWITCH_0_PIN 9U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SWITCH_0_PIN_MASK (1U << 9U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
 
-/*! @name PORTA16 (number 68), SWITCH_3
+/*! @name PORTA11 (number 63), SWITCH_1
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_SWITCH_3_GPIO GPIOA                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_SWITCH_3_GPIO_PIN_MASK (1U << 16U) /*!<@brief GPIO pin mask */
+#define RTEPIN_BASIC_SWITCH_1_GPIO GPIOA                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_SWITCH_1_GPIO_PIN_MASK (1U << 11U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_SWITCH_3_PORT PORTA                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_SWITCH_3_PIN 16U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_SWITCH_3_PIN_MASK (1U << 16U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_SWITCH_1_PORT PORTA                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SWITCH_1_PIN 11U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SWITCH_1_PIN_MASK (1U << 11U)      /*!<@brief PORT pin mask */
                                                         /* @} */
 
-/*! @name PORTA19 (number 73), SWITCH_4
+/*! @name PORTA13 (number 65), SWITCH_2
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_SWITCH_4_GPIO GPIOA                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_SWITCH_4_GPIO_PIN_MASK (1U << 19U) /*!<@brief GPIO pin mask */
+#define RTEPIN_BASIC_SWITCH_2_GPIO GPIOA                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_SWITCH_2_GPIO_PIN_MASK (1U << 13U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_SWITCH_4_PORT PORTA                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_SWITCH_4_PIN 19U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_SWITCH_4_PIN_MASK (1U << 19U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_SWITCH_2_PORT PORTA                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SWITCH_2_PIN 13U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SWITCH_2_PIN_MASK (1U << 13U)      /*!<@brief PORT pin mask */
                                                         /* @} */
 
-/*! @name PORTB0 (number 81), ENC_LA
+/*! @name PORTA15 (number 67), SWITCH_3
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_SWITCH_3_GPIO GPIOA                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_SWITCH_3_GPIO_PIN_MASK (1U << 15U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_SWITCH_3_PORT PORTA                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SWITCH_3_PIN 15U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SWITCH_3_PIN_MASK (1U << 15U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
+/*! @name PORTB0 (number 81), ENCO_LA
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_ENC_LA_PORT PORTB               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_ENC_LA_PIN 0U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_ENC_LA_PIN_MASK (1U << 0U)      /*!<@brief PORT pin mask */
-                                                     /* @} */
-
-/*! @name PORTB1 (number 82), ENC_LB
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_ENC_LB_PORT PORTB               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_ENC_LB_PIN 1U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_ENC_LB_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
-                                                     /* @} */
-
-/*! @name PORTB18 (number 97), ENC_RA
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_ENC_RA_PORT PORTB                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_ENC_RA_PIN 18U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_ENC_RA_PIN_MASK (1U << 18U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_ENCO_LA_PORT PORTB               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_ENCO_LA_PIN 0U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_ENCO_LA_PIN_MASK (1U << 0U)      /*!<@brief PORT pin mask */
                                                       /* @} */
 
-/*! @name PORTB19 (number 98), ENC_RB
+/*! @name PORTB1 (number 82), ENCO_LB
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_ENC_RB_PORT PORTB                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_ENC_RB_PIN 19U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_ENC_RB_PIN_MASK (1U << 19U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_ENCO_LB_PORT PORTB               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_ENCO_LB_PIN 1U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_ENCO_LB_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
                                                       /* @} */
 
-/*! @name PORTC1 (number 104), MOTOR_LA
+/*! @name PORTB18 (number 97), ENCO_RA
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_MOTOR_LA_PORT PORTC               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_MOTOR_LA_PIN 1U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_MOTOR_LA_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_ENCO_RA_PORT PORTB                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_ENCO_RA_PIN 18U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_ENCO_RA_PIN_MASK (1U << 18U)      /*!<@brief PORT pin mask */
                                                        /* @} */
 
-/*! @name PORTC2 (number 105), MOTOR_LB
+/*! @name PORTB19 (number 98), ENCO_RB
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_MOTOR_LB_PORT PORTC               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_MOTOR_LB_PIN 2U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_MOTOR_LB_PIN_MASK (1U << 2U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_ENCO_RB_PORT PORTB                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_ENCO_RB_PIN 19U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_ENCO_RB_PIN_MASK (1U << 19U)      /*!<@brief PORT pin mask */
                                                        /* @} */
 
-/*! @name PORTC3 (number 106), MOTOR_RA
+/*! @name PORTE12 (number 15), SERVO_0
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_MOTOR_RA_PORT PORTC               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_MOTOR_RA_PIN 3U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_MOTOR_RA_PIN_MASK (1U << 3U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_SERVO_0_PORT PORTE                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SERVO_0_PIN 12U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SERVO_0_PIN_MASK (1U << 12U)      /*!<@brief PORT pin mask */
                                                        /* @} */
 
-/*! @name PORTC4 (number 109), MOTOR_RB
+/*! @name PORTE0 (number 1), SD_D_1
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_MOTOR_RB_PORT PORTC               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_MOTOR_RB_PIN 4U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_MOTOR_RB_PIN_MASK (1U << 4U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_SD_D_1_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SD_D_1_PIN 0U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SD_D_1_PIN_MASK (1U << 0U)      /*!<@brief PORT pin mask */
+                                                     /* @} */
+
+/*! @name PORTE1 (number 2), SD_D_0
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_SD_D_0_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SD_D_0_PIN 1U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SD_D_0_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
+                                                     /* @} */
+
+/*! @name PORTE2 (number 3), SD_CLK
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_SD_CLK_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SD_CLK_PIN 2U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SD_CLK_PIN_MASK (1U << 2U)      /*!<@brief PORT pin mask */
+                                                     /* @} */
+
+/*! @name PORTE3 (number 4), SD_CMD
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_SD_CMD_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_SD_CMD_PIN 3U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_SD_CMD_PIN_MASK (1U << 3U)      /*!<@brief PORT pin mask */
+                                                     /* @} */
+
+/*! @name PORTD12 (number 141), OLED_SCK
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_OLED_SCK_PORT PORTD                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_OLED_SCK_PIN 12U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_OLED_SCK_PIN_MASK (1U << 12U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
+/*! @name PORTD13 (number 142), OLED_SOT
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_OLED_SOT_PORT PORTD                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_OLED_SOT_PIN 13U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_OLED_SOT_PIN_MASK (1U << 13U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
+/*! @name PORTC1 (number 104), MOTOR_RA
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_MOTOR_RA_PORT PORTC               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_MOTOR_RA_PIN 1U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_MOTOR_RA_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
                                                        /* @} */
+
+/*! @name PORTC2 (number 105), MOTOR_RB
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_MOTOR_RB_PORT PORTC               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_MOTOR_RB_PIN 2U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_MOTOR_RB_PIN_MASK (1U << 2U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTC3 (number 106), MOTOR_LA
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_MOTOR_LA_PORT PORTC               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_MOTOR_LA_PIN 3U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_MOTOR_LA_PIN_MASK (1U << 3U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTC4 (number 109), MOTOR_LB
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_MOTOR_LB_PORT PORTC               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_MOTOR_LB_PIN 4U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_MOTOR_LB_PIN_MASK (1U << 4U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*!
+ * @brief Configures pin routing and optionally pin electrical features.
+ *
+ */
+void RTEPIN_Basic(void);
+
+/*! @name PORTE0 (number 1), SD_D_1
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SD_D_1_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SD_D_1_PIN 0U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SD_D_1_PIN_MASK (1U << 0U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTE1 (number 2), SD_D_0
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SD_D_0_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SD_D_0_PIN 1U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SD_D_0_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTE2 (number 3), SD_CLK
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SD_CLK_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SD_CLK_PIN 2U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SD_CLK_PIN_MASK (1U << 2U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTE3 (number 4), SD_CMD
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SD_CMD_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SD_CMD_PIN 3U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SD_CMD_PIN_MASK (1U << 3U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTE5 (number 8), SD_D_2
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SD_D_2_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SD_D_2_PIN 5U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SD_D_2_PIN_MASK (1U << 5U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTE4 (number 7), SD_D_3
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SD_D_3_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SD_D_3_PIN 4U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SD_D_3_PIN_MASK (1U << 4U)      /*!<@brief PORT pin mask */
+                                                       /* @} */
+
+/*! @name PORTE7 (number 10), BUTTON_OK
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_DIGITAL_BUTTON_OK_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_BUTTON_OK_GPIO_PIN_MASK (1U << 7U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_BUTTON_OK_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_BUTTON_OK_PIN 7U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_BUTTON_OK_PIN_MASK (1U << 7U)      /*!<@brief PORT pin mask */
+                                                          /* @} */
+
+/*! @name PORTE8 (number 11), BUTTON_LF
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_DIGITAL_BUTTON_LF_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_BUTTON_LF_GPIO_PIN_MASK (1U << 8U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_BUTTON_LF_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_BUTTON_LF_PIN 8U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_BUTTON_LF_PIN_MASK (1U << 8U)      /*!<@brief PORT pin mask */
+                                                          /* @} */
+
+/*! @name PORTE9 (number 12), BUTTON_RT
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_DIGITAL_BUTTON_RT_GPIO GPIOE               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_BUTTON_RT_GPIO_PIN_MASK (1U << 9U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_BUTTON_RT_PORT PORTE               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_BUTTON_RT_PIN 9U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_BUTTON_RT_PIN_MASK (1U << 9U)      /*!<@brief PORT pin mask */
+                                                          /* @} */
+
+/*! @name PORTE10 (number 13), BUTTON_UP
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_DIGITAL_BUTTON_UP_GPIO GPIOE                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_BUTTON_UP_GPIO_PIN_MASK (1U << 10U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_BUTTON_UP_PORT PORTE                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_BUTTON_UP_PIN 10U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_BUTTON_UP_PIN_MASK (1U << 10U)      /*!<@brief PORT pin mask */
+                                                           /* @} */
+
+/*! @name PORTE11 (number 14), BUTTON_DN
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_DIGITAL_BUTTON_DN_GPIO GPIOE                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_BUTTON_DN_GPIO_PIN_MASK (1U << 11U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_BUTTON_DN_PORT PORTE                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_BUTTON_DN_PIN 11U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_BUTTON_DN_PIN_MASK (1U << 11U)      /*!<@brief PORT pin mask */
+                                                           /* @} */
+
+/*! @name PORTE12 (number 15), SERVO_0
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SERVO_0_PORT PORTE                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SERVO_0_PIN 12U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SERVO_0_PIN_MASK (1U << 12U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
+
+/*! @name PORTA0 (number 50), SWO_CLK
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SWO_CLK_PORT PORTA               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SWO_CLK_PIN 0U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SWO_CLK_PIN_MASK (1U << 0U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
+/*! @name PORTA3 (number 53), SWO_DIO
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SWO_DIO_PORT PORTA               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SWO_DIO_PIN 3U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SWO_DIO_PIN_MASK (1U << 3U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
+/*! @name PORTA9 (number 61), SWITCH_0
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_DIGITAL_SWITCH_0_GPIO GPIOA               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_SWITCH_0_GPIO_PIN_MASK (1U << 9U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SWITCH_0_PORT PORTA               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SWITCH_0_PIN 9U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SWITCH_0_PIN_MASK (1U << 9U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
+
+/*! @name PORTA11 (number 63), SWITCH_1
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_DIGITAL_SWITCH_1_GPIO GPIOA                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_SWITCH_1_GPIO_PIN_MASK (1U << 11U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SWITCH_1_PORT PORTA                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SWITCH_1_PIN 11U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SWITCH_1_PIN_MASK (1U << 11U)      /*!<@brief PORT pin mask */
+                                                          /* @} */
+
+/*! @name PORTA13 (number 65), SWITCH_2
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_DIGITAL_SWITCH_2_GPIO GPIOA                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_SWITCH_2_GPIO_PIN_MASK (1U << 13U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SWITCH_2_PORT PORTA                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SWITCH_2_PIN 13U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SWITCH_2_PIN_MASK (1U << 13U)      /*!<@brief PORT pin mask */
+                                                          /* @} */
+
+/*! @name PORTA15 (number 67), SWITCH_3
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_DIGITAL_SWITCH_3_GPIO GPIOA                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_SWITCH_3_GPIO_PIN_MASK (1U << 15U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SWITCH_3_PORT PORTA                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SWITCH_3_PIN 15U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SWITCH_3_PIN_MASK (1U << 15U)      /*!<@brief PORT pin mask */
+                                                          /* @} */
+
+/*! @name PORTB0 (number 81), ENCO_LA
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_ENCO_LA_PORT PORTB               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_ENCO_LA_PIN 0U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_ENCO_LA_PIN_MASK (1U << 0U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
+/*! @name PORTB1 (number 82), ENCO_LB
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_ENCO_LB_PORT PORTB               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_ENCO_LB_PIN 1U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_ENCO_LB_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
+/*! @name PORTB18 (number 97), ENCO_RA
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_ENCO_RA_PORT PORTB                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_ENCO_RA_PIN 18U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_ENCO_RA_PIN_MASK (1U << 18U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
+
+/*! @name PORTB19 (number 98), ENCO_RB
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_ENCO_RB_PORT PORTB                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_ENCO_RB_PIN 19U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_ENCO_RB_PIN_MASK (1U << 19U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
 
 /*! @name PORTC6 (number 111), CAM_VSNC
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_CAM_VSNC_GPIO GPIOC               /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_CAM_VSNC_GPIO_PIN_MASK (1U << 6U) /*!<@brief GPIO pin mask */
+#define RTEPIN_DIGITAL_CAM_VSNC_GPIO GPIOC               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_VSNC_GPIO_PIN_MASK (1U << 6U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_VSNC_PORT PORTC               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_VSNC_PIN 6U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_VSNC_PIN_MASK (1U << 6U)      /*!<@brief PORT pin mask */
-                                                       /* @} */
+#define RTEPIN_DIGITAL_CAM_VSNC_PORT PORTC               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_VSNC_PIN 6U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_CAM_VSNC_PIN_MASK (1U << 6U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
 
-/*! @name PORTC8 (number 113), CAM_D0
+/*! @name PORTC8 (number 113), CAM_D_0
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_CAM_D0_GPIO GPIOC               /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D0_GPIO_PIN_MASK (1U << 8U) /*!<@brief GPIO pin mask */
+#define RTEPIN_DIGITAL_CAM_D_0_GPIO GPIOC               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_0_GPIO_PIN_MASK (1U << 8U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_D0_PORT PORTC               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D0_PIN 8U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_D0_PIN_MASK (1U << 8U)      /*!<@brief PORT pin mask */
-                                                     /* @} */
+#define RTEPIN_DIGITAL_CAM_D_0_PORT PORTC               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_0_PIN 8U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_CAM_D_0_PIN_MASK (1U << 8U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
 
-/*! @name PORTC9 (number 114), CAM_D1
+/*! @name PORTC9 (number 114), CAM_D_1
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_CAM_D1_GPIO GPIOC               /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D1_GPIO_PIN_MASK (1U << 9U) /*!<@brief GPIO pin mask */
+#define RTEPIN_DIGITAL_CAM_D_1_GPIO GPIOC               /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_1_GPIO_PIN_MASK (1U << 9U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_D1_PORT PORTC               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D1_PIN 9U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_D1_PIN_MASK (1U << 9U)      /*!<@brief PORT pin mask */
-                                                     /* @} */
+#define RTEPIN_DIGITAL_CAM_D_1_PORT PORTC               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_1_PIN 9U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_CAM_D_1_PIN_MASK (1U << 9U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
 
-/*! @name PORTC10 (number 115), CAM_D2
+/*! @name PORTC10 (number 115), CAM_D_2
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_CAM_D2_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D2_GPIO_PIN_MASK (1U << 10U) /*!<@brief GPIO pin mask */
+#define RTEPIN_DIGITAL_CAM_D_2_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_2_GPIO_PIN_MASK (1U << 10U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_D2_PORT PORTC                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D2_PIN 10U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_D2_PIN_MASK (1U << 10U)      /*!<@brief PORT pin mask */
-                                                      /* @} */
+#define RTEPIN_DIGITAL_CAM_D_2_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_2_PIN 10U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_CAM_D_2_PIN_MASK (1U << 10U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
 
-/*! @name PORTC11 (number 116), CAM_D3
+/*! @name PORTC11 (number 116), CAM_D_3
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_CAM_D3_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D3_GPIO_PIN_MASK (1U << 11U) /*!<@brief GPIO pin mask */
+#define RTEPIN_DIGITAL_CAM_D_3_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_3_GPIO_PIN_MASK (1U << 11U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_D3_PORT PORTC                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D3_PIN 11U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_D3_PIN_MASK (1U << 11U)      /*!<@brief PORT pin mask */
-                                                      /* @} */
+#define RTEPIN_DIGITAL_CAM_D_3_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_3_PIN 11U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_CAM_D_3_PIN_MASK (1U << 11U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
 
-/*! @name PORTC12 (number 117), CAM_D4
+/*! @name PORTC12 (number 117), CAM_D_4
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_CAM_D4_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D4_GPIO_PIN_MASK (1U << 12U) /*!<@brief GPIO pin mask */
+#define RTEPIN_DIGITAL_CAM_D_4_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_4_GPIO_PIN_MASK (1U << 12U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_D4_PORT PORTC                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D4_PIN 12U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_D4_PIN_MASK (1U << 12U)      /*!<@brief PORT pin mask */
-                                                      /* @} */
+#define RTEPIN_DIGITAL_CAM_D_4_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_4_PIN 12U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_CAM_D_4_PIN_MASK (1U << 12U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
 
-/*! @name PORTC13 (number 118), CAM_D5
+/*! @name PORTC13 (number 118), CAM_D_5
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_CAM_D5_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D5_GPIO_PIN_MASK (1U << 13U) /*!<@brief GPIO pin mask */
+#define RTEPIN_DIGITAL_CAM_D_5_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_5_GPIO_PIN_MASK (1U << 13U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_D5_PORT PORTC                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D5_PIN 13U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_D5_PIN_MASK (1U << 13U)      /*!<@brief PORT pin mask */
-                                                      /* @} */
+#define RTEPIN_DIGITAL_CAM_D_5_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_5_PIN 13U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_CAM_D_5_PIN_MASK (1U << 13U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
 
-/*! @name PORTC14 (number 119), CAM_D6
+/*! @name PORTC14 (number 119), CAM_D_6
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_CAM_D6_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D6_GPIO_PIN_MASK (1U << 14U) /*!<@brief GPIO pin mask */
+#define RTEPIN_DIGITAL_CAM_D_6_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_6_GPIO_PIN_MASK (1U << 14U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_D6_PORT PORTC                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D6_PIN 14U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_D6_PIN_MASK (1U << 14U)      /*!<@brief PORT pin mask */
-                                                      /* @} */
+#define RTEPIN_DIGITAL_CAM_D_6_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_6_PIN 14U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_CAM_D_6_PIN_MASK (1U << 14U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
 
-/*! @name PORTC15 (number 120), CAM_D7
+/*! @name PORTC15 (number 120), CAM_D_7
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_CAM_D7_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D7_GPIO_PIN_MASK (1U << 15U) /*!<@brief GPIO pin mask */
+#define RTEPIN_DIGITAL_CAM_D_7_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_7_GPIO_PIN_MASK (1U << 15U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_D7_PORT PORTC                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_D7_PIN 15U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_D7_PIN_MASK (1U << 15U)      /*!<@brief PORT pin mask */
-                                                      /* @} */
-
-/*! @name PORTC16 (number 123), CAM_RX
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_RX_PORT PORTC                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_RX_PIN 16U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_RX_PIN_MASK (1U << 16U)      /*!<@brief PORT pin mask */
-                                                      /* @} */
-
-/*! @name PORTC17 (number 124), CAM_TX
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_TX_PORT PORTC                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_TX_PIN 17U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_TX_PIN_MASK (1U << 17U)      /*!<@brief PORT pin mask */
-                                                      /* @} */
+#define RTEPIN_DIGITAL_CAM_D_7_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_D_7_PIN 15U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_CAM_D_7_PIN_MASK (1U << 15U)      /*!<@brief PORT pin mask */
+                                                         /* @} */
 
 /*! @name PORTC18 (number 125), CAM_PCLK
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_CAM_PCLK_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_CAM_PCLK_GPIO_PIN_MASK (1U << 18U) /*!<@brief GPIO pin mask */
+#define RTEPIN_DIGITAL_CAM_PCLK_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_PCLK_GPIO_PIN_MASK (1U << 18U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_CAM_PCLK_PORT PORTC                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_CAM_PCLK_PIN 18U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_CAM_PCLK_PIN_MASK (1U << 18U)      /*!<@brief PORT pin mask */
-                                                        /* @} */
-
-/*! @name PORTD14 (number 143), OLED_2
-  @{ */
-
-/* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_OLED_D_C_GPIO GPIOD                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_OLED_D_C_GPIO_PIN_MASK (1U << 14U) /*!<@brief GPIO pin mask */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_OLED_D_C_PORT PORTD                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_OLED_D_C_PIN 14U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_OLED_D_C_PIN_MASK (1U << 14U)      /*!<@brief PORT pin mask */
-                                                        /* @} */
-
-/*! @name PORTD15 (number 144), OLED_4
-  @{ */
-
-/* Symbols to be used with GPIO driver */
-#define RTEPIN_BOARD_OLED_RST_GPIO GPIOD                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BOARD_OLED_RST_GPIO_PIN_MASK (1U << 15U) /*!<@brief GPIO pin mask */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BOARD_OLED_RST_PORT PORTD                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BOARD_OLED_RST_PIN 15U                   /*!<@brief PORT pin number */
-#define RTEPIN_BOARD_OLED_RST_PIN_MASK (1U << 15U)      /*!<@brief PORT pin mask */
-                                                        /* @} */
+#define RTEPIN_DIGITAL_CAM_PCLK_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_CAM_PCLK_PIN 18U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_CAM_PCLK_PIN_MASK (1U << 18U)      /*!<@brief PORT pin mask */
+                                                          /* @} */
 
 /*!
  * @brief Configures pin routing and optionally pin electrical features.
  *
  */
-void RTEPIN_Board(void);
+void RTEPIN_Digital(void);
+
+/*!
+ * @brief Configures pin routing and optionally pin electrical features.
+ *
+ */
+void RTEPIN_Analog(void);
 
 #define SOPT5_UART0TXSRC_UART_TX 0x00u /*!<@brief UART 0 transmit data source select: UART0_TX pin */
 
-/*! @name PORTD6 (number 133), UART0_SPP_RX
+/*! @name PORTA1 (number 51), UART_DBG_RX
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_UART0_EXT_UART0_SPP_RX_PORT PORTD               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_UART0_EXT_UART0_SPP_RX_PIN 6U                   /*!<@brief PORT pin number */
-#define RTEPIN_UART0_EXT_UART0_SPP_RX_PIN_MASK (1U << 6U)      /*!<@brief PORT pin mask */
-                                                               /* @} */
+#define RTEPIN_UART0_DBG_UART_DBG_RX_PORT PORTA               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_UART0_DBG_UART_DBG_RX_PIN 1U                   /*!<@brief PORT pin number */
+#define RTEPIN_UART0_DBG_UART_DBG_RX_PIN_MASK (1U << 1U)      /*!<@brief PORT pin mask */
+                                                              /* @} */
 
-/*! @name PORTD7 (number 136), UART0_SPP_TX
+/*! @name PORTA2 (number 52), UART_DBG_TX
   @{ */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_UART0_EXT_UART0_SPP_TX_PORT PORTD               /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_UART0_EXT_UART0_SPP_TX_PIN 7U                   /*!<@brief PORT pin number */
-#define RTEPIN_UART0_EXT_UART0_SPP_TX_PIN_MASK (1U << 7U)      /*!<@brief PORT pin mask */
-                                                               /* @} */
+#define RTEPIN_UART0_DBG_UART_DBG_TX_PORT PORTA               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_UART0_DBG_UART_DBG_TX_PIN 2U                   /*!<@brief PORT pin number */
+#define RTEPIN_UART0_DBG_UART_DBG_TX_PIN_MASK (1U << 2U)      /*!<@brief PORT pin mask */
+                                                              /* @} */
 
 /*!
  * @brief Configures pin routing and optionally pin electrical features.
  *
  */
-void RTEPIN_Uart0_EXT(void);
+void RTEPIN_UART0_DBG(void);
+
+#define SOPT5_UART0TXSRC_UART_TX 0x00u /*!<@brief UART 0 transmit data source select: UART0_TX pin */
+
+/*! @name PORTD6 (number 133), UART_WLAN_RX
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_UART0_WLAN_UART_WLAN_RX_PORT PORTD               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_UART0_WLAN_UART_WLAN_RX_PIN 6U                   /*!<@brief PORT pin number */
+#define RTEPIN_UART0_WLAN_UART_WLAN_RX_PIN_MASK (1U << 6U)      /*!<@brief PORT pin mask */
+                                                                /* @} */
+
+/*! @name PORTD7 (number 136), UART_WLAN_TX
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_UART0_WLAN_UART_WLAN_TX_PORT PORTD               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_UART0_WLAN_UART_WLAN_TX_PIN 7U                   /*!<@brief PORT pin number */
+#define RTEPIN_UART0_WLAN_UART_WLAN_TX_PIN_MASK (1U << 7U)      /*!<@brief PORT pin mask */
+                                                                /* @} */
+
+/*!
+ * @brief Configures pin routing and optionally pin electrical features.
+ *
+ */
+void RTEPIN_UART0_WLAN(void);
 
 #if defined(__cplusplus)
 }

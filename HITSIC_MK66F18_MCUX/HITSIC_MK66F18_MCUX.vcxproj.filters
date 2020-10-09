@@ -1,0 +1,1139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup>
+        <Filter Include="CMSIS">
+            <UniqueIdentifier>{e40e0931-0c17-4b09-42b7-91226f19c0f2}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module">
+            <UniqueIdentifier>{847c00c2-e093-bd6f-0b25-97dbbf5d825a}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\d_mk66f18">
+            <UniqueIdentifier>{0a8ba746-4e42-716b-e178-81cbcd29da8b}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\d_mk66f18\extlib_port">
+            <UniqueIdentifier>{e0b47624-9dcc-ff73-5929-d75a0ff5210d}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\d_mk66f18\extlib_port\CmBacktrace-1.4.0">
+            <UniqueIdentifier>{9d9ff505-658b-b011-edb0-1210ff480e58}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\d_mk66f18\extlib_port\CmBacktrace-1.4.0\cm_backtrace">
+            <UniqueIdentifier>{a9849d51-2e06-4cbb-14b4-c984249cea03}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0">
+            <UniqueIdentifier>{8d1ae690-61c4-29f9-568f-543f16675b77}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash">
+            <UniqueIdentifier>{c0db564a-954e-c145-2cb7-4c893e32cb4c}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port">
+            <UniqueIdentifier>{da2d77e7-431c-bb26-1dd5-381a1395d2da}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\d_mk66f18\legacy_drivers">
+            <UniqueIdentifier>{4499c0fe-f196-6013-a141-704a3ee7d6c9}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated">
+            <UniqueIdentifier>{95b7baf8-1953-66a5-41a3-bdb1f5b26170}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible">
+            <UniqueIdentifier>{35ffcb6d-33ec-3734-8463-46d6039c0a88}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities">
+            <UniqueIdentifier>{adc88dc5-c6aa-4b57-e2f8-d322cdee2a6a}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib">
+            <UniqueIdentifier>{74cb78a7-5a33-1988-d4fb-cd2dcd40589c}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0">
+            <UniqueIdentifier>{2260026d-57ff-395d-d1d4-9a4f791a1c96}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace">
+            <UniqueIdentifier>{302fc5ad-5588-232f-711b-d52f6cf3dfe2}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler">
+            <UniqueIdentifier>{058029c0-dd44-5096-3c37-03370b541706}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\gcc">
+            <UniqueIdentifier>{490ab46e-47dd-570a-8bb2-9e0de0b66e7b}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\iar">
+            <UniqueIdentifier>{5427f0ee-29a9-a013-f512-1dfa728f4cb9}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\keil">
+            <UniqueIdentifier>{bf6d55ea-1d30-b438-f3d0-08964a672848}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs">
+            <UniqueIdentifier>{014569d8-6a0c-09d2-1b74-c868dfc89ab0}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh">
+            <UniqueIdentifier>{93479621-c994-2a99-d886-04fa99281a68}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images">
+            <UniqueIdentifier>{1bfa737d-916f-9ce5-af6d-25a2000001e9}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo">
+            <UniqueIdentifier>{d3b87933-5af6-c94e-0aa3-b109cdf816cb}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0">
+            <UniqueIdentifier>{83172fed-9cc1-483b-90de-22a73758a166}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash">
+            <UniqueIdentifier>{81a0fd01-d068-8235-a957-f0f4d7b84b62}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\inc">
+            <UniqueIdentifier>{57cb7b18-8d32-1dc4-eec5-c16733af6b36}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins">
+            <UniqueIdentifier>{8d1f22aa-3bc8-7470-a692-ff9ac587995c}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types">
+            <UniqueIdentifier>{9906791f-53a3-1ca1-9934-01f315e64e3a}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json">
+            <UniqueIdentifier>{f506f9ff-7c39-7fef-1f44-800ba9540079}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc">
+            <UniqueIdentifier>{38b818d1-0e12-24c1-a13a-f33aeb4b4a80}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\src">
+            <UniqueIdentifier>{cb84601e-92a8-a3a0-d68e-c227632291e9}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src">
+            <UniqueIdentifier>{35f2595e-af81-6514-27b8-754c97907f1a}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="board">
+            <UniqueIdentifier>{fe8979f9-ad27-f1a5-0b4f-a52f010e5b9c}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="component">
+            <UniqueIdentifier>{aeb34a97-1500-dfca-0abc-a92928f4cde7}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="component\lists">
+            <UniqueIdentifier>{9e06349f-9ea4-78ed-9c87-2ad285ea3e93}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="component\osa">
+            <UniqueIdentifier>{65fbcd9a-707d-52a4-4a38-8fb1af473508}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="component\serial_manager">
+            <UniqueIdentifier>{9c199f00-6322-0878-9b57-4050fec53bcd}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="component\uart">
+            <UniqueIdentifier>{99caf169-c00a-0fd1-f84b-f5150abac66b}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="device">
+            <UniqueIdentifier>{f7949c3d-1eae-c146-e79e-17894caf504a}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="drivers">
+            <UniqueIdentifier>{2b11d7f3-e686-d541-02d6-1d344b1c7102}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="fatfs">
+            <UniqueIdentifier>{bfa73a25-be2a-a458-a16c-8f9e7088af0b}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="fatfs\source">
+            <UniqueIdentifier>{2aee4d49-f001-c5f4-7ae8-d61e618d54ec}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="fatfs\source\fsl_ram_disk">
+            <UniqueIdentifier>{e43089d8-24b4-b0ad-c7c1-985e9871181f}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="fatfs\source\fsl_sd_disk">
+            <UniqueIdentifier>{85346559-e09c-edfb-4f70-30c47dfd511a}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="libs">
+            <UniqueIdentifier>{76516956-9e4f-d545-5b9e-43e98669a956}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="sdmmc">
+            <UniqueIdentifier>{3f102e35-b625-1f25-7291-4b255d6d877b}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="sdmmc\host">
+            <UniqueIdentifier>{66f90b9f-ded8-2321-4cf1-af2f6a5064e0}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="sdmmc\inc">
+            <UniqueIdentifier>{657388dc-60ce-7aa2-1238-f86133dbc62e}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="sdmmc\osa">
+            <UniqueIdentifier>{b3083e94-0471-9b4f-8adc-ad41225738ce}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="sdmmc\src">
+            <UniqueIdentifier>{e95e843f-0057-0e62-1f57-4658ee5a3f26}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="source">
+            <UniqueIdentifier>{7dbe0254-0e08-3ca1-463f-4b1ed05c35de}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="startup">
+            <UniqueIdentifier>{dab0316d-85fe-ac76-79fd-350a7fd7c150}</UniqueIdentifier>
+        </Filter>
+        <Filter Include="utilities">
+            <UniqueIdentifier>{95dc88e0-fea0-e657-5f18-8bb653515b32}</UniqueIdentifier>
+        </Filter>
+    </ItemGroup>
+    <ItemGroup>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\app_menu_port.c">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\drv_imu_port.c">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port\ef_port.c">
+            <Filter>HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\hitsic_common.c">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Ftm.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Upload.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Wdog.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Beep.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Boma.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Key.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_LED.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_OLED.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Systick.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\drv_cam.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_AD5206.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_ADC.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_ADC_dma.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Camera.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Pit.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Sd.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_TF.c">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\sys_extint_port.cpp">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\sys_pitmgr_port.cpp">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\sys_uartmgr_port.cpp">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\app_menu.c">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\app_menu_button.c">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\app_menu_nvm.c">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\app_menu_type.c">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\drv_button.c">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\drv_disp_font.cpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\drv_disp_ssd1306.cpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\drv_disp_st7789.cpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\drv_ftfx_flash.c">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\drv_imu_invensense.c">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\cm_backtrace.c">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\ef_types.c">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\src\cJSON.c">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\src</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\src\s2j.c">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\src</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src\easyflash.c">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_env.c">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_env_legacy.c">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_env_legacy_wl.c">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_iap.c">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_log.c">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src\ef_utils.c">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\lib_adrcctrl.c">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\lib_list.c">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\lib_pidctrl.c">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\sys_extint.cpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\sys_pitmgr.cpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\sys_rmcall.cpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\sys_uartmgr.cpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="board\board.c">
+            <Filter>board</Filter>
+        </ClCompile>
+        <ClCompile Include="board\clock_config.c">
+            <Filter>board</Filter>
+        </ClCompile>
+        <ClCompile Include="board\peripherals.c">
+            <Filter>board</Filter>
+        </ClCompile>
+        <ClCompile Include="board\pin_mux.c">
+            <Filter>board</Filter>
+        </ClCompile>
+        <ClCompile Include="component\lists\generic_list.c">
+            <Filter>component\lists</Filter>
+        </ClCompile>
+        <ClCompile Include="component\osa\fsl_os_abstraction_bm.c">
+            <Filter>component\osa</Filter>
+        </ClCompile>
+        <ClCompile Include="component\serial_manager\serial_manager.c">
+            <Filter>component\serial_manager</Filter>
+        </ClCompile>
+        <ClCompile Include="component\serial_manager\serial_port_uart.c">
+            <Filter>component\serial_manager</Filter>
+        </ClCompile>
+        <ClCompile Include="component\uart\uart_adapter.c">
+            <Filter>component\uart</Filter>
+        </ClCompile>
+        <ClCompile Include="device\system_MK66F18.c">
+            <Filter>device</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_adc16.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_cache.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_clock.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_cmp.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_cmt.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_common.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_crc.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_dac.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_dmamux.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_dspi.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_dspi_edma.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_edma.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_enet.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_ewm.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_flexbus.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_flexcan.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_ftfx_cache.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_ftfx_controller.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_ftfx_flash.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_ftfx_flexnvm.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_ftm.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_gpio.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_i2c.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_i2c_edma.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_llwu.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_lmem_cache.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_lptmr.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_lpuart.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_lpuart_edma.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_pdb.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_pit.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_pmc.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_rcm.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_rnga.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_rtc.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_sai.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_sai_edma.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_sdhc.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_sdramc.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_sim.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_smc.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_sysmpu.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_tpm.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_tsi_v4.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_uart.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_uart_edma.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_vref.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="drivers\fsl_wdog.c">
+            <Filter>drivers</Filter>
+        </ClCompile>
+        <ClCompile Include="fatfs\source\diskio.c">
+            <Filter>fatfs\source</Filter>
+        </ClCompile>
+        <ClCompile Include="fatfs\source\ff.c">
+            <Filter>fatfs\source</Filter>
+        </ClCompile>
+        <ClCompile Include="fatfs\source\ffsystem.c">
+            <Filter>fatfs\source</Filter>
+        </ClCompile>
+        <ClCompile Include="fatfs\source\ffunicode.c">
+            <Filter>fatfs\source</Filter>
+        </ClCompile>
+        <ClCompile Include="fatfs\source\fsl_ram_disk\fsl_ram_disk.c">
+            <Filter>fatfs\source\fsl_ram_disk</Filter>
+        </ClCompile>
+        <ClCompile Include="fatfs\source\fsl_sd_disk\fsl_sd_disk.c">
+            <Filter>fatfs\source\fsl_sd_disk</Filter>
+        </ClCompile>
+        <ClCompile Include="sdmmc\host\fsl_sdmmc_host.c">
+            <Filter>sdmmc\host</Filter>
+        </ClCompile>
+        <ClCompile Include="sdmmc\osa\fsl_sdmmc_osa.c">
+            <Filter>sdmmc\osa</Filter>
+        </ClCompile>
+        <ClCompile Include="sdmmc\src\fsl_sd.c">
+            <Filter>sdmmc\src</Filter>
+        </ClCompile>
+        <ClCompile Include="sdmmc\src\fsl_sdio.c">
+            <Filter>sdmmc\src</Filter>
+        </ClCompile>
+        <ClCompile Include="sdmmc\src\fsl_sdmmc_common.c">
+            <Filter>sdmmc\src</Filter>
+        </ClCompile>
+        <ClCompile Include="source\isr.cpp">
+            <Filter>source</Filter>
+        </ClCompile>
+        <ClCompile Include="source\main.cpp">
+            <Filter>source</Filter>
+        </ClCompile>
+        <ClCompile Include="startup\startup_mk66f18.cpp">
+            <Filter>startup</Filter>
+        </ClCompile>
+        <ClCompile Include="utilities\fsl_assert.c">
+            <Filter>utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="utilities\fsl_debug_console.c">
+            <Filter>utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="utilities\fsl_shell.c">
+            <Filter>utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="utilities\fsl_str.c">
+            <Filter>utilities</Filter>
+        </ClCompile>
+    </ItemGroup>
+    <ItemGroup>
+        <ClInclude Include="CMSIS\arm_common_tables.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\arm_const_structs.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\arm_helium_utils.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\arm_math.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\arm_mve_tables.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\arm_vec_math.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\cachel1_armv7.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\cmsis_armcc.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\cmsis_armclang.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\cmsis_armclang_ltm.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\cmsis_compiler.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\cmsis_gcc.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\cmsis_iccarm.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\cmsis_version.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_armv81mml.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_armv8mbl.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_armv8mml.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_cm0.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_cm0plus.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_cm1.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_cm23.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_cm3.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_cm33.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_cm35p.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_cm4.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_cm55.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_cm7.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_sc000.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\core_sc300.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\mpu_armv7.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\mpu_armv8.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\pmu_armv8.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="CMSIS\tz_context.h">
+            <Filter>CMSIS</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\app_menu_port.h">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\drv_disp_ssd1306_port.hpp">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\drv_imu_port.h">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\extlib_port\CmBacktrace-1.4.0\cm_backtrace\cmb_cfg.h">
+            <Filter>HITSIC_Module\d_mk66f18\extlib_port\CmBacktrace-1.4.0\cm_backtrace</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\extlib_port\CmBacktrace-1.4.0\cm_backtrace\cmb_def.h">
+            <Filter>HITSIC_Module\d_mk66f18\extlib_port\CmBacktrace-1.4.0\cm_backtrace</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port\ef_cfg.h">
+            <Filter>HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\hitsic_common.h">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\inc_fsl_mk66f18.h">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Ftm.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Upload.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Wdog.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Beep.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Boma.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Key.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_LED.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_OLED.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Systick.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\deprecated</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\drv_cam.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\drv_cam_def.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\include.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_AD5206.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_ADC.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_ADC_dma.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Camera.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Pit.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Sd.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_TF.h">
+            <Filter>HITSIC_Module\d_mk66f18\legacy_drivers\incompatible</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\sys_extint_port.hpp">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\sys_pitmgr_port.hpp">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\sys_uartmgr_port.hpp">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\app_menu.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\app_menu_button.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\app_menu_def.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\app_menu_nvm.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\app_menu_type.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\drv_button.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\drv_disp_ssd1306.hpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\drv_disp_st7789.hpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\drv_ftfx_flash.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\drv_imu_invensense.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\cm_backtrace.h">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\inc\easyflash.h">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\inc</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\ef_types.h">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc\cJSON.h">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc\s2j.h">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc\s2jdef.h">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\inc_stdlib.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\lib_adrcctrl.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\lib_list.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\lib_pidctrl.h">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\sys_extint.hpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\sys_pitmgr.hpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\sys_rmcall.hpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\sys_uartmgr.hpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="board\board.h">
+            <Filter>board</Filter>
+        </ClInclude>
+        <ClInclude Include="board\clock_config.h">
+            <Filter>board</Filter>
+        </ClInclude>
+        <ClInclude Include="board\peripherals.h">
+            <Filter>board</Filter>
+        </ClInclude>
+        <ClInclude Include="board\pin_mux.h">
+            <Filter>board</Filter>
+        </ClInclude>
+        <ClInclude Include="component\lists\generic_list.h">
+            <Filter>component\lists</Filter>
+        </ClInclude>
+        <ClInclude Include="component\osa\fsl_os_abstraction.h">
+            <Filter>component\osa</Filter>
+        </ClInclude>
+        <ClInclude Include="component\osa\fsl_os_abstraction_bm.h">
+            <Filter>component\osa</Filter>
+        </ClInclude>
+        <ClInclude Include="component\osa\fsl_os_abstraction_config.h">
+            <Filter>component\osa</Filter>
+        </ClInclude>
+        <ClInclude Include="component\serial_manager\serial_manager.h">
+            <Filter>component\serial_manager</Filter>
+        </ClInclude>
+        <ClInclude Include="component\serial_manager\serial_port_internal.h">
+            <Filter>component\serial_manager</Filter>
+        </ClInclude>
+        <ClInclude Include="component\serial_manager\serial_port_uart.h">
+            <Filter>component\serial_manager</Filter>
+        </ClInclude>
+        <ClInclude Include="component\uart\uart.h">
+            <Filter>component\uart</Filter>
+        </ClInclude>
+        <ClInclude Include="device\MK66F18.h">
+            <Filter>device</Filter>
+        </ClInclude>
+        <ClInclude Include="device\MK66F18_features.h">
+            <Filter>device</Filter>
+        </ClInclude>
+        <ClInclude Include="device\fsl_device_registers.h">
+            <Filter>device</Filter>
+        </ClInclude>
+        <ClInclude Include="device\system_MK66F18.h">
+            <Filter>device</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_adc16.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_cache.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_clock.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_cmp.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_cmt.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_common.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_crc.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_dac.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_dmamux.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_dspi.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_dspi_edma.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_edma.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_enet.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_ewm.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_flash.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_flexbus.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_flexcan.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_ftfx_adapter.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_ftfx_cache.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_ftfx_controller.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_ftfx_features.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_ftfx_flash.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_ftfx_flexnvm.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_ftfx_utilities.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_ftm.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_gpio.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_i2c.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_i2c_edma.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_llwu.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_lmem_cache.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_lptmr.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_lpuart.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_lpuart_edma.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_pdb.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_pit.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_pmc.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_port.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_rcm.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_rnga.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_rtc.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_sai.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_sai_edma.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_sdhc.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_sdramc.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_sim.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_smc.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_sysmpu.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_tpm.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_tsi_v4.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_uart.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_uart_edma.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_vref.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="drivers\fsl_wdog.h">
+            <Filter>drivers</Filter>
+        </ClInclude>
+        <ClInclude Include="fatfs\source\diskio.h">
+            <Filter>fatfs\source</Filter>
+        </ClInclude>
+        <ClInclude Include="fatfs\source\ff.h">
+            <Filter>fatfs\source</Filter>
+        </ClInclude>
+        <ClInclude Include="fatfs\source\fsl_ram_disk\fsl_ram_disk.h">
+            <Filter>fatfs\source\fsl_ram_disk</Filter>
+        </ClInclude>
+        <ClInclude Include="fatfs\source\fsl_sd_disk\fsl_sd_disk.h">
+            <Filter>fatfs\source\fsl_sd_disk</Filter>
+        </ClInclude>
+        <ClInclude Include="sdmmc\host\fsl_sdmmc_host.h">
+            <Filter>sdmmc\host</Filter>
+        </ClInclude>
+        <ClInclude Include="sdmmc\inc\fsl_sd.h">
+            <Filter>sdmmc\inc</Filter>
+        </ClInclude>
+        <ClInclude Include="sdmmc\inc\fsl_sdio.h">
+            <Filter>sdmmc\inc</Filter>
+        </ClInclude>
+        <ClInclude Include="sdmmc\inc\fsl_sdmmc_common.h">
+            <Filter>sdmmc\inc</Filter>
+        </ClInclude>
+        <ClInclude Include="sdmmc\inc\fsl_sdmmc_spec.h">
+            <Filter>sdmmc\inc</Filter>
+        </ClInclude>
+        <ClInclude Include="sdmmc\osa\fsl_sdmmc_osa.h">
+            <Filter>sdmmc\osa</Filter>
+        </ClInclude>
+        <ClInclude Include="source\ffconf.h">
+            <Filter>source</Filter>
+        </ClInclude>
+        <ClInclude Include="utilities\fsl_debug_console.h">
+            <Filter>utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="utilities\fsl_debug_console_conf.h">
+            <Filter>utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="utilities\fsl_shell.h">
+            <Filter>utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="utilities\fsl_str.h">
+            <Filter>utilities</Filter>
+        </ClInclude>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\.gitattributes">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\LICENSE">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\README.md">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\gcc\cmb_fault.S">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\gcc</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\iar\cmb_fault.S">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\iar</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\keil\cmb_fault.S">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\keil</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\README.md">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\enable_c99_for_keil_iar_gcc.md">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\how_to_use_addr2line_for_call_stack.md">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\cm_backtrace_demo.gif">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo\CmBacktrace.uga">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo\call_stack_basic_info.png">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo\call_stack_details.png">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo\cd_exe_dir.png">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo\demo_code.png">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo\fault_diagnosis.png">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo\paste_cmd.png">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\iar_enable_c99.png">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\keil4_enable_c99.jpg">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\keil5_enable_c99.jpg">
+            <Filter>HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\README.md">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types</Filter>
+        </None>
+        <None Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\readme.md">
+            <Filter>HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json</Filter>
+        </None>
+        <None Include="libs\libarm_cortexM4lf_math.a">
+            <Filter>libs</Filter>
+        </None>
+    </ItemGroup>
+</Project>

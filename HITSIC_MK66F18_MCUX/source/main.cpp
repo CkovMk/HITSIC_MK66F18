@@ -45,19 +45,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+#include "hitsic_common.h"
 #include "drv_ftfx_flash.h"
 #include "drv_disp_ssd1306.hpp"
 //#include "drv_imu_invensense.h"
 //#include "drv_cam.h"
-#include "app_menu.h"
 
+#include "sys_pitmgr.hpp"
 #include "sys_pitmgr.hpp"
 
 #include "cm_backtrace.h"
 
 #include "easyflash.h"
 
+#include "app_menu.h"
 
 void FLASH_Demo(void);
 void EF_Demo(void);
@@ -70,14 +71,16 @@ void main()
 	/** 初始化时钟 */
 	RTECLK_HsRun_180MHz();
 	/** 初始化引脚路由 */
-	RTEPIN_BasicPin();
-	RTEPIN_Board();
+//	RTEPIN_BasicPin();
+//	RTEPIN_Board();
 	//RTEPIN_Uart0_SPP();
-	RTEPIN_Uart0_SWO();
+//	RTEPIN_Uart0_SWO();
+	BOARD_InitBootPins();
 	/** 初始化外设 */
-	RTEPIP_BasicPip();
-	RTEPIP_Digital();
-	RTEPIP_Analog();
+//	RTEPIP_BasicPip();
+//	RTEPIP_Digital();
+//	RTEPIP_Analog();
+	BOARD_InitBootPeripherals();
 
 	/** 初始化调试串口 */
 	DbgConsole_Init(0U, 115200U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
@@ -102,7 +105,7 @@ void main()
 	/** 初始化菜单 */
 	MENU_Init();
 	MENU_Data_NvmReadRegionConfig();
-	MENU_Data_NvmRead_Boxed();
+	MENU_Data_NvmRead(menu_currRegionNum);
 	MENU_PrintDisp();
 	/** 初始化摄像头 */
 	//CAMERA_Init();

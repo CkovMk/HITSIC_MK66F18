@@ -61,3 +61,4 @@ HITSIC_MK66F18_MCUX/Debug
 HITSIC_MK66F18_MCUX/Release
 .idea
 cmake-build-debug
+out

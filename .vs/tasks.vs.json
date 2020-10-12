@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "任务-d_rt1052",
+      "appliesTo": "HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/",
+      "type": "launch"
+    }
+  ]
+}

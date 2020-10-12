@@ -16,20 +16,6 @@ include_directories(HITSIC_MK66F18_MCUX/drivers)
 include_directories(HITSIC_MK66F18_MCUX/fatfs/source)
 include_directories(HITSIC_MK66F18_MCUX/fatfs/source/fsl_ram_disk)
 include_directories(HITSIC_MK66F18_MCUX/fatfs/source/fsl_sd_disk)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_default)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/extlib_port/CmBacktrace-1.4.0)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/extlib_port/CmBacktrace-1.4.0/cm_backtrace)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/extlib_port/EasyFlash-4.0.0/easyflash/port)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/extlib_port/CmBacktrace-1.3.0)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/extlib_port/CmBacktrace-1.3.0/cm_backtrace)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/extlib_port/CmBacktrace-1.4.0)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/extlib_port/CmBacktrace-1.4.0/cm_backtrace)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/extlib_port/EasyFlash-4.0.0/easyflash/port)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/extlib_port/CmBacktrace-1.4.0)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/extlib_port/CmBacktrace-1.4.0/cm_backtrace)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/extlib_port/EasyFlash-4.0.0/easyflash/port)
 include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18)
 include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0)
 include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0/cm_backtrace)
@@ -37,11 +23,6 @@ include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/extlib_port/Easy
 include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/legacy_drivers)
 include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/legacy_drivers/deprecated)
 include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/legacy_drivers/incompatible)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/extlib_port/CmBacktrace-1.4.0)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/extlib_port/CmBacktrace-1.4.0/cm_backtrace)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/extlib_port/EasyFlash-4.0.0/easyflash/port)
-include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/deprecated)
 include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/utilities)
 include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace)
 include_directories(HITSIC_MK66F18_MCUX/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/inc)
@@ -241,56 +222,6 @@ add_executable(HITSIC_MK66F18
         HITSIC_MK66F18_MCUX/fatfs/source/ff.h
         HITSIC_MK66F18_MCUX/fatfs/source/ffsystem.c
         HITSIC_MK66F18_MCUX/fatfs/source/ffunicode.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/extlib_port/CmBacktrace-1.4.0/cm_backtrace/cmb_cfg.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/extlib_port/CmBacktrace-1.4.0/cm_backtrace/cmb_def.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/extlib_port/EasyFlash-4.0.0/easyflash/port/ef_cfg.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/extlib_port/EasyFlash-4.0.0/easyflash/port/ef_port.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/app_menu_port.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/app_menu_port.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/drv_disp_ssd1306_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/drv_imu_port.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/drv_imu_port.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/hitsic_common.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/hitsic_common.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/inc_fsl_default.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/sys_extint_port.cpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/sys_extint_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/sys_pitmgr_port.cpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/sys_pitmgr_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/sys_rmcall_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/sys_uartmgr_port.cpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_default/sys_uartmgr_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/extlib_port/CmBacktrace-1.3.0/cm_backtrace/cmb_cfg.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/extlib_port/CmBacktrace-1.3.0/cm_backtrace/cmb_def.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/extlib_port/CmBacktrace-1.4.0/cm_backtrace/cmb_cfg.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/extlib_port/CmBacktrace-1.4.0/cm_backtrace/cmb_def.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/extlib_port/EasyFlash-4.0.0/easyflash/port/ef_cfg.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/extlib_port/EasyFlash-4.0.0/easyflash/port/ef_port.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/app_menu_port.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/app_menu_port.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/drv_disp_ssd1306_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/drv_imu_port.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/drv_imu_port.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/hitsic_common.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/hitsic_common.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/inc_fsl_kv10z7.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/sys_extint_port.cpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/sys_extint_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/sys_pitmgr_port.cpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/sys_pitmgr_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/sys_uartmgr_port.cpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv10z7/sys_uartmgr_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/extlib_port/CmBacktrace-1.4.0/cm_backtrace/cmb_cfg.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/extlib_port/CmBacktrace-1.4.0/cm_backtrace/cmb_def.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/extlib_port/EasyFlash-4.0.0/easyflash/port/ef_cfg.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/extlib_port/EasyFlash-4.0.0/easyflash/port/ef_port.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/hitsic_common.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/hitsic_common.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/inc_fsl_kv58f24.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/sys_extint_port.cpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/sys_extint_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/sys_pitmgr_port.cpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_kv58f24/sys_pitmgr_port.hpp
         HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0/cm_backtrace/cmb_cfg.h
         HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0/cm_backtrace/cmb_def.h
         HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.0.0/easyflash/port/ef_cfg.h
@@ -345,29 +276,6 @@ add_executable(HITSIC_MK66F18
         HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/sys_pitmgr_port.hpp
         HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/sys_uartmgr_port.cpp
         HITSIC_MK66F18_MCUX/HITSIC_Module/d_mk66f18/sys_uartmgr_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/extlib_port/CmBacktrace-1.4.0/cm_backtrace/cmb_cfg.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/extlib_port/CmBacktrace-1.4.0/cm_backtrace/cmb_def.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/extlib_port/EasyFlash-4.0.0/easyflash/port/ef_cfg.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/extlib_port/EasyFlash-4.0.0/easyflash/port/ef_port.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/drv_imu_port.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/drv_imu_port.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/hitsic_common.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/hitsic_common.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/inc_fsl_rt1052.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/sys_extint_port.cpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/sys_extint_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/sys_pitmgr_port.cpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/sys_pitmgr_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/sys_uartmgr_port.cpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/d_rt1052/sys_uartmgr_port.hpp
-        HITSIC_MK66F18_MCUX/HITSIC_Module/deprecated/rte_i2c.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/deprecated/rte_i2c.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/deprecated/rte_softi2c.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/deprecated/rte_softi2c.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/deprecated/rte_spi.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/deprecated/rte_spi.h
-        HITSIC_MK66F18_MCUX/HITSIC_Module/deprecated/rte_uart.c
-        HITSIC_MK66F18_MCUX/HITSIC_Module/deprecated/rte_uart.h
         HITSIC_MK66F18_MCUX/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace/cm_backtrace.c
         HITSIC_MK66F18_MCUX/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace/cm_backtrace.h
         HITSIC_MK66F18_MCUX/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/inc/easyflash.h

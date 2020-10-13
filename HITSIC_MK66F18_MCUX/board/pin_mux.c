@@ -745,8 +745,6 @@ uart:
 - pin_list:
   - {pin_num: '123', peripheral: UART3, signal: RX, pin_signal: PTC16/CAN1_RX/UART3_RX/ENET0_1588_TMR0/FB_CS5_b/FB_TSIZ1/FB_BE23_16_BLS15_8_b/SDRAM_DQM2}
   - {pin_num: '124', peripheral: UART3, signal: TX, pin_signal: PTC17/CAN1_TX/UART3_TX/ENET0_1588_TMR1/FB_CS4_b/FB_TSIZ0/FB_BE31_24_BLS7_0_b/SDRAM_DQM3, direction: OUTPUT}
-  - {pin_num: '95', peripheral: UART0, signal: RX, pin_signal: TSI0_CH9/PTB16/SPI1_SOUT/UART0_RX/FTM_CLKIN0/FB_AD17/SDRAM_D17/EWM_IN/TPM_CLKIN0}
-  - {pin_num: '96', peripheral: UART0, signal: TX, pin_signal: TSI0_CH10/PTB17/SPI1_SIN/UART0_TX/FTM_CLKIN1/FB_AD16/SDRAM_D16/EWM_OUT_b/TPM_CLKIN1, direction: OUTPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -759,29 +757,14 @@ uart:
  * END ****************************************************************************************************************/
 void uart(void)
 {
-    /* Port B Clock Gate Control: Clock enabled */
-    CLOCK_EnableClock(kCLOCK_PortB);
     /* Port C Clock Gate Control: Clock enabled */
     CLOCK_EnableClock(kCLOCK_PortC);
-
-    /* PORTB16 (pin 95) is configured as UART0_RX */
-    PORT_SetPinMux(UART_COM_RX_PORT, UART_COM_RX_PIN, kPORT_MuxAlt3);
-
-    /* PORTB17 (pin 96) is configured as UART0_TX */
-    PORT_SetPinMux(UART_COM_TX_PORT, UART_COM_TX_PIN, kPORT_MuxAlt3);
 
     /* PORTC16 (pin 123) is configured as UART3_RX */
     PORT_SetPinMux(UART_CAM_RX_PORT, UART_CAM_RX_PIN, kPORT_MuxAlt3);
 
     /* PORTC17 (pin 124) is configured as UART3_TX */
     PORT_SetPinMux(UART_CAM_TX_PORT, UART_CAM_TX_PIN, kPORT_MuxAlt3);
-
-    SIM->SOPT5 = ((SIM->SOPT5 &
-                   /* Mask bits to zero which are setting */
-                   (~(SIM_SOPT5_UART0TXSRC_MASK)))
-
-                  /* UART 0 transmit data source select: UART0_TX pin. */
-                  | SIM_SOPT5_UART0TXSRC(SOPT5_UART0TXSRC_UART_TX));
 }
 
 /* clang-format off */
@@ -985,8 +968,6 @@ sys:
 - options: {callFromInitBoot: 'true', coreID: core0, enableClock: 'true'}
 - pin_list:
   - {pin_num: '50', peripheral: JTAG, signal: JTAG_TCLK_SWD_CLK, pin_signal: TSI0_CH1/PTA0/UART0_CTS_b/UART0_COL_b/FTM0_CH5/LPUART0_CTS_b/JTAG_TCLK/SWD_CLK/EZP_CLK}
-  - {pin_num: '51', peripheral: JTAG, signal: TDI, pin_signal: TSI0_CH2/PTA1/UART0_RX/FTM0_CH6/I2C3_SDA/LPUART0_RX/JTAG_TDI/EZP_DI}
-  - {pin_num: '52', peripheral: JTAG, signal: TDO, pin_signal: TSI0_CH3/PTA2/UART0_TX/FTM0_CH7/I2C3_SCL/LPUART0_TX/JTAG_TDO/TRACE_SWO/EZP_DO}
   - {pin_num: '53', peripheral: JTAG, signal: JTAG_TMS_SWD_DIO, pin_signal: TSI0_CH4/PTA3/UART0_RTS_b/FTM0_CH0/LPUART0_RTS_b/JTAG_TMS/SWD_DIO}
   - {pin_num: '74', peripheral: RCM, signal: RESET, pin_signal: RESET_b}
   - {pin_num: '5', peripheral: SUPPLY, signal: 'VDD, 0', pin_signal: VDD5}
@@ -1008,6 +989,8 @@ sys:
   - {pin_num: '107', peripheral: SUPPLY, signal: 'VSS, 8', pin_signal: VSS139}
   - {pin_num: '121', peripheral: SUPPLY, signal: 'VSS, 9', pin_signal: VSS153}
   - {pin_num: '34', peripheral: SUPPLY, signal: 'VSSA, 0', pin_signal: VSSA}
+  - {pin_num: '51', peripheral: LPUART0, signal: RX, pin_signal: TSI0_CH2/PTA1/UART0_RX/FTM0_CH6/I2C3_SDA/LPUART0_RX/JTAG_TDI/EZP_DI}
+  - {pin_num: '52', peripheral: LPUART0, signal: TX, pin_signal: TSI0_CH3/PTA2/UART0_TX/FTM0_CH7/I2C3_SCL/LPUART0_TX/JTAG_TDO/TRACE_SWO/EZP_DO}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -1026,14 +1009,21 @@ void sys(void)
     /* PORTA0 (pin 50) is configured as JTAG_TCLK */
     PORT_SetPinMux(PORTA, 0U, kPORT_MuxAlt7);
 
-    /* PORTA1 (pin 51) is configured as JTAG_TDI */
-    PORT_SetPinMux(PORTA, 1U, kPORT_MuxAlt7);
+    /* PORTA1 (pin 51) is configured as LPUART0_RX */
+    PORT_SetPinMux(PORTA, 1U, kPORT_MuxAlt5);
 
-    /* PORTA2 (pin 52) is configured as JTAG_TDO */
-    PORT_SetPinMux(PORTA, 2U, kPORT_MuxAlt7);
+    /* PORTA2 (pin 52) is configured as LPUART0_TX */
+    PORT_SetPinMux(PORTA, 2U, kPORT_MuxAlt5);
 
     /* PORTA3 (pin 53) is configured as JTAG_TMS */
     PORT_SetPinMux(PORTA, 3U, kPORT_MuxAlt7);
+
+    SIM->SOPT5 = ((SIM->SOPT5 &
+                   /* Mask bits to zero which are setting */
+                   (~(SIM_SOPT5_LPUART0TXSRC_MASK)))
+
+                  /* LPUART0 transmit data source select: LPUART0_TX pin. */
+                  | SIM_SOPT5_LPUART0TXSRC(SOPT5_LPUART0TXSRC_LPUART_TX));
 }
 /***********************************************************************************************************************
  * EOF

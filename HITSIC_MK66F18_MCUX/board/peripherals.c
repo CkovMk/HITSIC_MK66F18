@@ -733,6 +733,63 @@ static void oled_init(void) {
 }
 
 /***********************************************************************************************************************
+ * pitmgr initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'pitmgr'
+- type: 'lptmr'
+- mode: 'LPTMR_GENERAL'
+- custom_name_enabled: 'true'
+- type_id: 'lptmr_48552e76e8733b28a9c768b6d8d4fefa'
+- functional_group: 'sysfunc'
+- peripheral: 'LPTMR0'
+- config_sets:
+  - fsl_lptmr:
+    - lptmr_config:
+      - timerMode: 'kLPTMR_TimerModeTimeCounter'
+      - pinSelect: 'ALT.0'
+      - pinPolarity: 'kLPTMR_PinPolarityActiveHigh'
+      - enableFreeRunning: 'false'
+      - bypassPrescaler: 'true'
+      - prescalerClockSource: 'kLPTMR_PrescalerClock_3'
+      - clockSource: 'RTECLK_HsRun_180MHz'
+      - value: 'kLPTMR_Prescale_Glitch_0'
+      - timerPeriod: '1ms'
+    - enableInterrupt: 'true'
+    - interrupt:
+      - IRQn: 'LPTMR0_IRQn'
+      - enable_interrrupt: 'enabled'
+      - enable_priority: 'true'
+      - priority: '4'
+      - enable_custom_name: 'false'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const lptmr_config_t pitmgr_config = {
+  .timerMode = kLPTMR_TimerModeTimeCounter,
+  .pinSelect = kLPTMR_PinSelectInput_0,
+  .pinPolarity = kLPTMR_PinPolarityActiveHigh,
+  .enableFreeRunning = false,
+  .bypassPrescaler = true,
+  .prescalerClockSource = kLPTMR_PrescalerClock_3,
+  .value = kLPTMR_Prescale_Glitch_0
+};
+
+static void pitmgr_init(void) {
+  /* Initialize the LPTMR */
+  LPTMR_Init(PITMGR_PERIPHERAL, &pitmgr_config);
+  /* Set LPTMR period */
+  LPTMR_SetTimerPeriod(PITMGR_PERIPHERAL, PITMGR_TICKS);
+  /* Configure timer interrupt */
+  LPTMR_EnableInterrupts(PITMGR_PERIPHERAL, kLPTMR_TimerInterruptEnable);
+  /* Interrupt vector LPTMR0_IRQn priority settings in the NVIC */
+  NVIC_SetPriority(LPTMR0_IRQn, PITMGR_IRQ_PRIORITY);
+  /* Enable interrupt LPTMR0_IRQn request in the NVIC */
+  EnableIRQ(LPTMR0_IRQn);
+}
+
+/***********************************************************************************************************************
  * servo_cled initialization code
  **********************************************************************************************************************/
 /* clang-format off */
@@ -934,63 +991,6 @@ static void tof_init(void) {
 }
 
 /***********************************************************************************************************************
- * pitmgr initialization code
- **********************************************************************************************************************/
-/* clang-format off */
-/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-instance:
-- name: 'pitmgr'
-- type: 'lptmr'
-- mode: 'LPTMR_GENERAL'
-- custom_name_enabled: 'true'
-- type_id: 'lptmr_48552e76e8733b28a9c768b6d8d4fefa'
-- functional_group: 'sysfunc'
-- peripheral: 'LPTMR0'
-- config_sets:
-  - fsl_lptmr:
-    - lptmr_config:
-      - timerMode: 'kLPTMR_TimerModeTimeCounter'
-      - pinSelect: 'ALT.0'
-      - pinPolarity: 'kLPTMR_PinPolarityActiveHigh'
-      - enableFreeRunning: 'false'
-      - bypassPrescaler: 'true'
-      - prescalerClockSource: 'kLPTMR_PrescalerClock_3'
-      - clockSource: 'RTECLK_HsRun_180MHz'
-      - value: 'kLPTMR_Prescale_Glitch_0'
-      - timerPeriod: '1ms'
-    - enableInterrupt: 'true'
-    - interrupt:
-      - IRQn: 'LPTMR0_IRQn'
-      - enable_interrrupt: 'enabled'
-      - enable_priority: 'true'
-      - priority: '4'
-      - enable_custom_name: 'false'
- * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
-/* clang-format on */
-const lptmr_config_t pitmgr_config = {
-  .timerMode = kLPTMR_TimerModeTimeCounter,
-  .pinSelect = kLPTMR_PinSelectInput_0,
-  .pinPolarity = kLPTMR_PinPolarityActiveHigh,
-  .enableFreeRunning = false,
-  .bypassPrescaler = true,
-  .prescalerClockSource = kLPTMR_PrescalerClock_3,
-  .value = kLPTMR_Prescale_Glitch_0
-};
-
-static void pitmgr_init(void) {
-  /* Initialize the LPTMR */
-  LPTMR_Init(PITMGR_PERIPHERAL, &pitmgr_config);
-  /* Set LPTMR period */
-  LPTMR_SetTimerPeriod(PITMGR_PERIPHERAL, PITMGR_TICKS);
-  /* Configure timer interrupt */
-  LPTMR_EnableInterrupts(PITMGR_PERIPHERAL, kLPTMR_TimerInterruptEnable);
-  /* Interrupt vector LPTMR0_IRQn priority settings in the NVIC */
-  NVIC_SetPriority(LPTMR0_IRQn, PITMGR_IRQ_PRIORITY);
-  /* Enable interrupt LPTMR0_IRQn request in the NVIC */
-  EnableIRQ(LPTMR0_IRQn);
-}
-
-/***********************************************************************************************************************
  * Initialization functions
  **********************************************************************************************************************/
 void sysfunc(void)
@@ -1005,9 +1005,9 @@ void sysfunc(void)
   imu_init();
   motor_init();
   oled_init();
+  pitmgr_init();
   servo_cled_init();
   tof_init();
-  pitmgr_init();
 }
 
 /***********************************************************************************************************************

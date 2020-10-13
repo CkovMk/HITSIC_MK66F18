@@ -706,6 +706,16 @@
                   <data type="Version">2.0.5</data>
                </feature>
             </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.dspi" description="工具链/IDE工程中未找到DSPI Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.dspi" description="工具链/IDE工程不支持DSPI Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">2.2.0</data>
+               </feature>
+            </dependency>
             <dependency resourceType="SWComponent" resourceId="platform.drivers.uart" description="工具链/IDE工程中未找到UART Driver。工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
@@ -724,16 +734,6 @@
             <dependency resourceType="SWComponent" resourceId="platform.drivers.adc16" description="工具链/IDE工程不支持ADC16 Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.0.0</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.dspi" description="工具链/IDE工程中未找到DSPI Driver。工程不会被编译！" problem_level="2" source="Peripherals">
-               <feature name="enabled" evaluation="equal">
-                  <data type="Boolean">true</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.dspi" description="工具链/IDE工程不支持DSPI Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
-               <feature name="version" evaluation="equivalent">
-                  <data type="Version">2.2.0</data>
                </feature>
             </dependency>
          </dependencies>
@@ -1102,6 +1102,31 @@
                         <data type="Frequency" unit="Hz">0</data>
                      </feature>
                   </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_rxd" description="Signal serial data in of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_txd" description="Signal serial data out of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_sck" description="Signal serial clock of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_cs0" description="Signal chip select 0 of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="frequency" evaluation="greaterThan">
+                        <data type="Frequency" unit="Hz">0</data>
+                     </feature>
+                  </dependency>
                   <dependency resourceType="ClockOutput" resourceId="System_clock" description="System clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
@@ -1130,31 +1155,6 @@
                   <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART3.uart_rx" description="Signal RX of the peripheral UART3 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_rxd" description="Signal serial data in of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
-                     <feature name="routed" evaluation="">
-                        <data type="Boolean">true</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_txd" description="Signal serial data out of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
-                     <feature name="routed" evaluation="">
-                        <data type="Boolean">true</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_sck" description="Signal serial clock of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
-                     <feature name="routed" evaluation="">
-                        <data type="Boolean">true</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_cs0" description="Signal chip select 0 of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
-                     <feature name="routed" evaluation="">
-                        <data type="Boolean">true</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
-                     <feature name="frequency" evaluation="greaterThan">
-                        <data type="Frequency" unit="Hz">0</data>
                      </feature>
                   </dependency>
                </dependencies>
@@ -1416,38 +1416,6 @@
                         </struct>
                      </config_set>
                   </instance>
-                  <instance name="UART0" uuid="57d95f09-5822-449d-846c-ae54001b1aca" type="uart" type_id="uart_cd31a12aa8c79051fda42cc851a27c37" mode="polling" peripheral="UART0" enabled="true" comment="" custom_name_enabled="true">
-                     <config_set name="uartConfig_t" quick_selection="QuickSelection1">
-                        <struct name="uartConfig">
-                           <setting name="clockSource" value="BusInterfaceClock"/>
-                           <setting name="clockSourceFreq" value="GetFreq"/>
-                           <setting name="baudRate_Bps" value="115200"/>
-                           <setting name="parityMode" value="kUART_ParityDisabled"/>
-                           <setting name="stopBitCount" value="kUART_OneStopBit"/>
-                           <setting name="txFifoWatermark" value="0"/>
-                           <setting name="rxFifoWatermark" value="1"/>
-                           <setting name="idleType" value="kUART_IdleTypeStartBit"/>
-                           <setting name="enableTx" value="true"/>
-                           <setting name="enableRx" value="true"/>
-                        </struct>
-                     </config_set>
-                  </instance>
-                  <instance name="UART3_CAM" uuid="9d696871-375d-43c0-9614-2dd41978c57d" type="uart" type_id="uart_cd31a12aa8c79051fda42cc851a27c37" mode="polling" peripheral="UART3" enabled="true" comment="" custom_name_enabled="true">
-                     <config_set name="uartConfig_t">
-                        <struct name="uartConfig">
-                           <setting name="clockSource" value="BusInterfaceClock"/>
-                           <setting name="clockSourceFreq" value="GetFreq"/>
-                           <setting name="baudRate_Bps" value="9600"/>
-                           <setting name="parityMode" value="kUART_ParityDisabled"/>
-                           <setting name="stopBitCount" value="kUART_OneStopBit"/>
-                           <setting name="txFifoWatermark" value="0"/>
-                           <setting name="rxFifoWatermark" value="1"/>
-                           <setting name="idleType" value="kUART_IdleTypeStartBit"/>
-                           <setting name="enableTx" value="true"/>
-                           <setting name="enableRx" value="true"/>
-                        </struct>
-                     </config_set>
-                  </instance>
                   <instance name="OLED_SPI" uuid="48350fc3-cd3c-43c1-8d06-163ab421689b" type="dspi" type_id="dspi_305e5b03c593d065f61ded8061d15797" mode="DSPI_Polling" peripheral="SPI0" enabled="true" comment="" custom_name_enabled="true">
                      <config_set name="fsl_dspi">
                         <setting name="dspi_mode" value="kDSPI_Master"/>
@@ -1471,6 +1439,38 @@
                            <setting name="enableRxFifoOverWrite" value="false"/>
                            <setting name="enableModifiedTimingFormat" value="false"/>
                            <setting name="samplePoint" value="kDSPI_SckToSin0Clock"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="UART0" uuid="57d95f09-5822-449d-846c-ae54001b1aca" type="uart" type_id="uart_cd31a12aa8c79051fda42cc851a27c37" mode="polling" peripheral="UART0" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="uartConfig_t">
+                        <struct name="uartConfig">
+                           <setting name="clockSource" value="BusInterfaceClock"/>
+                           <setting name="clockSourceFreq" value="GetFreq"/>
+                           <setting name="baudRate_Bps" value="921600"/>
+                           <setting name="parityMode" value="kUART_ParityDisabled"/>
+                           <setting name="stopBitCount" value="kUART_OneStopBit"/>
+                           <setting name="txFifoWatermark" value="0"/>
+                           <setting name="rxFifoWatermark" value="1"/>
+                           <setting name="idleType" value="kUART_IdleTypeStartBit"/>
+                           <setting name="enableTx" value="true"/>
+                           <setting name="enableRx" value="true"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="UART3_CAM" uuid="9d696871-375d-43c0-9614-2dd41978c57d" type="uart" type_id="uart_cd31a12aa8c79051fda42cc851a27c37" mode="polling" peripheral="UART3" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="uartConfig_t">
+                        <struct name="uartConfig">
+                           <setting name="clockSource" value="BusInterfaceClock"/>
+                           <setting name="clockSourceFreq" value="GetFreq"/>
+                           <setting name="baudRate_Bps" value="9600"/>
+                           <setting name="parityMode" value="kUART_ParityDisabled"/>
+                           <setting name="stopBitCount" value="kUART_OneStopBit"/>
+                           <setting name="txFifoWatermark" value="0"/>
+                           <setting name="rxFifoWatermark" value="1"/>
+                           <setting name="idleType" value="kUART_IdleTypeStartBit"/>
+                           <setting name="enableTx" value="true"/>
+                           <setting name="enableRx" value="true"/>
                         </struct>
                      </config_set>
                   </instance>

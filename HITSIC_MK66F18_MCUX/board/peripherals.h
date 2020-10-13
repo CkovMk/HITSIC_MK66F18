@@ -100,21 +100,6 @@ extern "C" {
 #define OLED_CLOCK_SOURCE DSPI0_CLK_SRC
 /* Definition of the clock source frequency */
 #define OLED_CLK_FREQ CLOCK_GetFreq(OLED_CLOCK_SOURCE)
-/* Definition of peripheral ID */
-#define SERVO_CLED_PERIPHERAL FTM3
-/* Definition of the clock source frequency */
-#define SERVO_CLED_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
-/* servo_cled interrupt vector ID (number). */
-#define SERVO_CLED_IRQN FTM3_IRQn
-/* servo_cled interrupt handler identifier. */
-#define SERVO_CLED_IRQHANDLER FTM3_IRQHandler
-/* sysfunc defines for I2C0 */
-/* Definition of peripheral ID */
-#define TOF_PERIPHERAL I2C0
-/* Definition of the clock source */
-#define TOF_CLOCK_SOURCE I2C0_CLK_SRC
-/* Definition of the clock source frequency */
-#define TOF_CLK_FREQ CLOCK_GetFreq(TOF_CLOCK_SOURCE)
 /* sysfunc defines for LPTMR0 */
 /* Definition of peripheral ID */
 #define PITMGR_PERIPHERAL LPTMR0
@@ -132,6 +117,21 @@ extern "C" {
 #define PITMGR_IRQ_PRIORITY 4
 /* pitmgr interrupt handler identifier. */
 #define PITMGR_IRQHANDLER LPTMR0_IRQHandler
+/* Definition of peripheral ID */
+#define SERVO_CLED_PERIPHERAL FTM3
+/* Definition of the clock source frequency */
+#define SERVO_CLED_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
+/* servo_cled interrupt vector ID (number). */
+#define SERVO_CLED_IRQN FTM3_IRQn
+/* servo_cled interrupt handler identifier. */
+#define SERVO_CLED_IRQHANDLER FTM3_IRQHandler
+/* sysfunc defines for I2C0 */
+/* Definition of peripheral ID */
+#define TOF_PERIPHERAL I2C0
+/* Definition of the clock source */
+#define TOF_CLOCK_SOURCE I2C0_CLK_SRC
+/* Definition of the clock source frequency */
+#define TOF_CLK_FREQ CLOCK_GetFreq(TOF_CLOCK_SOURCE)
 
 /***********************************************************************************************************************
  * Global variables
@@ -151,9 +151,9 @@ extern const ftm_config_t encoR_config;
 extern const i2c_master_config_t imu_config;
 extern const ftm_config_t motor_config;
 extern const dspi_master_config_t oled_config;
+extern const lptmr_config_t pitmgr_config;
 extern const ftm_config_t servo_cled_config;
 extern const i2c_master_config_t tof_config;
-extern const lptmr_config_t pitmgr_config;
 
 /***********************************************************************************************************************
  * Initialization functions

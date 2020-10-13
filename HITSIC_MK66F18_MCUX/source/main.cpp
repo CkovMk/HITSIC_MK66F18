@@ -60,8 +60,18 @@
 
 #include "app_menu.h"
 
+#include "fsl_sd.h"
+#include "ff.h"
+#include "diskio.h"
+#include "fsl_sd_disk.h"
+#include "sdmmc_config.h"
+
 void FLASH_Demo(void);
 void EF_Demo(void);
+
+
+FIL file;                                           //文件对象
+FATFS fatfs;                                   //逻辑驱动器的工作区
 
 void main()
 {
@@ -83,10 +93,12 @@ void main()
 	BOARD_InitBootPeripherals();
 
 	/** 初始化调试串口 */
-	DbgConsole_Init(0U, 115200U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
+	DbgConsole_Init(0U, 921600U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
 	/** 初始化CMBackTrace */
 	cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
-	printf("Hello, World!\n");
+	PRINTF("Hello, World!\n");
+
+
 
 
     /** 初始化ftfx_Flash */
@@ -111,10 +123,17 @@ void main()
 	//CAMERA_Init();
 	/** 初始化IMU */
 	//DRVIMU_INV_GetDefaultConfig(&imu);
+	extern sd_card_t g_sd;
+	int result = 0;
+	BOARD_SD_Config(&g_sd, NULL, BOARD_SDMMC_SD_HOST_IRQ_PRIORITY, NULL);
+
 
     /** 初始化结束，开启总中断 */
 	HAL_ExitCritical();
 
+	result = SD_HostInit(&g_sd);
+	result = SD_CardInit(&g_sd);
+	result = f_mount(&fatfs,"sdcard:",1);                                   //挂载SD卡
 
 	//FLASH_Demo();
     //EF_Demo();

@@ -82,7 +82,6 @@ static void CLOCK_CONFIG_SetFllExtRefDiv(uint8_t frdiv)
  ******************************************************************************/
 void BOARD_InitBootClocks(void)
 {
-    RTECLK_HsRun_180MHz();
 }
 
 /*******************************************************************************
@@ -92,7 +91,6 @@ void BOARD_InitBootClocks(void)
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!Configuration
 name: RTECLK_HsRun_180MHz
-called_from_default_init: true
 outputs:
 - {id: Bus_clock.outFreq, value: 60 MHz}
 - {id: Core_clock.outFreq, value: 180 MHz}
@@ -173,7 +171,7 @@ const osc_config_t oscConfig_RTECLK_HsRun_180MHz =
  ******************************************************************************/
 void RTECLK_HsRun_180MHz(void)
 {
-    /* Set HSRUN power mode */
+//    /* Set HSRUN power mode */
 //    SMC_SetPowerModeProtection(SMC, kSMC_AllowPowerModeAll);
 //    SMC_SetPowerModeHsrun(SMC);
 //    while (SMC_GetPowerModeState(SMC) != kSMC_PowerStateHsrun)

@@ -71,6 +71,7 @@ void main()
 	RTECLK_HsRun_180MHz();
 
 	/** 初始化引脚路由 */
+<<<<<<< HEAD
 	RTEPIN_Basic();
 	RTEPIN_UART0_DBG();
 	RTEPIN_UART0_WLAN();

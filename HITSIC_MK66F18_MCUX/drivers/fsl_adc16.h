@@ -216,10 +216,10 @@ typedef struct _adc16_channel_config
     uint32_t channelNumber;                    /*!< Setting the conversion channel number. The available range is 0-31.
                                                     See channel connection information for each chip in Reference
                                                     Manual document. */
-    bool enableInterruptOnConversionCompleted; /*!< Generate an interrupt request once the conversion is completed. */
 #if defined(FSL_FEATURE_ADC16_HAS_DIFF_MODE) && FSL_FEATURE_ADC16_HAS_DIFF_MODE
     bool enableDifferentialConversion; /*!< Using Differential sample mode. */
 #endif                                 /* FSL_FEATURE_ADC16_HAS_DIFF_MODE */
+    bool enableInterruptOnConversionCompleted; /*!< Generate an interrupt request once the conversion is completed. */
 } adc16_channel_config_t;
 
 #if defined(FSL_FEATURE_ADC16_HAS_PGA) && FSL_FEATURE_ADC16_HAS_PGA

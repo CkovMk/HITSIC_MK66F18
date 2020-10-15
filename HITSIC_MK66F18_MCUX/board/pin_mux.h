@@ -226,17 +226,17 @@ void BOARD_InitBootPins(void);
 #define RTEPIN_BASIC_IMU_SDA_PIN_MASK (1U << 9U)      /*!<@brief PORT pin mask */
                                                       /* @} */
 
-/*! @name PORTD14 (number 143), OLED_RST
+/*! @name PORTD14 (number 143), OLED_SOT
   @{ */
 
 /* Symbols to be used with GPIO driver */
-#define RTEPIN_BASIC_OLED_RST_GPIO GPIOD                /*!<@brief GPIO peripheral base pointer */
-#define RTEPIN_BASIC_OLED_RST_GPIO_PIN_MASK (1U << 14U) /*!<@brief GPIO pin mask */
+#define RTEPIN_BASIC_OLED_SOT_GPIO GPIOD                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_OLED_SOT_GPIO_PIN_MASK (1U << 14U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
-#define RTEPIN_BASIC_OLED_RST_PORT PORTD                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BASIC_OLED_RST_PIN 14U                   /*!<@brief PORT pin number */
-#define RTEPIN_BASIC_OLED_RST_PIN_MASK (1U << 14U)      /*!<@brief PORT pin mask */
+#define RTEPIN_BASIC_OLED_SOT_PORT PORTD                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_OLED_SOT_PIN 14U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_OLED_SOT_PIN_MASK (1U << 14U)      /*!<@brief PORT pin mask */
                                                         /* @} */
 
 /*! @name PORTD15 (number 144), OLED_D_C
@@ -450,24 +450,6 @@ void BOARD_InitBootPins(void);
 #define RTEPIN_BASIC_SD_CMD_PIN_MASK (1U << 3U)      /*!<@brief PORT pin mask */
                                                      /* @} */
 
-/*! @name PORTD12 (number 141), OLED_SCK
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BASIC_OLED_SCK_PORT PORTD                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BASIC_OLED_SCK_PIN 12U                   /*!<@brief PORT pin number */
-#define RTEPIN_BASIC_OLED_SCK_PIN_MASK (1U << 12U)      /*!<@brief PORT pin mask */
-                                                        /* @} */
-
-/*! @name PORTD13 (number 142), OLED_SOT
-  @{ */
-
-/* Symbols to be used with PORT driver */
-#define RTEPIN_BASIC_OLED_SOT_PORT PORTD                /*!<@brief PORT peripheral base pointer */
-#define RTEPIN_BASIC_OLED_SOT_PIN 13U                   /*!<@brief PORT pin number */
-#define RTEPIN_BASIC_OLED_SOT_PIN_MASK (1U << 13U)      /*!<@brief PORT pin mask */
-                                                        /* @} */
-
 /*! @name PORTC1 (number 104), MOTOR_RA
   @{ */
 
@@ -503,6 +485,32 @@ void BOARD_InitBootPins(void);
 #define RTEPIN_BASIC_MOTOR_LB_PIN 4U                   /*!<@brief PORT pin number */
 #define RTEPIN_BASIC_MOTOR_LB_PIN_MASK (1U << 4U)      /*!<@brief PORT pin mask */
                                                        /* @} */
+
+/*! @name PORTD12 (number 141), OLED_SCK
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_OLED_SCK_GPIO GPIOD                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_OLED_SCK_GPIO_PIN_MASK (1U << 12U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_OLED_SCK_PORT PORTD                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_OLED_SCK_PIN 12U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_OLED_SCK_PIN_MASK (1U << 12U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
+/*! @name PORTD13 (number 142), OLED_RST
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_BASIC_OLED_RST_GPIO GPIOD                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_BASIC_OLED_RST_GPIO_PIN_MASK (1U << 13U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_BASIC_OLED_RST_PORT PORTD                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_BASIC_OLED_RST_PIN 13U                   /*!<@brief PORT pin number */
+#define RTEPIN_BASIC_OLED_RST_PIN_MASK (1U << 13U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
 
 /*!
  * @brief Configures pin routing and optionally pin electrical features.

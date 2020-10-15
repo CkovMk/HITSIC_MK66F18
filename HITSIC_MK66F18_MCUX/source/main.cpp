@@ -90,33 +90,25 @@ void main()
 	FLASH_SimpleInit();
 	/** 初始化EasyFlash */
 	//easyflash_init();
-	/** 初始化PIT中断管理器 */
-	pitMgr_t::init();
-	/** 初始化I/O中断管理器 */
-	extInt_t::init();
+//	/** 初始化PIT中断管理器 */
+//	pitMgr_t::init();
+//	/** 初始化I/O中断管理器 */
+//	extInt_t::init();
 	/** 初始化串口管理器 */
 	//UARTMGR_DataInit();
 
-	/** 初始化OLED屏幕 */
+//	/** 初始化OLED屏幕 */
 	DISP_SSD1306_Init();
-	/** 初始化菜单 */
-	MENU_Init();
-	MENU_Data_NvmReadRegionConfig();
-	MENU_Data_NvmRead_Boxed();
-	MENU_PrintDisp();
-	/** 初始化摄像头 */
-	//CAMERA_Init();
-	/** 初始化IMU */
-	//DRVIMU_INV_GetDefaultConfig(&imu);
-
     /** 初始化结束，开启总中断 */
 	HAL_ExitCritical();
 
 
-	//FLASH_Demo();
-    //EF_Demo();
-
 	float f = arm_sin_f32(0.6f);
+
+    DISP_SSD1306_Fill(0);
+
+    DISP_SSD1306_Print_F6x8(0,0,"HITSIC!");
+
 
 	while (true)
 	{

@@ -51,8 +51,10 @@ processor_version: 8.0.1
 #define MCG_PLL_DISABLE                                   0U  /*!< MCGPLLCLK disabled */
 #define OSC_CAP0P                                         0U  /*!< Oscillator 0pF capacitor load */
 #define OSC_ER_CLK_DISABLE                                0U  /*!< Disable external reference clock */
+#define SIM_LPUART_CLK_SEL_PLLFLLSEL_CLK                  1U  /*!< LPUART clock select: PLLFLLSEL output clock */
 #define SIM_OSC32KSEL_OSC32KCLK_CLK                       0U  /*!< OSC32KSEL select: OSC32KCLK clock */
 #define SIM_PLLFLLSEL_MCGFLLCLK_CLK                       0U  /*!< PLLFLL select: MCGFLLCLK clock */
+#define SIM_PLLFLLSEL_MCGPLLCLK_CLK                       1U  /*!< PLLFLL select: MCGPLLCLK clock */
 
 /*******************************************************************************
  * Variables
@@ -95,13 +97,16 @@ outputs:
 - {id: Flash_clock.outFreq, value: 22.5 MHz}
 - {id: FlexBus_clock.outFreq, value: 60 MHz}
 - {id: LPO_clock.outFreq, value: 1 kHz}
+- {id: LPUARTCLK.outFreq, value: 180 MHz}
 - {id: MCGFFCLK.outFreq, value: 12.5 MHz}
 - {id: OSCERCLK.outFreq, value: 50 MHz}
 - {id: OSCERCLK_UNDIV.outFreq, value: 50 MHz}
+- {id: PLLFLLCLK.outFreq, value: 180 MHz}
 - {id: System_clock.outFreq, value: 180 MHz}
 settings:
 - {id: MCGMode, value: PEE}
 - {id: powerMode, value: HSRUN}
+- {id: LPUARTClkConfig, value: 'yes'}
 - {id: MCG.FRDIV.scale, value: '4', locked: true}
 - {id: MCG.IREFS.sel, value: MCG.FRDIV}
 - {id: MCG.PLLS.sel, value: MCG.PLLCS}
@@ -109,10 +114,12 @@ settings:
 - {id: MCG.VDIV.scale, value: '36', locked: true}
 - {id: OSC_CR_ERCLKEN_CFG, value: Enabled}
 - {id: OSC_CR_ERCLKEN_UNDIV_CFG, value: Enabled}
+- {id: SIM.LPUARTSRCSEL.sel, value: SIM.PLLFLLDIV}
 - {id: SIM.OUTDIV1.scale, value: '1', locked: true}
 - {id: SIM.OUTDIV2.scale, value: '3'}
 - {id: SIM.OUTDIV3.scale, value: '3', locked: true}
 - {id: SIM.OUTDIV4.scale, value: '8', locked: true}
+- {id: SIM.PLLFLLSEL.sel, value: MCG.MCGPLLCLK}
 sources:
 - {id: OSC.OSC.outFreq, value: 50 MHz, enabled: true}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
@@ -141,7 +148,7 @@ const mcg_config_t mcgConfig_RTECLK_HsRun_180MHz =
     };
 const sim_clock_config_t simConfig_RTECLK_HsRun_180MHz =
     {
-        .pllFllSel = SIM_PLLFLLSEL_MCGFLLCLK_CLK, /* PLLFLL select: MCGFLLCLK clock */
+        .pllFllSel = SIM_PLLFLLSEL_MCGPLLCLK_CLK, /* PLLFLL select: MCGPLLCLK clock */
         .pllFllDiv = 0,                           /* PLLFLLSEL clock divider divisor: divided by 1 */
         .pllFllFrac = 0,                          /* PLLFLLSEL clock divider fraction: multiplied by 1 */
         .er32kSrc = SIM_OSC32KSEL_OSC32KCLK_CLK,  /* OSC32KSEL select: OSC32KCLK clock */
@@ -164,12 +171,12 @@ const osc_config_t oscConfig_RTECLK_HsRun_180MHz =
  ******************************************************************************/
 void RTECLK_HsRun_180MHz(void)
 {
-    /* Set HSRUN power mode */
-    SMC_SetPowerModeProtection(SMC, kSMC_AllowPowerModeAll);
-    SMC_SetPowerModeHsrun(SMC);
-    while (SMC_GetPowerModeState(SMC) != kSMC_PowerStateHsrun)
-    {
-    }
+//    /* Set HSRUN power mode */
+//    SMC_SetPowerModeProtection(SMC, kSMC_AllowPowerModeAll);
+//    SMC_SetPowerModeHsrun(SMC);
+//    while (SMC_GetPowerModeState(SMC) != kSMC_PowerStateHsrun)
+//    {
+//    }
     /* Set the system clock dividers in SIM to safe value. */
     CLOCK_SetSimSafeDivs();
     /* Initializes OSC0 according to board configuration. */
@@ -185,6 +192,8 @@ void RTECLK_HsRun_180MHz(void)
     CLOCK_SetSimConfig(&simConfig_RTECLK_HsRun_180MHz);
     /* Set SystemCoreClock variable. */
     SystemCoreClock = RTECLK_HSRUN_180MHZ_CORE_CLOCK;
+    /* Set LPUART clock source. */
+    CLOCK_SetLpuartClock(SIM_LPUART_CLK_SEL_PLLFLLSEL_CLK);
 }
 
 /*******************************************************************************

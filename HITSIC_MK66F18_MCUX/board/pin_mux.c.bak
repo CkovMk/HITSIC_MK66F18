@@ -60,8 +60,8 @@ pin_labels:
 - {pin_num: '55', pin_signal: PTA5/USB0_CLKIN/FTM0_CH2/RMII0_RXER/MII0_RXER/CMP2_OUT/I2S0_TX_BCLK/JTAG_TRST_b, label: RST, identifier: RST}
 - {pin_num: '143', pin_signal: PTD14/SPI2_SIN/SDHC0_D6/FB_A22, label: OLED_SOT, identifier: OLED_SOT}
 - {pin_num: '142', pin_signal: PTD13/SPI2_SOUT/SDHC0_D5/FB_A21, label: OLED_RST, identifier: OLED_RST}
-- {pin_num: '13', pin_signal: PTE10/LLWU_P18/I2C3_SDA/I2S0_TXD0/LPUART0_CTS_b/FTM3_CH5/USB1_ID, label: BUTTON_OK, identifier: BUTTON_OK}
-- {pin_num: '10', pin_signal: PTE7/UART3_RTS_b/I2S0_RXD0/FTM3_CH2, label: BUTTON_UP, identifier: BUTTON_UP}
+- {pin_num: '13', pin_signal: PTE10/LLWU_P18/I2C3_SDA/I2S0_TXD0/LPUART0_CTS_b/FTM3_CH5/USB1_ID, label: BUTTON_UP, identifier: BUTTON_UP}
+- {pin_num: '10', pin_signal: PTE7/UART3_RTS_b/I2S0_RXD0/FTM3_CH2, label: BUTTON_OK, identifier: BUTTON_OK}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -349,7 +349,7 @@ void RTEPIN_Basic(void)
     PORT_SetPinMux(RTEPIN_BASIC_SD_D_0_PORT, RTEPIN_BASIC_SD_D_0_PIN, kPORT_MuxAlt4);
 
     /* PORTE10 (pin 13) is configured as PTE10 */
-    PORT_SetPinMux(RTEPIN_BASIC_BUTTON_OK_PORT, RTEPIN_BASIC_BUTTON_OK_PIN, kPORT_MuxAsGpio);
+    PORT_SetPinMux(RTEPIN_BASIC_BUTTON_UP_PORT, RTEPIN_BASIC_BUTTON_UP_PIN, kPORT_MuxAsGpio);
 
     PORTE->PCR[10] = ((PORTE->PCR[10] &
                        /* Mask bits to zero which are setting */
@@ -395,7 +395,7 @@ void RTEPIN_Basic(void)
     PORT_SetPinMux(PORTE, 6U, kPORT_MuxAsGpio);
 
     /* PORTE7 (pin 10) is configured as PTE7 */
-    PORT_SetPinMux(RTEPIN_BASIC_BUTTON_UP_PORT, RTEPIN_BASIC_BUTTON_UP_PIN, kPORT_MuxAsGpio);
+    PORT_SetPinMux(RTEPIN_BASIC_BUTTON_OK_PORT, RTEPIN_BASIC_BUTTON_OK_PIN, kPORT_MuxAsGpio);
 
     PORTE->PCR[7] = ((PORTE->PCR[7] &
                       /* Mask bits to zero which are setting */
@@ -440,13 +440,11 @@ RTEPIN_Digital:
   - {pin_num: '4', peripheral: SDHC, signal: CMD, pin_signal: ADC1_SE7a/PTE3/SPI1_SIN/UART1_RTS_b/SDHC0_CMD/TRACE_D1/SPI1_SOUT}
   - {pin_num: '8', peripheral: SDHC, signal: 'DATA, 2', pin_signal: PTE5/SPI1_PCS2/UART3_RX/SDHC0_D2/FTM3_CH0}
   - {pin_num: '7', peripheral: SDHC, signal: 'DATA, 3', pin_signal: PTE4/LLWU_P2/SPI1_PCS0/UART3_TX/SDHC0_D3/TRACE_D0}
-  - {pin_num: '10', peripheral: GPIOE, signal: 'GPIO, 7', pin_signal: PTE7/UART3_RTS_b/I2S0_RXD0/FTM3_CH2, open_drain: enable, pull_select: up, pull_enable: enable}
-  - {pin_num: '11', peripheral: GPIOE, signal: 'GPIO, 8', pin_signal: PTE8/I2S0_RXD1/I2S0_RX_FS/LPUART0_TX/FTM3_CH3, open_drain: enable, pull_select: up, pull_enable: enable}
-  - {pin_num: '12', peripheral: GPIOE, signal: 'GPIO, 9', pin_signal: PTE9/LLWU_P17/I2S0_TXD1/I2S0_RX_BCLK/LPUART0_RX/FTM3_CH4, open_drain: enable, pull_select: up,
-    pull_enable: enable}
-  - {pin_num: '13', peripheral: GPIOE, signal: 'GPIO, 10', pin_signal: PTE10/LLWU_P18/I2C3_SDA/I2S0_TXD0/LPUART0_CTS_b/FTM3_CH5/USB1_ID, open_drain: enable, pull_select: up,
-    pull_enable: enable}
-  - {pin_num: '14', peripheral: GPIOE, signal: 'GPIO, 11', pin_signal: PTE11/I2C3_SCL/I2S0_TX_FS/LPUART0_RTS_b/FTM3_CH6, open_drain: enable, pull_select: up, pull_enable: enable}
+  - {pin_num: '10', peripheral: GPIOE, signal: 'GPIO, 7', pin_signal: PTE7/UART3_RTS_b/I2S0_RXD0/FTM3_CH2}
+  - {pin_num: '11', peripheral: GPIOE, signal: 'GPIO, 8', pin_signal: PTE8/I2S0_RXD1/I2S0_RX_FS/LPUART0_TX/FTM3_CH3}
+  - {pin_num: '12', peripheral: GPIOE, signal: 'GPIO, 9', pin_signal: PTE9/LLWU_P17/I2S0_TXD1/I2S0_RX_BCLK/LPUART0_RX/FTM3_CH4}
+  - {pin_num: '13', peripheral: GPIOE, signal: 'GPIO, 10', pin_signal: PTE10/LLWU_P18/I2C3_SDA/I2S0_TXD0/LPUART0_CTS_b/FTM3_CH5/USB1_ID}
+  - {pin_num: '14', peripheral: GPIOE, signal: 'GPIO, 11', pin_signal: PTE11/I2C3_SCL/I2S0_TX_FS/LPUART0_RTS_b/FTM3_CH6}
   - {pin_num: '15', peripheral: FTM3, signal: 'CH, 7', pin_signal: PTE12/I2S0_TX_BCLK/FTM3_CH7}
   - {pin_num: '50', peripheral: JTAG, signal: JTAG_TCLK_SWD_CLK, pin_signal: TSI0_CH1/PTA0/UART0_CTS_b/UART0_COL_b/FTM0_CH5/LPUART0_CTS_b/JTAG_TCLK/SWD_CLK/EZP_CLK}
   - {pin_num: '53', peripheral: JTAG, signal: JTAG_TMS_SWD_DIO, pin_signal: TSI0_CH4/PTA3/UART0_RTS_b/FTM0_CH0/LPUART0_RTS_b/JTAG_TMS/SWD_DIO}
@@ -556,34 +554,10 @@ void RTEPIN_Digital(void)
     PORT_SetPinMux(RTEPIN_DIGITAL_SD_D_0_PORT, RTEPIN_DIGITAL_SD_D_0_PIN, kPORT_MuxAlt4);
 
     /* PORTE10 (pin 13) is configured as PTE10 */
-    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_OK_PORT, RTEPIN_DIGITAL_BUTTON_OK_PIN, kPORT_MuxAsGpio);
-
-    PORTE->PCR[10] = ((PORTE->PCR[10] &
-                       /* Mask bits to zero which are setting */
-                       (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ODE_MASK | PORT_PCR_ISF_MASK)))
-
-                      /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
-                       * corresponding PE field is set. */
-                      | (uint32_t)(kPORT_PullUp)
-
-                      /* Open Drain Enable: Open drain output is enabled on the corresponding pin, if the pin is
-                       * configured as a digital output. */
-                      | PORT_PCR_ODE(kPORT_OpenDrainEnable));
+    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_UP_PORT, RTEPIN_DIGITAL_BUTTON_UP_PIN, kPORT_MuxAsGpio);
 
     /* PORTE11 (pin 14) is configured as PTE11 */
     PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_DN_PORT, RTEPIN_DIGITAL_BUTTON_DN_PIN, kPORT_MuxAsGpio);
-
-    PORTE->PCR[11] = ((PORTE->PCR[11] &
-                       /* Mask bits to zero which are setting */
-                       (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ODE_MASK | PORT_PCR_ISF_MASK)))
-
-                      /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
-                       * corresponding PE field is set. */
-                      | (uint32_t)(kPORT_PullUp)
-
-                      /* Open Drain Enable: Open drain output is enabled on the corresponding pin, if the pin is
-                       * configured as a digital output. */
-                      | PORT_PCR_ODE(kPORT_OpenDrainEnable));
 
     /* PORTE12 (pin 15) is configured as FTM3_CH7 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SERVO_0_PORT, RTEPIN_DIGITAL_SERVO_0_PIN, kPORT_MuxAlt6);
@@ -601,49 +575,13 @@ void RTEPIN_Digital(void)
     PORT_SetPinMux(RTEPIN_DIGITAL_SD_D_2_PORT, RTEPIN_DIGITAL_SD_D_2_PIN, kPORT_MuxAlt4);
 
     /* PORTE7 (pin 10) is configured as PTE7 */
-    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_UP_PORT, RTEPIN_DIGITAL_BUTTON_UP_PIN, kPORT_MuxAsGpio);
-
-    PORTE->PCR[7] = ((PORTE->PCR[7] &
-                      /* Mask bits to zero which are setting */
-                      (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ODE_MASK | PORT_PCR_ISF_MASK)))
-
-                     /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
-                      * corresponding PE field is set. */
-                     | (uint32_t)(kPORT_PullUp)
-
-                     /* Open Drain Enable: Open drain output is enabled on the corresponding pin, if the pin is
-                      * configured as a digital output. */
-                     | PORT_PCR_ODE(kPORT_OpenDrainEnable));
+    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_OK_PORT, RTEPIN_DIGITAL_BUTTON_OK_PIN, kPORT_MuxAsGpio);
 
     /* PORTE8 (pin 11) is configured as PTE8 */
     PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_LF_PORT, RTEPIN_DIGITAL_BUTTON_LF_PIN, kPORT_MuxAsGpio);
 
-    PORTE->PCR[8] = ((PORTE->PCR[8] &
-                      /* Mask bits to zero which are setting */
-                      (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ODE_MASK | PORT_PCR_ISF_MASK)))
-
-                     /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
-                      * corresponding PE field is set. */
-                     | (uint32_t)(kPORT_PullUp)
-
-                     /* Open Drain Enable: Open drain output is enabled on the corresponding pin, if the pin is
-                      * configured as a digital output. */
-                     | PORT_PCR_ODE(kPORT_OpenDrainEnable));
-
     /* PORTE9 (pin 12) is configured as PTE9 */
     PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_RT_PORT, RTEPIN_DIGITAL_BUTTON_RT_PIN, kPORT_MuxAsGpio);
-
-    PORTE->PCR[9] = ((PORTE->PCR[9] &
-                      /* Mask bits to zero which are setting */
-                      (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ODE_MASK | PORT_PCR_ISF_MASK)))
-
-                     /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
-                      * corresponding PE field is set. */
-                     | (uint32_t)(kPORT_PullUp)
-
-                     /* Open Drain Enable: Open drain output is enabled on the corresponding pin, if the pin is
-                      * configured as a digital output. */
-                     | PORT_PCR_ODE(kPORT_OpenDrainEnable));
 }
 
 /* clang-format off */

@@ -70,12 +70,6 @@ void EF_Demo(void);
 FIL file;                                           //文件对象
 FATFS fatfs;                                   //逻辑驱动器的工作区
 
-constexpr gpio_pin_config_t gpio_cfg_output =
-{
-    .pinDirection = kGPIO_DigitalOutput,
-    .outputLogic = 0U,
-};
-
 void main()
 {
 	/** 初始化阶段，关闭总中断 */

@@ -59,3 +59,8 @@ HITSIC_MK66F18_IAR/boards/HITSIC_MK66F18/__iar/settings/HITSIC_MK66F18.wsdt
 
 HITSIC_MK66F18_MCUX/Debug
 HITSIC_MK66F18_MCUX/Release
+
+/.vs/
+/.idea/
+/cmake-build-debug/
+/out/

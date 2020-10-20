@@ -188,6 +188,8 @@ RTEPIN_Digital:
     pull_enable: enable}
   - {pin_num: '14', peripheral: GPIOE, signal: 'GPIO, 11', pin_signal: PTE11/I2C3_SCL/I2S0_TX_FS/LPUART0_RTS_b/FTM3_CH6, open_drain: enable, pull_select: up, pull_enable: enable}
   - {pin_num: '15', peripheral: FTM3, signal: 'CH, 7', pin_signal: PTE12/I2S0_TX_BCLK/FTM3_CH7}
+  - {pin_num: '50', peripheral: JTAG, signal: JTAG_TCLK_SWD_CLK, pin_signal: TSI0_CH1/PTA0/UART0_CTS_b/UART0_COL_b/FTM0_CH5/LPUART0_CTS_b/JTAG_TCLK/SWD_CLK/EZP_CLK}
+  - {pin_num: '53', peripheral: JTAG, signal: JTAG_TMS_SWD_DIO, pin_signal: TSI0_CH4/PTA3/UART0_RTS_b/FTM0_CH0/LPUART0_RTS_b/JTAG_TMS/SWD_DIO}
   - {pin_num: '61', peripheral: GPIOA, signal: 'GPIO, 9', pin_signal: PTA9/FTM1_CH1/MII0_RXD3/FTM1_QD_PHB/TPM1_CH1/TRACE_D1}
   - {pin_num: '63', peripheral: GPIOA, signal: 'GPIO, 11', pin_signal: PTA11/LLWU_P23/FTM2_CH1/MII0_RXCLK/I2C2_SDA/FTM2_QD_PHB/TPM2_CH1}
   - {pin_num: '65', peripheral: GPIOA, signal: 'GPIO, 13', pin_signal: CMP2_IN1/PTA13/LLWU_P4/CAN0_RX/FTM1_CH1/RMII0_RXD0/MII0_RXD0/I2C2_SDA/I2S0_TX_FS/FTM1_QD_PHB/TPM1_CH1}
@@ -238,6 +240,9 @@ void RTEPIN_Digital(void)
     /* Port E Clock Gate Control: Clock enabled */
     CLOCK_EnableClock(kCLOCK_PortE);
 
+    /* PORTA0 (pin 50) is configured as JTAG_TCLK */
+    PORT_SetPinMux(RTEPIN_DIGITAL_SWO_CLK_PORT, RTEPIN_DIGITAL_SWO_CLK_PIN, kPORT_MuxAlt7);
+
     /* PORTA11 (pin 63) is configured as PTA11 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SWITCH_1_PORT, RTEPIN_DIGITAL_SWITCH_1_PIN, kPORT_MuxAsGpio);
 
@@ -246,6 +251,9 @@ void RTEPIN_Digital(void)
 
     /* PORTA15 (pin 67) is configured as PTA15 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SWITCH_3_PORT, RTEPIN_DIGITAL_SWITCH_3_PIN, kPORT_MuxAsGpio);
+
+    /* PORTA3 (pin 53) is configured as JTAG_TMS */
+    PORT_SetPinMux(RTEPIN_DIGITAL_SWO_DIO_PORT, RTEPIN_DIGITAL_SWO_DIO_PIN, kPORT_MuxAlt7);
 
     /* PORTA9 (pin 61) is configured as PTA9 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SWITCH_0_PORT, RTEPIN_DIGITAL_SWITCH_0_PIN, kPORT_MuxAsGpio);

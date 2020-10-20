@@ -21,7 +21,6 @@
 #include "fsl_i2c.h"
 #include "fsl_lpuart.h"
 #include "fsl_uart.h"
-#include "fsl_dspi.h"
 
 #if defined(__cplusplus)
 extern "C" {
@@ -158,13 +157,6 @@ extern "C" {
 #define UART0_PERIPHERAL UART0
 /* Definition of the clock source frequency */
 #define UART0_CLOCK_SOURCE CLOCK_GetFreq(UART0_CLK_SRC)
-/* RTEPIP_Device defines for SPI2 */
-/* Definition of peripheral ID */
-#define OLED_SPI_PERIPHERAL SPI2
-/* Definition of the clock source */
-#define OLED_SPI_CLOCK_SOURCE DSPI2_CLK_SRC
-/* Definition of the clock source frequency */
-#define OLED_SPI_CLK_FREQ CLOCK_GetFreq(OLED_SPI_CLOCK_SOURCE)
 
 /***********************************************************************************************************************
  * Global variables
@@ -179,7 +171,6 @@ extern const lpuart_config_t LPUART0_config;
 extern const ftm_config_t MOTOR_config;
 extern const ftm_config_t SERVO_config;
 extern const uart_config_t UART0_config;
-extern const dspi_master_config_t OLED_SPI_config;
 
 /***********************************************************************************************************************
  * Initialization functions

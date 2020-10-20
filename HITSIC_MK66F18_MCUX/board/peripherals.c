@@ -819,6 +819,68 @@ static void UART0_init(void) {
 }
 
 /***********************************************************************************************************************
+ * OLED_SPI initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'OLED_SPI'
+- type: 'dspi'
+- mode: 'DSPI_Polling'
+- custom_name_enabled: 'true'
+- type_id: 'dspi_305e5b03c593d065f61ded8061d15797'
+- functional_group: 'RTEPIP_Device'
+- peripheral: 'SPI2'
+- config_sets:
+  - fsl_dspi:
+    - dspi_mode: 'kDSPI_Master'
+    - clockSource: 'BusInterfaceClock'
+    - clockSourceFreq: 'GetFreq'
+    - dspi_master_config:
+      - whichCtar: 'kDSPI_Ctar0'
+      - ctarConfig:
+        - baudRate: '10000000'
+        - bitsPerFrame: '8'
+        - cpol: 'kDSPI_ClockPolarityActiveHigh'
+        - cpha: 'kDSPI_ClockPhaseFirstEdge'
+        - direction: 'kDSPI_MsbFirst'
+        - pcsToSckDelayInNanoSec: '1000'
+        - lastSckToPcsDelayInNanoSec: '1000'
+        - betweenTransferDelayInNanoSec: '1000'
+      - whichPcs: 'PCS0_SS'
+      - pcsActiveHighOrLow: 'kDSPI_PcsActiveLow'
+      - enableContinuousSCK: 'false'
+      - enableRxFifoOverWrite: 'false'
+      - enableModifiedTimingFormat: 'false'
+      - samplePoint: 'kDSPI_SckToSin0Clock'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const dspi_master_config_t OLED_SPI_config = {
+  .whichCtar = kDSPI_Ctar0,
+  .ctarConfig = {
+    .baudRate = 10000000,
+    .bitsPerFrame = 8,
+    .cpol = kDSPI_ClockPolarityActiveHigh,
+    .cpha = kDSPI_ClockPhaseFirstEdge,
+    .direction = kDSPI_MsbFirst,
+    .pcsToSckDelayInNanoSec = 1000,
+    .lastSckToPcsDelayInNanoSec = 1000,
+    .betweenTransferDelayInNanoSec = 1000
+  },
+  .whichPcs = kDSPI_Pcs0,
+  .pcsActiveHighOrLow = kDSPI_PcsActiveLow,
+  .enableContinuousSCK = false,
+  .enableRxFifoOverWrite = false,
+  .enableModifiedTimingFormat = false,
+  .samplePoint = kDSPI_SckToSin0Clock
+};
+
+static void OLED_SPI_init(void) {
+  /* Initialization function */
+  DSPI_MasterInit(OLED_SPI_PERIPHERAL, &OLED_SPI_config, OLED_SPI_CLK_FREQ);
+}
+
+/***********************************************************************************************************************
  * Initialization functions
  **********************************************************************************************************************/
 void RTEPIP_Basic(void)
@@ -848,6 +910,7 @@ void RTEPIP_Device(void)
   MOTOR_init();
   SERVO_init();
   UART0_init();
+  OLED_SPI_init();
 }
 
 /***********************************************************************************************************************

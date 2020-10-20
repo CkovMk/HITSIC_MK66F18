@@ -222,6 +222,24 @@ void RTEPIN_Basic(void);
 #define RTEPIN_DIGITAL_SERVO_0_PIN_MASK (1U << 12U)      /*!<@brief PORT pin mask */
                                                          /* @} */
 
+/*! @name PORTA0 (number 50), SWO_CLK
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SWO_CLK_PORT PORTA               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SWO_CLK_PIN 0U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SWO_CLK_PIN_MASK (1U << 0U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
+/*! @name PORTA3 (number 53), SWO_DIO
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_SWO_DIO_PORT PORTA               /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_SWO_DIO_PIN 3U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_SWO_DIO_PIN_MASK (1U << 3U)      /*!<@brief PORT pin mask */
+                                                        /* @} */
+
 /*! @name PORTA9 (number 61), SWITCH_0
   @{ */
 

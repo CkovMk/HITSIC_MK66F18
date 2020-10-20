@@ -70,6 +70,8 @@ void EF_Demo(void);
 FIL file;                                           //文件对象
 FATFS fatfs;                                   //逻辑驱动器的工作区
 
+#include "drv_cam_zf9v034_test.hpp"
+
 void main()
 {
 	/** 初始化阶段，关闭总中断 */
@@ -81,7 +83,7 @@ void main()
 	RTEPIN_Basic();
 	RTEPIN_Digital();
     RTEPIN_Analog();
-	RTEPIN_UART0_DBG();
+	RTEPIN_LPUART0_DBG();
 	RTEPIN_UART0_WLAN();
 
 	/** 初始化外设 */
@@ -92,17 +94,7 @@ void main()
 	DbgConsole_Init(0U, 921600U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
 	/** 初始化CMBackTrace */
 	cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
-	PRINTF("Hello Worldaaaa!\n");
-
-
-
-//	GPIO_PinInit(GPIOA, 10, &gpio_cfg_output);
-//	GPIO_PinInit(GPIOA, 11, &gpio_cfg_output);
-//	GPIO_PinInit(GPIOA, 15, &gpio_cfg_output);
-//	GPIO_PinInit(GPIOA, 16, &gpio_cfg_output);
-
-
-
+	PRINTF("Hello World!\n");
     /** 初始化ftfx_Flash */
 	FLASH_SimpleInit();
 	/** 初始化EasyFlash */
@@ -127,13 +119,16 @@ void main()
 	//CAMERA_Init();
 	/** 初始化IMU */
 	//DRVIMU_INV_GetDefaultConfig(&imu);
-	extern sd_card_t g_sd;
-	int result = 0;
+	//extern sd_card_t g_sd;
+	//int result = 0;
 	//BOARD_SD_Config(&g_sd, NULL, BOARD_SDMMC_SD_HOST_IRQ_PRIORITY, NULL);
 
 
     /** 初始化结束，开启总中断 */
 	HAL_ExitCritical();
+
+
+	//CAM_ZF9V034_UnitTest();
 
 	//result = SD_HostInit(&g_sd);
 	//result = SD_CardInit(&g_sd);

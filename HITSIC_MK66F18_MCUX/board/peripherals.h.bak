@@ -18,10 +18,9 @@
 #include "fsl_pit.h"
 #include "fsl_clock.h"
 #include "fsl_ftm.h"
-#include "fsl_dspi.h"
-#include "fsl_uart.h"
-#include "fsl_lpuart.h"
 #include "fsl_i2c.h"
+#include "fsl_lpuart.h"
+#include "fsl_uart.h"
 
 #if defined(__cplusplus)
 extern "C" {
@@ -127,6 +126,17 @@ extern "C" {
 #define ENCO_R_IRQN FTM1_IRQn
 /* ENCO_R interrupt handler identifier. */
 #define ENCO_R_IRQHANDLER FTM1_IRQHandler
+/* RTEPIP_Device defines for I2C0 */
+/* Definition of peripheral ID */
+#define IMU_PERIPHERAL I2C0
+/* Definition of the clock source */
+#define IMU_CLOCK_SOURCE I2C0_CLK_SRC
+/* Definition of the clock source frequency */
+#define IMU_CLK_FREQ CLOCK_GetFreq(IMU_CLOCK_SOURCE)
+/* Definition of peripheral ID */
+#define LPUART0_PERIPHERAL LPUART0
+/* Definition of the clock source frequency */
+#define LPUART0_CLOCK_SOURCE 180000000UL
 /* Definition of peripheral ID */
 #define MOTOR_PERIPHERAL FTM0
 /* Definition of the clock source frequency */
@@ -143,32 +153,10 @@ extern "C" {
 #define SERVO_IRQN FTM3_IRQn
 /* SERVO interrupt handler identifier. */
 #define SERVO_IRQHANDLER FTM3_IRQHandler
-/* RTEPIP_Device defines for SPI2 */
 /* Definition of peripheral ID */
-#define OLED_SPI_PERIPHERAL SPI2
-/* Definition of the clock source */
-#define OLED_SPI_CLOCK_SOURCE DSPI2_CLK_SRC
+#define UART0_PERIPHERAL UART0
 /* Definition of the clock source frequency */
-#define OLED_SPI_CLK_FREQ CLOCK_GetFreq(OLED_SPI_CLOCK_SOURCE)
-/* Definition of peripheral ID */
-#define WLAN_UART_PERIPHERAL UART0
-/* Definition of the clock source frequency */
-#define WLAN_UART_CLOCK_SOURCE CLOCK_GetFreq(UART0_CLK_SRC)
-/* Definition of peripheral ID */
-#define DBG_LPUART_PERIPHERAL LPUART0
-/* Definition of the clock source frequency */
-#define DBG_LPUART_CLOCK_SOURCE 180000000UL
-/* RTEPIP_Device defines for I2C0 */
-/* Definition of peripheral ID */
-#define IMU_I2C_PERIPHERAL I2C0
-/* Definition of the clock source */
-#define IMU_I2C_CLOCK_SOURCE I2C0_CLK_SRC
-/* Definition of the clock source frequency */
-#define IMU_I2C_CLK_FREQ CLOCK_GetFreq(IMU_I2C_CLOCK_SOURCE)
-/* Definition of peripheral ID */
-#define CAM_UART_PERIPHERAL UART3
-/* Definition of the clock source frequency */
-#define CAM_UART_CLOCK_SOURCE CLOCK_GetFreq(UART3_CLK_SRC)
+#define UART0_CLOCK_SOURCE CLOCK_GetFreq(UART0_CLK_SRC)
 
 /***********************************************************************************************************************
  * Global variables
@@ -178,13 +166,11 @@ extern const lptmr_config_t LPTMR0_config;
 extern const pit_config_t PIT_config;
 extern const ftm_config_t ENCO_L_config;
 extern const ftm_config_t ENCO_R_config;
+extern const i2c_master_config_t IMU_config;
+extern const lpuart_config_t LPUART0_config;
 extern const ftm_config_t MOTOR_config;
 extern const ftm_config_t SERVO_config;
-extern const dspi_master_config_t OLED_SPI_config;
-extern const uart_config_t WLAN_UART_config;
-extern const lpuart_config_t DBG_LPUART_config;
-extern const i2c_master_config_t IMU_I2C_config;
-extern const uart_config_t CAM_UART_config;
+extern const uart_config_t UART0_config;
 
 /***********************************************************************************************************************
  * Initialization functions

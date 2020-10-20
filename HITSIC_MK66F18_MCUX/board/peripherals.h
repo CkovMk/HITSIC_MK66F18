@@ -9,14 +9,18 @@
 /***********************************************************************************************************************
  * Included files
  **********************************************************************************************************************/
+#include "fsl_edma.h"
+#include "fsl_dmamux.h"
 #include "fsl_common.h"
-#include "fsl_adc16.h"
-#include "fsl_uart.h"
+#include "fsl_gpio.h"
+#include "fsl_port.h"
+#include "fsl_lptmr.h"
+#include "fsl_pit.h"
 #include "fsl_clock.h"
 #include "fsl_ftm.h"
 #include "fsl_i2c.h"
-#include "fsl_dspi.h"
-#include "fsl_lptmr.h"
+#include "fsl_lpuart.h"
+#include "fsl_uart.h"
 
 #if defined(__cplusplus)
 extern "C" {
@@ -25,140 +29,154 @@ extern "C" {
 /***********************************************************************************************************************
  * Definitions
  **********************************************************************************************************************/
-/* Definitions for sysfunc functional group */
-/* Alias for ADC0 peripheral */
-#define ADC0_PERIPHERAL ADC0
-/* adc0 interrupt vector ID (number). */
-#define ADC0_IRQN ADC0_IRQn
-/* adc0 interrupt handler identifier. */
-#define ADC0_IRQHANDLER ADC0_IRQHandler
-/* Channel 0 (SE.8) conversion control group. */
-#define ADC0_CH0_CONTROL_GROUP 0
-/* Channel 1 (SE.9) conversion control group. */
-#define ADC0_CH1_CONTROL_GROUP 0
-/* Channel 2 (SE.10) conversion control group. */
-#define ADC0_CH2_CONTROL_GROUP 0
-/* Channel 3 (SE.12) conversion control group. */
-#define ADC0_CH3_CONTROL_GROUP 0
-/* Channel 4 (SE.13) conversion control group. */
-#define ADC0_CH4_CONTROL_GROUP 0
-/* Channel 5 (SE.14) conversion control group. */
-#define ADC0_CH5_CONTROL_GROUP 0
-/* Channel 6 (SE.23) conversion control group. */
-#define ADC0_CH6_CONTROL_GROUP 0
-/* Alias for ADC1 peripheral */
-#define ADC1_PERIPHERAL ADC1
-/* adc1 interrupt vector ID (number). */
-#define ADC1_IRQN ADC1_IRQn
-/* adc1 interrupt handler identifier. */
-#define ADC1_IRQHANDLER ADC1_IRQHandler
-/* Channel 0 (SE.23) conversion control group. */
-#define ADC1_CH0_CONTROL_GROUP 0
+/* Definitions for RTEPIP_Basic functional group */
+/* Used DMA device. */
+#define DMA_DMA_BASEADDR DMA0
+/* Associated DMAMUX device that is used for muxing of requests. */
+#define DMA_DMAMUX_BASEADDR DMAMUX
+/* Alias for GPIOA peripheral */
+#define GPIOA_GPIO GPIOA
+/* Alias for PORTA */
+#define GPIOA_PORT PORTA
+/* GPIOA interrupt vector ID (number). */
+#define GPIOA_IRQN PORTA_IRQn
+/* GPIOA interrupt vector priority. */
+#define GPIOA_IRQ_PRIORITY 4
+/* GPIOA interrupt handler identifier. */
+#define GPIOA_IRQHANDLER PORTA_IRQHandler
+/* Alias for GPIOB peripheral */
+#define GPIOB_GPIO GPIOB
+/* Alias for PORTB */
+#define GPIOB_PORT PORTB
+/* GPIOB interrupt vector ID (number). */
+#define GPIOB_IRQN PORTB_IRQn
+/* GPIOB interrupt vector priority. */
+#define GPIOB_IRQ_PRIORITY 4
+/* GPIOB interrupt handler identifier. */
+#define GPIOB_IRQHANDLER PORTB_IRQHandler
+/* Alias for GPIOC peripheral */
+#define GPIOC_GPIO GPIOC
+/* Alias for PORTC */
+#define GPIOC_PORT PORTC
+/* GPIOC interrupt vector ID (number). */
+#define GPIOC_IRQN PORTC_IRQn
+/* GPIOC interrupt vector priority. */
+#define GPIOC_IRQ_PRIORITY 4
+/* GPIOC interrupt handler identifier. */
+#define GPIOC_IRQHANDLER PORTC_IRQHandler
+/* Alias for GPIOD peripheral */
+#define GPIOD_GPIO GPIOD
+/* Alias for PORTD */
+#define GPIOD_PORT PORTD
+/* GPIOD interrupt vector ID (number). */
+#define GPIOD_IRQN PORTD_IRQn
+/* GPIOD interrupt vector priority. */
+#define GPIOD_IRQ_PRIORITY 4
+/* GPIOD interrupt handler identifier. */
+#define GPIOD_IRQHANDLER PORTD_IRQHandler
+/* Alias for GPIOE peripheral */
+#define GPIOE_GPIO GPIOE
+/* Alias for PORTE */
+#define GPIOE_PORT PORTE
+/* GPIOE interrupt vector ID (number). */
+#define GPIOE_IRQN PORTE_IRQn
+/* GPIOE interrupt vector priority. */
+#define GPIOE_IRQ_PRIORITY 4
+/* GPIOE interrupt handler identifier. */
+#define GPIOE_IRQHANDLER PORTE_IRQHandler
+/* RTEPIP_Basic defines for LPTMR0 */
 /* Definition of peripheral ID */
-#define CAM_PERIPHERAL UART3
+#define LPTMR0_PERIPHERAL LPTMR0
 /* Definition of the clock source frequency */
-#define CAM_CLOCK_SOURCE CLOCK_GetFreq(UART3_CLK_SRC)
+#define LPTMR0_CLK_FREQ 50000000UL
+/* Definition of the prescaled clock source frequency */
+#define LPTMR0_INPUT_FREQ 50000000UL
+/* Definition of the timer period in us */
+#define LPTMR0_USEC_COUNT 1000UL
+/* Definition of the timer period in number of ticks */
+#define LPTMR0_TICKS 50000UL
+/* LPTMR0 interrupt vector ID (number). */
+#define LPTMR0_IRQN LPTMR0_IRQn
+/* LPTMR0 interrupt vector priority. */
+#define LPTMR0_IRQ_PRIORITY 5
+/* LPTMR0 interrupt handler identifier. */
+#define LPTMR0_IRQHANDLER LPTMR0_IRQHandler
+/* RTEPIP_Basic defines for PIT */
+/* Definition of peripheral ID. */
+#define PIT_PERIPHERAL PIT
+/* Definition of clock source. */
+#define PIT_CLOCK_SOURCE kCLOCK_BusClk
+/* Definition of clock source frequency. */
+#define PIT_CLK_FREQ CLOCK_GetFreq(PIT_CLOCK_SOURCE)
+
+/* Definitions for RTEPIP_Device functional group */
 /* Definition of peripheral ID */
-#define COM_PERIPHERAL UART0
+#define ENCO_L_PERIPHERAL FTM2
 /* Definition of the clock source frequency */
-#define COM_CLOCK_SOURCE CLOCK_GetFreq(UART0_CLK_SRC)
+#define ENCO_L_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
+/* ENCO_L interrupt vector ID (number). */
+#define ENCO_L_IRQN FTM2_IRQn
+/* ENCO_L interrupt handler identifier. */
+#define ENCO_L_IRQHANDLER FTM2_IRQHandler
 /* Definition of peripheral ID */
-#define ENCOL_PERIPHERAL FTM1
+#define ENCO_R_PERIPHERAL FTM1
 /* Definition of the clock source frequency */
-#define ENCOL_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
-/* encoL interrupt vector ID (number). */
-#define ENCOL_IRQN FTM1_IRQn
-/* encoL interrupt handler identifier. */
-#define ENCOL_IRQHANDLER FTM1_IRQHandler
+#define ENCO_R_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
+/* ENCO_R interrupt vector ID (number). */
+#define ENCO_R_IRQN FTM1_IRQn
+/* ENCO_R interrupt handler identifier. */
+#define ENCO_R_IRQHANDLER FTM1_IRQHandler
+/* RTEPIP_Device defines for I2C0 */
 /* Definition of peripheral ID */
-#define ENCOR_PERIPHERAL FTM2
-/* Definition of the clock source frequency */
-#define ENCOR_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
-/* encoR interrupt vector ID (number). */
-#define ENCOR_IRQN FTM2_IRQn
-/* encoR interrupt handler identifier. */
-#define ENCOR_IRQHANDLER FTM2_IRQHandler
-/* sysfunc defines for I2C2 */
-/* Definition of peripheral ID */
-#define IMU_PERIPHERAL I2C2
+#define IMU_PERIPHERAL I2C0
 /* Definition of the clock source */
-#define IMU_CLOCK_SOURCE I2C2_CLK_SRC
+#define IMU_CLOCK_SOURCE I2C0_CLK_SRC
 /* Definition of the clock source frequency */
 #define IMU_CLK_FREQ CLOCK_GetFreq(IMU_CLOCK_SOURCE)
+/* Definition of peripheral ID */
+#define LPUART0_PERIPHERAL LPUART0
+/* Definition of the clock source frequency */
+#define LPUART0_CLOCK_SOURCE 180000000UL
 /* Definition of peripheral ID */
 #define MOTOR_PERIPHERAL FTM0
 /* Definition of the clock source frequency */
 #define MOTOR_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
-/* motor interrupt vector ID (number). */
+/* MOTOR interrupt vector ID (number). */
 #define MOTOR_IRQN FTM0_IRQn
-/* motor interrupt handler identifier. */
+/* MOTOR interrupt handler identifier. */
 #define MOTOR_IRQHANDLER FTM0_IRQHandler
-/* sysfunc defines for SPI0 */
 /* Definition of peripheral ID */
-#define OLED_PERIPHERAL SPI0
-/* Definition of the clock source */
-#define OLED_CLOCK_SOURCE DSPI0_CLK_SRC
+#define SERVO_PERIPHERAL FTM3
 /* Definition of the clock source frequency */
-#define OLED_CLK_FREQ CLOCK_GetFreq(OLED_CLOCK_SOURCE)
-/* sysfunc defines for LPTMR0 */
+#define SERVO_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
+/* SERVO interrupt vector ID (number). */
+#define SERVO_IRQN FTM3_IRQn
+/* SERVO interrupt handler identifier. */
+#define SERVO_IRQHANDLER FTM3_IRQHandler
 /* Definition of peripheral ID */
-#define PITMGR_PERIPHERAL LPTMR0
+#define UART0_PERIPHERAL UART0
 /* Definition of the clock source frequency */
-#define PITMGR_CLK_FREQ 50000000UL
-/* Definition of the prescaled clock source frequency */
-#define PITMGR_INPUT_FREQ 50000000UL
-/* Definition of the timer period in us */
-#define PITMGR_USEC_COUNT 1000UL
-/* Definition of the timer period in number of ticks */
-#define PITMGR_TICKS 50000UL
-/* pitmgr interrupt vector ID (number). */
-#define PITMGR_IRQN LPTMR0_IRQn
-/* pitmgr interrupt vector priority. */
-#define PITMGR_IRQ_PRIORITY 4
-/* pitmgr interrupt handler identifier. */
-#define PITMGR_IRQHANDLER LPTMR0_IRQHandler
-/* Definition of peripheral ID */
-#define SERVO_CLED_PERIPHERAL FTM3
-/* Definition of the clock source frequency */
-#define SERVO_CLED_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
-/* servo_cled interrupt vector ID (number). */
-#define SERVO_CLED_IRQN FTM3_IRQn
-/* servo_cled interrupt handler identifier. */
-#define SERVO_CLED_IRQHANDLER FTM3_IRQHandler
-/* sysfunc defines for I2C0 */
-/* Definition of peripheral ID */
-#define TOF_PERIPHERAL I2C0
-/* Definition of the clock source */
-#define TOF_CLOCK_SOURCE I2C0_CLK_SRC
-/* Definition of the clock source frequency */
-#define TOF_CLK_FREQ CLOCK_GetFreq(TOF_CLOCK_SOURCE)
+#define UART0_CLOCK_SOURCE CLOCK_GetFreq(UART0_CLK_SRC)
 
 /***********************************************************************************************************************
  * Global variables
  **********************************************************************************************************************/
-extern adc16_channel_config_t adc0_channelsConfig[7];
-extern const adc16_config_t adc0_config;
-extern const adc16_channel_mux_mode_t adc0_muxMode;
-extern const adc16_hardware_average_mode_t adc0_hardwareAverageMode;
-extern adc16_channel_config_t adc1_channelsConfig[1];
-extern const adc16_config_t adc1_config;
-extern const adc16_channel_mux_mode_t adc1_muxMode;
-extern const adc16_hardware_average_mode_t adc1_hardwareAverageMode;
-extern const uart_config_t cam_config;
-extern const uart_config_t com_config;
-extern const ftm_config_t encoL_config;
-extern const ftm_config_t encoR_config;
-extern const i2c_master_config_t imu_config;
-extern const ftm_config_t motor_config;
-extern const dspi_master_config_t oled_config;
-extern const lptmr_config_t pitmgr_config;
-extern const ftm_config_t servo_cled_config;
-extern const i2c_master_config_t tof_config;
+extern const edma_config_t DMA_config;
+extern const lptmr_config_t LPTMR0_config;
+extern const pit_config_t PIT_config;
+extern const ftm_config_t ENCO_L_config;
+extern const ftm_config_t ENCO_R_config;
+extern const i2c_master_config_t IMU_config;
+extern const lpuart_config_t LPUART0_config;
+extern const ftm_config_t MOTOR_config;
+extern const ftm_config_t SERVO_config;
+extern const uart_config_t UART0_config;
 
 /***********************************************************************************************************************
  * Initialization functions
  **********************************************************************************************************************/
-void sysfunc(void);
+void RTEPIP_Basic(void);
+void RTEPIP_Device(void);
 
 /***********************************************************************************************************************
  * BOARD_InitBootPeripherals function

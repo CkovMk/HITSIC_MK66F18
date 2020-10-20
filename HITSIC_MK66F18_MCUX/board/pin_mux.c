@@ -19,9 +19,6 @@ pin_labels:
 - {pin_num: '8', pin_signal: PTE5/SPI1_PCS2/UART3_RX/SDHC0_D2/FTM3_CH0, label: SD_D_2, identifier: SD_D_2}
 - {pin_num: '2', pin_signal: ADC1_SE5a/PTE1/LLWU_P0/SPI1_SOUT/UART1_RX/SDHC0_D0/TRACE_D3/I2C1_SCL/SPI1_SIN, label: SD_D_0, identifier: SD_D_0}
 - {pin_num: '1', pin_signal: ADC1_SE4a/PTE0/SPI1_PCS1/UART1_TX/SDHC0_D1/TRACE_CLKOUT/I2C1_SDA/RTC_CLKOUT, label: SD_D_1, identifier: SD_D_1}
-- {pin_num: '11', pin_signal: PTE8/I2S0_RXD1/I2S0_RX_FS/LPUART0_TX/FTM3_CH3, label: BUTTON_LF, identifier: BUTTON_LF}
-- {pin_num: '12', pin_signal: PTE9/LLWU_P17/I2S0_TXD1/I2S0_RX_BCLK/LPUART0_RX/FTM3_CH4, label: BUTTON_RT, identifier: BUTTON_RT}
-- {pin_num: '14', pin_signal: PTE11/I2C3_SCL/I2S0_TX_FS/LPUART0_RTS_b/FTM3_CH6, label: BUTTON_DN, identifier: BUTTON_DN}
 - {pin_num: '15', pin_signal: PTE12/I2S0_TX_BCLK/FTM3_CH7, label: SERVO_0, identifier: SERVO_0}
 - {pin_num: '53', pin_signal: TSI0_CH4/PTA3/UART0_RTS_b/FTM0_CH0/LPUART0_RTS_b/JTAG_TMS/SWD_DIO, label: SWO_DIO, identifier: SWO_DIO}
 - {pin_num: '50', pin_signal: TSI0_CH1/PTA0/UART0_CTS_b/UART0_COL_b/FTM0_CH5/LPUART0_CTS_b/JTAG_TCLK/SWD_CLK/EZP_CLK, label: SWO_CLK, identifier: SWO_CLK}
@@ -55,7 +52,6 @@ pin_labels:
 - {pin_num: '109', pin_signal: PTC4/LLWU_P8/SPI0_PCS0/UART1_TX/FTM0_CH3/FB_AD11/SDRAM_A19/CMP1_OUT, label: MOTOR_LB, identifier: MOTOR_LB}
 - {pin_num: '55', pin_signal: PTA5/USB0_CLKIN/FTM0_CH2/RMII0_RXER/MII0_RXER/CMP2_OUT/I2S0_TX_BCLK/JTAG_TRST_b, label: RST, identifier: RST}
 - {pin_num: '13', pin_signal: PTE10/LLWU_P18/I2C3_SDA/I2S0_TXD0/LPUART0_CTS_b/FTM3_CH5/USB1_ID, label: BUTTON_OK, identifier: BUTTON_OK}
-- {pin_num: '10', pin_signal: PTE7/UART3_RTS_b/I2S0_RXD0/FTM3_CH2, label: BUTTON_UP, identifier: BUTTON_UP}
 - {pin_num: '144', pin_signal: PTD15/SPI2_PCS1/SDHC0_D7/FB_A23, label: OLED_D_C, identifier: OLED_D_C}
 - {pin_num: '143', pin_signal: PTD14/SPI2_SIN/SDHC0_D6/FB_A22, label: OLED_RST, identifier: OLED_RST}
 - {pin_num: '142', pin_signal: PTD13/SPI2_SOUT/SDHC0_D5/FB_A21, label: OLED_SOT, identifier: OLED_SOT}
@@ -69,12 +65,19 @@ pin_labels:
 - {pin_num: '60', pin_signal: ADC0_SE11/PTA8/FTM1_CH0/RMII0_MDC/MII0_MDC/FTM1_QD_PHA/TPM1_CH0/TRACE_D2, label: EMAG5, identifier: EMAG5}
 - {pin_num: '83', pin_signal: ADC0_SE12/TSI0_CH7/PTB2/I2C0_SCL/UART0_RTS_b/ENET0_1588_TMR0/SDRAM_WE/FTM0_FLT3, label: EMAG6, identifier: EMAG6}
 - {pin_num: '84', pin_signal: ADC0_SE13/TSI0_CH8/PTB3/I2C0_SDA/UART0_CTS_b/UART0_COL_b/ENET0_1588_TMR1/SDRAM_CS0_b/FTM0_FLT0, label: EMAG7, identifier: EMAG7}
+- {pin_num: '123', pin_signal: PTC16/CAN1_RX/UART3_RX/ENET0_1588_TMR0/FB_CS5_b/FB_TSIZ1/FB_BE23_16_BLS15_8_b/SDRAM_DQM2, label: CAM_RX, identifier: CAM_RX}
+- {pin_num: '124', pin_signal: PTC17/CAN1_TX/UART3_TX/ENET0_1588_TMR1/FB_CS4_b/FB_TSIZ0/FB_BE31_24_BLS7_0_b/SDRAM_DQM3, label: CAM_TX, identifier: CAM_TX}
+- {pin_num: '14', pin_signal: PTE11/I2C3_SCL/I2S0_TX_FS/LPUART0_RTS_b/FTM3_CH6, label: BUTTON_UP, identifier: BUTTON_UP}
+- {pin_num: '10', pin_signal: PTE7/UART3_RTS_b/I2S0_RXD0/FTM3_CH2, label: BUTTON_DN, identifier: BUTTON_DN}
+- {pin_num: '11', pin_signal: PTE8/I2S0_RXD1/I2S0_RX_FS/LPUART0_TX/FTM3_CH3, label: BUTTON_RT, identifier: BUTTON_RT}
+- {pin_num: '12', pin_signal: PTE9/LLWU_P17/I2S0_TXD1/I2S0_RX_BCLK/LPUART0_RX/FTM3_CH4, label: BUTTON_LF, identifier: BUTTON_LF}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
 
 #include "fsl_common.h"
 #include "fsl_port.h"
+#include "fsl_gpio.h"
 #include "pin_mux.h"
 
 /* FUNCTION ************************************************************************************************************
@@ -116,10 +119,6 @@ RTEPIN_Basic:
   - {pin_num: '121', peripheral: SUPPLY, signal: 'VSS, 9', pin_signal: VSS153}
   - {pin_num: '34', peripheral: SUPPLY, signal: 'VSSA, 0', pin_signal: VSSA}
   - {pin_num: '72', peripheral: OSC, signal: EXTAL0, pin_signal: EXTAL0/PTA18/FTM0_FLT2/FTM_CLKIN0/TPM_CLKIN0}
-  - {pin_num: '104', peripheral: FTM0, signal: 'CH, 0', pin_signal: ADC0_SE15/TSI0_CH14/PTC1/LLWU_P6/SPI0_PCS3/UART1_RTS_b/FTM0_CH0/FB_AD13/SDRAM_A21/I2S0_TXD0}
-  - {pin_num: '105', peripheral: FTM0, signal: 'CH, 1', pin_signal: ADC0_SE4b/CMP1_IN0/TSI0_CH15/PTC2/SPI0_PCS2/UART1_CTS_b/FTM0_CH1/FB_AD12/SDRAM_A20/I2S0_TX_FS}
-  - {pin_num: '106', peripheral: FTM0, signal: 'CH, 2', pin_signal: CMP1_IN1/PTC3/LLWU_P7/SPI0_PCS1/UART1_RX/FTM0_CH2/CLKOUT/I2S0_TX_BCLK}
-  - {pin_num: '109', peripheral: FTM0, signal: 'CH, 3', pin_signal: PTC4/LLWU_P8/SPI0_PCS0/UART1_TX/FTM0_CH3/FB_AD11/SDRAM_A19/CMP1_OUT}
   - {pin_num: '32', peripheral: ADC0, signal: VREFH, pin_signal: VREFH}
   - {pin_num: '32', peripheral: ADC1, signal: VREFH, pin_signal: VREFH}
   - {pin_num: '33', peripheral: ADC0, signal: VREFL, pin_signal: VREFL}
@@ -140,8 +139,6 @@ void RTEPIN_Basic(void)
 {
     /* Port A Clock Gate Control: Clock enabled */
     CLOCK_EnableClock(kCLOCK_PortA);
-    /* Port C Clock Gate Control: Clock enabled */
-    CLOCK_EnableClock(kCLOCK_PortC);
 
     /* PORTA0 (pin 50) is configured as JTAG_TCLK */
     PORT_SetPinMux(RTEPIN_BASIC_SWO_CLK_PORT, RTEPIN_BASIC_SWO_CLK_PIN, kPORT_MuxAlt7);
@@ -154,18 +151,6 @@ void RTEPIN_Basic(void)
 
     /* PORTA5 (pin 55) is configured as JTAG_TRST_b */
     PORT_SetPinMux(RTEPIN_BASIC_RST_PORT, RTEPIN_BASIC_RST_PIN, kPORT_MuxAlt7);
-
-    /* PORTC1 (pin 104) is configured as FTM0_CH0 */
-    PORT_SetPinMux(RTEPIN_BASIC_MOTOR_RA_PORT, RTEPIN_BASIC_MOTOR_RA_PIN, kPORT_MuxAlt4);
-
-    /* PORTC2 (pin 105) is configured as FTM0_CH1 */
-    PORT_SetPinMux(RTEPIN_BASIC_MOTOR_RB_PORT, RTEPIN_BASIC_MOTOR_RB_PIN, kPORT_MuxAlt4);
-
-    /* PORTC3 (pin 106) is configured as FTM0_CH2 */
-    PORT_SetPinMux(RTEPIN_BASIC_MOTOR_LA_PORT, RTEPIN_BASIC_MOTOR_LA_PIN, kPORT_MuxAlt4);
-
-    /* PORTC4 (pin 109) is configured as FTM0_CH3 */
-    PORT_SetPinMux(RTEPIN_BASIC_MOTOR_LB_PORT, RTEPIN_BASIC_MOTOR_LB_PIN, kPORT_MuxAlt4);
 }
 
 /* clang-format off */
@@ -180,41 +165,54 @@ RTEPIN_Digital:
   - {pin_num: '4', peripheral: SDHC, signal: CMD, pin_signal: ADC1_SE7a/PTE3/SPI1_SIN/UART1_RTS_b/SDHC0_CMD/TRACE_D1/SPI1_SOUT}
   - {pin_num: '8', peripheral: SDHC, signal: 'DATA, 2', pin_signal: PTE5/SPI1_PCS2/UART3_RX/SDHC0_D2/FTM3_CH0}
   - {pin_num: '7', peripheral: SDHC, signal: 'DATA, 3', pin_signal: PTE4/LLWU_P2/SPI1_PCS0/UART3_TX/SDHC0_D3/TRACE_D0}
-  - {pin_num: '10', peripheral: GPIOE, signal: 'GPIO, 7', pin_signal: PTE7/UART3_RTS_b/I2S0_RXD0/FTM3_CH2, open_drain: enable, pull_select: up, pull_enable: enable}
-  - {pin_num: '11', peripheral: GPIOE, signal: 'GPIO, 8', pin_signal: PTE8/I2S0_RXD1/I2S0_RX_FS/LPUART0_TX/FTM3_CH3, open_drain: enable, pull_select: up, pull_enable: enable}
-  - {pin_num: '12', peripheral: GPIOE, signal: 'GPIO, 9', pin_signal: PTE9/LLWU_P17/I2S0_TXD1/I2S0_RX_BCLK/LPUART0_RX/FTM3_CH4, open_drain: enable, pull_select: up,
+  - {pin_num: '10', peripheral: GPIOE, signal: 'GPIO, 7', pin_signal: PTE7/UART3_RTS_b/I2S0_RXD0/FTM3_CH2, direction: INPUT, open_drain: enable, pull_select: up,
     pull_enable: enable}
-  - {pin_num: '13', peripheral: GPIOE, signal: 'GPIO, 10', pin_signal: PTE10/LLWU_P18/I2C3_SDA/I2S0_TXD0/LPUART0_CTS_b/FTM3_CH5/USB1_ID, open_drain: enable, pull_select: up,
+  - {pin_num: '11', peripheral: GPIOE, signal: 'GPIO, 8', pin_signal: PTE8/I2S0_RXD1/I2S0_RX_FS/LPUART0_TX/FTM3_CH3, direction: INPUT, open_drain: enable, pull_select: up,
     pull_enable: enable}
-  - {pin_num: '14', peripheral: GPIOE, signal: 'GPIO, 11', pin_signal: PTE11/I2C3_SCL/I2S0_TX_FS/LPUART0_RTS_b/FTM3_CH6, open_drain: enable, pull_select: up, pull_enable: enable}
-  - {pin_num: '15', peripheral: FTM3, signal: 'CH, 7', pin_signal: PTE12/I2S0_TX_BCLK/FTM3_CH7}
-  - {pin_num: '61', peripheral: GPIOA, signal: 'GPIO, 9', pin_signal: PTA9/FTM1_CH1/MII0_RXD3/FTM1_QD_PHB/TPM1_CH1/TRACE_D1}
-  - {pin_num: '63', peripheral: GPIOA, signal: 'GPIO, 11', pin_signal: PTA11/LLWU_P23/FTM2_CH1/MII0_RXCLK/I2C2_SDA/FTM2_QD_PHB/TPM2_CH1}
-  - {pin_num: '65', peripheral: GPIOA, signal: 'GPIO, 13', pin_signal: CMP2_IN1/PTA13/LLWU_P4/CAN0_RX/FTM1_CH1/RMII0_RXD0/MII0_RXD0/I2C2_SDA/I2S0_TX_FS/FTM1_QD_PHB/TPM1_CH1}
-  - {pin_num: '67', peripheral: GPIOA, signal: 'GPIO, 15', pin_signal: CMP3_IN1/PTA15/SPI0_SCK/UART0_RX/RMII0_TXEN/MII0_TXEN/I2S0_RXD0}
+  - {pin_num: '12', peripheral: GPIOE, signal: 'GPIO, 9', pin_signal: PTE9/LLWU_P17/I2S0_TXD1/I2S0_RX_BCLK/LPUART0_RX/FTM3_CH4, direction: INPUT, open_drain: enable,
+    pull_select: up, pull_enable: enable}
+  - {pin_num: '13', peripheral: GPIOE, signal: 'GPIO, 10', pin_signal: PTE10/LLWU_P18/I2C3_SDA/I2S0_TXD0/LPUART0_CTS_b/FTM3_CH5/USB1_ID, direction: INPUT, open_drain: enable,
+    pull_select: up, pull_enable: enable}
+  - {pin_num: '14', peripheral: GPIOE, signal: 'GPIO, 11', pin_signal: PTE11/I2C3_SCL/I2S0_TX_FS/LPUART0_RTS_b/FTM3_CH6, direction: INPUT, open_drain: enable, pull_select: up,
+    pull_enable: enable}
+  - {pin_num: '15', peripheral: FTM3, signal: 'CH, 7', pin_signal: PTE12/I2S0_TX_BCLK/FTM3_CH7, direction: OUTPUT}
+  - {pin_num: '61', peripheral: GPIOA, signal: 'GPIO, 9', pin_signal: PTA9/FTM1_CH1/MII0_RXD3/FTM1_QD_PHB/TPM1_CH1/TRACE_D1, direction: INPUT, open_drain: enable,
+    pull_select: up, pull_enable: enable}
+  - {pin_num: '63', peripheral: GPIOA, signal: 'GPIO, 11', pin_signal: PTA11/LLWU_P23/FTM2_CH1/MII0_RXCLK/I2C2_SDA/FTM2_QD_PHB/TPM2_CH1, direction: INPUT, open_drain: enable,
+    pull_select: up, pull_enable: enable}
+  - {pin_num: '65', peripheral: GPIOA, signal: 'GPIO, 13', pin_signal: CMP2_IN1/PTA13/LLWU_P4/CAN0_RX/FTM1_CH1/RMII0_RXD0/MII0_RXD0/I2C2_SDA/I2S0_TX_FS/FTM1_QD_PHB/TPM1_CH1,
+    direction: INPUT, open_drain: enable, pull_select: up, pull_enable: enable}
+  - {pin_num: '67', peripheral: GPIOA, signal: 'GPIO, 15', pin_signal: CMP3_IN1/PTA15/SPI0_SCK/UART0_RX/RMII0_TXEN/MII0_TXEN/I2S0_RXD0, direction: INPUT, open_drain: enable,
+    pull_select: up, pull_enable: enable}
   - {pin_num: '81', peripheral: FTM1, signal: 'QD_PH, A', pin_signal: ADC0_SE8/ADC1_SE8/TSI0_CH0/PTB0/LLWU_P5/I2C0_SCL/FTM1_CH0/RMII0_MDIO/MII0_MDIO/SDRAM_CAS_b/FTM1_QD_PHA/TPM1_CH0}
   - {pin_num: '82', peripheral: FTM1, signal: 'QD_PH, B', pin_signal: ADC0_SE9/ADC1_SE9/TSI0_CH6/PTB1/I2C0_SDA/FTM1_CH1/RMII0_MDC/MII0_MDC/SDRAM_RAS_b/FTM1_QD_PHB/TPM1_CH1}
   - {pin_num: '97', peripheral: FTM2, signal: 'QD_PH, A', pin_signal: TSI0_CH11/PTB18/CAN0_TX/FTM2_CH0/I2S0_TX_BCLK/FB_AD15/SDRAM_A23/FTM2_QD_PHA/TPM2_CH0}
   - {pin_num: '98', peripheral: FTM2, signal: 'QD_PH, B', pin_signal: TSI0_CH12/PTB19/CAN0_RX/FTM2_CH1/I2S0_TX_FS/FB_OE_b/FTM2_QD_PHB/TPM2_CH1}
-  - {pin_num: '111', peripheral: GPIOC, signal: 'GPIO, 6', pin_signal: CMP0_IN0/PTC6/LLWU_P10/SPI0_SOUT/PDB0_EXTRG/I2S0_RX_BCLK/FB_AD9/SDRAM_A17/I2S0_MCLK}
-  - {pin_num: '113', peripheral: GPIOC, signal: 'GPIO, 8', pin_signal: ADC1_SE4b/CMP0_IN2/PTC8/FTM3_CH4/I2S0_MCLK/FB_AD7/SDRAM_A15}
-  - {pin_num: '114', peripheral: GPIOC, signal: 'GPIO, 9', pin_signal: ADC1_SE5b/CMP0_IN3/PTC9/FTM3_CH5/I2S0_RX_BCLK/FB_AD6/SDRAM_A14/FTM2_FLT0}
-  - {pin_num: '115', peripheral: GPIOC, signal: 'GPIO, 10', pin_signal: ADC1_SE6b/PTC10/I2C1_SCL/FTM3_CH6/I2S0_RX_FS/FB_AD5/SDRAM_A13}
-  - {pin_num: '116', peripheral: GPIOC, signal: 'GPIO, 11', pin_signal: ADC1_SE7b/PTC11/LLWU_P11/I2C1_SDA/FTM3_CH7/I2S0_RXD1/FB_RW_b}
-  - {pin_num: '117', peripheral: GPIOC, signal: 'GPIO, 12', pin_signal: PTC12/UART4_RTS_b/FTM_CLKIN0/FB_AD27/SDRAM_D27/FTM3_FLT0/TPM_CLKIN0}
-  - {pin_num: '118', peripheral: GPIOC, signal: 'GPIO, 13', pin_signal: PTC13/UART4_CTS_b/FTM_CLKIN1/FB_AD26/SDRAM_D26/TPM_CLKIN1}
-  - {pin_num: '119', peripheral: GPIOC, signal: 'GPIO, 14', pin_signal: PTC14/UART4_RX/FB_AD25/SDRAM_D25}
-  - {pin_num: '120', peripheral: GPIOC, signal: 'GPIO, 15', pin_signal: PTC15/UART4_TX/FB_AD24/SDRAM_D24}
-  - {pin_num: '125', peripheral: GPIOC, signal: 'GPIO, 18', pin_signal: PTC18/UART3_RTS_b/ENET0_1588_TMR2/FB_TBST_b/FB_CS2_b/FB_BE15_8_BLS23_16_b/SDRAM_DQM1}
-  - {pin_num: '143', peripheral: GPIOD, signal: 'GPIO, 14', pin_signal: PTD14/SPI2_SIN/SDHC0_D6/FB_A22}
-  - {pin_num: '144', peripheral: GPIOD, signal: 'GPIO, 15', pin_signal: PTD15/SPI2_PCS1/SDHC0_D7/FB_A23}
-  - {pin_num: '141', peripheral: SPI2, signal: SCK, pin_signal: PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20}
+  - {pin_num: '111', peripheral: GPIOC, signal: 'GPIO, 6', pin_signal: CMP0_IN0/PTC6/LLWU_P10/SPI0_SOUT/PDB0_EXTRG/I2S0_RX_BCLK/FB_AD9/SDRAM_A17/I2S0_MCLK, direction: INPUT,
+    gpio_interrupt: kPORT_InterruptOrDMADisabled}
+  - {pin_num: '113', peripheral: GPIOC, signal: 'GPIO, 8', pin_signal: ADC1_SE4b/CMP0_IN2/PTC8/FTM3_CH4/I2S0_MCLK/FB_AD7/SDRAM_A15, direction: INPUT}
+  - {pin_num: '114', peripheral: GPIOC, signal: 'GPIO, 9', pin_signal: ADC1_SE5b/CMP0_IN3/PTC9/FTM3_CH5/I2S0_RX_BCLK/FB_AD6/SDRAM_A14/FTM2_FLT0, direction: INPUT}
+  - {pin_num: '115', peripheral: GPIOC, signal: 'GPIO, 10', pin_signal: ADC1_SE6b/PTC10/I2C1_SCL/FTM3_CH6/I2S0_RX_FS/FB_AD5/SDRAM_A13, direction: INPUT}
+  - {pin_num: '116', peripheral: GPIOC, signal: 'GPIO, 11', pin_signal: ADC1_SE7b/PTC11/LLWU_P11/I2C1_SDA/FTM3_CH7/I2S0_RXD1/FB_RW_b, direction: INPUT}
+  - {pin_num: '117', peripheral: GPIOC, signal: 'GPIO, 12', pin_signal: PTC12/UART4_RTS_b/FTM_CLKIN0/FB_AD27/SDRAM_D27/FTM3_FLT0/TPM_CLKIN0, direction: INPUT}
+  - {pin_num: '118', peripheral: GPIOC, signal: 'GPIO, 13', pin_signal: PTC13/UART4_CTS_b/FTM_CLKIN1/FB_AD26/SDRAM_D26/TPM_CLKIN1, direction: INPUT}
+  - {pin_num: '119', peripheral: GPIOC, signal: 'GPIO, 14', pin_signal: PTC14/UART4_RX/FB_AD25/SDRAM_D25, direction: INPUT}
+  - {pin_num: '120', peripheral: GPIOC, signal: 'GPIO, 15', pin_signal: PTC15/UART4_TX/FB_AD24/SDRAM_D24, direction: INPUT}
+  - {pin_num: '125', peripheral: GPIOC, signal: 'GPIO, 18', pin_signal: PTC18/UART3_RTS_b/ENET0_1588_TMR2/FB_TBST_b/FB_CS2_b/FB_BE15_8_BLS23_16_b/SDRAM_DQM1, direction: INPUT}
+  - {pin_num: '143', peripheral: GPIOD, signal: 'GPIO, 14', pin_signal: PTD14/SPI2_SIN/SDHC0_D6/FB_A22, direction: OUTPUT}
+  - {pin_num: '144', peripheral: GPIOD, signal: 'GPIO, 15', pin_signal: PTD15/SPI2_PCS1/SDHC0_D7/FB_A23, direction: OUTPUT}
+  - {pin_num: '141', peripheral: SPI2, signal: SCK, pin_signal: PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20, direction: OUTPUT}
   - {pin_num: '142', peripheral: SPI2, signal: SOUT, pin_signal: PTD13/SPI2_SOUT/SDHC0_D5/FB_A21}
-  - {pin_num: '9', peripheral: GPIOE, signal: 'GPIO, 6', pin_signal: PTE6/LLWU_P16/SPI1_PCS3/UART3_CTS_b/I2S0_MCLK/FTM3_CH1/USB0_SOF_OUT}
+  - {pin_num: '9', peripheral: GPIOE, signal: 'GPIO, 6', pin_signal: PTE6/LLWU_P16/SPI1_PCS3/UART3_CTS_b/I2S0_MCLK/FTM3_CH1/USB0_SOF_OUT, direction: INPUT}
   - {pin_num: '123', peripheral: UART3, signal: RX, pin_signal: PTC16/CAN1_RX/UART3_RX/ENET0_1588_TMR0/FB_CS5_b/FB_TSIZ1/FB_BE23_16_BLS15_8_b/SDRAM_DQM2}
-  - {pin_num: '124', peripheral: UART3, signal: TX, pin_signal: PTC17/CAN1_TX/UART3_TX/ENET0_1588_TMR1/FB_CS4_b/FB_TSIZ0/FB_BE31_24_BLS7_0_b/SDRAM_DQM3}
+  - {pin_num: '124', peripheral: UART3, signal: TX, pin_signal: PTC17/CAN1_TX/UART3_TX/ENET0_1588_TMR1/FB_CS4_b/FB_TSIZ0/FB_BE31_24_BLS7_0_b/SDRAM_DQM3, direction: OUTPUT}
   - {pin_num: '137', peripheral: I2C0, signal: SCL, pin_signal: PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16}
   - {pin_num: '138', peripheral: I2C0, signal: SDA, pin_signal: PTD9/I2C0_SDA/LPUART0_TX/FB_A17}
+  - {pin_num: '104', peripheral: FTM0, signal: 'CH, 0', pin_signal: ADC0_SE15/TSI0_CH14/PTC1/LLWU_P6/SPI0_PCS3/UART1_RTS_b/FTM0_CH0/FB_AD13/SDRAM_A21/I2S0_TXD0, direction: OUTPUT}
+  - {pin_num: '105', peripheral: FTM0, signal: 'CH, 1', pin_signal: ADC0_SE4b/CMP1_IN0/TSI0_CH15/PTC2/SPI0_PCS2/UART1_CTS_b/FTM0_CH1/FB_AD12/SDRAM_A20/I2S0_TX_FS,
+    direction: OUTPUT}
+  - {pin_num: '106', peripheral: FTM0, signal: 'CH, 2', pin_signal: CMP1_IN1/PTC3/LLWU_P7/SPI0_PCS1/UART1_RX/FTM0_CH2/CLKOUT/I2S0_TX_BCLK, direction: OUTPUT}
+  - {pin_num: '109', peripheral: FTM0, signal: 'CH, 3', pin_signal: PTC4/LLWU_P8/SPI0_PCS0/UART1_TX/FTM0_CH3/FB_AD11/SDRAM_A19/CMP1_OUT, direction: OUTPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -238,17 +236,219 @@ void RTEPIN_Digital(void)
     /* Port E Clock Gate Control: Clock enabled */
     CLOCK_EnableClock(kCLOCK_PortE);
 
+    gpio_pin_config_t SWITCH_0_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTA9 (pin 61)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_SWITCH_0_GPIO, RTEPIN_DIGITAL_SWITCH_0_PIN, &SWITCH_0_config);
+
+    gpio_pin_config_t SWITCH_1_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTA11 (pin 63)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_SWITCH_1_GPIO, RTEPIN_DIGITAL_SWITCH_1_PIN, &SWITCH_1_config);
+
+    gpio_pin_config_t SWITCH_2_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTA13 (pin 65)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_SWITCH_2_GPIO, RTEPIN_DIGITAL_SWITCH_2_PIN, &SWITCH_2_config);
+
+    gpio_pin_config_t SWITCH_3_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTA15 (pin 67)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_SWITCH_3_GPIO, RTEPIN_DIGITAL_SWITCH_3_PIN, &SWITCH_3_config);
+
+    gpio_pin_config_t CAM_VSNC_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTC6 (pin 111)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_CAM_VSNC_GPIO, RTEPIN_DIGITAL_CAM_VSNC_PIN, &CAM_VSNC_config);
+
+    gpio_pin_config_t CAM_D_0_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTC8 (pin 113)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_CAM_D_0_GPIO, RTEPIN_DIGITAL_CAM_D_0_PIN, &CAM_D_0_config);
+
+    gpio_pin_config_t CAM_D_1_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTC9 (pin 114)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_CAM_D_1_GPIO, RTEPIN_DIGITAL_CAM_D_1_PIN, &CAM_D_1_config);
+
+    gpio_pin_config_t CAM_D_2_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTC10 (pin 115)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_CAM_D_2_GPIO, RTEPIN_DIGITAL_CAM_D_2_PIN, &CAM_D_2_config);
+
+    gpio_pin_config_t CAM_D_3_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTC11 (pin 116)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_CAM_D_3_GPIO, RTEPIN_DIGITAL_CAM_D_3_PIN, &CAM_D_3_config);
+
+    gpio_pin_config_t CAM_D_4_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTC12 (pin 117)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_CAM_D_4_GPIO, RTEPIN_DIGITAL_CAM_D_4_PIN, &CAM_D_4_config);
+
+    gpio_pin_config_t CAM_D_5_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTC13 (pin 118)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_CAM_D_5_GPIO, RTEPIN_DIGITAL_CAM_D_5_PIN, &CAM_D_5_config);
+
+    gpio_pin_config_t CAM_D_6_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTC14 (pin 119)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_CAM_D_6_GPIO, RTEPIN_DIGITAL_CAM_D_6_PIN, &CAM_D_6_config);
+
+    gpio_pin_config_t CAM_D_7_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTC15 (pin 120)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_CAM_D_7_GPIO, RTEPIN_DIGITAL_CAM_D_7_PIN, &CAM_D_7_config);
+
+    gpio_pin_config_t CAM_PCLK_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTC18 (pin 125)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_CAM_PCLK_GPIO, RTEPIN_DIGITAL_CAM_PCLK_PIN, &CAM_PCLK_config);
+
+    gpio_pin_config_t OLED_RST_config = {
+        .pinDirection = kGPIO_DigitalOutput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTD14 (pin 143)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_OLED_RST_GPIO, RTEPIN_DIGITAL_OLED_RST_PIN, &OLED_RST_config);
+
+    gpio_pin_config_t OLED_D_C_config = {
+        .pinDirection = kGPIO_DigitalOutput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTD15 (pin 144)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_OLED_D_C_GPIO, RTEPIN_DIGITAL_OLED_D_C_PIN, &OLED_D_C_config);
+
+    gpio_pin_config_t SD_DTK_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTE6 (pin 9)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_SD_DTK_GPIO, RTEPIN_DIGITAL_SD_DTK_PIN, &SD_DTK_config);
+
+    gpio_pin_config_t BUTTON_DN_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTE7 (pin 10)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_BUTTON_DN_GPIO, RTEPIN_DIGITAL_BUTTON_DN_PIN, &BUTTON_DN_config);
+
+    gpio_pin_config_t BUTTON_RT_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTE8 (pin 11)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_BUTTON_RT_GPIO, RTEPIN_DIGITAL_BUTTON_RT_PIN, &BUTTON_RT_config);
+
+    gpio_pin_config_t BUTTON_LF_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTE9 (pin 12)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_BUTTON_LF_GPIO, RTEPIN_DIGITAL_BUTTON_LF_PIN, &BUTTON_LF_config);
+
+    gpio_pin_config_t BUTTON_OK_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTE10 (pin 13)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_BUTTON_OK_GPIO, RTEPIN_DIGITAL_BUTTON_OK_PIN, &BUTTON_OK_config);
+
+    gpio_pin_config_t BUTTON_UP_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PTE11 (pin 14)  */
+    GPIO_PinInit(RTEPIN_DIGITAL_BUTTON_UP_GPIO, RTEPIN_DIGITAL_BUTTON_UP_PIN, &BUTTON_UP_config);
+
     /* PORTA11 (pin 63) is configured as PTA11 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SWITCH_1_PORT, RTEPIN_DIGITAL_SWITCH_1_PIN, kPORT_MuxAsGpio);
+
+    PORTA->PCR[11] = ((PORTA->PCR[11] &
+                       /* Mask bits to zero which are setting */
+                       (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ODE_MASK | PORT_PCR_ISF_MASK)))
+
+                      /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
+                       * corresponding PE field is set. */
+                      | (uint32_t)(kPORT_PullUp)
+
+                      /* Open Drain Enable: Open drain output is enabled on the corresponding pin, if the pin is
+                       * configured as a digital output. */
+                      | PORT_PCR_ODE(kPORT_OpenDrainEnable));
 
     /* PORTA13 (pin 65) is configured as PTA13 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SWITCH_2_PORT, RTEPIN_DIGITAL_SWITCH_2_PIN, kPORT_MuxAsGpio);
 
+    PORTA->PCR[13] = ((PORTA->PCR[13] &
+                       /* Mask bits to zero which are setting */
+                       (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ODE_MASK | PORT_PCR_ISF_MASK)))
+
+                      /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
+                       * corresponding PE field is set. */
+                      | (uint32_t)(kPORT_PullUp)
+
+                      /* Open Drain Enable: Open drain output is enabled on the corresponding pin, if the pin is
+                       * configured as a digital output. */
+                      | PORT_PCR_ODE(kPORT_OpenDrainEnable));
+
     /* PORTA15 (pin 67) is configured as PTA15 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SWITCH_3_PORT, RTEPIN_DIGITAL_SWITCH_3_PIN, kPORT_MuxAsGpio);
 
+    PORTA->PCR[15] = ((PORTA->PCR[15] &
+                       /* Mask bits to zero which are setting */
+                       (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ODE_MASK | PORT_PCR_ISF_MASK)))
+
+                      /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
+                       * corresponding PE field is set. */
+                      | (uint32_t)(kPORT_PullUp)
+
+                      /* Open Drain Enable: Open drain output is enabled on the corresponding pin, if the pin is
+                       * configured as a digital output. */
+                      | PORT_PCR_ODE(kPORT_OpenDrainEnable));
+
     /* PORTA9 (pin 61) is configured as PTA9 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SWITCH_0_PORT, RTEPIN_DIGITAL_SWITCH_0_PIN, kPORT_MuxAsGpio);
+
+    PORTA->PCR[9] = ((PORTA->PCR[9] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ODE_MASK | PORT_PCR_ISF_MASK)))
+
+                     /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
+                      * corresponding PE field is set. */
+                     | (uint32_t)(kPORT_PullUp)
+
+                     /* Open Drain Enable: Open drain output is enabled on the corresponding pin, if the pin is
+                      * configured as a digital output. */
+                     | PORT_PCR_ODE(kPORT_OpenDrainEnable));
 
     /* PORTB0 (pin 81) is configured as FTM1_QD_PHA */
     PORT_SetPinMux(RTEPIN_DIGITAL_ENCO_LA_PORT, RTEPIN_DIGITAL_ENCO_LA_PIN, kPORT_MuxAlt6);
@@ -261,6 +461,9 @@ void RTEPIN_Digital(void)
 
     /* PORTB19 (pin 98) is configured as FTM2_QD_PHB */
     PORT_SetPinMux(RTEPIN_DIGITAL_ENCO_RB_PORT, RTEPIN_DIGITAL_ENCO_RB_PIN, kPORT_MuxAlt6);
+
+    /* PORTC1 (pin 104) is configured as FTM0_CH0 */
+    PORT_SetPinMux(RTEPIN_DIGITAL_MOTOR_RA_PORT, RTEPIN_DIGITAL_MOTOR_RA_PIN, kPORT_MuxAlt4);
 
     /* PORTC10 (pin 115) is configured as PTC10 */
     PORT_SetPinMux(RTEPIN_DIGITAL_CAM_D_2_PORT, RTEPIN_DIGITAL_CAM_D_2_PIN, kPORT_MuxAsGpio);
@@ -281,16 +484,28 @@ void RTEPIN_Digital(void)
     PORT_SetPinMux(RTEPIN_DIGITAL_CAM_D_7_PORT, RTEPIN_DIGITAL_CAM_D_7_PIN, kPORT_MuxAsGpio);
 
     /* PORTC16 (pin 123) is configured as UART3_RX */
-    PORT_SetPinMux(PORTC, 16U, kPORT_MuxAlt3);
+    PORT_SetPinMux(RTEPIN_DIGITAL_CAM_RX_PORT, RTEPIN_DIGITAL_CAM_RX_PIN, kPORT_MuxAlt3);
 
     /* PORTC17 (pin 124) is configured as UART3_TX */
-    PORT_SetPinMux(PORTC, 17U, kPORT_MuxAlt3);
+    PORT_SetPinMux(RTEPIN_DIGITAL_CAM_TX_PORT, RTEPIN_DIGITAL_CAM_TX_PIN, kPORT_MuxAlt3);
 
     /* PORTC18 (pin 125) is configured as PTC18 */
     PORT_SetPinMux(RTEPIN_DIGITAL_CAM_PCLK_PORT, RTEPIN_DIGITAL_CAM_PCLK_PIN, kPORT_MuxAsGpio);
 
+    /* PORTC2 (pin 105) is configured as FTM0_CH1 */
+    PORT_SetPinMux(RTEPIN_DIGITAL_MOTOR_RB_PORT, RTEPIN_DIGITAL_MOTOR_RB_PIN, kPORT_MuxAlt4);
+
+    /* PORTC3 (pin 106) is configured as FTM0_CH2 */
+    PORT_SetPinMux(RTEPIN_DIGITAL_MOTOR_LA_PORT, RTEPIN_DIGITAL_MOTOR_LA_PIN, kPORT_MuxAlt4);
+
+    /* PORTC4 (pin 109) is configured as FTM0_CH3 */
+    PORT_SetPinMux(RTEPIN_DIGITAL_MOTOR_LB_PORT, RTEPIN_DIGITAL_MOTOR_LB_PIN, kPORT_MuxAlt4);
+
     /* PORTC6 (pin 111) is configured as PTC6 */
     PORT_SetPinMux(RTEPIN_DIGITAL_CAM_VSNC_PORT, RTEPIN_DIGITAL_CAM_VSNC_PIN, kPORT_MuxAsGpio);
+
+    /* Interrupt configuration on PORTC6 (pin 111): Interrupt/DMA request is disabled */
+    PORT_SetPinInterruptConfig(RTEPIN_DIGITAL_CAM_VSNC_PORT, RTEPIN_DIGITAL_CAM_VSNC_PIN, kPORT_InterruptOrDMADisabled);
 
     /* PORTC8 (pin 113) is configured as PTC8 */
     PORT_SetPinMux(RTEPIN_DIGITAL_CAM_D_0_PORT, RTEPIN_DIGITAL_CAM_D_0_PIN, kPORT_MuxAsGpio);
@@ -338,7 +553,7 @@ void RTEPIN_Digital(void)
                       | PORT_PCR_ODE(kPORT_OpenDrainEnable));
 
     /* PORTE11 (pin 14) is configured as PTE11 */
-    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_DN_PORT, RTEPIN_DIGITAL_BUTTON_DN_PIN, kPORT_MuxAsGpio);
+    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_UP_PORT, RTEPIN_DIGITAL_BUTTON_UP_PIN, kPORT_MuxAsGpio);
 
     PORTE->PCR[11] = ((PORTE->PCR[11] &
                        /* Mask bits to zero which are setting */
@@ -371,7 +586,7 @@ void RTEPIN_Digital(void)
     PORT_SetPinMux(RTEPIN_DIGITAL_SD_DTK_PORT, RTEPIN_DIGITAL_SD_DTK_PIN, kPORT_MuxAsGpio);
 
     /* PORTE7 (pin 10) is configured as PTE7 */
-    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_UP_PORT, RTEPIN_DIGITAL_BUTTON_UP_PIN, kPORT_MuxAsGpio);
+    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_DN_PORT, RTEPIN_DIGITAL_BUTTON_DN_PIN, kPORT_MuxAsGpio);
 
     PORTE->PCR[7] = ((PORTE->PCR[7] &
                       /* Mask bits to zero which are setting */
@@ -386,7 +601,7 @@ void RTEPIN_Digital(void)
                      | PORT_PCR_ODE(kPORT_OpenDrainEnable));
 
     /* PORTE8 (pin 11) is configured as PTE8 */
-    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_LF_PORT, RTEPIN_DIGITAL_BUTTON_LF_PIN, kPORT_MuxAsGpio);
+    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_RT_PORT, RTEPIN_DIGITAL_BUTTON_RT_PIN, kPORT_MuxAsGpio);
 
     PORTE->PCR[8] = ((PORTE->PCR[8] &
                       /* Mask bits to zero which are setting */
@@ -401,7 +616,7 @@ void RTEPIN_Digital(void)
                      | PORT_PCR_ODE(kPORT_OpenDrainEnable));
 
     /* PORTE9 (pin 12) is configured as PTE9 */
-    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_RT_PORT, RTEPIN_DIGITAL_BUTTON_RT_PIN, kPORT_MuxAsGpio);
+    PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_LF_PORT, RTEPIN_DIGITAL_BUTTON_LF_PIN, kPORT_MuxAsGpio);
 
     PORTE->PCR[9] = ((PORTE->PCR[9] &
                       /* Mask bits to zero which are setting */
@@ -471,31 +686,31 @@ void RTEPIN_Analog(void)
 /* clang-format off */
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-RTEPIN_UART0_DBG:
+RTEPIN_LPUART0_DBG:
 - options: {callFromInitBoot: 'false', coreID: core0, enableClock: 'true'}
 - pin_list:
   - {pin_num: '51', peripheral: LPUART0, signal: RX, pin_signal: TSI0_CH2/PTA1/UART0_RX/FTM0_CH6/I2C3_SDA/LPUART0_RX/JTAG_TDI/EZP_DI}
-  - {pin_num: '52', peripheral: LPUART0, signal: TX, pin_signal: TSI0_CH3/PTA2/UART0_TX/FTM0_CH7/I2C3_SCL/LPUART0_TX/JTAG_TDO/TRACE_SWO/EZP_DO}
+  - {pin_num: '52', peripheral: LPUART0, signal: TX, pin_signal: TSI0_CH3/PTA2/UART0_TX/FTM0_CH7/I2C3_SCL/LPUART0_TX/JTAG_TDO/TRACE_SWO/EZP_DO, direction: OUTPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
 
 /* FUNCTION ************************************************************************************************************
  *
- * Function Name : RTEPIN_UART0_DBG
+ * Function Name : RTEPIN_LPUART0_DBG
  * Description   : Configures pin routing and optionally pin electrical features.
  *
  * END ****************************************************************************************************************/
-void RTEPIN_UART0_DBG(void)
+void RTEPIN_LPUART0_DBG(void)
 {
     /* Port A Clock Gate Control: Clock enabled */
     CLOCK_EnableClock(kCLOCK_PortA);
 
     /* PORTA1 (pin 51) is configured as LPUART0_RX */
-    PORT_SetPinMux(RTEPIN_UART0_DBG_UART_DBG_RX_PORT, RTEPIN_UART0_DBG_UART_DBG_RX_PIN, kPORT_MuxAlt5);
+    PORT_SetPinMux(RTEPIN_LPUART0_DBG_UART_DBG_RX_PORT, RTEPIN_LPUART0_DBG_UART_DBG_RX_PIN, kPORT_MuxAlt5);
 
     /* PORTA2 (pin 52) is configured as LPUART0_TX */
-    PORT_SetPinMux(RTEPIN_UART0_DBG_UART_DBG_TX_PORT, RTEPIN_UART0_DBG_UART_DBG_TX_PIN, kPORT_MuxAlt5);
+    PORT_SetPinMux(RTEPIN_LPUART0_DBG_UART_DBG_TX_PORT, RTEPIN_LPUART0_DBG_UART_DBG_TX_PIN, kPORT_MuxAlt5);
 
     SIM->SOPT5 = ((SIM->SOPT5 &
                    /* Mask bits to zero which are setting */
@@ -512,7 +727,7 @@ RTEPIN_UART0_WLAN:
 - options: {callFromInitBoot: 'false', coreID: core0, enableClock: 'true'}
 - pin_list:
   - {pin_num: '133', peripheral: UART0, signal: RX, pin_signal: ADC0_SE7b/PTD6/LLWU_P15/SPI0_PCS3/UART0_RX/FTM0_CH6/FB_AD0/FTM0_FLT0/SPI1_SOUT}
-  - {pin_num: '136', peripheral: UART0, signal: TX, pin_signal: PTD7/CMT_IRO/UART0_TX/FTM0_CH7/SDRAM_CKE/FTM0_FLT1/SPI1_SIN}
+  - {pin_num: '136', peripheral: UART0, signal: TX, pin_signal: PTD7/CMT_IRO/UART0_TX/FTM0_CH7/SDRAM_CKE/FTM0_FLT1/SPI1_SIN, direction: OUTPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */

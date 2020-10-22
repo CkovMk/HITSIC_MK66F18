@@ -338,6 +338,102 @@ static void PIT_init(void) {
  * RTEPIP_Device functional group
  **********************************************************************************************************************/
 /***********************************************************************************************************************
+ * CAM_UART initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'CAM_UART'
+- type: 'uart'
+- mode: 'polling'
+- custom_name_enabled: 'true'
+- type_id: 'uart_88ab1eca0cddb7ee407685775de016d5'
+- functional_group: 'RTEPIP_Device'
+- peripheral: 'UART3'
+- config_sets:
+  - uartConfig_t:
+    - uartConfig:
+      - clockSource: 'BusInterfaceClock'
+      - clockSourceFreq: 'GetFreq'
+      - baudRate_Bps: '9600'
+      - parityMode: 'kUART_ParityDisabled'
+      - stopBitCount: 'kUART_OneStopBit'
+      - txFifoWatermark: '0'
+      - rxFifoWatermark: '1'
+      - idleType: 'kUART_IdleTypeStartBit'
+      - enableTx: 'true'
+      - enableRx: 'true'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const uart_config_t CAM_UART_config = {
+  .baudRate_Bps = 9600,
+  .parityMode = kUART_ParityDisabled,
+  .stopBitCount = kUART_OneStopBit,
+  .txFifoWatermark = 0,
+  .rxFifoWatermark = 1,
+  .idleType = kUART_IdleTypeStartBit,
+  .enableTx = true,
+  .enableRx = true
+};
+
+static void CAM_UART_init(void) {
+  UART_Init(CAM_UART_PERIPHERAL, &CAM_UART_config, CAM_UART_CLOCK_SOURCE);
+}
+
+/***********************************************************************************************************************
+ * DBG_LPUART initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'DBG_LPUART'
+- type: 'lpuart'
+- mode: 'polling'
+- custom_name_enabled: 'true'
+- type_id: 'lpuart_54a65a580e3462acdbacefd5299e0cac'
+- functional_group: 'RTEPIP_Device'
+- peripheral: 'LPUART0'
+- config_sets:
+  - lpuartConfig_t:
+    - lpuartConfig:
+      - clockSource: 'LpuartClock'
+      - lpuartSrcClkFreq: 'RTECLK_HsRun_180MHz'
+      - baudRate_Bps: '921600'
+      - parityMode: 'kLPUART_ParityDisabled'
+      - dataBitsCount: 'kLPUART_EightDataBits'
+      - isMsb: 'false'
+      - stopBitCount: 'kLPUART_OneStopBit'
+      - enableRxRTS: 'false'
+      - enableTxCTS: 'false'
+      - txCtsSource: 'kLPUART_CtsSourcePin'
+      - txCtsConfig: 'kLPUART_CtsSampleAtStart'
+      - rxIdleType: 'kLPUART_IdleTypeStartBit'
+      - rxIdleConfig: 'kLPUART_IdleCharacter1'
+      - enableTx: 'true'
+      - enableRx: 'true'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const lpuart_config_t DBG_LPUART_config = {
+  .baudRate_Bps = 921600,
+  .parityMode = kLPUART_ParityDisabled,
+  .dataBitsCount = kLPUART_EightDataBits,
+  .isMsb = false,
+  .stopBitCount = kLPUART_OneStopBit,
+  .enableRxRTS = false,
+  .enableTxCTS = false,
+  .txCtsSource = kLPUART_CtsSourcePin,
+  .txCtsConfig = kLPUART_CtsSampleAtStart,
+  .rxIdleType = kLPUART_IdleTypeStartBit,
+  .rxIdleConfig = kLPUART_IdleCharacter1,
+  .enableTx = true,
+  .enableRx = true
+};
+
+static void DBG_LPUART_init(void) {
+  LPUART_Init(DBG_LPUART_PERIPHERAL, &DBG_LPUART_config, DBG_LPUART_CLOCK_SOURCE);
+}
+
+/***********************************************************************************************************************
  * ENCO_L initialization code
  **********************************************************************************************************************/
 /* clang-format off */
@@ -502,6 +598,43 @@ static void ENCO_R_init(void) {
 }
 
 /***********************************************************************************************************************
+ * IMU_I2C initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'IMU_I2C'
+- type: 'i2c'
+- mode: 'I2C_Polling'
+- custom_name_enabled: 'true'
+- type_id: 'i2c_2566d7363e7e9aaedabb432110e372d7'
+- functional_group: 'RTEPIP_Device'
+- peripheral: 'I2C0'
+- config_sets:
+  - fsl_i2c:
+    - i2c_mode: 'kI2C_Master'
+    - clockSource: 'BusInterfaceClock'
+    - clockSourceFreq: 'GetFreq'
+    - i2c_master_config:
+      - enableMaster: 'true'
+      - enableStopHold: 'false'
+      - baudRate_Bps: '400000'
+      - glitchFilterWidth: '0'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const i2c_master_config_t IMU_I2C_config = {
+  .enableMaster = true,
+  .enableStopHold = false,
+  .baudRate_Bps = 400000,
+  .glitchFilterWidth = 0
+};
+
+static void IMU_I2C_init(void) {
+  /* Initialization function */
+  I2C_MasterInit(IMU_I2C_PERIPHERAL, &IMU_I2C_config, IMU_I2C_CLK_FREQ);
+}
+
+/***********************************************************************************************************************
  * MOTOR initialization code
  **********************************************************************************************************************/
 /* clang-format off */
@@ -609,6 +742,68 @@ static void MOTOR_init(void) {
 }
 
 /***********************************************************************************************************************
+ * OLED_SPI initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'OLED_SPI'
+- type: 'dspi'
+- mode: 'DSPI_Polling'
+- custom_name_enabled: 'true'
+- type_id: 'dspi_305e5b03c593d065f61ded8061d15797'
+- functional_group: 'RTEPIP_Device'
+- peripheral: 'SPI2'
+- config_sets:
+  - fsl_dspi:
+    - dspi_mode: 'kDSPI_Master'
+    - clockSource: 'BusInterfaceClock'
+    - clockSourceFreq: 'GetFreq'
+    - dspi_master_config:
+      - whichCtar: 'kDSPI_Ctar0'
+      - ctarConfig:
+        - baudRate: '10000000'
+        - bitsPerFrame: '8'
+        - cpol: 'kDSPI_ClockPolarityActiveHigh'
+        - cpha: 'kDSPI_ClockPhaseFirstEdge'
+        - direction: 'kDSPI_MsbFirst'
+        - pcsToSckDelayInNanoSec: '1000'
+        - lastSckToPcsDelayInNanoSec: '1000'
+        - betweenTransferDelayInNanoSec: '1000'
+      - whichPcs: 'PCS0_SS'
+      - pcsActiveHighOrLow: 'kDSPI_PcsActiveLow'
+      - enableContinuousSCK: 'false'
+      - enableRxFifoOverWrite: 'false'
+      - enableModifiedTimingFormat: 'false'
+      - samplePoint: 'kDSPI_SckToSin0Clock'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const dspi_master_config_t OLED_SPI_config = {
+  .whichCtar = kDSPI_Ctar0,
+  .ctarConfig = {
+    .baudRate = 10000000,
+    .bitsPerFrame = 8,
+    .cpol = kDSPI_ClockPolarityActiveHigh,
+    .cpha = kDSPI_ClockPhaseFirstEdge,
+    .direction = kDSPI_MsbFirst,
+    .pcsToSckDelayInNanoSec = 1000,
+    .lastSckToPcsDelayInNanoSec = 1000,
+    .betweenTransferDelayInNanoSec = 1000
+  },
+  .whichPcs = kDSPI_Pcs0,
+  .pcsActiveHighOrLow = kDSPI_PcsActiveLow,
+  .enableContinuousSCK = false,
+  .enableRxFifoOverWrite = false,
+  .enableModifiedTimingFormat = false,
+  .samplePoint = kDSPI_SckToSin0Clock
+};
+
+static void OLED_SPI_init(void) {
+  /* Initialization function */
+  DSPI_MasterInit(OLED_SPI_PERIPHERAL, &OLED_SPI_config, OLED_SPI_CLK_FREQ);
+}
+
+/***********************************************************************************************************************
  * SERVO initialization code
  **********************************************************************************************************************/
 /* clang-format off */
@@ -686,68 +881,6 @@ static void SERVO_init(void) {
 }
 
 /***********************************************************************************************************************
- * OLED_SPI initialization code
- **********************************************************************************************************************/
-/* clang-format off */
-/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-instance:
-- name: 'OLED_SPI'
-- type: 'dspi'
-- mode: 'DSPI_Polling'
-- custom_name_enabled: 'true'
-- type_id: 'dspi_305e5b03c593d065f61ded8061d15797'
-- functional_group: 'RTEPIP_Device'
-- peripheral: 'SPI2'
-- config_sets:
-  - fsl_dspi:
-    - dspi_mode: 'kDSPI_Master'
-    - clockSource: 'BusInterfaceClock'
-    - clockSourceFreq: 'GetFreq'
-    - dspi_master_config:
-      - whichCtar: 'kDSPI_Ctar0'
-      - ctarConfig:
-        - baudRate: '10000000'
-        - bitsPerFrame: '8'
-        - cpol: 'kDSPI_ClockPolarityActiveHigh'
-        - cpha: 'kDSPI_ClockPhaseFirstEdge'
-        - direction: 'kDSPI_MsbFirst'
-        - pcsToSckDelayInNanoSec: '1000'
-        - lastSckToPcsDelayInNanoSec: '1000'
-        - betweenTransferDelayInNanoSec: '1000'
-      - whichPcs: 'PCS0_SS'
-      - pcsActiveHighOrLow: 'kDSPI_PcsActiveLow'
-      - enableContinuousSCK: 'false'
-      - enableRxFifoOverWrite: 'false'
-      - enableModifiedTimingFormat: 'false'
-      - samplePoint: 'kDSPI_SckToSin0Clock'
- * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
-/* clang-format on */
-const dspi_master_config_t OLED_SPI_config = {
-  .whichCtar = kDSPI_Ctar0,
-  .ctarConfig = {
-    .baudRate = 10000000,
-    .bitsPerFrame = 8,
-    .cpol = kDSPI_ClockPolarityActiveHigh,
-    .cpha = kDSPI_ClockPhaseFirstEdge,
-    .direction = kDSPI_MsbFirst,
-    .pcsToSckDelayInNanoSec = 1000,
-    .lastSckToPcsDelayInNanoSec = 1000,
-    .betweenTransferDelayInNanoSec = 1000
-  },
-  .whichPcs = kDSPI_Pcs0,
-  .pcsActiveHighOrLow = kDSPI_PcsActiveLow,
-  .enableContinuousSCK = false,
-  .enableRxFifoOverWrite = false,
-  .enableModifiedTimingFormat = false,
-  .samplePoint = kDSPI_SckToSin0Clock
-};
-
-static void OLED_SPI_init(void) {
-  /* Initialization function */
-  DSPI_MasterInit(OLED_SPI_PERIPHERAL, &OLED_SPI_config, OLED_SPI_CLK_FREQ);
-}
-
-/***********************************************************************************************************************
  * WLAN_UART initialization code
  **********************************************************************************************************************/
 /* clang-format off */
@@ -791,139 +924,6 @@ static void WLAN_UART_init(void) {
 }
 
 /***********************************************************************************************************************
- * DBG_LPUART initialization code
- **********************************************************************************************************************/
-/* clang-format off */
-/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-instance:
-- name: 'DBG_LPUART'
-- type: 'lpuart'
-- mode: 'polling'
-- custom_name_enabled: 'true'
-- type_id: 'lpuart_54a65a580e3462acdbacefd5299e0cac'
-- functional_group: 'RTEPIP_Device'
-- peripheral: 'LPUART0'
-- config_sets:
-  - lpuartConfig_t:
-    - lpuartConfig:
-      - clockSource: 'LpuartClock'
-      - lpuartSrcClkFreq: 'RTECLK_HsRun_180MHz'
-      - baudRate_Bps: '921600'
-      - parityMode: 'kLPUART_ParityDisabled'
-      - dataBitsCount: 'kLPUART_EightDataBits'
-      - isMsb: 'false'
-      - stopBitCount: 'kLPUART_OneStopBit'
-      - enableRxRTS: 'false'
-      - enableTxCTS: 'false'
-      - txCtsSource: 'kLPUART_CtsSourcePin'
-      - txCtsConfig: 'kLPUART_CtsSampleAtStart'
-      - rxIdleType: 'kLPUART_IdleTypeStartBit'
-      - rxIdleConfig: 'kLPUART_IdleCharacter1'
-      - enableTx: 'true'
-      - enableRx: 'true'
- * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
-/* clang-format on */
-const lpuart_config_t DBG_LPUART_config = {
-  .baudRate_Bps = 921600,
-  .parityMode = kLPUART_ParityDisabled,
-  .dataBitsCount = kLPUART_EightDataBits,
-  .isMsb = false,
-  .stopBitCount = kLPUART_OneStopBit,
-  .enableRxRTS = false,
-  .enableTxCTS = false,
-  .txCtsSource = kLPUART_CtsSourcePin,
-  .txCtsConfig = kLPUART_CtsSampleAtStart,
-  .rxIdleType = kLPUART_IdleTypeStartBit,
-  .rxIdleConfig = kLPUART_IdleCharacter1,
-  .enableTx = true,
-  .enableRx = true
-};
-
-static void DBG_LPUART_init(void) {
-  LPUART_Init(DBG_LPUART_PERIPHERAL, &DBG_LPUART_config, DBG_LPUART_CLOCK_SOURCE);
-}
-
-/***********************************************************************************************************************
- * IMU_I2C initialization code
- **********************************************************************************************************************/
-/* clang-format off */
-/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-instance:
-- name: 'IMU_I2C'
-- type: 'i2c'
-- mode: 'I2C_Polling'
-- custom_name_enabled: 'true'
-- type_id: 'i2c_2566d7363e7e9aaedabb432110e372d7'
-- functional_group: 'RTEPIP_Device'
-- peripheral: 'I2C0'
-- config_sets:
-  - fsl_i2c:
-    - i2c_mode: 'kI2C_Master'
-    - clockSource: 'BusInterfaceClock'
-    - clockSourceFreq: 'GetFreq'
-    - i2c_master_config:
-      - enableMaster: 'true'
-      - enableStopHold: 'false'
-      - baudRate_Bps: '400000'
-      - glitchFilterWidth: '0'
- * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
-/* clang-format on */
-const i2c_master_config_t IMU_I2C_config = {
-  .enableMaster = true,
-  .enableStopHold = false,
-  .baudRate_Bps = 400000,
-  .glitchFilterWidth = 0
-};
-
-static void IMU_I2C_init(void) {
-  /* Initialization function */
-  I2C_MasterInit(IMU_I2C_PERIPHERAL, &IMU_I2C_config, IMU_I2C_CLK_FREQ);
-}
-
-/***********************************************************************************************************************
- * CAM_UART initialization code
- **********************************************************************************************************************/
-/* clang-format off */
-/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-instance:
-- name: 'CAM_UART'
-- type: 'uart'
-- mode: 'polling'
-- custom_name_enabled: 'true'
-- type_id: 'uart_88ab1eca0cddb7ee407685775de016d5'
-- functional_group: 'RTEPIP_Device'
-- peripheral: 'UART3'
-- config_sets:
-  - uartConfig_t:
-    - uartConfig:
-      - clockSource: 'BusInterfaceClock'
-      - clockSourceFreq: 'GetFreq'
-      - baudRate_Bps: '9600'
-      - parityMode: 'kUART_ParityDisabled'
-      - stopBitCount: 'kUART_OneStopBit'
-      - txFifoWatermark: '0'
-      - rxFifoWatermark: '1'
-      - idleType: 'kUART_IdleTypeStartBit'
-      - enableTx: 'true'
-      - enableRx: 'true'
- * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
-/* clang-format on */
-const uart_config_t CAM_UART_config = {
-  .baudRate_Bps = 9600,
-  .parityMode = kUART_ParityDisabled,
-  .stopBitCount = kUART_OneStopBit,
-  .txFifoWatermark = 0,
-  .rxFifoWatermark = 1,
-  .idleType = kUART_IdleTypeStartBit,
-  .enableTx = true,
-  .enableRx = true
-};
-
-static void CAM_UART_init(void) {
-  UART_Init(CAM_UART_PERIPHERAL, &CAM_UART_config, CAM_UART_CLOCK_SOURCE);
-}
-
-/***********************************************************************************************************************
  * Initialization functions
  **********************************************************************************************************************/
 void RTEPIP_Basic(void)
@@ -946,15 +946,15 @@ void RTEPIP_Basic(void)
 void RTEPIP_Device(void)
 {
   /* Initialize components */
+  CAM_UART_init();
+  DBG_LPUART_init();
   ENCO_L_init();
   ENCO_R_init();
-  MOTOR_init();
-  SERVO_init();
-  OLED_SPI_init();
-  WLAN_UART_init();
-  DBG_LPUART_init();
   IMU_I2C_init();
-  CAM_UART_init();
+  MOTOR_init();
+  OLED_SPI_init();
+  SERVO_init();
+  WLAN_UART_init();
 }
 
 /***********************************************************************************************************************

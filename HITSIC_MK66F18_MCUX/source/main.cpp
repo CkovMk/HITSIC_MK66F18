@@ -87,6 +87,7 @@ void main()
 	RTEPIN_UART0_WLAN();
 
 	/** 初始化外设 */
+	DMAMUX_Init(DMAMUX0);
 	RTEPIP_Basic();
 	RTEPIP_Device();
 
@@ -110,10 +111,12 @@ void main()
 	DISP_SSD1306_Init();
 
 	/** 初始化菜单 */
-	MENU_Init();
-	MENU_Data_NvmReadRegionConfig();
-	MENU_Data_NvmRead(menu_currRegionNum);
-	MENU_PrintDisp();
+//	MENU_Init();
+//	MENU_Data_NvmReadRegionConfig();
+//	MENU_Data_NvmRead(menu_currRegionNum);
+//	MENU_PrintDisp();
+	extern const uint8_t DISP_image_100thAnniversary[8][128];
+	DISP_SSD1306_BufferUpload((uint8_t*)DISP_image_100thAnniversary);
 
 	/** 初始化摄像头 */
 	//CAMERA_Init();
@@ -128,7 +131,7 @@ void main()
 	HAL_ExitCritical();
 
 
-	//CAM_ZF9V034_UnitTest();
+	CAM_ZF9V034_UnitTest();
 
 	//result = SD_HostInit(&g_sd);
 	//result = SD_CardInit(&g_sd);

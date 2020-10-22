@@ -1399,6 +1399,10 @@ void EDMA_HandleIRQ(edma_handle_t *handle)
     }
 }
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #if defined(FSL_FEATURE_EDMA_MODULE_CHANNEL_IRQ_ENTRY_SHARED_OFFSET) && \
     (FSL_FEATURE_EDMA_MODULE_CHANNEL_IRQ_ENTRY_SHARED_OFFSET == 4)
 /* 8 channels (Shared): kl28 */
@@ -2847,3 +2851,8 @@ void DMA31_DriverIRQHandler(void)
 
 #endif /* 4/8/16/32 channels (No Shared)  */
 #endif /* FSL_FEATURE_EDMA_MODULE_CHANNEL_IRQ_ENTRY_SHARED_OFFSET */
+
+#ifdef __cplusplus
+}
+#endif
+

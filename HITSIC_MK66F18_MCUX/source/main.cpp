@@ -117,7 +117,7 @@ void main()
 //	MENU_PrintDisp();
 	extern const uint8_t DISP_image_100thAnniversary[8][128];
 	DISP_SSD1306_BufferUpload((uint8_t*)DISP_image_100thAnniversary);
-
+	SDK_DelayAtLeastUs(1000 * 1000,CLOCK_GetFreq(kCLOCK_CoreSysClk));
 	/** 初始化摄像头 */
 	//CAMERA_Init();
 	/** 初始化IMU */

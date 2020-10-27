@@ -338,6 +338,102 @@ static void PIT_init(void) {
  * RTEPIP_Device functional group
  **********************************************************************************************************************/
 /***********************************************************************************************************************
+ * CAM_UART initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'CAM_UART'
+- type: 'uart'
+- mode: 'polling'
+- custom_name_enabled: 'true'
+- type_id: 'uart_88ab1eca0cddb7ee407685775de016d5'
+- functional_group: 'RTEPIP_Device'
+- peripheral: 'UART3'
+- config_sets:
+  - uartConfig_t:
+    - uartConfig:
+      - clockSource: 'BusInterfaceClock'
+      - clockSourceFreq: 'GetFreq'
+      - baudRate_Bps: '9600'
+      - parityMode: 'kUART_ParityDisabled'
+      - stopBitCount: 'kUART_OneStopBit'
+      - txFifoWatermark: '0'
+      - rxFifoWatermark: '1'
+      - idleType: 'kUART_IdleTypeStartBit'
+      - enableTx: 'true'
+      - enableRx: 'true'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const uart_config_t CAM_UART_config = {
+  .baudRate_Bps = 9600,
+  .parityMode = kUART_ParityDisabled,
+  .stopBitCount = kUART_OneStopBit,
+  .txFifoWatermark = 0,
+  .rxFifoWatermark = 1,
+  .idleType = kUART_IdleTypeStartBit,
+  .enableTx = true,
+  .enableRx = true
+};
+
+static void CAM_UART_init(void) {
+  UART_Init(CAM_UART_PERIPHERAL, &CAM_UART_config, CAM_UART_CLOCK_SOURCE);
+}
+
+/***********************************************************************************************************************
+ * DBG_LPUART initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'DBG_LPUART'
+- type: 'lpuart'
+- mode: 'polling'
+- custom_name_enabled: 'true'
+- type_id: 'lpuart_54a65a580e3462acdbacefd5299e0cac'
+- functional_group: 'RTEPIP_Device'
+- peripheral: 'LPUART0'
+- config_sets:
+  - lpuartConfig_t:
+    - lpuartConfig:
+      - clockSource: 'LpuartClock'
+      - lpuartSrcClkFreq: 'RTECLK_HsRun_180MHz'
+      - baudRate_Bps: '921600'
+      - parityMode: 'kLPUART_ParityDisabled'
+      - dataBitsCount: 'kLPUART_EightDataBits'
+      - isMsb: 'false'
+      - stopBitCount: 'kLPUART_OneStopBit'
+      - enableRxRTS: 'false'
+      - enableTxCTS: 'false'
+      - txCtsSource: 'kLPUART_CtsSourcePin'
+      - txCtsConfig: 'kLPUART_CtsSampleAtStart'
+      - rxIdleType: 'kLPUART_IdleTypeStartBit'
+      - rxIdleConfig: 'kLPUART_IdleCharacter1'
+      - enableTx: 'true'
+      - enableRx: 'true'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const lpuart_config_t DBG_LPUART_config = {
+  .baudRate_Bps = 921600,
+  .parityMode = kLPUART_ParityDisabled,
+  .dataBitsCount = kLPUART_EightDataBits,
+  .isMsb = false,
+  .stopBitCount = kLPUART_OneStopBit,
+  .enableRxRTS = false,
+  .enableTxCTS = false,
+  .txCtsSource = kLPUART_CtsSourcePin,
+  .txCtsConfig = kLPUART_CtsSampleAtStart,
+  .rxIdleType = kLPUART_IdleTypeStartBit,
+  .rxIdleConfig = kLPUART_IdleCharacter1,
+  .enableTx = true,
+  .enableRx = true
+};
+
+static void DBG_LPUART_init(void) {
+  LPUART_Init(DBG_LPUART_PERIPHERAL, &DBG_LPUART_config, DBG_LPUART_CLOCK_SOURCE);
+}
+
+/***********************************************************************************************************************
  * ENCO_L initialization code
  **********************************************************************************************************************/
 /* clang-format off */
@@ -502,6 +598,43 @@ static void ENCO_R_init(void) {
 }
 
 /***********************************************************************************************************************
+ * IMU_I2C initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'IMU_I2C'
+- type: 'i2c'
+- mode: 'I2C_Polling'
+- custom_name_enabled: 'true'
+- type_id: 'i2c_2566d7363e7e9aaedabb432110e372d7'
+- functional_group: 'RTEPIP_Device'
+- peripheral: 'I2C0'
+- config_sets:
+  - fsl_i2c:
+    - i2c_mode: 'kI2C_Master'
+    - clockSource: 'BusInterfaceClock'
+    - clockSourceFreq: 'GetFreq'
+    - i2c_master_config:
+      - enableMaster: 'true'
+      - enableStopHold: 'false'
+      - baudRate_Bps: '400000'
+      - glitchFilterWidth: '0'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const i2c_master_config_t IMU_I2C_config = {
+  .enableMaster = true,
+  .enableStopHold = false,
+  .baudRate_Bps = 400000,
+  .glitchFilterWidth = 0
+};
+
+static void IMU_I2C_init(void) {
+  /* Initialization function */
+  I2C_MasterInit(IMU_I2C_PERIPHERAL, &IMU_I2C_config, IMU_I2C_CLK_FREQ);
+}
+
+/***********************************************************************************************************************
  * MOTOR initialization code
  **********************************************************************************************************************/
 /* clang-format off */
@@ -520,8 +653,8 @@ instance:
       - clockSource: 'kFTM_SystemClock'
       - clockSourceFreq: 'GetFreq'
       - prescale: 'kFTM_Prescale_Divide_1'
-      - timerFrequency: '12000'
-      - bdmMode: 'kFTM_BdmMode_0'
+      - timerFrequency: '20000'
+      - bdmMode: 'kFTM_BdmMode_3'
       - pwmSyncMode: 'kFTM_SoftwareTrigger'
       - reloadPoints: 'kFTM_CntMax kFTM_CntMin'
       - faultMode: 'kFTM_Fault_Disable'
@@ -567,7 +700,7 @@ instance:
 /* clang-format on */
 const ftm_config_t MOTOR_config = {
   .prescale = kFTM_Prescale_Divide_1,
-  .bdmMode = kFTM_BdmMode_0,
+  .bdmMode = kFTM_BdmMode_3,
   .pwmSyncMode = kFTM_SoftwareTrigger,
   .reloadPoints = kFTM_CntMax | kFTM_CntMin,
   .faultMode = kFTM_Fault_Disable,
@@ -604,85 +737,8 @@ const ftm_chnl_pwm_signal_param_t MOTOR_centerPwmSignalParams[] = {
 
 static void MOTOR_init(void) {
   FTM_Init(MOTOR_PERIPHERAL, &MOTOR_config);
-  FTM_SetupPwm(MOTOR_PERIPHERAL, MOTOR_centerPwmSignalParams, sizeof(MOTOR_centerPwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_CenterAlignedPwm, 12000U, MOTOR_CLOCK_SOURCE);
+  FTM_SetupPwm(MOTOR_PERIPHERAL, MOTOR_centerPwmSignalParams, sizeof(MOTOR_centerPwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_CenterAlignedPwm, 20000U, MOTOR_CLOCK_SOURCE);
   FTM_StartTimer(MOTOR_PERIPHERAL, kFTM_SystemClock);
-}
-
-/***********************************************************************************************************************
- * SERVO initialization code
- **********************************************************************************************************************/
-/* clang-format off */
-/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-instance:
-- name: 'SERVO'
-- type: 'ftm'
-- mode: 'CenterAligned'
-- custom_name_enabled: 'true'
-- type_id: 'ftm_04a15ae4af2b404bf2ae403c3dbe98b3'
-- functional_group: 'RTEPIP_Device'
-- peripheral: 'FTM3'
-- config_sets:
-  - ftm_main_config:
-    - ftm_config:
-      - clockSource: 'kFTM_SystemClock'
-      - clockSourceFreq: 'GetFreq'
-      - prescale: 'kFTM_Prescale_Divide_16'
-      - timerFrequency: '50'
-      - bdmMode: 'kFTM_BdmMode_3'
-      - pwmSyncMode: 'kFTM_SoftwareTrigger'
-      - reloadPoints: 'kFTM_CntMin'
-      - faultMode: 'kFTM_Fault_Disable'
-      - faultFilterValue: '0'
-      - deadTimePrescale: 'kFTM_Deadtime_Prescale_1'
-      - deadTimeValue: '0'
-      - extTriggers: ''
-      - chnlInitState: ''
-      - chnlPolarity: ''
-      - useGlobalTimeBase: 'false'
-    - timer_interrupts: ''
-    - enable_irq: 'false'
-    - ftm_interrupt:
-      - IRQn: 'FTM3_IRQn'
-      - enable_interrrupt: 'enabled'
-      - enable_priority: 'false'
-      - priority: '0'
-      - enable_custom_name: 'false'
-    - EnableTimerInInit: 'true'
-  - ftm_center_aligned_mode:
-    - ftm_center_aligned_channels_config:
-      - 0:
-        - chnlNumber: 'kFTM_Chnl_7'
-        - level: 'kFTM_HighTrue'
-        - dutyCyclePercent: '0'
-        - enable_chan_irq: 'false'
- * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
-/* clang-format on */
-const ftm_config_t SERVO_config = {
-  .prescale = kFTM_Prescale_Divide_16,
-  .bdmMode = kFTM_BdmMode_3,
-  .pwmSyncMode = kFTM_SoftwareTrigger,
-  .reloadPoints = kFTM_CntMin,
-  .faultMode = kFTM_Fault_Disable,
-  .faultFilterValue = 0,
-  .deadTimePrescale = kFTM_Deadtime_Prescale_1,
-  .deadTimeValue = 0,
-  .extTriggers = 0,
-  .chnlInitState = 0,
-  .chnlPolarity = 0,
-  .useGlobalTimeBase = false
-};
-const ftm_chnl_pwm_signal_param_t SERVO_centerPwmSignalParams[] = { 
-  {
-    .chnlNumber = kFTM_Chnl_7,
-    .level = kFTM_HighTrue,
-    .dutyCyclePercent = 0
-  }
-};
-
-static void SERVO_init(void) {
-  FTM_Init(SERVO_PERIPHERAL, &SERVO_config);
-  FTM_SetupPwm(SERVO_PERIPHERAL, SERVO_centerPwmSignalParams, sizeof(SERVO_centerPwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_CenterAlignedPwm, 50U, SERVO_CLOCK_SOURCE);
-  FTM_StartTimer(SERVO_PERIPHERAL, kFTM_SystemClock);
 }
 
 /***********************************************************************************************************************
@@ -748,6 +804,83 @@ static void OLED_SPI_init(void) {
 }
 
 /***********************************************************************************************************************
+ * SERVO initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'SERVO'
+- type: 'ftm'
+- mode: 'CenterAligned'
+- custom_name_enabled: 'true'
+- type_id: 'ftm_04a15ae4af2b404bf2ae403c3dbe98b3'
+- functional_group: 'RTEPIP_Device'
+- peripheral: 'FTM3'
+- config_sets:
+  - ftm_main_config:
+    - ftm_config:
+      - clockSource: 'kFTM_SystemClock'
+      - clockSourceFreq: 'GetFreq'
+      - prescale: 'kFTM_Prescale_Divide_16'
+      - timerFrequency: '50'
+      - bdmMode: 'kFTM_BdmMode_3'
+      - pwmSyncMode: 'kFTM_SoftwareTrigger'
+      - reloadPoints: 'kFTM_CntMin'
+      - faultMode: 'kFTM_Fault_Disable'
+      - faultFilterValue: '0'
+      - deadTimePrescale: 'kFTM_Deadtime_Prescale_1'
+      - deadTimeValue: '0'
+      - extTriggers: ''
+      - chnlInitState: ''
+      - chnlPolarity: ''
+      - useGlobalTimeBase: 'false'
+    - timer_interrupts: ''
+    - enable_irq: 'false'
+    - ftm_interrupt:
+      - IRQn: 'FTM3_IRQn'
+      - enable_interrrupt: 'enabled'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - EnableTimerInInit: 'true'
+  - ftm_center_aligned_mode:
+    - ftm_center_aligned_channels_config:
+      - 0:
+        - chnlNumber: 'kFTM_Chnl_7'
+        - level: 'kFTM_HighTrue'
+        - dutyCyclePercent: '30'
+        - enable_chan_irq: 'false'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const ftm_config_t SERVO_config = {
+  .prescale = kFTM_Prescale_Divide_16,
+  .bdmMode = kFTM_BdmMode_3,
+  .pwmSyncMode = kFTM_SoftwareTrigger,
+  .reloadPoints = kFTM_CntMin,
+  .faultMode = kFTM_Fault_Disable,
+  .faultFilterValue = 0,
+  .deadTimePrescale = kFTM_Deadtime_Prescale_1,
+  .deadTimeValue = 0,
+  .extTriggers = 0,
+  .chnlInitState = 0,
+  .chnlPolarity = 0,
+  .useGlobalTimeBase = false
+};
+const ftm_chnl_pwm_signal_param_t SERVO_centerPwmSignalParams[] = { 
+  {
+    .chnlNumber = kFTM_Chnl_7,
+    .level = kFTM_HighTrue,
+    .dutyCyclePercent = 30
+  }
+};
+
+static void SERVO_init(void) {
+  FTM_Init(SERVO_PERIPHERAL, &SERVO_config);
+  FTM_SetupPwm(SERVO_PERIPHERAL, SERVO_centerPwmSignalParams, sizeof(SERVO_centerPwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_CenterAlignedPwm, 50U, SERVO_CLOCK_SOURCE);
+  FTM_StartTimer(SERVO_PERIPHERAL, kFTM_SystemClock);
+}
+
+/***********************************************************************************************************************
  * WLAN_UART initialization code
  **********************************************************************************************************************/
 /* clang-format off */
@@ -791,136 +924,161 @@ static void WLAN_UART_init(void) {
 }
 
 /***********************************************************************************************************************
- * DBG_LPUART initialization code
+ * EMAG initialization code
  **********************************************************************************************************************/
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 instance:
-- name: 'DBG_LPUART'
-- type: 'lpuart'
-- mode: 'polling'
+- name: 'EMAG'
+- type: 'adc16'
+- mode: 'ADC'
 - custom_name_enabled: 'true'
-- type_id: 'lpuart_54a65a580e3462acdbacefd5299e0cac'
+- type_id: 'adc16_7a29cdeb84266e77f0c7ceac1b49fe2d'
 - functional_group: 'RTEPIP_Device'
-- peripheral: 'LPUART0'
+- peripheral: 'ADC0'
 - config_sets:
-  - lpuartConfig_t:
-    - lpuartConfig:
-      - clockSource: 'LpuartClock'
-      - lpuartSrcClkFreq: 'RTECLK_HsRun_180MHz'
-      - baudRate_Bps: '921600'
-      - parityMode: 'kLPUART_ParityDisabled'
-      - dataBitsCount: 'kLPUART_EightDataBits'
-      - isMsb: 'false'
-      - stopBitCount: 'kLPUART_OneStopBit'
-      - enableRxRTS: 'false'
-      - enableTxCTS: 'false'
-      - txCtsSource: 'kLPUART_CtsSourcePin'
-      - txCtsConfig: 'kLPUART_CtsSampleAtStart'
-      - rxIdleType: 'kLPUART_IdleTypeStartBit'
-      - rxIdleConfig: 'kLPUART_IdleCharacter1'
-      - enableTx: 'true'
-      - enableRx: 'true'
+  - fsl_adc16:
+    - adc16_config:
+      - referenceVoltageSource: 'kADC16_ReferenceVoltageSourceVref'
+      - clockSource: 'kADC16_ClockSourceAlt0'
+      - enableAsynchronousClock: 'false'
+      - clockDivider: 'kADC16_ClockDivider1'
+      - resolution: 'kADC16_Resolution8or9Bit'
+      - longSampleMode: 'kADC16_LongSampleDisabled'
+      - enableHighSpeed: 'true'
+      - enableLowPower: 'false'
+      - enableContinuousConversion: 'false'
+    - adc16_channel_mux_mode: 'kADC16_ChannelMuxA'
+    - adc16_hardware_compare_config:
+      - hardwareCompareModeEnable: 'false'
+    - doAutoCalibration: 'false'
+    - offset: '0'
+    - trigger: 'false'
+    - hardwareAverageConfiguration: 'kADC16_HardwareAverageDisabled'
+    - enable_dma: 'false'
+    - enable_irq: 'false'
+    - adc_interrupt:
+      - IRQn: 'ADC0_IRQn'
+      - enable_interrrupt: 'enabled'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - adc16_channels_config:
+      - 0:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.16'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 1:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.23'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 2:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.17'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 3:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.18'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 4:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.10'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 5:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.11'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 6:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.12'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 7:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.13'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
-const lpuart_config_t DBG_LPUART_config = {
-  .baudRate_Bps = 921600,
-  .parityMode = kLPUART_ParityDisabled,
-  .dataBitsCount = kLPUART_EightDataBits,
-  .isMsb = false,
-  .stopBitCount = kLPUART_OneStopBit,
-  .enableRxRTS = false,
-  .enableTxCTS = false,
-  .txCtsSource = kLPUART_CtsSourcePin,
-  .txCtsConfig = kLPUART_CtsSampleAtStart,
-  .rxIdleType = kLPUART_IdleTypeStartBit,
-  .rxIdleConfig = kLPUART_IdleCharacter1,
-  .enableTx = true,
-  .enableRx = true
+adc16_channel_config_t EMAG_channelsConfig[8] = {
+  {
+    .channelNumber = 16U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 23U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 17U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 18U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 10U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 11U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 12U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 13U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  }
 };
-
-static void DBG_LPUART_init(void) {
-  LPUART_Init(DBG_LPUART_PERIPHERAL, &DBG_LPUART_config, DBG_LPUART_CLOCK_SOURCE);
-}
-
-/***********************************************************************************************************************
- * IMU_I2C initialization code
- **********************************************************************************************************************/
-/* clang-format off */
-/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-instance:
-- name: 'IMU_I2C'
-- type: 'i2c'
-- mode: 'I2C_Polling'
-- custom_name_enabled: 'true'
-- type_id: 'i2c_2566d7363e7e9aaedabb432110e372d7'
-- functional_group: 'RTEPIP_Device'
-- peripheral: 'I2C0'
-- config_sets:
-  - fsl_i2c:
-    - i2c_mode: 'kI2C_Master'
-    - clockSource: 'BusInterfaceClock'
-    - clockSourceFreq: 'GetFreq'
-    - i2c_master_config:
-      - enableMaster: 'true'
-      - enableStopHold: 'false'
-      - baudRate_Bps: '400000'
-      - glitchFilterWidth: '0'
- * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
-/* clang-format on */
-const i2c_master_config_t IMU_I2C_config = {
-  .enableMaster = true,
-  .enableStopHold = false,
-  .baudRate_Bps = 400000,
-  .glitchFilterWidth = 0
+const adc16_config_t EMAG_config = {
+  .referenceVoltageSource = kADC16_ReferenceVoltageSourceVref,
+  .clockSource = kADC16_ClockSourceAlt0,
+  .enableAsynchronousClock = false,
+  .clockDivider = kADC16_ClockDivider1,
+  .resolution = kADC16_Resolution8or9Bit,
+  .longSampleMode = kADC16_LongSampleDisabled,
+  .enableHighSpeed = true,
+  .enableLowPower = false,
+  .enableContinuousConversion = false
 };
+const adc16_channel_mux_mode_t EMAG_muxMode = kADC16_ChannelMuxA;
+const adc16_hardware_average_mode_t EMAG_hardwareAverageMode = kADC16_HardwareAverageDisabled;
 
-static void IMU_I2C_init(void) {
-  /* Initialization function */
-  I2C_MasterInit(IMU_I2C_PERIPHERAL, &IMU_I2C_config, IMU_I2C_CLK_FREQ);
-}
-
-/***********************************************************************************************************************
- * CAM_UART initialization code
- **********************************************************************************************************************/
-/* clang-format off */
-/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-instance:
-- name: 'CAM_UART'
-- type: 'uart'
-- mode: 'polling'
-- custom_name_enabled: 'true'
-- type_id: 'uart_88ab1eca0cddb7ee407685775de016d5'
-- functional_group: 'RTEPIP_Device'
-- peripheral: 'UART3'
-- config_sets:
-  - uartConfig_t:
-    - uartConfig:
-      - clockSource: 'BusInterfaceClock'
-      - clockSourceFreq: 'GetFreq'
-      - baudRate_Bps: '9600'
-      - parityMode: 'kUART_ParityDisabled'
-      - stopBitCount: 'kUART_OneStopBit'
-      - txFifoWatermark: '0'
-      - rxFifoWatermark: '1'
-      - idleType: 'kUART_IdleTypeStartBit'
-      - enableTx: 'true'
-      - enableRx: 'true'
- * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
-/* clang-format on */
-const uart_config_t CAM_UART_config = {
-  .baudRate_Bps = 9600,
-  .parityMode = kUART_ParityDisabled,
-  .stopBitCount = kUART_OneStopBit,
-  .txFifoWatermark = 0,
-  .rxFifoWatermark = 1,
-  .idleType = kUART_IdleTypeStartBit,
-  .enableTx = true,
-  .enableRx = true
-};
-
-static void CAM_UART_init(void) {
-  UART_Init(CAM_UART_PERIPHERAL, &CAM_UART_config, CAM_UART_CLOCK_SOURCE);
+static void EMAG_init(void) {
+  /* Initialize ADC16 converter */
+  ADC16_Init(EMAG_PERIPHERAL, &EMAG_config);
+  /* Make sure, that software trigger is used */
+  ADC16_EnableHardwareTrigger(EMAG_PERIPHERAL, false);
+  /* Configure hardware average mode */
+  ADC16_SetHardwareAverage(EMAG_PERIPHERAL, EMAG_hardwareAverageMode);
+  /* Configure channel multiplexing mode */
+  ADC16_SetChannelMuxMode(EMAG_PERIPHERAL, EMAG_muxMode);
 }
 
 /***********************************************************************************************************************
@@ -946,15 +1104,16 @@ void RTEPIP_Basic(void)
 void RTEPIP_Device(void)
 {
   /* Initialize components */
+  CAM_UART_init();
+  DBG_LPUART_init();
   ENCO_L_init();
   ENCO_R_init();
-  MOTOR_init();
-  SERVO_init();
-  OLED_SPI_init();
-  WLAN_UART_init();
-  DBG_LPUART_init();
   IMU_I2C_init();
-  CAM_UART_init();
+  MOTOR_init();
+  OLED_SPI_init();
+  SERVO_init();
+  WLAN_UART_init();
+  EMAG_init();
 }
 
 /***********************************************************************************************************************

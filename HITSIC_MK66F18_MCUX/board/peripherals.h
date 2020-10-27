@@ -16,12 +16,13 @@
 #include "fsl_port.h"
 #include "fsl_lptmr.h"
 #include "fsl_pit.h"
-#include "fsl_clock.h"
-#include "fsl_ftm.h"
-#include "fsl_dspi.h"
 #include "fsl_uart.h"
+#include "fsl_clock.h"
 #include "fsl_lpuart.h"
+#include "fsl_ftm.h"
 #include "fsl_i2c.h"
+#include "fsl_dspi.h"
+#include "fsl_adc16.h"
 
 #if defined(__cplusplus)
 extern "C" {
@@ -112,6 +113,14 @@ extern "C" {
 
 /* Definitions for RTEPIP_Device functional group */
 /* Definition of peripheral ID */
+#define CAM_UART_PERIPHERAL UART3
+/* Definition of the clock source frequency */
+#define CAM_UART_CLOCK_SOURCE CLOCK_GetFreq(UART3_CLK_SRC)
+/* Definition of peripheral ID */
+#define DBG_LPUART_PERIPHERAL LPUART0
+/* Definition of the clock source frequency */
+#define DBG_LPUART_CLOCK_SOURCE 180000000UL
+/* Definition of peripheral ID */
 #define ENCO_L_PERIPHERAL FTM2
 /* Definition of the clock source frequency */
 #define ENCO_L_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
@@ -127,37 +136,6 @@ extern "C" {
 #define ENCO_R_IRQN FTM1_IRQn
 /* ENCO_R interrupt handler identifier. */
 #define ENCO_R_IRQHANDLER FTM1_IRQHandler
-/* Definition of peripheral ID */
-#define MOTOR_PERIPHERAL FTM0
-/* Definition of the clock source frequency */
-#define MOTOR_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
-/* MOTOR interrupt vector ID (number). */
-#define MOTOR_IRQN FTM0_IRQn
-/* MOTOR interrupt handler identifier. */
-#define MOTOR_IRQHANDLER FTM0_IRQHandler
-/* Definition of peripheral ID */
-#define SERVO_PERIPHERAL FTM3
-/* Definition of the clock source frequency */
-#define SERVO_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
-/* SERVO interrupt vector ID (number). */
-#define SERVO_IRQN FTM3_IRQn
-/* SERVO interrupt handler identifier. */
-#define SERVO_IRQHANDLER FTM3_IRQHandler
-/* RTEPIP_Device defines for SPI2 */
-/* Definition of peripheral ID */
-#define OLED_SPI_PERIPHERAL SPI2
-/* Definition of the clock source */
-#define OLED_SPI_CLOCK_SOURCE DSPI2_CLK_SRC
-/* Definition of the clock source frequency */
-#define OLED_SPI_CLK_FREQ CLOCK_GetFreq(OLED_SPI_CLOCK_SOURCE)
-/* Definition of peripheral ID */
-#define WLAN_UART_PERIPHERAL UART0
-/* Definition of the clock source frequency */
-#define WLAN_UART_CLOCK_SOURCE CLOCK_GetFreq(UART0_CLK_SRC)
-/* Definition of peripheral ID */
-#define DBG_LPUART_PERIPHERAL LPUART0
-/* Definition of the clock source frequency */
-#define DBG_LPUART_CLOCK_SOURCE 180000000UL
 /* RTEPIP_Device defines for I2C0 */
 /* Definition of peripheral ID */
 #define IMU_I2C_PERIPHERAL I2C0
@@ -166,9 +144,54 @@ extern "C" {
 /* Definition of the clock source frequency */
 #define IMU_I2C_CLK_FREQ CLOCK_GetFreq(IMU_I2C_CLOCK_SOURCE)
 /* Definition of peripheral ID */
-#define CAM_UART_PERIPHERAL UART3
+#define MOTOR_PERIPHERAL FTM0
 /* Definition of the clock source frequency */
-#define CAM_UART_CLOCK_SOURCE CLOCK_GetFreq(UART3_CLK_SRC)
+#define MOTOR_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
+/* MOTOR interrupt vector ID (number). */
+#define MOTOR_IRQN FTM0_IRQn
+/* MOTOR interrupt handler identifier. */
+#define MOTOR_IRQHANDLER FTM0_IRQHandler
+/* RTEPIP_Device defines for SPI2 */
+/* Definition of peripheral ID */
+#define OLED_SPI_PERIPHERAL SPI2
+/* Definition of the clock source */
+#define OLED_SPI_CLOCK_SOURCE DSPI2_CLK_SRC
+/* Definition of the clock source frequency */
+#define OLED_SPI_CLK_FREQ CLOCK_GetFreq(OLED_SPI_CLOCK_SOURCE)
+/* Definition of peripheral ID */
+#define SERVO_PERIPHERAL FTM3
+/* Definition of the clock source frequency */
+#define SERVO_CLOCK_SOURCE CLOCK_GetFreq(kCLOCK_BusClk)
+/* SERVO interrupt vector ID (number). */
+#define SERVO_IRQN FTM3_IRQn
+/* SERVO interrupt handler identifier. */
+#define SERVO_IRQHANDLER FTM3_IRQHandler
+/* Definition of peripheral ID */
+#define WLAN_UART_PERIPHERAL UART0
+/* Definition of the clock source frequency */
+#define WLAN_UART_CLOCK_SOURCE CLOCK_GetFreq(UART0_CLK_SRC)
+/* Alias for ADC0 peripheral */
+#define EMAG_PERIPHERAL ADC0
+/* EMAG interrupt vector ID (number). */
+#define EMAG_IRQN ADC0_IRQn
+/* EMAG interrupt handler identifier. */
+#define EMAG_IRQHANDLER ADC0_IRQHandler
+/* Channel 0 (SE.16) conversion control group. */
+#define EMAG_CH0_CONTROL_GROUP 0
+/* Channel 1 (SE.23) conversion control group. */
+#define EMAG_CH1_CONTROL_GROUP 0
+/* Channel 2 (SE.17) conversion control group. */
+#define EMAG_CH2_CONTROL_GROUP 0
+/* Channel 3 (SE.18) conversion control group. */
+#define EMAG_CH3_CONTROL_GROUP 0
+/* Channel 4 (SE.10) conversion control group. */
+#define EMAG_CH4_CONTROL_GROUP 0
+/* Channel 5 (SE.11) conversion control group. */
+#define EMAG_CH5_CONTROL_GROUP 0
+/* Channel 6 (SE.12) conversion control group. */
+#define EMAG_CH6_CONTROL_GROUP 0
+/* Channel 7 (SE.13) conversion control group. */
+#define EMAG_CH7_CONTROL_GROUP 0
 
 /***********************************************************************************************************************
  * Global variables
@@ -176,15 +199,19 @@ extern "C" {
 extern const edma_config_t DMA_config;
 extern const lptmr_config_t LPTMR0_config;
 extern const pit_config_t PIT_config;
+extern const uart_config_t CAM_UART_config;
+extern const lpuart_config_t DBG_LPUART_config;
 extern const ftm_config_t ENCO_L_config;
 extern const ftm_config_t ENCO_R_config;
-extern const ftm_config_t MOTOR_config;
-extern const ftm_config_t SERVO_config;
-extern const dspi_master_config_t OLED_SPI_config;
-extern const uart_config_t WLAN_UART_config;
-extern const lpuart_config_t DBG_LPUART_config;
 extern const i2c_master_config_t IMU_I2C_config;
-extern const uart_config_t CAM_UART_config;
+extern const ftm_config_t MOTOR_config;
+extern const dspi_master_config_t OLED_SPI_config;
+extern const ftm_config_t SERVO_config;
+extern const uart_config_t WLAN_UART_config;
+extern adc16_channel_config_t EMAG_channelsConfig[8];
+extern const adc16_config_t EMAG_config;
+extern const adc16_channel_mux_mode_t EMAG_muxMode;
+extern const adc16_hardware_average_mode_t EMAG_hardwareAverageMode;
 
 /***********************************************************************************************************************
  * Initialization functions

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding= "UTF-8" ?>
-<configuration name="HITSIC_MK66F18" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.8 http://mcuxpresso.nxp.com/XSD/mex_configuration_1.8.xsd" uuid="fcaace92-e1ab-468d-afed-d858b7217154" version="1.8" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<configuration name="HITSIC_MK66F18" version="1.7" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.7 http://mcuxpresso.nxp.com/XSD/mex_configuration_1.7.xsd" uuid="fcaace92-e1ab-468d-afed-d858b7217154" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <common>
       <processor>MK66FX1M0xxx18</processor>
       <package>MK66FX1M0VLQ18</package>
@@ -15,13 +15,13 @@
       <generate_code_modified_registers_only>false</generate_code_modified_registers_only>
    </preferences>
    <tools>
-      <pins name="Pins" version="8.0" enabled="true" update_project_code="true">
+      <pins name="Pins" version="7.0" enabled="true" update_project_code="true">
          <generated_project_files>
             <file path="board/pin_mux.c" update_enabled="true"/>
             <file path="board/pin_mux.h" update_enabled="true"/>
          </generated_project_files>
          <pins_profile>
-            <processor_version>8.0.1</processor_version>
+            <processor_version>7.0.1</processor_version>
             <pin_labels>
                <pin_label pin_num="141" pin_signal="PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20" label="OLED_1" identifier="OLED_1"/>
                <pin_label pin_num="142" pin_signal="PTD13/SPI2_SOUT/SDHC0_D5/FB_A21" label="OLED_3" identifier="OLED_3"/>
@@ -488,7 +488,7 @@
             <file path="board/clock_config.h" update_enabled="true"/>
          </generated_project_files>
          <clocks_profile>
-            <processor_version>8.0.1</processor_version>
+            <processor_version>7.0.1</processor_version>
          </clocks_profile>
          <clock_configurations>
             <clock_configuration name="RTECLK_HsRun_180MHz">
@@ -644,94 +644,84 @@
          </dcdx_profile>
          <dcdx_configurations/>
       </dcdx>
-      <periphs name="Peripherals" version="8.0" enabled="true" update_project_code="true">
+      <periphs name="Peripherals" version="7.0" enabled="true" update_project_code="true">
          <dependencies>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.edma" description="工具链/IDE工程中未找到EDMA Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.edma" description="在工具链/IDE 工程中未找到EDMA Driver。该工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.edma" description="工具链/IDE工程不支持EDMA Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.edma" description="该工具链/IDE 工程不支持EDMA Driver版本。所需：${required_value}, 实际：${actual_value}. 工程编译可能不正确。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.1.1</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="middleware.fatfs" description="工具链/IDE工程中未找到FAT File System stack。工程不会被编译！" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.gpio" description="在工具链/IDE 工程中未找到GPIO Driver。该工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="middleware.fatfs" description="工具链/IDE工程不支持FAT File System stack版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
-               <feature name="version" evaluation="equivalent">
-                  <data type="Version">0.14.0</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.gpio" description="工具链/IDE工程中未找到GPIO Driver。工程不会被编译！" problem_level="2" source="Peripherals">
-               <feature name="enabled" evaluation="equal">
-                  <data type="Boolean">true</data>
-               </feature>
-            </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.gpio" description="工具链/IDE工程不支持GPIO Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.gpio" description="该工具链/IDE 工程不支持GPIO Driver版本。所需：${required_value}, 实际：${actual_value}. 工程编译可能不正确。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.3.1</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.pit" description="工具链/IDE工程中未找到PIT Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.pit" description="在工具链/IDE 工程中未找到PIT Driver。该工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.pit" description="工具链/IDE工程不支持PIT Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.pit" description="该工具链/IDE 工程不支持PIT Driver版本。所需：${required_value}, 实际：${actual_value}. 工程编译可能不正确。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.0.0</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.ftm" description="工具链/IDE工程中未找到FTM Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.ftm" description="在工具链/IDE 工程中未找到FTM Driver。该工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.ftm" description="工具链/IDE工程不支持FTM Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.ftm" description="该工具链/IDE 工程不支持FTM Driver版本。所需：${required_value}, 实际：${actual_value}. 工程编译可能不正确。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="compatible">
                   <data type="Version">2.1.0</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.i2c" description="工具链/IDE工程中未找到I2C Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.i2c" description="在工具链/IDE 工程中未找到I2C Driver。该工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.i2c" description="工具链/IDE工程不支持I2C Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.i2c" description="该工具链/IDE 工程不支持I2C Driver版本。所需：${required_value}, 实际：${actual_value}. 工程编译可能不正确。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.0.5</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.dspi" description="工具链/IDE工程中未找到DSPI Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.dspi" description="在工具链/IDE 工程中未找到DSPI Driver。该工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.dspi" description="工具链/IDE工程不支持DSPI Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.dspi" description="该工具链/IDE 工程不支持DSPI Driver版本。所需：${required_value}, 实际：${actual_value}. 工程编译可能不正确。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.2.0</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.uart" description="工具链/IDE工程中未找到UART Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.uart" description="在工具链/IDE 工程中未找到UART Driver。该工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.uart" description="工具链/IDE工程不支持UART Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.uart" description="该工具链/IDE 工程不支持UART Driver版本。所需：${required_value}, 实际：${actual_value}. 工程编译可能不正确。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.1.5</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.adc16" description="工具链/IDE工程中未找到ADC16 Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.adc16" description="在工具链/IDE 工程中未找到ADC16 Driver。该工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
                </feature>
             </dependency>
-            <dependency resourceType="SWComponent" resourceId="platform.drivers.adc16" description="工具链/IDE工程不支持ADC16 Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.adc16" description="该工具链/IDE 工程不支持ADC16 Driver版本。所需：${required_value}, 实际：${actual_value}. 工程编译可能不正确。" problem_level="1" source="Peripherals">
                <feature name="version" evaluation="equivalent">
                   <data type="Version">2.0.0</data>
                </feature>
@@ -743,29 +733,24 @@
             <file path="source/ffconf.h" update_enabled="true"/>
          </generated_project_files>
          <peripherals_profile>
-            <processor_version>8.0.1</processor_version>
+            <processor_version>7.0.1</processor_version>
          </peripherals_profile>
          <functional_groups>
             <functional_group name="RTEPIP_BasicPip" uuid="42ed13d3-6282-46e3-ae99-1dfb10997aed" called_from_default_init="false" id_prefix="" core="core0">
                <description></description>
                <options/>
                <dependencies>
-                  <dependency resourceType="SWComponent" resourceId="platform.drivers.dmamux" description="The fsl_dmamux driver is missing in the project (required for the eDMA)." problem_level="1" source="Peripherals:RTEPIP_BasicPip">
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.dmamux" description="The fsl_dmamux driver is missing in the project (required for the eDMA).问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_BasicPip">
                      <feature name="enabled" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="SWComponent" resourceId="platform.drivers.dmamux" description="The compatible version of the fsl_dmamux driver is not available in the project (required for the eDMA)." problem_level="1" source="Peripherals:RTEPIP_BasicPip">
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.dmamux" description="The compatible version of the fsl_dmamux driver is not available in the project (required for the eDMA).问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_BasicPip">
                      <feature name="version" evaluation="compatible">
                         <data type="Version">2.0.2</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="SWComponent" resourceId="middleware.fatfs.sd" description="The fsl_sd_disk driver is missing in the project (required for FATFS)." problem_level="1" source="Peripherals:RTEPIP_BasicPip">
-                     <feature name="enabled" evaluation="equal">
-                        <data type="Boolean">true</data>
-                     </feature>
-                  </dependency>
-                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_BasicPip">
+                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_BasicPip">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
                      </feature>
@@ -784,108 +769,11 @@
                         <array name="edma_channels"/>
                      </config_set>
                   </instance>
-                  <instance name="FATFS" uuid="60166c65-dc50-479a-86f1-7eeffaee347a" type="fatfs" type_id="fatfs_2f85acf758668258920f70258052a088" mode="general" enabled="true" comment="" custom_name_enabled="false">
-                     <config_set name="init_config">
-                        <struct name="initConfig">
-                           <setting name="initPartitionsStr" value="false"/>
-                           <array name="multiplePartitions">
-                              <struct name="0">
-                                 <setting name="Volume" value="0"/>
-                                 <setting name="Partition" value="autoDetect"/>
-                              </struct>
-                              <struct name="1">
-                                 <setting name="Volume" value="0"/>
-                                 <setting name="Partition" value="autoDetect"/>
-                              </struct>
-                           </array>
-                           <setting name="enablePhysicalLayerInit" value="true"/>
-                           <struct name="diskConfig">
-                              <setting name="initFunctionID" value="FATFS_DiskInit"/>
-                           </struct>
-                           <setting name="initResultObject" value="false"/>
-                           <setting name="resultName" value="FATFS_Result"/>
-                           <array name="fatfsObjects">
-                              <struct name="0">
-                                 <setting name="objID" value="FATFS_System_0"/>
-                                 <setting name="diskMount" value="false"/>
-                                 <setting name="mountPath" value="0:"/>
-                                 <setting name="mountInitOpt" value="false"/>
-                              </struct>
-                           </array>
-                           <array name="filObjects"/>
-                           <array name="filInfoObjects"/>
-                           <array name="dirObjects"/>
-                        </struct>
-                     </config_set>
-                     <config_set name="ff_config">
-                        <setting name="revisionID" value="rev14_1"/>
-                        <setting name="MSDKadaptation" value="SD_DISK_ENABLE"/>
-                        <struct name="functionConfig">
-                           <setting name="FF_FS_READONLY" value="false"/>
-                           <setting name="FF_FS_MINIMIZE" value="level1"/>
-                           <setting name="FF_USE_STRFUNC" value="enableWithoutConversion"/>
-                           <setting name="FF_USE_FIND" value="disableDirRead"/>
-                           <setting name="FF_USE_MKFS" value="true"/>
-                           <setting name="FF_USE_FASTSEEK" value="true"/>
-                           <setting name="FF_USE_EXPAND" value="true"/>
-                           <setting name="FF_USE_CHMOD" value="true"/>
-                           <setting name="FF_USE_LABEL" value="true"/>
-                           <setting name="FF_USE_FORWARD" value="true"/>
-                        </struct>
-                        <struct name="namespaceConfig">
-                           <setting name="FF_USE_LFN" value="enableLfnHeap"/>
-                           <setting name="FF_MAX_LFN" value="255"/>
-                           <setting name="FF_LFN_BUF" value="LFNID"/>
-                           <setting name="FF_SFN_BUF" value="SFNID"/>
-                           <setting name="FF_LFN_UNICODE" value="UTF8"/>
-                           <setting name="FF_STRF_ENCODE" value="UTF8"/>
-                           <setting name="FF_CODE_PAGE" value="cpSimpleChinese"/>
-                           <setting name="FF_FS_RPATH" value="enableRP2"/>
-                        </struct>
-                        <struct name="driveConfig">
-                           <setting name="FF_VOLUMES" value="2"/>
-                           <setting name="FF_STR_VOLUME_ID" value="stringIdWindows"/>
-                           <array name="volumes">
-                              <struct name="0">
-                                 <setting name="volumeStr" value="RAM"/>
-                              </struct>
-                              <struct name="1">
-                                 <setting name="volumeStr" value="SDCard"/>
-                              </struct>
-                           </array>
-                           <setting name="FF_MULTI_PARTITION" value="false"/>
-                           <setting name="FF_MIN_SS" value="value512"/>
-                           <setting name="FF_MAX_SS" value="value512"/>
-                           <setting name="FF_LBA64" value="false"/>
-                           <setting name="FF_MIN_GPT" value="0x100000000"/>
-                           <setting name="FF_USE_TRIM" value="false"/>
-                        </struct>
-                        <struct name="systemConfig">
-                           <setting name="FF_FS_TINY" value="false"/>
-                           <setting name="FF_FS_EXFAT" value="false"/>
-                           <setting name="FF_FS_NORTC" value="false"/>
-                           <setting name="FF_NORTC_MON" value="1"/>
-                           <setting name="FF_NORTC_MDAY" value="1"/>
-                           <setting name="FF_NORTC_YEAR" value="2020"/>
-                           <set name="FF_FS_NOFSINFO">
-                              <selected/>
-                           </set>
-                           <setting name="FF_FS_LOCK" value="0"/>
-                           <setting name="FF_FS_REENTRANT" value="false"/>
-                           <setting name="FF_FS_TIMEOUT" value="1000"/>
-                           <setting name="FF_SYNC_t" value="HANDLE"/>
-                           <setting name="includeOS" value="false"/>
-                           <setting name="headerFileName" value="somertos.h"/>
-                        </struct>
-                        <struct name="fatfs_codegenerator"/>
-                     </config_set>
-                  </instance>
                   <instance name="GPIOA" uuid="88c41041-e34c-4d92-a12e-ca1b52625e66" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOA" enabled="true" comment="" custom_name_enabled="true">
                      <config_set name="fsl_gpio">
                         <setting name="enable_irq" value="true"/>
                         <struct name="port_interrupt">
                            <setting name="IRQn" value="PORTA_IRQn"/>
-                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="true"/>
                            <setting name="priority" value="6"/>
                            <setting name="enable_custom_name" value="true"/>
@@ -898,7 +786,6 @@
                         <setting name="enable_irq" value="true"/>
                         <struct name="port_interrupt">
                            <setting name="IRQn" value="PORTB_IRQn"/>
-                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="true"/>
                            <setting name="priority" value="6"/>
                            <setting name="enable_custom_name" value="true"/>
@@ -911,7 +798,6 @@
                         <setting name="enable_irq" value="true"/>
                         <struct name="port_interrupt">
                            <setting name="IRQn" value="PORTC_IRQn"/>
-                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="true"/>
                            <setting name="priority" value="6"/>
                            <setting name="enable_custom_name" value="true"/>
@@ -924,7 +810,6 @@
                         <setting name="enable_irq" value="true"/>
                         <struct name="port_interrupt">
                            <setting name="IRQn" value="PORTD_IRQn"/>
-                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="true"/>
                            <setting name="priority" value="6"/>
                            <setting name="enable_custom_name" value="true"/>
@@ -937,7 +822,6 @@
                         <setting name="enable_irq" value="true"/>
                         <struct name="port_interrupt">
                            <setting name="IRQn" value="PORTE_IRQn"/>
-                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="true"/>
                            <setting name="priority" value="6"/>
                            <setting name="enable_custom_name" value="true"/>
@@ -962,7 +846,6 @@
                               <setting name="enableInterrupt" value="false"/>
                               <struct name="interrupt">
                                  <setting name="IRQn" value="PIT0_IRQn"/>
-                                 <setting name="enable_interrrupt" value="enabled"/>
                                  <setting name="enable_priority" value="false"/>
                                  <setting name="priority" value="0"/>
                                  <setting name="enable_custom_name" value="false"/>
@@ -977,7 +860,6 @@
                               <setting name="enableInterrupt" value="false"/>
                               <struct name="interrupt">
                                  <setting name="IRQn" value="PIT1_IRQn"/>
-                                 <setting name="enable_interrrupt" value="enabled"/>
                                  <setting name="enable_priority" value="false"/>
                                  <setting name="priority" value="0"/>
                                  <setting name="enable_custom_name" value="false"/>
@@ -992,7 +874,6 @@
                               <setting name="enableInterrupt" value="true"/>
                               <struct name="interrupt">
                                  <setting name="IRQn" value="PIT2_IRQn"/>
-                                 <setting name="enable_interrrupt" value="enabled"/>
                                  <setting name="enable_priority" value="false"/>
                                  <setting name="priority" value="0"/>
                                  <setting name="enable_custom_name" value="false"/>
@@ -1007,152 +888,152 @@
                <description></description>
                <options/>
                <dependencies>
-                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM0.tmr_ch.0" description="Signal CH0 of peripheral FTM0 is not routed" problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM0.tmr_ch.0" description="Signal CH0 of peripheral FTM0 is not routed问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM0.tmr_ch.1" description="Signal CH1 of peripheral FTM0 is not routed" problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM0.tmr_ch.1" description="Signal CH1 of peripheral FTM0 is not routed问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM0.tmr_ch.2" description="Signal CH2 of peripheral FTM0 is not routed" problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM0.tmr_ch.2" description="Signal CH2 of peripheral FTM0 is not routed问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM0.tmr_ch.3" description="Signal CH3 of peripheral FTM0 is not routed" problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM0.tmr_ch.3" description="Signal CH3 of peripheral FTM0 is not routed问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM1.tmr_qd_ph.A" description="Quadrature decoder phase A signal is not supported for the device FTM1" problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM1.tmr_qd_ph.A" description="Quadrature decoder phase A signal is not supported for the device FTM1问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="exists" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM1.tmr_qd_ph.A" description="Quadrature decoder phase A signal is not routed (FTM1 device)." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM1.tmr_qd_ph.A" description="Quadrature decoder phase A signal is not routed (FTM1 device).问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM1.tmr_qd_ph.B" description="Quadrature decoder phase B signal is not supported for the device FTM1" problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM1.tmr_qd_ph.B" description="Quadrature decoder phase B signal is not supported for the device FTM1问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="exists" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM1.tmr_qd_ph.B" description="Quadrature decoder phase B signal is not routed (FTM1 device)." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM1.tmr_qd_ph.B" description="Quadrature decoder phase B signal is not routed (FTM1 device).问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM2.tmr_qd_ph.A" description="Quadrature decoder phase A signal is not supported for the device FTM2" problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM2.tmr_qd_ph.A" description="Quadrature decoder phase A signal is not supported for the device FTM2问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="exists" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM2.tmr_qd_ph.A" description="Quadrature decoder phase A signal is not routed (FTM2 device)." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM2.tmr_qd_ph.A" description="Quadrature decoder phase A signal is not routed (FTM2 device).问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM2.tmr_qd_ph.B" description="Quadrature decoder phase B signal is not supported for the device FTM2" problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM2.tmr_qd_ph.B" description="Quadrature decoder phase B signal is not supported for the device FTM2问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="exists" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM2.tmr_qd_ph.B" description="Quadrature decoder phase B signal is not routed (FTM2 device)." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM2.tmr_qd_ph.B" description="Quadrature decoder phase B signal is not routed (FTM2 device).问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM3.tmr_ch.6" description="Signal CH6 of peripheral FTM3 is not routed" problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM3.tmr_ch.6" description="Signal CH6 of peripheral FTM3 is not routed问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM3.tmr_ch.7" description="Signal CH7 of peripheral FTM3 is not routed" problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="FTM3.tmr_ch.7" description="Signal CH7 of peripheral FTM3 is not routed问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="I2C0.i2c_scl" description="Signal serial clock of the peripheral I2C0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="I2C0.i2c_scl" description="Signal serial clock of the peripheral I2C0 is not routed.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="I2C0.i2c_sda" description="Signal serial data of the peripheral I2C0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="I2C0.i2c_sda" description="Signal serial data of the peripheral I2C0 is not routed.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_rxd" description="Signal serial data in of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_rxd" description="Signal serial data in of the peripheral SPI0 is not routed.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_txd" description="Signal serial data out of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_txd" description="Signal serial data out of the peripheral SPI0 is not routed.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_sck" description="Signal serial clock of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_sck" description="Signal serial clock of the peripheral SPI0 is not routed.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_cs0" description="Signal chip select 0 of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_cs0" description="Signal chip select 0 of the peripheral SPI0 is not routed.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="ClockOutput" resourceId="System_clock" description="System clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="ClockOutput" resourceId="System_clock" description="System clock is inactive.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART0.uart_tx" description="Signal TX of the peripheral UART0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART0.uart_tx" description="Signal TX of the peripheral UART0 is not routed.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART0.uart_rx" description="Signal RX of the peripheral UART0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART0.uart_rx" description="Signal RX of the peripheral UART0 is not routed.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART3.uart_tx" description="Signal TX of the peripheral UART3 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART3.uart_tx" description="Signal TX of the peripheral UART3 is not routed.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART3.uart_rx" description="Signal RX of the peripheral UART3 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="UART3.uart_rx" description="Signal RX of the peripheral UART3 is not routed.问题必须在其它工具中被解决。" problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
                      </feature>
@@ -1196,7 +1077,6 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="ftm_interrupt">
                            <setting name="IRQn" value="FTM0_IRQn"/>
-                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1266,7 +1146,6 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="ftm_interrupt">
                            <setting name="IRQn" value="FTM1_IRQn"/>
-                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1321,7 +1200,6 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="ftm_interrupt">
                            <setting name="IRQn" value="FTM2_IRQn"/>
-                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1379,7 +1257,6 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="ftm_interrupt">
                            <setting name="IRQn" value="FTM3_IRQn"/>
-                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1505,7 +1382,6 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="adc_interrupt">
                            <setting name="IRQn" value="ADC0_IRQn"/>
-                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1537,7 +1413,6 @@
                         <setting name="enable_irq" value="false"/>
                         <struct name="adc_interrupt">
                            <setting name="IRQn" value="ADC1_IRQn"/>
-                           <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="false"/>
                            <setting name="priority" value="0"/>
                            <setting name="enable_custom_name" value="false"/>
@@ -1550,19 +1425,10 @@
          </functional_groups>
          <components>
             <component name="system" uuid="94838ca2-0efb-47b2-a4e2-449f54344af5" type_id="system_54b53072540eeeb8f8e9343e71f28176">
-               <config_set_global name="global_system_definitions">
-                  <setting name="user_definitions" value=""/>
-                  <setting name="user_includes" value=""/>
-               </config_set_global>
+               <config_set_global name="global_system_definitions"/>
             </component>
-            <component name="msg" uuid="6f63bde5-2238-4131-a9fb-23572bca742e" type_id="msg_6e2baaf3b97dbeef01c0043275f9a0e7">
+            <component name="msg" uuid="93c0e277-0f4a-4453-8765-057577c5ce36" type_id="msg_6e2baaf3b97dbeef01c0043275f9a0e7">
                <config_set_global name="global_messages"/>
-            </component>
-            <component name="generic_uart" uuid="004abe0e-6fa2-48a8-ad8c-cedf6850d803" type_id="generic_uart_8cae00565451cf2346eb1b8c624e73a6">
-               <config_set_global name="global_uart"/>
-            </component>
-            <component name="generic_can" uuid="405e0eb5-2104-4c73-b114-a55b7685e1e4" type_id="generic_can_1bfdd78b1af214566c1f23cf6a582d80">
-               <config_set_global name="global_can"/>
             </component>
          </components>
       </periphs>

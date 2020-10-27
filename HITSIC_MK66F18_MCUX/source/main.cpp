@@ -62,6 +62,9 @@
 #include "diskio.h"
 #include "fsl_sd_disk.h"
 #include "sdmmc_config.h"
+#include "sc_gpio.h"
+#include "sc_adc.h"
+#include "sc_ftm.h"
 
 void FLASH_Demo(void);
 void EF_Demo(void);
@@ -110,10 +113,10 @@ void main()
 	DISP_SSD1306_Init();
 
 	/** 初始化菜单 */
-	MENU_Init();
-	MENU_Data_NvmReadRegionConfig();
-	MENU_Data_NvmRead(menu_currRegionNum);
-	MENU_PrintDisp();
+	//MENU_Init();
+	//MENU_Data_NvmReadRegionConfig();
+	//MENU_Data_NvmRead(menu_currRegionNum);
+	//MENU_PrintDisp();
 
 	/** 初始化摄像头 */
 	//CAMERA_Init();
@@ -132,16 +135,25 @@ void main()
 
 	//result = SD_HostInit(&g_sd);
 	//result = SD_CardInit(&g_sd);
-	//result = f_mount(&fatfs,"sdcard:",1);                                   //挂载SD卡
+	//result = f_mount(&fatfs,"sdcard:",1);    20mv 20KHZ                               //挂载SD卡
 
 	float f = arm_sin_f32(0.6f);
-
-   // DISP_SSD1306_Fill(0);
-
-    //DISP_SSD1306_Print_F6x8(0,0,"HITSIC!");
-
-
+	//DISP_SSD1306_Print_F6x8(0,0,"enter");
+	uint8_t adc=0;
+	AD_Init();
+	Ftm_PWM_Init(FTM0,kFTM_Chnl_0,20000,0);
+	Ftm_PWM_Init(FTM0,kFTM_Chnl_1,20000,0);
+	Ftm_PWM_Init(FTM0,kFTM_Chnl_2,20000,0);
+	Ftm_PWM_Init(FTM0,kFTM_Chnl_3,20000,0);
+	Ftm_PWM_Init(FTM3,kFTM_Chnl_7,50,0);
 	while (true)
 	{
+	    DISP_SSD1306_Print_F6x8(0,0,"     ");
+	    adc=ADC_Get(ADC0,0,10);
+	    DISP_SSD1306_Printf_F6x8(0,0,"%d",adc);
+	    SDK_DelayAtLeastUs(500*1000, 180*1000*1000);
+	    Ftm_PWM_Change(FTM0, kFTM_Chnl_0, 20000, 30);
+	    Ftm_PWM_Change(FTM0, kFTM_Chnl_2, 20000, 50);
+	    Ftm_PWM_Change(FTM3, kFTM_Chnl_7, 50, 30);
 	}
 }

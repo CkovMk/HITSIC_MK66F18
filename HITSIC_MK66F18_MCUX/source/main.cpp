@@ -71,8 +71,10 @@ FIL file;                                           //文件对象
 FATFS fatfs;                                   //逻辑驱动器的工作区
 
 #include "drv_cam_zf9v034_test.hpp"
+#include "app_menu_test.hpp"
+#include "sys_fatfs_test.hpp"
 
-void main()
+void main(void)
 {
 	/** 初始化阶段，关闭总中断 */
 	HAL_EnterCritical();
@@ -111,31 +113,27 @@ void main()
 	DISP_SSD1306_Init();
 
 	/** 初始化菜单 */
-//	MENU_Init();
-//	MENU_Data_NvmReadRegionConfig();
-//	MENU_Data_NvmRead(menu_currRegionNum);
+	MENU_Init();
+	MENU_Data_NvmReadRegionConfig();
+	MENU_Data_NvmRead(menu_currRegionNum);
 //	MENU_PrintDisp();
+	MENU_Suspend();
 	extern const uint8_t DISP_image_100thAnniversary[8][128];
 	DISP_SSD1306_BufferUpload((uint8_t*)DISP_image_100thAnniversary);
 	SDK_DelayAtLeastUs(1000 * 1000,CLOCK_GetFreq(kCLOCK_CoreSysClk));
 	/** 初始化摄像头 */
-	//CAMERA_Init();
-	/** 初始化IMU */
-	//DRVIMU_INV_GetDefaultConfig(&imu);
-	//extern sd_card_t g_sd;
-	//int result = 0;
-	//BOARD_SD_Config(&g_sd, NULL, BOARD_SDMMC_SD_HOST_IRQ_PRIORITY, NULL);
 
+	/** 初始化IMU */
 
     /** 初始化结束，开启总中断 */
 	HAL_ExitCritical();
 
+	FATFS_BasicTest();
+	//CAM_ZF9V034_UnitTest();
 
-	CAM_ZF9V034_UnitTest();
+	MENU_Resume();
 
-	//result = SD_HostInit(&g_sd);
-	//result = SD_CardInit(&g_sd);
-	//result = f_mount(&fatfs,"sdcard:",1);                                   //挂载SD卡
+	                                //挂载SD卡
 
 	float f = arm_sin_f32(0.6f);
 
@@ -143,8 +141,11 @@ void main()
 
     //DISP_SSD1306_Print_F6x8(0,0,"HITSIC!");
 
+    uint8_t sw1_state = GPIO_PinRead(GPIOA, 9U);
+
 
 	while (true)
 	{
+
 	}
 }

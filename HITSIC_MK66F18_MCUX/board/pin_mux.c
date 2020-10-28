@@ -159,12 +159,12 @@ void RTEPIN_Basic(void)
 RTEPIN_Digital:
 - options: {callFromInitBoot: 'false', coreID: core0, enableClock: 'true'}
 - pin_list:
-  - {pin_num: '1', peripheral: SDHC, signal: 'DATA, 1', pin_signal: ADC1_SE4a/PTE0/SPI1_PCS1/UART1_TX/SDHC0_D1/TRACE_CLKOUT/I2C1_SDA/RTC_CLKOUT}
-  - {pin_num: '2', peripheral: SDHC, signal: 'DATA, 0', pin_signal: ADC1_SE5a/PTE1/LLWU_P0/SPI1_SOUT/UART1_RX/SDHC0_D0/TRACE_D3/I2C1_SCL/SPI1_SIN}
-  - {pin_num: '3', peripheral: SDHC, signal: DCLK, pin_signal: ADC1_SE6a/PTE2/LLWU_P1/SPI1_SCK/UART1_CTS_b/SDHC0_DCLK/TRACE_D2}
-  - {pin_num: '4', peripheral: SDHC, signal: CMD, pin_signal: ADC1_SE7a/PTE3/SPI1_SIN/UART1_RTS_b/SDHC0_CMD/TRACE_D1/SPI1_SOUT}
-  - {pin_num: '8', peripheral: SDHC, signal: 'DATA, 2', pin_signal: PTE5/SPI1_PCS2/UART3_RX/SDHC0_D2/FTM3_CH0}
-  - {pin_num: '7', peripheral: SDHC, signal: 'DATA, 3', pin_signal: PTE4/LLWU_P2/SPI1_PCS0/UART3_TX/SDHC0_D3/TRACE_D0}
+  - {pin_num: '1', peripheral: SDHC, signal: 'DATA, 1', pin_signal: ADC1_SE4a/PTE0/SPI1_PCS1/UART1_TX/SDHC0_D1/TRACE_CLKOUT/I2C1_SDA/RTC_CLKOUT, pull_enable: disable}
+  - {pin_num: '2', peripheral: SDHC, signal: 'DATA, 0', pin_signal: ADC1_SE5a/PTE1/LLWU_P0/SPI1_SOUT/UART1_RX/SDHC0_D0/TRACE_D3/I2C1_SCL/SPI1_SIN, pull_enable: disable}
+  - {pin_num: '3', peripheral: SDHC, signal: DCLK, pin_signal: ADC1_SE6a/PTE2/LLWU_P1/SPI1_SCK/UART1_CTS_b/SDHC0_DCLK/TRACE_D2, pull_enable: disable}
+  - {pin_num: '4', peripheral: SDHC, signal: CMD, pin_signal: ADC1_SE7a/PTE3/SPI1_SIN/UART1_RTS_b/SDHC0_CMD/TRACE_D1/SPI1_SOUT, pull_enable: disable}
+  - {pin_num: '8', peripheral: SDHC, signal: 'DATA, 2', pin_signal: PTE5/SPI1_PCS2/UART3_RX/SDHC0_D2/FTM3_CH0, pull_enable: disable}
+  - {pin_num: '7', peripheral: SDHC, signal: 'DATA, 3', pin_signal: PTE4/LLWU_P2/SPI1_PCS0/UART3_TX/SDHC0_D3/TRACE_D0, drive_strength: low, pull_enable: disable}
   - {pin_num: '10', peripheral: GPIOE, signal: 'GPIO, 7', pin_signal: PTE7/UART3_RTS_b/I2S0_RXD0/FTM3_CH2, direction: INPUT, open_drain: enable, pull_select: up,
     pull_enable: enable}
   - {pin_num: '11', peripheral: GPIOE, signal: 'GPIO, 8', pin_signal: PTE8/I2S0_RXD1/I2S0_RX_FS/LPUART0_TX/FTM3_CH3, direction: INPUT, open_drain: enable, pull_select: up,
@@ -204,8 +204,10 @@ RTEPIN_Digital:
   - {pin_num: '141', peripheral: SPI2, signal: SCK, pin_signal: PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20, direction: OUTPUT}
   - {pin_num: '142', peripheral: SPI2, signal: SOUT, pin_signal: PTD13/SPI2_SOUT/SDHC0_D5/FB_A21}
   - {pin_num: '9', peripheral: GPIOE, signal: 'GPIO, 6', pin_signal: PTE6/LLWU_P16/SPI1_PCS3/UART3_CTS_b/I2S0_MCLK/FTM3_CH1/USB0_SOF_OUT, direction: INPUT}
-  - {pin_num: '123', peripheral: UART3, signal: RX, pin_signal: PTC16/CAN1_RX/UART3_RX/ENET0_1588_TMR0/FB_CS5_b/FB_TSIZ1/FB_BE23_16_BLS15_8_b/SDRAM_DQM2}
-  - {pin_num: '124', peripheral: UART3, signal: TX, pin_signal: PTC17/CAN1_TX/UART3_TX/ENET0_1588_TMR1/FB_CS4_b/FB_TSIZ0/FB_BE31_24_BLS7_0_b/SDRAM_DQM3, direction: OUTPUT}
+  - {pin_num: '123', peripheral: UART3, signal: RX, pin_signal: PTC16/CAN1_RX/UART3_RX/ENET0_1588_TMR0/FB_CS5_b/FB_TSIZ1/FB_BE23_16_BLS15_8_b/SDRAM_DQM2, pull_select: up,
+    pull_enable: enable}
+  - {pin_num: '124', peripheral: UART3, signal: TX, pin_signal: PTC17/CAN1_TX/UART3_TX/ENET0_1588_TMR1/FB_CS4_b/FB_TSIZ0/FB_BE31_24_BLS7_0_b/SDRAM_DQM3, direction: OUTPUT,
+    pull_select: up, pull_enable: enable}
   - {pin_num: '137', peripheral: I2C0, signal: SCL, pin_signal: PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16}
   - {pin_num: '138', peripheral: I2C0, signal: SDA, pin_signal: PTD9/I2C0_SDA/LPUART0_TX/FB_A17}
   - {pin_num: '104', peripheral: FTM0, signal: 'CH, 0', pin_signal: ADC0_SE15/TSI0_CH14/PTC1/LLWU_P6/SPI0_PCS3/UART1_RTS_b/FTM0_CH0/FB_AD13/SDRAM_A21/I2S0_TXD0, direction: OUTPUT}
@@ -486,8 +488,24 @@ void RTEPIN_Digital(void)
     /* PORTC16 (pin 123) is configured as UART3_RX */
     PORT_SetPinMux(RTEPIN_DIGITAL_CAM_RX_PORT, RTEPIN_DIGITAL_CAM_RX_PIN, kPORT_MuxAlt3);
 
+    PORTC->PCR[16] = ((PORTC->PCR[16] &
+                       /* Mask bits to zero which are setting */
+                       (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ISF_MASK)))
+
+                      /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
+                       * corresponding PE field is set. */
+                      | (uint32_t)(kPORT_PullUp));
+
     /* PORTC17 (pin 124) is configured as UART3_TX */
     PORT_SetPinMux(RTEPIN_DIGITAL_CAM_TX_PORT, RTEPIN_DIGITAL_CAM_TX_PIN, kPORT_MuxAlt3);
+
+    PORTC->PCR[17] = ((PORTC->PCR[17] &
+                       /* Mask bits to zero which are setting */
+                       (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ISF_MASK)))
+
+                      /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
+                       * corresponding PE field is set. */
+                      | (uint32_t)(kPORT_PullUp));
 
     /* PORTC18 (pin 125) is configured as PTC18 */
     PORT_SetPinMux(RTEPIN_DIGITAL_CAM_PCLK_PORT, RTEPIN_DIGITAL_CAM_PCLK_PIN, kPORT_MuxAsGpio);
@@ -534,8 +552,22 @@ void RTEPIN_Digital(void)
     /* PORTE0 (pin 1) is configured as SDHC0_D1 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SD_D_1_PORT, RTEPIN_DIGITAL_SD_D_1_PIN, kPORT_MuxAlt4);
 
+    PORTE->PCR[0] = ((PORTE->PCR[0] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_PE_MASK | PORT_PCR_ISF_MASK)))
+
+                     /* Pull Enable: Internal pullup or pulldown resistor is not enabled on the corresponding pin. */
+                     | PORT_PCR_PE(kPORT_PullDisable));
+
     /* PORTE1 (pin 2) is configured as SDHC0_D0 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SD_D_0_PORT, RTEPIN_DIGITAL_SD_D_0_PIN, kPORT_MuxAlt4);
+
+    PORTE->PCR[1] = ((PORTE->PCR[1] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_PE_MASK | PORT_PCR_ISF_MASK)))
+
+                     /* Pull Enable: Internal pullup or pulldown resistor is not enabled on the corresponding pin. */
+                     | PORT_PCR_PE(kPORT_PullDisable));
 
     /* PORTE10 (pin 13) is configured as PTE10 */
     PORT_SetPinMux(RTEPIN_DIGITAL_BUTTON_OK_PORT, RTEPIN_DIGITAL_BUTTON_OK_PIN, kPORT_MuxAsGpio);
@@ -573,14 +605,42 @@ void RTEPIN_Digital(void)
     /* PORTE2 (pin 3) is configured as SDHC0_DCLK */
     PORT_SetPinMux(RTEPIN_DIGITAL_SD_CLK_PORT, RTEPIN_DIGITAL_SD_CLK_PIN, kPORT_MuxAlt4);
 
+    PORTE->PCR[2] = ((PORTE->PCR[2] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_PE_MASK | PORT_PCR_ISF_MASK)))
+
+                     /* Pull Enable: Internal pullup or pulldown resistor is not enabled on the corresponding pin. */
+                     | PORT_PCR_PE(kPORT_PullDisable));
+
     /* PORTE3 (pin 4) is configured as SDHC0_CMD */
     PORT_SetPinMux(RTEPIN_DIGITAL_SD_CMD_PORT, RTEPIN_DIGITAL_SD_CMD_PIN, kPORT_MuxAlt4);
+
+    PORTE->PCR[3] = ((PORTE->PCR[3] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_PE_MASK | PORT_PCR_ISF_MASK)))
+
+                     /* Pull Enable: Internal pullup or pulldown resistor is not enabled on the corresponding pin. */
+                     | PORT_PCR_PE(kPORT_PullDisable));
 
     /* PORTE4 (pin 7) is configured as SDHC0_D3 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SD_D_3_PORT, RTEPIN_DIGITAL_SD_D_3_PIN, kPORT_MuxAlt4);
 
+    PORTE->PCR[4] = ((PORTE->PCR[4] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_PE_MASK | PORT_PCR_ISF_MASK)))
+
+                     /* Pull Enable: Internal pullup or pulldown resistor is not enabled on the corresponding pin. */
+                     | PORT_PCR_PE(kPORT_PullDisable));
+
     /* PORTE5 (pin 8) is configured as SDHC0_D2 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SD_D_2_PORT, RTEPIN_DIGITAL_SD_D_2_PIN, kPORT_MuxAlt4);
+
+    PORTE->PCR[5] = ((PORTE->PCR[5] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_PE_MASK | PORT_PCR_ISF_MASK)))
+
+                     /* Pull Enable: Internal pullup or pulldown resistor is not enabled on the corresponding pin. */
+                     | PORT_PCR_PE(kPORT_PullDisable));
 
     /* PORTE6 (pin 9) is configured as PTE6 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SD_DTK_PORT, RTEPIN_DIGITAL_SD_DTK_PIN, kPORT_MuxAsGpio);

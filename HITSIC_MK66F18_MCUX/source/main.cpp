@@ -55,6 +55,7 @@
 /** HITSIC_Module_SYS */
 #include "sys_pitmgr.hpp"
 #include "sys_extint.hpp"
+#include "sys_uartmgr.hpp"
 #include "cm_backtrace.h"
 //#include "easyflash.h"
 
@@ -74,10 +75,12 @@ FATFS fatfs;                                   //逻辑驱动器的工作区
 //#include "sys_fatfs_diskioTest.hpp"
 #include "drv_imu_invensense_test.hpp"
 
+uartMgr_t *uartMgr0;
+
 void main(void)
 {
 	/** 初始化阶段，关闭总中断 */
-	HAL_EnterCritical();
+    HAL_EnterCritical();
 
 	/** 初始化时钟 */
 	RTECLK_HsRun_180MHz();
@@ -107,6 +110,7 @@ void main(void)
 	/** 初始化I/O中断管理器 */
 	extInt_t::init();
 	/** 初始化串口管理器 */
+    uartMgr0 = &uartMgr_t::getInst(UART0);
 	//UARTMGR_DataInit();
 
 	/** 初始化OLED屏幕 */
@@ -114,10 +118,11 @@ void main(void)
 
 	/** 初始化菜单 */
 	MENU_Init();
+	inv::IMU_UnitTest_AutoRefreshAddMenu(menu_menuRoot);
+	inv::IMU_UnitTest_AutoRefresh();
 	MENU_Data_NvmReadRegionConfig();
 	MENU_Data_NvmRead(menu_currRegionNum);
-    //MENU_PrintDisp();
-	//MENU_Suspend();
+	MENU_Suspend();
 	extern const uint8_t DISP_image_100thAnniversary[8][128];
 	//DISP_SSD1306_BufferUpload((uint8_t*)DISP_image_100thAnniversary);
 	SDK_DelayAtLeastUs(1000 * 1000,CLOCK_GetFreq(kCLOCK_CoreSysClk));
@@ -131,18 +136,15 @@ void main(void)
 	//FATFS_BasicTest();
 	//FATFS_DiskioTest();
 	//CAM_ZF9V034_UnitTest();
-
-	//MENU_Resume();
+	//inv::IMU_UnitTest_AutoDetect();
+	MENU_Resume();
 
 	float f = arm_sin_f32(0.6f);
-
-   // DISP_SSD1306_Fill(0);
-
-    //DISP_SSD1306_Print_F6x8(0,0,"HITSIC!");
+	uartMgr0->uprintf("UARTMGR\n");
 
     uint8_t sw1_state = GPIO_PinRead(GPIOA, 9U);
 
-    example1();
+
 
 	while (true)
 	{

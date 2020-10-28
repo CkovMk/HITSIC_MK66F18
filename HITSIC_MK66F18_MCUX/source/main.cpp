@@ -50,6 +50,7 @@
 /** HITSIC_Module_DRV */
 #include "drv_ftfx_flash.h"
 #include "drv_disp_ssd1306.hpp"
+#include "drv_imu_invensense.h"
 
 /** HITSIC_Module_SYS */
 #include "sys_pitmgr.hpp"
@@ -68,9 +69,9 @@ FATFS fatfs;                                   //逻辑驱动器的工作区
 
 /** HITSIC_Module_TEST */
 #include "drv_cam_zf9v034_test.hpp"
-#include "app_menu_test.hpp"
-#include "sys_fatfs_test.hpp"
-#include "sys_fatfs_diskioTest.hpp"
+//#include "app_menu_test.hpp"
+//#include "sys_fatfs_test.hpp"
+//#include "sys_fatfs_diskioTest.hpp"
 
 void main(void)
 {
@@ -114,10 +115,10 @@ void main(void)
 	MENU_Init();
 	MENU_Data_NvmReadRegionConfig();
 	MENU_Data_NvmRead(menu_currRegionNum);
-//	MENU_PrintDisp();
-	MENU_Suspend();
+    //MENU_PrintDisp();
+	//MENU_Suspend();
 	extern const uint8_t DISP_image_100thAnniversary[8][128];
-	DISP_SSD1306_BufferUpload((uint8_t*)DISP_image_100thAnniversary);
+	//DISP_SSD1306_BufferUpload((uint8_t*)DISP_image_100thAnniversary);
 	SDK_DelayAtLeastUs(1000 * 1000,CLOCK_GetFreq(kCLOCK_CoreSysClk));
 	/** 初始化摄像头 */
 
@@ -128,9 +129,9 @@ void main(void)
 
 	//FATFS_BasicTest();
 	//FATFS_DiskioTest();
-	CAM_ZF9V034_UnitTest();
+	//CAM_ZF9V034_UnitTest();
 
-	MENU_Resume();
+	//MENU_Resume();
 
 	float f = arm_sin_f32(0.6f);
 
@@ -140,6 +141,7 @@ void main(void)
 
     uint8_t sw1_state = GPIO_PinRead(GPIOA, 9U);
 
+    //DRVIMU_INV_Demo();
 
 	while (true)
 	{

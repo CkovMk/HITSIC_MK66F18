@@ -208,8 +208,8 @@ RTEPIN_Digital:
     pull_enable: enable}
   - {pin_num: '124', peripheral: UART3, signal: TX, pin_signal: PTC17/CAN1_TX/UART3_TX/ENET0_1588_TMR1/FB_CS4_b/FB_TSIZ0/FB_BE31_24_BLS7_0_b/SDRAM_DQM3, direction: OUTPUT,
     pull_select: up, pull_enable: enable}
-  - {pin_num: '137', peripheral: I2C0, signal: SCL, pin_signal: PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16}
-  - {pin_num: '138', peripheral: I2C0, signal: SDA, pin_signal: PTD9/I2C0_SDA/LPUART0_TX/FB_A17}
+  - {pin_num: '137', peripheral: I2C0, signal: SCL, pin_signal: PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16, open_drain: enable, pull_select: up, pull_enable: enable}
+  - {pin_num: '138', peripheral: I2C0, signal: SDA, pin_signal: PTD9/I2C0_SDA/LPUART0_TX/FB_A17, open_drain: enable, pull_select: up, pull_enable: enable}
   - {pin_num: '104', peripheral: FTM0, signal: 'CH, 0', pin_signal: ADC0_SE15/TSI0_CH14/PTC1/LLWU_P6/SPI0_PCS3/UART1_RTS_b/FTM0_CH0/FB_AD13/SDRAM_A21/I2S0_TXD0, direction: OUTPUT}
   - {pin_num: '105', peripheral: FTM0, signal: 'CH, 1', pin_signal: ADC0_SE4b/CMP1_IN0/TSI0_CH15/PTC2/SPI0_PCS2/UART1_CTS_b/FTM0_CH1/FB_AD12/SDRAM_A20/I2S0_TX_FS,
     direction: OUTPUT}
@@ -546,8 +546,32 @@ void RTEPIN_Digital(void)
     /* PORTD8 (pin 137) is configured as I2C0_SCL */
     PORT_SetPinMux(RTEPIN_DIGITAL_IMU_SCL_PORT, RTEPIN_DIGITAL_IMU_SCL_PIN, kPORT_MuxAlt2);
 
+    PORTD->PCR[8] = ((PORTD->PCR[8] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ODE_MASK | PORT_PCR_ISF_MASK)))
+
+                     /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
+                      * corresponding PE field is set. */
+                     | (uint32_t)(kPORT_PullUp)
+
+                     /* Open Drain Enable: Open drain output is enabled on the corresponding pin, if the pin is
+                      * configured as a digital output. */
+                     | PORT_PCR_ODE(kPORT_OpenDrainEnable));
+
     /* PORTD9 (pin 138) is configured as I2C0_SDA */
     PORT_SetPinMux(RTEPIN_DIGITAL_IMU_SDA_PORT, RTEPIN_DIGITAL_IMU_SDA_PIN, kPORT_MuxAlt2);
+
+    PORTD->PCR[9] = ((PORTD->PCR[9] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ODE_MASK | PORT_PCR_ISF_MASK)))
+
+                     /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
+                      * corresponding PE field is set. */
+                     | (uint32_t)(kPORT_PullUp)
+
+                     /* Open Drain Enable: Open drain output is enabled on the corresponding pin, if the pin is
+                      * configured as a digital output. */
+                     | PORT_PCR_ODE(kPORT_OpenDrainEnable));
 
     /* PORTE0 (pin 1) is configured as SDHC0_D1 */
     PORT_SetPinMux(RTEPIN_DIGITAL_SD_D_1_PORT, RTEPIN_DIGITAL_SD_D_1_PIN, kPORT_MuxAlt4);

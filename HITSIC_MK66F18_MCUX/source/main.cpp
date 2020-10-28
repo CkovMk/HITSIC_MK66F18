@@ -50,7 +50,7 @@
 /** HITSIC_Module_DRV */
 #include "drv_ftfx_flash.h"
 #include "drv_disp_ssd1306.hpp"
-#include "drv_imu_invensense.h"
+#include "drv_imu_invensense.hpp"
 
 /** HITSIC_Module_SYS */
 #include "sys_pitmgr.hpp"
@@ -72,6 +72,7 @@ FATFS fatfs;                                   //逻辑驱动器的工作区
 //#include "app_menu_test.hpp"
 //#include "sys_fatfs_test.hpp"
 //#include "sys_fatfs_diskioTest.hpp"
+#include "drv_imu_invensense_test.hpp"
 
 void main(void)
 {
@@ -141,7 +142,7 @@ void main(void)
 
     uint8_t sw1_state = GPIO_PinRead(GPIOA, 9U);
 
-    //DRVIMU_INV_Demo();
+    example1();
 
 	while (true)
 	{

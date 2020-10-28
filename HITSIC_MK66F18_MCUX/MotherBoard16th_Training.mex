@@ -422,8 +422,20 @@
                         <pin_feature name="pull_enable" value="enable"/>
                      </pin_features>
                   </pin>
-                  <pin peripheral="I2C0" signal="SCL" pin_num="137" pin_signal="PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16"/>
-                  <pin peripheral="I2C0" signal="SDA" pin_num="138" pin_signal="PTD9/I2C0_SDA/LPUART0_TX/FB_A17"/>
+                  <pin peripheral="I2C0" signal="SCL" pin_num="137" pin_signal="PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16">
+                     <pin_features>
+                        <pin_feature name="open_drain" value="enable"/>
+                        <pin_feature name="pull_select" value="up"/>
+                        <pin_feature name="pull_enable" value="enable"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="I2C0" signal="SDA" pin_num="138" pin_signal="PTD9/I2C0_SDA/LPUART0_TX/FB_A17">
+                     <pin_features>
+                        <pin_feature name="open_drain" value="enable"/>
+                        <pin_feature name="pull_select" value="up"/>
+                        <pin_feature name="pull_enable" value="enable"/>
+                     </pin_features>
+                  </pin>
                   <pin peripheral="FTM0" signal="CH, 0" pin_num="104" pin_signal="ADC0_SE15/TSI0_CH14/PTC1/LLWU_P6/SPI0_PCS3/UART1_RTS_b/FTM0_CH0/FB_AD13/SDRAM_A21/I2S0_TXD0">
                      <pin_features>
                         <pin_feature name="direction" value="OUTPUT"/>

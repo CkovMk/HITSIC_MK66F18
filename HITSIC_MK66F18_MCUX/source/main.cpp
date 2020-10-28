@@ -46,30 +46,27 @@
  * limitations under the License.
  */
 #include "hitsic_common.h"
+
+/** HITSIC_Module_DRV */
 #include "drv_ftfx_flash.h"
 #include "drv_disp_ssd1306.hpp"
 
+/** HITSIC_Module_SYS */
 #include "sys_pitmgr.hpp"
 #include "sys_extint.hpp"
 #include "cm_backtrace.h"
-
 //#include "easyflash.h"
 
+/** HITSIC_Module_APP */
 #include "app_menu.h"
 
-#include "fsl_sd.h"
+/** FATFS */
 #include "ff.h"
-#include "diskio.h"
-#include "fsl_sd_disk.h"
 #include "sdmmc_config.h"
-
-void FLASH_Demo(void);
-void EF_Demo(void);
-
-
 FIL file;                                           //文件对象
 FATFS fatfs;                                   //逻辑驱动器的工作区
 
+/** HITSIC_Module_TEST */
 #include "drv_cam_zf9v034_test.hpp"
 #include "app_menu_test.hpp"
 #include "sys_fatfs_test.hpp"
@@ -90,7 +87,6 @@ void main(void)
 	RTEPIN_UART0_WLAN();
 
 	/** 初始化外设 */
-	DMAMUX_Init(DMAMUX0);
 	RTEPIP_Basic();
 	RTEPIP_Device();
 
@@ -130,13 +126,11 @@ void main(void)
     /** 初始化结束，开启总中断 */
 	HAL_ExitCritical();
 
-	FATFS_BasicTest();
+	//FATFS_BasicTest();
 	//FATFS_DiskioTest();
-	//CAM_ZF9V034_UnitTest();
+	CAM_ZF9V034_UnitTest();
 
 	MENU_Resume();
-
-	                                //挂载SD卡
 
 	float f = arm_sin_f32(0.6f);
 

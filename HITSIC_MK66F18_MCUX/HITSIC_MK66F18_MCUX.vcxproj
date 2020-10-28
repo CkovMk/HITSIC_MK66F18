@@ -111,6 +111,7 @@
         <ClCompile Include="HITSIC_Module\utilities\app_menu_button.c"/>
         <ClCompile Include="HITSIC_Module\utilities\app_menu_nvm.c"/>
         <ClCompile Include="HITSIC_Module\utilities\app_menu_type.c"/>
+        <ClCompile Include="HITSIC_Module\utilities\app_svbmp.cpp"/>
         <ClCompile Include="HITSIC_Module\utilities\drv_button.c"/>
         <ClCompile Include="HITSIC_Module\utilities\drv_cam_zf9v034.cpp"/>
         <ClCompile Include="HITSIC_Module\utilities\drv_disp_font.cpp"/>
@@ -211,10 +212,10 @@
         <ClCompile Include="sdmmc\host\fsl_sdmmc_host.c"/>
         <ClCompile Include="sdmmc\osa\fsl_sdmmc_osa.c"/>
         <ClCompile Include="sdmmc\src\fsl_sd.c"/>
-        <ClCompile Include="sdmmc\src\fsl_sdio.c"/>
         <ClCompile Include="sdmmc\src\fsl_sdmmc_common.c"/>
         <ClCompile Include="source\isr.cpp"/>
         <ClCompile Include="source\main.cpp"/>
+        <ClCompile Include="source\syscalls.c"/>
         <ClCompile Include="startup\startup_mk66f18.cpp"/>
         <ClCompile Include="utilities\fsl_assert.c"/>
         <ClCompile Include="utilities\fsl_debug_console.c"/>
@@ -256,6 +257,8 @@
         <ClInclude Include="CMSIS\pmu_armv8.h"/>
         <ClInclude Include="CMSIS\tz_context.h"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\app_menu_port.h"/>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\app_svbmp_port.hpp"/>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\drv_button_port.h"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\drv_cam_zf9v034_port.hpp"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\drv_disp_ssd1306_port.hpp"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\drv_dmadvp_port.hpp"/>
@@ -292,6 +295,7 @@
         <ClInclude Include="HITSIC_Module\utilities\app_menu_def.h"/>
         <ClInclude Include="HITSIC_Module\utilities\app_menu_nvm.h"/>
         <ClInclude Include="HITSIC_Module\utilities\app_menu_type.h"/>
+        <ClInclude Include="HITSIC_Module\utilities\app_svbmp.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\drv_button.h"/>
         <ClInclude Include="HITSIC_Module\utilities\drv_cam_zf9v034.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\drv_disp_ssd1306.hpp"/>
@@ -309,6 +313,7 @@
         <ClInclude Include="HITSIC_Module\utilities\lib_adrcctrl.h"/>
         <ClInclude Include="HITSIC_Module\utilities\lib_disp_common.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\lib_graphic.hpp"/>
+        <ClInclude Include="HITSIC_Module\utilities\lib_graphic_font.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\lib_list.h"/>
         <ClInclude Include="HITSIC_Module\utilities\lib_pidctrl.h"/>
         <ClInclude Include="HITSIC_Module\utilities\sys_extint.hpp"/>
@@ -393,7 +398,6 @@
         <ClInclude Include="fatfs\source\fsl_sd_disk\fsl_sd_disk.h"/>
         <ClInclude Include="sdmmc\host\fsl_sdmmc_host.h"/>
         <ClInclude Include="sdmmc\inc\fsl_sd.h"/>
-        <ClInclude Include="sdmmc\inc\fsl_sdio.h"/>
         <ClInclude Include="sdmmc\inc\fsl_sdmmc_common.h"/>
         <ClInclude Include="sdmmc\inc\fsl_sdmmc_spec.h"/>
         <ClInclude Include="sdmmc\osa\fsl_sdmmc_osa.h"/>

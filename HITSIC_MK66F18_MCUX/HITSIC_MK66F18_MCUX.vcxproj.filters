@@ -2,166 +2,166 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <ItemGroup>
         <Filter Include="CMSIS">
-            <UniqueIdentifier>{c3977c0a-ee64-d4b5-bb30-aba4f77f33ee}</UniqueIdentifier>
+            <UniqueIdentifier>{e95c766d-7aed-bfa8-0e07-908711ca16cd}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module">
-            <UniqueIdentifier>{95871f6b-cc46-19b9-f69b-4d5be2d80b25}</UniqueIdentifier>
+            <UniqueIdentifier>{4049822d-802c-88d3-152e-e13c6b30aae9}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\d_mk66f18">
-            <UniqueIdentifier>{7277e960-ee42-af6c-af39-5ac955af696d}</UniqueIdentifier>
+            <UniqueIdentifier>{11a433d0-38f2-011b-d8e7-0c178c713165}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\d_mk66f18\extlib_port">
-            <UniqueIdentifier>{02fd5372-cdfe-ff45-2fa1-5a98c94bd510}</UniqueIdentifier>
+            <UniqueIdentifier>{e1f4e10d-fbc8-b1f6-d0d8-78af0bf424ca}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\d_mk66f18\extlib_port\CmBacktrace-1.4.0">
-            <UniqueIdentifier>{ac62f418-e0c3-91ec-0e5d-c62eb564d6c5}</UniqueIdentifier>
+            <UniqueIdentifier>{3b90262b-5124-11ee-955a-ae7e71430b6e}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\d_mk66f18\extlib_port\CmBacktrace-1.4.0\cm_backtrace">
-            <UniqueIdentifier>{e96f55d9-cf3a-1cc9-c3c4-26259252d5e4}</UniqueIdentifier>
+            <UniqueIdentifier>{852277b4-d17f-9869-9e06-26fb36d55deb}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0">
-            <UniqueIdentifier>{317ade2f-d4d9-d844-d77e-e1e408bd7af5}</UniqueIdentifier>
+            <UniqueIdentifier>{57115f3f-f452-cf01-5462-87aec12283c8}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash">
-            <UniqueIdentifier>{3afdf681-a51a-5f05-d1f3-90036efd1c70}</UniqueIdentifier>
+            <UniqueIdentifier>{1af53434-3243-2e3d-4ed8-1a0fcbc2346c}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port">
-            <UniqueIdentifier>{4f8f5686-ba74-3674-2abc-bbf94daa43fd}</UniqueIdentifier>
+            <UniqueIdentifier>{6636be2b-01ac-3c74-f5fe-86a69b1dc961}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\d_mk66f18\legacy_drivers">
-            <UniqueIdentifier>{f6a76598-8c8e-d819-594f-c9401c2c89e4}</UniqueIdentifier>
+            <UniqueIdentifier>{a25c369c-0c13-7140-e04e-44fbdabbca3e}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated">
-            <UniqueIdentifier>{c8bf9c3e-92b2-cb7c-e715-426f741c43de}</UniqueIdentifier>
+            <UniqueIdentifier>{66d044ff-9912-5738-982f-cb86ef25be6b}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible">
-            <UniqueIdentifier>{3c5e72e0-5687-8705-5ba6-afdeccf02b31}</UniqueIdentifier>
+            <UniqueIdentifier>{2c486fcc-4100-63c4-8538-94bf53d10d60}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities">
-            <UniqueIdentifier>{cbfc8036-5d75-955d-1f7b-88159d228986}</UniqueIdentifier>
+            <UniqueIdentifier>{591d0f8c-9b85-205c-2ee3-363f9d4850b5}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib">
-            <UniqueIdentifier>{ec213d99-2114-7dca-b81a-44bd6f48f546}</UniqueIdentifier>
+            <UniqueIdentifier>{88c7cec5-f009-1488-1cc7-2a5c46f30fd2}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0">
-            <UniqueIdentifier>{2855229f-1adc-96f6-b0fd-7c2cb9dcf607}</UniqueIdentifier>
+            <UniqueIdentifier>{4fef02f0-0714-b7c0-b64c-e8bfc678a15f}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace">
-            <UniqueIdentifier>{0600b791-d045-9967-9f9a-88fb03340433}</UniqueIdentifier>
+            <UniqueIdentifier>{f6eb5396-292e-729c-95ea-e7c1a431bfa4}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler">
-            <UniqueIdentifier>{0fba7337-d9d7-dd77-dc8b-1e82c70a9850}</UniqueIdentifier>
+            <UniqueIdentifier>{16453a3d-edbf-fd85-2029-c00869b4b05a}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\gcc">
-            <UniqueIdentifier>{abfbeffa-800a-ebcc-f027-897a9ac53ae8}</UniqueIdentifier>
+            <UniqueIdentifier>{47941e4f-cc4f-9f01-0091-ea0e8c8b1dc7}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\iar">
-            <UniqueIdentifier>{513b8230-7b56-3ad0-6326-6f49d7dc6172}</UniqueIdentifier>
+            <UniqueIdentifier>{f04f9842-3e66-e0a9-9caa-ce39761d7e95}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\fault_handler\keil">
-            <UniqueIdentifier>{aaf3d593-2354-630a-bcdf-395914d9a686}</UniqueIdentifier>
+            <UniqueIdentifier>{9ad010c0-da8c-5ac6-6ded-0313dfe13a4a}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs">
-            <UniqueIdentifier>{1dc94f99-1f7a-def2-63dc-7e41c933707b}</UniqueIdentifier>
+            <UniqueIdentifier>{bcde2d30-0939-830e-fbb0-12230e71e930}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh">
-            <UniqueIdentifier>{2316699c-c732-1210-f194-a7988f8258eb}</UniqueIdentifier>
+            <UniqueIdentifier>{dfb1481a-52d6-d3eb-cdbc-63f19b54050d}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images">
-            <UniqueIdentifier>{5373bb33-a522-a7fc-eeaf-3ba8be3eb54d}</UniqueIdentifier>
+            <UniqueIdentifier>{6af1f8e5-4e09-d3c3-5c6a-8df50ff2032b}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\docs\zh\images\demo">
-            <UniqueIdentifier>{2646bcf5-4fb4-070e-a175-b318edcf2029}</UniqueIdentifier>
+            <UniqueIdentifier>{0616b63b-544c-0a40-1f20-f9b7c2e38e21}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0">
-            <UniqueIdentifier>{0429d43c-2d6e-b8ce-c38f-a65094be21e7}</UniqueIdentifier>
+            <UniqueIdentifier>{1ba8fa83-fdf5-e2d9-9f98-3eaf7b9feb76}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash">
-            <UniqueIdentifier>{8483bd9f-c8ca-22b4-cb53-8df74d913f30}</UniqueIdentifier>
+            <UniqueIdentifier>{201f4b35-c1be-f006-5339-b545738eb594}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\inc">
-            <UniqueIdentifier>{2efcbc86-a74f-ee68-227a-d0676dd1c36a}</UniqueIdentifier>
+            <UniqueIdentifier>{bef321ea-27fe-ae4f-d46a-151151397212}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins">
-            <UniqueIdentifier>{6ceb6c99-3465-7342-605c-06289ff6741e}</UniqueIdentifier>
+            <UniqueIdentifier>{4cac1508-a74c-941c-9ac5-b7ab9e369a68}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types">
-            <UniqueIdentifier>{b3da4320-04a4-5adb-fc72-b7b03989abb5}</UniqueIdentifier>
+            <UniqueIdentifier>{53c28f18-bb12-2af5-0cc1-226ba2feb70e}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json">
-            <UniqueIdentifier>{be50d9e3-a193-0ba9-7e62-4da8d3f0efc5}</UniqueIdentifier>
+            <UniqueIdentifier>{5ade16a2-f8e7-d672-c3f6-e0ea24fa3e7c}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc">
-            <UniqueIdentifier>{c3c5872a-63ac-fd26-4096-4e68f6c5b9d8}</UniqueIdentifier>
+            <UniqueIdentifier>{da46232f-c943-430b-36cc-668e7cc0a94a}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\src">
-            <UniqueIdentifier>{7ad1f58e-f267-b9d8-f784-22880a8e9154}</UniqueIdentifier>
+            <UniqueIdentifier>{5b944e15-c49e-e738-eebb-4ee123da80e1}</UniqueIdentifier>
         </Filter>
         <Filter Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\src">
-            <UniqueIdentifier>{4cdc8a75-c44a-c649-fec6-8261a6a5fec3}</UniqueIdentifier>
+            <UniqueIdentifier>{544efd0e-5180-2a71-424b-e089b1ae5bd7}</UniqueIdentifier>
         </Filter>
         <Filter Include="board">
-            <UniqueIdentifier>{a16fcf78-44ce-adef-eac3-c5a933a168bb}</UniqueIdentifier>
+            <UniqueIdentifier>{5deebb60-f961-964f-fb04-d3c0aec681a5}</UniqueIdentifier>
         </Filter>
         <Filter Include="component">
-            <UniqueIdentifier>{30f02b10-086b-d534-2603-74ca481a7996}</UniqueIdentifier>
+            <UniqueIdentifier>{c0dbfeb5-44d9-b028-506e-904c70a9bac4}</UniqueIdentifier>
         </Filter>
         <Filter Include="component\lists">
-            <UniqueIdentifier>{510847c3-89ba-c7cf-481d-172a5e6876eb}</UniqueIdentifier>
+            <UniqueIdentifier>{32cc4f83-b941-03a5-faf2-af8792ce4fca}</UniqueIdentifier>
         </Filter>
         <Filter Include="component\osa">
-            <UniqueIdentifier>{9e208a0b-4e21-1b08-c85b-2563ec121a22}</UniqueIdentifier>
+            <UniqueIdentifier>{2e0b2544-b03f-f43f-5116-77e89abfc801}</UniqueIdentifier>
         </Filter>
         <Filter Include="component\serial_manager">
-            <UniqueIdentifier>{7dce7d6f-cf39-2877-2f74-270b6ba2cbe3}</UniqueIdentifier>
+            <UniqueIdentifier>{193f197f-d33c-2e5c-fc63-a007f0e3ac2f}</UniqueIdentifier>
         </Filter>
         <Filter Include="component\uart">
-            <UniqueIdentifier>{766b9856-767b-8793-e5c0-846c73a0f196}</UniqueIdentifier>
+            <UniqueIdentifier>{8ec092ac-98b1-f796-5462-935c3dd2849e}</UniqueIdentifier>
         </Filter>
         <Filter Include="device">
-            <UniqueIdentifier>{0290625a-e85d-bff6-71e7-d52d7b8235c3}</UniqueIdentifier>
+            <UniqueIdentifier>{e3462943-6734-f764-e079-d86fc904c7e5}</UniqueIdentifier>
         </Filter>
         <Filter Include="drivers">
-            <UniqueIdentifier>{c8c463f2-9059-2908-6c42-91b6fcd10fe2}</UniqueIdentifier>
+            <UniqueIdentifier>{d02935dc-e94f-a74e-3932-d6a84b010e8b}</UniqueIdentifier>
         </Filter>
         <Filter Include="fatfs">
-            <UniqueIdentifier>{127e0596-0406-7c5f-4e67-41af6df5e67b}</UniqueIdentifier>
+            <UniqueIdentifier>{bfe15fdf-7559-7fbb-c623-369f1c41a0fa}</UniqueIdentifier>
         </Filter>
         <Filter Include="fatfs\source">
-            <UniqueIdentifier>{8538edee-bcdc-0154-6ddf-6d60679652f6}</UniqueIdentifier>
+            <UniqueIdentifier>{15060fd4-a4e9-0645-10a6-5fbcc35d26c9}</UniqueIdentifier>
         </Filter>
         <Filter Include="fatfs\source\fsl_ram_disk">
-            <UniqueIdentifier>{8b796632-1142-6f8f-7402-6c71510dcdfc}</UniqueIdentifier>
+            <UniqueIdentifier>{7d10cc43-fe89-b563-af52-da97d99b2860}</UniqueIdentifier>
         </Filter>
         <Filter Include="fatfs\source\fsl_sd_disk">
-            <UniqueIdentifier>{bcb9062a-bbd2-1f69-e989-d75ad4e0cce3}</UniqueIdentifier>
+            <UniqueIdentifier>{4c881fa4-eaa0-13ad-eaaf-1fa8c6a41d57}</UniqueIdentifier>
         </Filter>
         <Filter Include="libs">
-            <UniqueIdentifier>{7f70652e-2113-8988-25ba-459348a9da44}</UniqueIdentifier>
+            <UniqueIdentifier>{1dd46f80-f1c6-a97b-7a25-956801016e16}</UniqueIdentifier>
         </Filter>
         <Filter Include="sdmmc">
-            <UniqueIdentifier>{6d46fcc6-bc7d-5455-cf3f-0fa424ce7da8}</UniqueIdentifier>
+            <UniqueIdentifier>{769d455d-9a63-ef55-b64c-f46d3318a236}</UniqueIdentifier>
         </Filter>
         <Filter Include="sdmmc\host">
-            <UniqueIdentifier>{ee93236a-1388-e959-4f8e-cc1510d92d75}</UniqueIdentifier>
+            <UniqueIdentifier>{cf3c38a5-5e1f-4cc4-378c-a511b373522d}</UniqueIdentifier>
         </Filter>
         <Filter Include="sdmmc\inc">
-            <UniqueIdentifier>{89ff81a3-bfbc-cf1b-2f01-f54f76305335}</UniqueIdentifier>
+            <UniqueIdentifier>{8138b1de-b542-585e-646d-10fa19a8f564}</UniqueIdentifier>
         </Filter>
         <Filter Include="sdmmc\osa">
-            <UniqueIdentifier>{b6d29e07-0882-7f02-d55f-02d8eb9da77f}</UniqueIdentifier>
+            <UniqueIdentifier>{54284882-3684-9c7c-e677-dc92cf01f483}</UniqueIdentifier>
         </Filter>
         <Filter Include="sdmmc\src">
-            <UniqueIdentifier>{1fb4d4ef-9570-70a8-f9e0-8a4aca4770ab}</UniqueIdentifier>
+            <UniqueIdentifier>{af765437-594d-80a7-1422-626f6b35e6f3}</UniqueIdentifier>
         </Filter>
         <Filter Include="source">
-            <UniqueIdentifier>{091eb9e4-ee1f-3b84-e44b-f5fba8e65740}</UniqueIdentifier>
+            <UniqueIdentifier>{eba98d47-8805-ab75-8706-3aeb55ab543a}</UniqueIdentifier>
         </Filter>
         <Filter Include="startup">
-            <UniqueIdentifier>{1e86d58d-7dd8-480e-3eea-dd85f0e2b3e8}</UniqueIdentifier>
+            <UniqueIdentifier>{af483c59-6845-7650-b77c-ebad26eda6d2}</UniqueIdentifier>
         </Filter>
         <Filter Include="utilities">
-            <UniqueIdentifier>{c6759121-c731-2edd-5e44-977f58d33dea}</UniqueIdentifier>
+            <UniqueIdentifier>{64cdf9d4-5393-69ce-2b2a-dd1d56625341}</UniqueIdentifier>
         </Filter>
     </ItemGroup>
     <ItemGroup>
@@ -250,6 +250,9 @@
             <Filter>HITSIC_Module\utilities</Filter>
         </ClCompile>
         <ClCompile Include="HITSIC_Module\utilities\app_menu_type.c">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClCompile>
+        <ClCompile Include="HITSIC_Module\utilities\app_svbmp.cpp">
             <Filter>HITSIC_Module\utilities</Filter>
         </ClCompile>
         <ClCompile Include="HITSIC_Module\utilities\drv_button.c">
@@ -552,9 +555,6 @@
         <ClCompile Include="sdmmc\src\fsl_sd.c">
             <Filter>sdmmc\src</Filter>
         </ClCompile>
-        <ClCompile Include="sdmmc\src\fsl_sdio.c">
-            <Filter>sdmmc\src</Filter>
-        </ClCompile>
         <ClCompile Include="sdmmc\src\fsl_sdmmc_common.c">
             <Filter>sdmmc\src</Filter>
         </ClCompile>
@@ -562,6 +562,9 @@
             <Filter>source</Filter>
         </ClCompile>
         <ClCompile Include="source\main.cpp">
+            <Filter>source</Filter>
+        </ClCompile>
+        <ClCompile Include="source\syscalls.c">
             <Filter>source</Filter>
         </ClCompile>
         <ClCompile Include="startup\startup_mk66f18.cpp">
@@ -683,6 +686,12 @@
         <ClInclude Include="HITSIC_Module\d_mk66f18\app_menu_port.h">
             <Filter>HITSIC_Module\d_mk66f18</Filter>
         </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\app_svbmp_port.hpp">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\drv_button_port.h">
+            <Filter>HITSIC_Module\d_mk66f18</Filter>
+        </ClInclude>
         <ClInclude Include="HITSIC_Module\d_mk66f18\drv_cam_zf9v034_port.hpp">
             <Filter>HITSIC_Module\d_mk66f18</Filter>
         </ClInclude>
@@ -791,6 +800,9 @@
         <ClInclude Include="HITSIC_Module\utilities\app_menu_type.h">
             <Filter>HITSIC_Module\utilities</Filter>
         </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\app_svbmp.hpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
         <ClInclude Include="HITSIC_Module\utilities\drv_button.h">
             <Filter>HITSIC_Module\utilities</Filter>
         </ClInclude>
@@ -840,6 +852,9 @@
             <Filter>HITSIC_Module\utilities</Filter>
         </ClInclude>
         <ClInclude Include="HITSIC_Module\utilities\lib_graphic.hpp">
+            <Filter>HITSIC_Module\utilities</Filter>
+        </ClInclude>
+        <ClInclude Include="HITSIC_Module\utilities\lib_graphic_font.hpp">
             <Filter>HITSIC_Module\utilities</Filter>
         </ClInclude>
         <ClInclude Include="HITSIC_Module\utilities\lib_list.h">
@@ -1092,9 +1107,6 @@
             <Filter>sdmmc\host</Filter>
         </ClInclude>
         <ClInclude Include="sdmmc\inc\fsl_sd.h">
-            <Filter>sdmmc\inc</Filter>
-        </ClInclude>
-        <ClInclude Include="sdmmc\inc\fsl_sdio.h">
             <Filter>sdmmc\inc</Filter>
         </ClInclude>
         <ClInclude Include="sdmmc\inc\fsl_sdmmc_common.h">

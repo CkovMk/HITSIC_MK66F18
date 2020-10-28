@@ -654,7 +654,7 @@ instance:
       - clockSourceFreq: 'GetFreq'
       - prescale: 'kFTM_Prescale_Divide_1'
       - timerFrequency: '12000'
-      - bdmMode: 'kFTM_BdmMode_0'
+      - bdmMode: 'kFTM_BdmMode_3'
       - pwmSyncMode: 'kFTM_SoftwareTrigger'
       - reloadPoints: 'kFTM_CntMax kFTM_CntMin'
       - faultMode: 'kFTM_Fault_Disable'
@@ -700,7 +700,7 @@ instance:
 /* clang-format on */
 const ftm_config_t MOTOR_config = {
   .prescale = kFTM_Prescale_Divide_1,
-  .bdmMode = kFTM_BdmMode_0,
+  .bdmMode = kFTM_BdmMode_3,
   .pwmSyncMode = kFTM_SoftwareTrigger,
   .reloadPoints = kFTM_CntMax | kFTM_CntMin,
   .faultMode = kFTM_Fault_Disable,

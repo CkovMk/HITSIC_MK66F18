@@ -73,6 +73,7 @@ FATFS fatfs;                                   //逻辑驱动器的工作区
 #include "drv_cam_zf9v034_test.hpp"
 #include "app_menu_test.hpp"
 #include "sys_fatfs_test.hpp"
+#include "sys_fatfs_diskioTest.hpp"
 
 void main(void)
 {
@@ -98,6 +99,7 @@ void main(void)
 	/** 初始化CMBackTrace */
 	cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
 	PRINTF("Hello World!\n");
+	PRINTF("gcc version: %d.%d.%d\n",__GNUC__,__GNUC_MINOR__,__GNUC_PATCHLEVEL__);
     /** 初始化ftfx_Flash */
 	FLASH_SimpleInit();
 	/** 初始化EasyFlash */
@@ -129,6 +131,7 @@ void main(void)
 	HAL_ExitCritical();
 
 	FATFS_BasicTest();
+	//FATFS_DiskioTest();
 	//CAM_ZF9V034_UnitTest();
 
 	MENU_Resume();

@@ -215,6 +215,8 @@
         <ClCompile Include="sdmmc\src\fsl_sdmmc_common.c"/>
         <ClCompile Include="source\isr.cpp"/>
         <ClCompile Include="source\main.cpp"/>
+        <ClCompile Include="source\sc_adc.c"/>
+        <ClCompile Include="source\sc_ftm.c"/>
         <ClCompile Include="source\syscalls.c"/>
         <ClCompile Include="startup\startup_mk66f18.cpp"/>
         <ClCompile Include="utilities\fsl_assert.c"/>
@@ -402,6 +404,8 @@
         <ClInclude Include="sdmmc\inc\fsl_sdmmc_spec.h"/>
         <ClInclude Include="sdmmc\osa\fsl_sdmmc_osa.h"/>
         <ClInclude Include="source\ffconf.h"/>
+        <ClInclude Include="source\sc_adc.h"/>
+        <ClInclude Include="source\sc_ftm.h"/>
         <ClInclude Include="utilities\fsl_debug_console.h"/>
         <ClInclude Include="utilities\fsl_debug_console_conf.h"/>
         <ClInclude Include="utilities\fsl_shell.h"/>

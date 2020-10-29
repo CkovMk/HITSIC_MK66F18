@@ -63,15 +63,10 @@
 /** FATFS */
 #include "ff.h"
 #include "sdmmc_config.h"
-#include "sc_gpio.h"
+FATFS fatfs;                                   //逻辑驱动器的工作区
+
 #include "sc_adc.h"
 #include "sc_ftm.h"
-void FLASH_Demo(void);
-void EF_Demo(void);
-
-
-FIL file;                                           //文件对象
-FATFS fatfs;                                   //逻辑驱动器的工作区
 
 /** HITSIC_Module_TEST */
 #include "drv_cam_zf9v034_test.hpp"
@@ -188,17 +183,7 @@ void main(void)
 	    Ftm_ClearSpeed(FTM1);
 	    Ftm_ClearSpeed(FTM2);
 */
-	    if(GPIO_Check(&boma1))
-	    {
-	    GPIO_PinWrite(GPIOC, 19, 0);
-	    SDK_DelayAtLeastUs(1000*1000, 180*1000*1000);
-	    GPIO_PinWrite(GPIOC, 19, 1);
-	    SDK_DelayAtLeastUs(1000*1000, 180*1000*1000);
-	    }
-	    else
-	    {
-	    GPIO_PinWrite(GPIOC, 19, 0);
-	    }
+
 	    //GPIO_PortToggle(GPIOC, 19);
 	    //SDK_DelayAtLeastUs(2000*1000, 180*1000*1000);
 	    /*

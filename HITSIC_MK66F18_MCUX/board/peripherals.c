@@ -471,9 +471,9 @@ instance:
       - enable_custom_name: 'false'
     - EnableTimerInInit: 'true'
   - ftm_quadrature_decoder_mode:
-    - timerModuloVal: '1'
+    - timerModuloVal: '65535'
     - timerInitVal: '0'
-    - ftm_quad_decoder_mode: 'kFTM_QuadPhaseEncode'
+    - ftm_quad_decoder_mode: 'kFTM_QuadCountAndDir'
     - ftm_phase_a_params:
       - enablePhaseFilter: 'false'
       - phasePolarity: 'kFTM_QuadPhaseNormal'
@@ -510,8 +510,8 @@ const ftm_phase_params_t ENCO_L_phaseBParams = {
 static void ENCO_L_init(void) {
   FTM_Init(ENCO_L_PERIPHERAL, &ENCO_L_config);
 /* Initialization of the timer initial value and modulo value */
-  FTM_SetQuadDecoderModuloValue(ENCO_L_PERIPHERAL, 0,1);
-  FTM_SetupQuadDecode(ENCO_L_PERIPHERAL, &ENCO_L_phaseAParams, &ENCO_L_phaseBParams, kFTM_QuadPhaseEncode);
+  FTM_SetQuadDecoderModuloValue(ENCO_L_PERIPHERAL, 0,65535);
+  FTM_SetupQuadDecode(ENCO_L_PERIPHERAL, &ENCO_L_phaseAParams, &ENCO_L_phaseBParams, kFTM_QuadCountAndDir);
   FTM_StartTimer(ENCO_L_PERIPHERAL, kFTM_SystemClock);
 }
 
@@ -553,9 +553,9 @@ instance:
       - enable_custom_name: 'false'
     - EnableTimerInInit: 'true'
   - ftm_quadrature_decoder_mode:
-    - timerModuloVal: '1'
+    - timerModuloVal: '65535'
     - timerInitVal: '0'
-    - ftm_quad_decoder_mode: 'kFTM_QuadPhaseEncode'
+    - ftm_quad_decoder_mode: 'kFTM_QuadCountAndDir'
     - ftm_phase_a_params:
       - enablePhaseFilter: 'false'
       - phasePolarity: 'kFTM_QuadPhaseNormal'
@@ -592,8 +592,8 @@ const ftm_phase_params_t ENCO_R_phaseBParams = {
 static void ENCO_R_init(void) {
   FTM_Init(ENCO_R_PERIPHERAL, &ENCO_R_config);
 /* Initialization of the timer initial value and modulo value */
-  FTM_SetQuadDecoderModuloValue(ENCO_R_PERIPHERAL, 0,1);
-  FTM_SetupQuadDecode(ENCO_R_PERIPHERAL, &ENCO_R_phaseAParams, &ENCO_R_phaseBParams, kFTM_QuadPhaseEncode);
+  FTM_SetQuadDecoderModuloValue(ENCO_R_PERIPHERAL, 0,65535);
+  FTM_SetupQuadDecode(ENCO_R_PERIPHERAL, &ENCO_R_phaseAParams, &ENCO_R_phaseBParams, kFTM_QuadCountAndDir);
   FTM_StartTimer(ENCO_R_PERIPHERAL, kFTM_SystemClock);
 }
 
@@ -653,7 +653,7 @@ instance:
       - clockSource: 'kFTM_SystemClock'
       - clockSourceFreq: 'GetFreq'
       - prescale: 'kFTM_Prescale_Divide_1'
-      - timerFrequency: '12000'
+      - timerFrequency: '20000'
       - bdmMode: 'kFTM_BdmMode_3'
       - pwmSyncMode: 'kFTM_SoftwareTrigger'
       - reloadPoints: 'kFTM_CntMax kFTM_CntMin'
@@ -737,7 +737,7 @@ const ftm_chnl_pwm_signal_param_t MOTOR_centerPwmSignalParams[] = {
 
 static void MOTOR_init(void) {
   FTM_Init(MOTOR_PERIPHERAL, &MOTOR_config);
-  FTM_SetupPwm(MOTOR_PERIPHERAL, MOTOR_centerPwmSignalParams, sizeof(MOTOR_centerPwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_CenterAlignedPwm, 12000U, MOTOR_CLOCK_SOURCE);
+  FTM_SetupPwm(MOTOR_PERIPHERAL, MOTOR_centerPwmSignalParams, sizeof(MOTOR_centerPwmSignalParams) / sizeof(ftm_chnl_pwm_signal_param_t), kFTM_CenterAlignedPwm, 20000U, MOTOR_CLOCK_SOURCE);
   FTM_StartTimer(MOTOR_PERIPHERAL, kFTM_SystemClock);
 }
 
@@ -848,7 +848,7 @@ instance:
       - 0:
         - chnlNumber: 'kFTM_Chnl_7'
         - level: 'kFTM_HighTrue'
-        - dutyCyclePercent: '0'
+        - dutyCyclePercent: '30'
         - enable_chan_irq: 'false'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
@@ -870,7 +870,7 @@ const ftm_chnl_pwm_signal_param_t SERVO_centerPwmSignalParams[] = {
   {
     .chnlNumber = kFTM_Chnl_7,
     .level = kFTM_HighTrue,
-    .dutyCyclePercent = 0
+    .dutyCyclePercent = 30
   }
 };
 
@@ -924,6 +924,165 @@ static void WLAN_UART_init(void) {
 }
 
 /***********************************************************************************************************************
+ * EMAG initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'EMAG'
+- type: 'adc16'
+- mode: 'ADC'
+- custom_name_enabled: 'true'
+- type_id: 'adc16_7a29cdeb84266e77f0c7ceac1b49fe2d'
+- functional_group: 'RTEPIP_Device'
+- peripheral: 'ADC0'
+- config_sets:
+  - fsl_adc16:
+    - adc16_config:
+      - referenceVoltageSource: 'kADC16_ReferenceVoltageSourceVref'
+      - clockSource: 'kADC16_ClockSourceAlt0'
+      - enableAsynchronousClock: 'true'
+      - clockDivider: 'kADC16_ClockDivider1'
+      - resolution: 'kADC16_Resolution8or9Bit'
+      - longSampleMode: 'kADC16_LongSampleDisabled'
+      - enableHighSpeed: 'true'
+      - enableLowPower: 'false'
+      - enableContinuousConversion: 'false'
+    - adc16_channel_mux_mode: 'kADC16_ChannelMuxA'
+    - adc16_hardware_compare_config:
+      - hardwareCompareModeEnable: 'false'
+    - doAutoCalibration: 'true'
+    - trigger: 'false'
+    - hardwareAverageConfiguration: 'kADC16_HardwareAverageCount8'
+    - enable_dma: 'false'
+    - enable_irq: 'false'
+    - adc_interrupt:
+      - IRQn: 'ADC0_IRQn'
+      - enable_interrrupt: 'enabled'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - adc16_channels_config:
+      - 0:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.16'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 1:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.23'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 2:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.17'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 3:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.18'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 4:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.10'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 5:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.11'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 6:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.12'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 7:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.13'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+adc16_channel_config_t EMAG_channelsConfig[8] = {
+  {
+    .channelNumber = 16U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 23U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 17U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 18U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 10U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 11U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 12U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 13U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  }
+};
+const adc16_config_t EMAG_config = {
+  .referenceVoltageSource = kADC16_ReferenceVoltageSourceVref,
+  .clockSource = kADC16_ClockSourceAlt0,
+  .enableAsynchronousClock = true,
+  .clockDivider = kADC16_ClockDivider1,
+  .resolution = kADC16_Resolution8or9Bit,
+  .longSampleMode = kADC16_LongSampleDisabled,
+  .enableHighSpeed = true,
+  .enableLowPower = false,
+  .enableContinuousConversion = false
+};
+const adc16_channel_mux_mode_t EMAG_muxMode = kADC16_ChannelMuxA;
+const adc16_hardware_average_mode_t EMAG_hardwareAverageMode = kADC16_HardwareAverageCount8;
+
+static void EMAG_init(void) {
+  /* Initialize ADC16 converter */
+  ADC16_Init(EMAG_PERIPHERAL, &EMAG_config);
+  /* Make sure, that software trigger is used */
+  ADC16_EnableHardwareTrigger(EMAG_PERIPHERAL, false);
+  /* Configure hardware average mode */
+  ADC16_SetHardwareAverage(EMAG_PERIPHERAL, EMAG_hardwareAverageMode);
+  /* Configure channel multiplexing mode */
+  ADC16_SetChannelMuxMode(EMAG_PERIPHERAL, EMAG_muxMode);
+  /* Perform auto calibration */
+  ADC16_DoAutoCalibration(EMAG_PERIPHERAL);
+}
+
+/***********************************************************************************************************************
  * Initialization functions
  **********************************************************************************************************************/
 void RTEPIP_Basic(void)
@@ -955,6 +1114,7 @@ void RTEPIP_Device(void)
   OLED_SPI_init();
   SERVO_init();
   WLAN_UART_init();
+  EMAG_init();
 }
 
 /***********************************************************************************************************************

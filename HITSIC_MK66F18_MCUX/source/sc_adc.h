@@ -21,9 +21,9 @@
 *  @param      channel            ADC通道选择
 *  @return     uint32_t   ADC采集数值
 *  @since      v1.1
-*  Sample usage:          ADC_Get(ADC0,0,12);
+*  Sample usage:          SCADC_GetSample(ADC0,0,12);
 **********************************************************************************************************************/
-uint32_t ADC_Get(ADC_Type *base, uint8_t channelGroup, uint8_t channel);
+uint32_t SCADC_GetSample(ADC_Type *base, uint8_t channelGroup, uint8_t channel);
 
 
 

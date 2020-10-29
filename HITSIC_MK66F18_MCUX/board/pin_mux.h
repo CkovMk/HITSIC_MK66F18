@@ -533,6 +533,19 @@ void RTEPIN_Basic(void);
 #define RTEPIN_DIGITAL_MOTOR_LB_PIN_MASK (1U << 4U)      /*!<@brief PORT pin mask */
                                                          /* @} */
 
+/*! @name PORTC19 (number 126), BEEP
+  @{ */
+
+/* Symbols to be used with GPIO driver */
+#define RTEPIN_DIGITAL_BEEP_GPIO GPIOC                /*!<@brief GPIO peripheral base pointer */
+#define RTEPIN_DIGITAL_BEEP_GPIO_PIN_MASK (1U << 19U) /*!<@brief GPIO pin mask */
+
+/* Symbols to be used with PORT driver */
+#define RTEPIN_DIGITAL_BEEP_PORT PORTC                /*!<@brief PORT peripheral base pointer */
+#define RTEPIN_DIGITAL_BEEP_PIN 19U                   /*!<@brief PORT pin number */
+#define RTEPIN_DIGITAL_BEEP_PIN_MASK (1U << 19U)      /*!<@brief PORT pin mask */
+                                                      /* @} */
+
 /*!
  * @brief Configures pin routing and optionally pin electrical features.
  *

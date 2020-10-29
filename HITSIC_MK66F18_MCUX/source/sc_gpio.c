@@ -23,6 +23,9 @@
  gpio_t boma3 =  {GPIOA, 11};
  gpio_t boma4 =  {GPIOA, 9 };
 
+
+
+
 uint32_t GPIO_Check(gpio_t *s)
 {
      SDK_DelayAtLeastUs(50*1000, 180*1000*1000);

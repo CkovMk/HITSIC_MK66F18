@@ -12,6 +12,7 @@
 #include "pin_mux.h"
 #include "fsl_common.h"
 
+
 #if defined(__cplusplus)
 extern "C" {
 #endif /* __cplusplus */
@@ -32,7 +33,16 @@ extern gpio_t boma2;
 extern gpio_t boma3;
 extern gpio_t boma4;
 
+/**********************************************************************************************************************
+*  @brief      GPIO输入检测
+*  @param      gpio_t *        GPIO外设
+*  @return     uint32_t        0/1
+*  Sample usage:          GPIO_Check(&key_up);
+*                         GPIO_Check(&boma1);
+**********************************************************************************************************************/
 uint32_t GPIO_Check(gpio_t *s);
+
+
 
 #if defined(__cplusplus)
 }

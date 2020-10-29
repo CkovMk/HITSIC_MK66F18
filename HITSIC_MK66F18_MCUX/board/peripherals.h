@@ -19,10 +19,10 @@
 #include "fsl_uart.h"
 #include "fsl_clock.h"
 #include "fsl_lpuart.h"
+#include "fsl_adc16.h"
 #include "fsl_ftm.h"
 #include "fsl_i2c.h"
 #include "fsl_dspi.h"
-#include "fsl_adc16.h"
 
 #if defined(__cplusplus)
 extern "C" {
@@ -42,8 +42,6 @@ extern "C" {
 #define GPIOA_PORT PORTA
 /* GPIOA interrupt vector ID (number). */
 #define GPIOA_IRQN PORTA_IRQn
-/* GPIOA interrupt vector priority. */
-#define GPIOA_IRQ_PRIORITY 4
 /* GPIOA interrupt handler identifier. */
 #define GPIOA_IRQHANDLER PORTA_IRQHandler
 /* Alias for GPIOB peripheral */
@@ -82,8 +80,6 @@ extern "C" {
 #define GPIOE_PORT PORTE
 /* GPIOE interrupt vector ID (number). */
 #define GPIOE_IRQN PORTE_IRQn
-/* GPIOE interrupt vector priority. */
-#define GPIOE_IRQ_PRIORITY 4
 /* GPIOE interrupt handler identifier. */
 #define GPIOE_IRQHANDLER PORTE_IRQHandler
 /* RTEPIP_Basic defines for LPTMR0 */
@@ -120,6 +116,28 @@ extern "C" {
 #define DBG_LPUART_PERIPHERAL LPUART0
 /* Definition of the clock source frequency */
 #define DBG_LPUART_CLOCK_SOURCE 180000000UL
+/* Alias for ADC0 peripheral */
+#define EMAG_PERIPHERAL ADC0
+/* EMAG interrupt vector ID (number). */
+#define EMAG_IRQN ADC0_IRQn
+/* EMAG interrupt handler identifier. */
+#define EMAG_IRQHANDLER ADC0_IRQHandler
+/* Channel 0 (SE.16) conversion control group. */
+#define EMAG_CH0_CONTROL_GROUP 0
+/* Channel 1 (SE.23) conversion control group. */
+#define EMAG_CH1_CONTROL_GROUP 0
+/* Channel 2 (SE.17) conversion control group. */
+#define EMAG_CH2_CONTROL_GROUP 0
+/* Channel 3 (SE.18) conversion control group. */
+#define EMAG_CH3_CONTROL_GROUP 0
+/* Channel 4 (SE.10) conversion control group. */
+#define EMAG_CH4_CONTROL_GROUP 0
+/* Channel 5 (SE.11) conversion control group. */
+#define EMAG_CH5_CONTROL_GROUP 0
+/* Channel 6 (SE.12) conversion control group. */
+#define EMAG_CH6_CONTROL_GROUP 0
+/* Channel 7 (SE.13) conversion control group. */
+#define EMAG_CH7_CONTROL_GROUP 0
 /* Definition of peripheral ID */
 #define ENCO_L_PERIPHERAL FTM2
 /* Definition of the clock source frequency */
@@ -170,28 +188,6 @@ extern "C" {
 #define WLAN_UART_PERIPHERAL UART0
 /* Definition of the clock source frequency */
 #define WLAN_UART_CLOCK_SOURCE CLOCK_GetFreq(UART0_CLK_SRC)
-/* Alias for ADC0 peripheral */
-#define EMAG_PERIPHERAL ADC0
-/* EMAG interrupt vector ID (number). */
-#define EMAG_IRQN ADC0_IRQn
-/* EMAG interrupt handler identifier. */
-#define EMAG_IRQHANDLER ADC0_IRQHandler
-/* Channel 0 (SE.16) conversion control group. */
-#define EMAG_CH0_CONTROL_GROUP 0
-/* Channel 1 (SE.23) conversion control group. */
-#define EMAG_CH1_CONTROL_GROUP 0
-/* Channel 2 (SE.17) conversion control group. */
-#define EMAG_CH2_CONTROL_GROUP 0
-/* Channel 3 (SE.18) conversion control group. */
-#define EMAG_CH3_CONTROL_GROUP 0
-/* Channel 4 (SE.10) conversion control group. */
-#define EMAG_CH4_CONTROL_GROUP 0
-/* Channel 5 (SE.11) conversion control group. */
-#define EMAG_CH5_CONTROL_GROUP 0
-/* Channel 6 (SE.12) conversion control group. */
-#define EMAG_CH6_CONTROL_GROUP 0
-/* Channel 7 (SE.13) conversion control group. */
-#define EMAG_CH7_CONTROL_GROUP 0
 
 /***********************************************************************************************************************
  * Global variables
@@ -201,6 +197,10 @@ extern const lptmr_config_t LPTMR0_config;
 extern const pit_config_t PIT_config;
 extern const uart_config_t CAM_UART_config;
 extern const lpuart_config_t DBG_LPUART_config;
+extern adc16_channel_config_t EMAG_channelsConfig[8];
+extern const adc16_config_t EMAG_config;
+extern const adc16_channel_mux_mode_t EMAG_muxMode;
+extern const adc16_hardware_average_mode_t EMAG_hardwareAverageMode;
 extern const ftm_config_t ENCO_L_config;
 extern const ftm_config_t ENCO_R_config;
 extern const i2c_master_config_t IMU_I2C_config;
@@ -208,10 +208,6 @@ extern const ftm_config_t MOTOR_config;
 extern const dspi_master_config_t OLED_SPI_config;
 extern const ftm_config_t SERVO_config;
 extern const uart_config_t WLAN_UART_config;
-extern adc16_channel_config_t EMAG_channelsConfig[8];
-extern const adc16_config_t EMAG_config;
-extern const adc16_channel_mux_mode_t EMAG_muxMode;
-extern const adc16_hardware_average_mode_t EMAG_hardwareAverageMode;
 
 /***********************************************************************************************************************
  * Initialization functions

@@ -2,7 +2,7 @@
  * sc_adc.h
  *
  *  Created on: 2020年10月27日
- *      Author: Administrator
+ *      Author: 孙唯
  */
 
 #ifndef SC_ADC_H_
@@ -13,24 +13,10 @@
 #include "fsl_common.h"
 #include "fsl_port.h"
 
-typedef struct _ADC
-{
-  PORT_Type* PORT;
-  uint8_t    PIN;
-  ADC_Type*  ADC;
-} Adc_t;
 
 /**********************************************************************************************************************
-*  @brief      ADC初始化
-*  @param      NULL
-*  @return     void
-*  @since      v1.0
-*  Sample usage:          AD_Init();
-**********************************************************************************************************************/
-void AD_Init(void);
-/**********************************************************************************************************************
 *  @brief      获取AD转化值
-*  @param      base              ADC模块选择
+*  @param      base               ADC模块选择
 *  @param      channelGroup       ADC模组，0或1，即A或B，按照MCUXpresso上选
 *  @param      channel            ADC通道选择
 *  @return     uint32_t   ADC采集数值

@@ -65,7 +65,6 @@
 #include "sc_gpio.h"
 #include "sc_adc.h"
 #include "sc_ftm.h"
-
 void FLASH_Demo(void);
 void EF_Demo(void);
 
@@ -112,11 +111,8 @@ void main()
 	/** 初始化OLED屏幕 */
 	DISP_SSD1306_Init();
 
-	/** 初始化菜单 */
-	//MENU_Init();
-	//MENU_Data_NvmReadRegionConfig();
-	//MENU_Data_NvmRead(menu_currRegionNum);
-	//MENU_PrintDisp();
+
+
 
 	/** 初始化摄像头 */
 	//CAMERA_Init();
@@ -131,29 +127,88 @@ void main()
 	HAL_ExitCritical();
 
 
+
 	//CAM_ZF9V034_UnitTest();
 
 	//result = SD_HostInit(&g_sd);
 	//result = SD_CardInit(&g_sd);
-	//result = f_mount(&fatfs,"sdcard:",1);    20mv 20KHZ                               //挂载SD卡
+	//result = f_mount(&fatfs,"sdcard:",1);                                   //挂载SD卡
 
 	float f = arm_sin_f32(0.6f);
-	//DISP_SSD1306_Print_F6x8(0,0,"enter");
-	uint8_t adc=0;
-	AD_Init();
-	Ftm_PWM_Init(FTM0,kFTM_Chnl_0,20000,0);
-	Ftm_PWM_Init(FTM0,kFTM_Chnl_1,20000,0);
-	Ftm_PWM_Init(FTM0,kFTM_Chnl_2,20000,0);
-	Ftm_PWM_Init(FTM0,kFTM_Chnl_3,20000,0);
-	Ftm_PWM_Init(FTM3,kFTM_Chnl_7,50,0);
+
+   // DISP_SSD1306_Fill(0);
+
+    //DISP_SSD1306_Print_F6x8(0,0,"HITSIC!");
+
+	uint8_t duty=0;
+	uint8_t adc0,adc1,adc2,adc3,adc4,adc5,adc6,adc7;
+	int speed1,speed2;
+
 	while (true)
 	{
-	    DISP_SSD1306_Print_F6x8(0,0,"     ");
-	    adc=ADC_Get(ADC0,0,10);
-	    DISP_SSD1306_Printf_F6x8(0,0,"%d",adc);
+
+	    //DISP_SSD1306_Fill(0);
+	    /*
+	    adc0=ADC_Get(ADC0,0,10);
+	    adc1=ADC_Get(ADC0,0,11);
+	    adc2=ADC_Get(ADC0,0,12);
+	    adc3=ADC_Get(ADC0,0,13);
+	    adc4=ADC_Get(ADC0,0,16);
+	    adc5=ADC_Get(ADC0,0,17);
+	    adc6=ADC_Get(ADC0,0,18);
+	    adc7=ADC_Get(ADC0,0,23);
+	    DISP_SSD1306_Printf_F6x8(0,0,"%d",adc0);
+	    DISP_SSD1306_Printf_F6x8(0,1,"%d",adc1);
+	    DISP_SSD1306_Printf_F6x8(0,2,"%d",adc2);
+	    DISP_SSD1306_Printf_F6x8(0,3,"%d",adc3);
+	    DISP_SSD1306_Printf_F6x8(0,4,"%d",adc4);
+	    DISP_SSD1306_Printf_F6x8(0,5,"%d",adc5);
+	    DISP_SSD1306_Printf_F6x8(0,6,"%d",adc6);
+	    DISP_SSD1306_Printf_F6x8(0,7,"%d",adc7);
+	    */
+/*
+	    speed1=Ftm_GetSpeed(FTM1);
+	    DISP_SSD1306_Printf_F6x8(60,0,"%d",speed1);
+	    speed2=Ftm_GetSpeed(FTM2);
+	    DISP_SSD1306_Printf_F6x8(60,1,"%d",speed2);
 	    SDK_DelayAtLeastUs(500*1000, 180*1000*1000);
-	    Ftm_PWM_Change(FTM0, kFTM_Chnl_0, 20000, 30);
-	    Ftm_PWM_Change(FTM0, kFTM_Chnl_2, 20000, 50);
-	    Ftm_PWM_Change(FTM3, kFTM_Chnl_7, 50, 30);
+	    Ftm_ClearSpeed(FTM1);
+	    Ftm_ClearSpeed(FTM2);
+*/
+	    if(GPIO_Check(&boma1))
+	    {
+	    GPIO_PinWrite(GPIOC, 19, 0);
+	    SDK_DelayAtLeastUs(1000*1000, 180*1000*1000);
+	    GPIO_PinWrite(GPIOC, 19, 1);
+	    SDK_DelayAtLeastUs(1000*1000, 180*1000*1000);
+	    }
+	    else
+	    {
+	    GPIO_PinWrite(GPIOC, 19, 0);
+	    }
+	    //GPIO_PortToggle(GPIOC, 19);
+	    //SDK_DelayAtLeastUs(2000*1000, 180*1000*1000);
+	    /*
+        if(GPIO_Check(&key_right))
+        {
+            duty+=5;
+        }
+        if(GPIO_Check(&key_left))
+        {
+            duty-=5;
+        }
+        if(duty<=0)
+        {
+            duty=0;
+        }
+        if(duty>=80)
+        {
+            duty=80;
+        }
+        DISP_SSD1306_Printf_F6x8(0,0,"%d",duty);
+        Ftm_PWM_Change(FTM0,kFTM_Chnl_1,20000,duty);
+        Ftm_PWM_Change(FTM0,kFTM_Chnl_3,20000,duty);
+*/
+
 	}
 }

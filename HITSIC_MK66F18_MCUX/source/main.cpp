@@ -79,6 +79,9 @@ FATFS fatfs;                                   //逻辑驱动器的工作区
 #include "sys_fatfs_test.hpp"
 #include "sys_fatfs_diskioTest.hpp"
 
+/** SCLIB_TEST */
+#include "sc_test.hpp"
+
 uartMgr_t *uartMgr0 = nullptr;
 
 void main(void)
@@ -140,8 +143,10 @@ void main(void)
     SDK_DelayAtLeastUs(1000 * 1000, CLOCK_GetFreq(kCLOCK_CoreSysClk));
     CAM_ZF9V034_UnitTest();
     SDK_DelayAtLeastUs(1000 * 1000, CLOCK_GetFreq(kCLOCK_CoreSysClk));
+
+
     inv::IMU_UnitTest_AutoRefresh();
-    SDK_DelayAtLeastUs(1000 * 1000, CLOCK_GetFreq(kCLOCK_CoreSysClk));
+    sc::SC_UnitTest_AutoRefresh();
 
     MENU_Resume();
 
@@ -155,65 +160,13 @@ void main(void)
     while (true)
     {
 
-        //DISP_SSD1306_Fill(0);
-        /*
-         adc0=ADC_Get(ADC0,0,10);
-         adc1=ADC_Get(ADC0,0,11);
-         adc2=ADC_Get(ADC0,0,12);
-         adc3=ADC_Get(ADC0,0,13);
-         adc4=ADC_Get(ADC0,0,16);
-         adc5=ADC_Get(ADC0,0,17);
-         adc6=ADC_Get(ADC0,0,18);
-         adc7=ADC_Get(ADC0,0,23);
-         DISP_SSD1306_Printf_F6x8(0,0,"%d",adc0);
-         DISP_SSD1306_Printf_F6x8(0,1,"%d",adc1);
-         DISP_SSD1306_Printf_F6x8(0,2,"%d",adc2);
-         DISP_SSD1306_Printf_F6x8(0,3,"%d",adc3);
-         DISP_SSD1306_Printf_F6x8(0,4,"%d",adc4);
-         DISP_SSD1306_Printf_F6x8(0,5,"%d",adc5);
-         DISP_SSD1306_Printf_F6x8(0,6,"%d",adc6);
-         DISP_SSD1306_Printf_F6x8(0,7,"%d",adc7);
-         */
-        /*
-         speed1=Ftm_GetSpeed(FTM1);
-         DISP_SSD1306_Printf_F6x8(60,0,"%d",speed1);
-         speed2=Ftm_GetSpeed(FTM2);
-         DISP_SSD1306_Printf_F6x8(60,1,"%d",speed2);
-         SDK_DelayAtLeastUs(500*1000, 180*1000*1000);
-         Ftm_ClearSpeed(FTM1);
-         Ftm_ClearSpeed(FTM2);
-         */
-
-        //GPIO_PortToggle(GPIOC, 19);
-        //SDK_DelayAtLeastUs(2000*1000, 180*1000*1000);
-        /*
-         if(GPIO_Check(&key_right))
-         {
-         duty+=5;
-         }
-         if(GPIO_Check(&key_left))
-         {
-         duty-=5;
-         }
-         if(duty<=0)
-         {
-         duty=0;
-         }
-         if(duty>=80)
-         {
-         duty=80;
-         }
-         DISP_SSD1306_Printf_F6x8(0,0,"%d",duty);
-         Ftm_PWM_Change(FTM0,kFTM_Chnl_1,20000,duty);
-         Ftm_PWM_Change(FTM0,kFTM_Chnl_3,20000,duty);
-         */
-
     }
 }
 
 void MENU_DataSetUp(void)
 {
-    MENU_ListInsert(menu_menuRoot, MENU_ItemConstruct(nullType, NULL, "DATA", 0, 0));
+    MENU_ListInsert(menu_menuRoot, MENU_ItemConstruct(nullType, NULL, "TEST", 0, 0));
     inv::IMU_UnitTest_AutoRefreshAddMenu(menu_menuRoot);
+    sc::SC_UnitTest_AutoRefreshAddMenu(menu_menuRoot);
     MENU_DataSetupTest(menu_menuRoot);
 }

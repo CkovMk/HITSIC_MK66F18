@@ -28,7 +28,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
 /**
  * Copyright 2018 - 2019 HITSIC
  * All rights reserved.
@@ -50,15 +49,20 @@
 /** HITSIC_Module_DRV */
 #include "drv_ftfx_flash.h"
 #include "drv_disp_ssd1306.hpp"
+#include "drv_imu_invensense.hpp"
+#include "drv_dmadvp.hpp"
+#include "drv_cam_zf9v034.hpp"
 
 /** HITSIC_Module_SYS */
 #include "sys_pitmgr.hpp"
 #include "sys_extint.hpp"
+#include "sys_uartmgr.hpp"
 #include "cm_backtrace.h"
 //#include "easyflash.h"
 
 /** HITSIC_Module_APP */
 #include "app_menu.h"
+#include "app_svbmp.hpp"
 
 /** FATFS */
 #include "ff.h"
@@ -71,142 +75,146 @@ FATFS fatfs;                                   //逻辑驱动器的工作区
 /** HITSIC_Module_TEST */
 #include "drv_cam_zf9v034_test.hpp"
 #include "app_menu_test.hpp"
+#include "drv_imu_invensense_test.hpp"
 #include "sys_fatfs_test.hpp"
 #include "sys_fatfs_diskioTest.hpp"
 
+uartMgr_t *uartMgr0 = nullptr;
+
 void main(void)
 {
-	/** 初始化阶段，关闭总中断 */
-	HAL_EnterCritical();
+    /** 初始化阶段，关闭总中断 */
+    HAL_EnterCritical();
 
-	/** 初始化时钟 */
-	RTECLK_HsRun_180MHz();
-	/** 初始化引脚路由 */
-	RTEPIN_Basic();
-	RTEPIN_Digital();
+    /** 初始化时钟 */
+    RTECLK_HsRun_180MHz();
+    /** 初始化引脚路由 */
+    RTEPIN_Basic();
+    RTEPIN_Digital();
     RTEPIN_Analog();
-	RTEPIN_LPUART0_DBG();
-	RTEPIN_UART0_WLAN();
+    RTEPIN_LPUART0_DBG();
+    RTEPIN_UART0_WLAN();
 
-	/** 初始化外设 */
-	RTEPIP_Basic();
-	RTEPIP_Device();
+    /** 初始化外设 */
+    RTEPIP_Basic();
+    RTEPIP_Device();
 
-	/** 初始化调试串口 */
-	DbgConsole_Init(0U, 921600U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
-	/** 初始化CMBackTrace */
-	cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
-	PRINTF("Hello World!\n");
-	PRINTF("gcc version: %d.%d.%d\n",__GNUC__,__GNUC_MINOR__,__GNUC_PATCHLEVEL__);
+    /** 初始化调试串口 */
+    DbgConsole_Init(0U, 921600U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
+    /** 初始化CMBackTrace */
+    cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
+    PRINTF("Hello World!\n");
+    PRINTF("gcc version: %d.%d.%d\n", __GNUC__, __GNUC_MINOR__,
+    __GNUC_PATCHLEVEL__);
     /** 初始化ftfx_Flash */
-	FLASH_SimpleInit();
-	/** 初始化EasyFlash */
-	//easyflash_init();
-	/** 初始化PIT中断管理器 */
-	pitMgr_t::init();
-	/** 初始化I/O中断管理器 */
-	extInt_t::init();
-	/** 初始化串口管理器 */
-	//UARTMGR_DataInit();
+    FLASH_SimpleInit();
+    /** 初始化EasyFlash */
+    //easyflash_init();
+    /** 初始化PIT中断管理器 */
+    pitMgr_t::init();
+    /** 初始化I/O中断管理器 */
+    extInt_t::init();
 
-	/** 初始化OLED屏幕 */
-	DISP_SSD1306_Init();
+    /** 初始化串口管理器 */
+    uartMgr0 = &uartMgr_t::getInst(UART0);
+    uartMgr0->uprintf("Wi-Fi Test!\n");
+    /** 初始化OLED屏幕 */
+    DISP_SSD1306_Init();
 
-	/** 初始化菜单 */
-	MENU_Init();
-	MENU_Data_NvmReadRegionConfig();
-	MENU_Data_NvmRead(menu_currRegionNum);
-//	MENU_PrintDisp();
-	MENU_Suspend();
-	extern const uint8_t DISP_image_100thAnniversary[8][128];
-	DISP_SSD1306_BufferUpload((uint8_t*)DISP_image_100thAnniversary);
-	SDK_DelayAtLeastUs(1000 * 1000,CLOCK_GetFreq(kCLOCK_CoreSysClk));
-	/** 初始化摄像头 */
+    /** 初始化菜单 */
+    MENU_Init();
+    MENU_Data_NvmReadRegionConfig();
+    MENU_Data_NvmRead(menu_currRegionNum);
+    MENU_Suspend();
 
-	/** 初始化IMU */
+    extern const uint8_t DISP_image_100thAnniversary[8][128];
+    DISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
+    SDK_DelayAtLeastUs(1000 * 1000, CLOCK_GetFreq(kCLOCK_CoreSysClk));
+    /** 初始化摄像头 */
+
+    /** 初始化IMU */
 
     /** 初始化结束，开启总中断 */
-	HAL_ExitCritical();
+    HAL_ExitCritical();
 
-	//FATFS_BasicTest();
-	//FATFS_DiskioTest();
-	CAM_ZF9V034_UnitTest();
+    FATFS_BasicTest();
+    SDK_DelayAtLeastUs(1000 * 1000, CLOCK_GetFreq(kCLOCK_CoreSysClk));
+    CAM_ZF9V034_UnitTest();
+    SDK_DelayAtLeastUs(1000 * 1000, CLOCK_GetFreq(kCLOCK_CoreSysClk));
+    inv::IMU_UnitTest_AutoRefresh();
+    SDK_DelayAtLeastUs(1000 * 1000, CLOCK_GetFreq(kCLOCK_CoreSysClk));
 
-	MENU_Resume();
+    MENU_Resume();
 
-	//CAM_ZF9V034_UnitTest();
+    float f = arm_sin_f32(0.6f);
 
-	//result = SD_HostInit(&g_sd);
-	//result = SD_CardInit(&g_sd);
-	//result = f_mount(&fatfs,"sdcard:",1);                                   //挂载SD卡
-
-	float f = arm_sin_f32(0.6f);
-
-   // DISP_SSD1306_Fill(0);
-
-    //DISP_SSD1306_Print_F6x8(0,0,"HITSIC!");
-
-	uint8_t duty=0;
-	uint8_t adc0,adc1,adc2,adc3,adc4,adc5,adc6,adc7;
-	int speed1,speed2;
+    uint8_t duty = 0;
+    uint8_t adc0, adc1, adc2, adc3, adc4, adc5, adc6, adc7;
+    int speed1, speed2;
     uint8_t sw1_state = GPIO_PinRead(GPIOA, 9U);
 
+    while (true)
+    {
 
-	while (true)
-	{
+        //DISP_SSD1306_Fill(0);
+        /*
+         adc0=ADC_Get(ADC0,0,10);
+         adc1=ADC_Get(ADC0,0,11);
+         adc2=ADC_Get(ADC0,0,12);
+         adc3=ADC_Get(ADC0,0,13);
+         adc4=ADC_Get(ADC0,0,16);
+         adc5=ADC_Get(ADC0,0,17);
+         adc6=ADC_Get(ADC0,0,18);
+         adc7=ADC_Get(ADC0,0,23);
+         DISP_SSD1306_Printf_F6x8(0,0,"%d",adc0);
+         DISP_SSD1306_Printf_F6x8(0,1,"%d",adc1);
+         DISP_SSD1306_Printf_F6x8(0,2,"%d",adc2);
+         DISP_SSD1306_Printf_F6x8(0,3,"%d",adc3);
+         DISP_SSD1306_Printf_F6x8(0,4,"%d",adc4);
+         DISP_SSD1306_Printf_F6x8(0,5,"%d",adc5);
+         DISP_SSD1306_Printf_F6x8(0,6,"%d",adc6);
+         DISP_SSD1306_Printf_F6x8(0,7,"%d",adc7);
+         */
+        /*
+         speed1=Ftm_GetSpeed(FTM1);
+         DISP_SSD1306_Printf_F6x8(60,0,"%d",speed1);
+         speed2=Ftm_GetSpeed(FTM2);
+         DISP_SSD1306_Printf_F6x8(60,1,"%d",speed2);
+         SDK_DelayAtLeastUs(500*1000, 180*1000*1000);
+         Ftm_ClearSpeed(FTM1);
+         Ftm_ClearSpeed(FTM2);
+         */
 
-	    //DISP_SSD1306_Fill(0);
-	    /*
-	    adc0=ADC_Get(ADC0,0,10);
-	    adc1=ADC_Get(ADC0,0,11);
-	    adc2=ADC_Get(ADC0,0,12);
-	    adc3=ADC_Get(ADC0,0,13);
-	    adc4=ADC_Get(ADC0,0,16);
-	    adc5=ADC_Get(ADC0,0,17);
-	    adc6=ADC_Get(ADC0,0,18);
-	    adc7=ADC_Get(ADC0,0,23);
-	    DISP_SSD1306_Printf_F6x8(0,0,"%d",adc0);
-	    DISP_SSD1306_Printf_F6x8(0,1,"%d",adc1);
-	    DISP_SSD1306_Printf_F6x8(0,2,"%d",adc2);
-	    DISP_SSD1306_Printf_F6x8(0,3,"%d",adc3);
-	    DISP_SSD1306_Printf_F6x8(0,4,"%d",adc4);
-	    DISP_SSD1306_Printf_F6x8(0,5,"%d",adc5);
-	    DISP_SSD1306_Printf_F6x8(0,6,"%d",adc6);
-	    DISP_SSD1306_Printf_F6x8(0,7,"%d",adc7);
-	    */
-/*
-	    speed1=Ftm_GetSpeed(FTM1);
-	    DISP_SSD1306_Printf_F6x8(60,0,"%d",speed1);
-	    speed2=Ftm_GetSpeed(FTM2);
-	    DISP_SSD1306_Printf_F6x8(60,1,"%d",speed2);
-	    SDK_DelayAtLeastUs(500*1000, 180*1000*1000);
-	    Ftm_ClearSpeed(FTM1);
-	    Ftm_ClearSpeed(FTM2);
-*/
+        //GPIO_PortToggle(GPIOC, 19);
+        //SDK_DelayAtLeastUs(2000*1000, 180*1000*1000);
+        /*
+         if(GPIO_Check(&key_right))
+         {
+         duty+=5;
+         }
+         if(GPIO_Check(&key_left))
+         {
+         duty-=5;
+         }
+         if(duty<=0)
+         {
+         duty=0;
+         }
+         if(duty>=80)
+         {
+         duty=80;
+         }
+         DISP_SSD1306_Printf_F6x8(0,0,"%d",duty);
+         Ftm_PWM_Change(FTM0,kFTM_Chnl_1,20000,duty);
+         Ftm_PWM_Change(FTM0,kFTM_Chnl_3,20000,duty);
+         */
 
-	    //GPIO_PortToggle(GPIOC, 19);
-	    //SDK_DelayAtLeastUs(2000*1000, 180*1000*1000);
-	    /*
-        if(GPIO_Check(&key_right))
-        {
-            duty+=5;
-        }
-        if(GPIO_Check(&key_left))
-        {
-            duty-=5;
-        }
-        if(duty<=0)
-        {
-            duty=0;
-        }
-        if(duty>=80)
-        {
-            duty=80;
-        }
-        DISP_SSD1306_Printf_F6x8(0,0,"%d",duty);
-        Ftm_PWM_Change(FTM0,kFTM_Chnl_1,20000,duty);
-        Ftm_PWM_Change(FTM0,kFTM_Chnl_3,20000,duty);
-*/
+    }
+}
 
-	}
+void MENU_DataSetUp(void)
+{
+    MENU_ListInsert(menu_menuRoot, MENU_ItemConstruct(nullType, NULL, "DATA", 0, 0));
+    inv::IMU_UnitTest_AutoRefreshAddMenu(menu_menuRoot);
+    MENU_DataSetupTest(menu_menuRoot);
 }

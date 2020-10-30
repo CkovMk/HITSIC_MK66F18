@@ -23,7 +23,7 @@
 *  @since      v1.1
 *  Sample usage:          SCADC_GetSample(ADC0,0,12);
 **********************************************************************************************************************/
-uint32_t SCADC_GetSample(ADC_Type *base, uint8_t channelGroup, uint8_t channel);
+uint32_t SCADC_Sample(ADC_Type *base, uint8_t channelGroup, uint8_t channel);
 
 
 

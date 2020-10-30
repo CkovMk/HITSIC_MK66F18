@@ -27,7 +27,7 @@ adc16_channel_config_t ADC_channelsConfig = {
 };
 
 
-uint32_t ADC_Get(ADC_Type *base, uint8_t channelGroup, uint8_t channel)
+uint32_t SCADC_Sample(ADC_Type *base, uint8_t channelGroup, uint8_t channel)
 {
 
     ADC_channelsConfig.channelNumber = channel;

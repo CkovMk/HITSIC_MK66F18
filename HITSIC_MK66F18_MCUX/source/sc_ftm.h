@@ -22,10 +22,20 @@
 *  @param      dutyFre         ftm频率
 *  @return     void
 *  @since      v1.0
+*  Sample usage:          SCFTM_PWM_Change(FTM0,kFTM_Chnl_1,20000,10U);
+**********************************************************************************************************************/
+void SCFTM_PWM_Change(FTM_Type *base, ftm_chnl_t chnlNumber, uint32_t dutyFreq, uint8_t dutyCycle);
+
+/**********************************************************************************************************************
+*  @brief      ftm设定占空比(高精度版本)      用于PWM模式
+*  @param      base            ftm模块选择
+*  @param      chnlNumber      ftm通道选择
+*  @param      dutyFre         ftm频率
+*  @return     void
+*  @since      v1.0
 *  Sample usage:          SCFTM_PWM_Change(FTM0,kFTM_Chnl_1,20000,10.5);
 **********************************************************************************************************************/
-void SCFTM_PWM_Change(FTM_Type *base, ftm_chnl_t chnlNumber, uint32_t dutyFre, float dutyCycle);
-
+void SCFTM_PWM_ChangeHiRes(FTM_Type *base, ftm_chnl_t chnlNumber, uint32_t dutyFreq, float dutyCycle);
 
 /**********************************************************************************************************************
 *  @brief      ftm获取编码器计数值

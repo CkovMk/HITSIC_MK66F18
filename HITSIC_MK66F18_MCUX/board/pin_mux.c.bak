@@ -216,8 +216,7 @@ RTEPIN_Digital:
     direction: OUTPUT}
   - {pin_num: '106', peripheral: FTM0, signal: 'CH, 2', pin_signal: CMP1_IN1/PTC3/LLWU_P7/SPI0_PCS1/UART1_RX/FTM0_CH2/CLKOUT/I2S0_TX_BCLK, direction: OUTPUT}
   - {pin_num: '109', peripheral: FTM0, signal: 'CH, 3', pin_signal: PTC4/LLWU_P8/SPI0_PCS0/UART1_TX/FTM0_CH3/FB_AD11/SDRAM_A19/CMP1_OUT, direction: OUTPUT}
-  - {pin_num: '126', peripheral: GPIOC, signal: 'GPIO, 19', pin_signal: PTC19/UART3_CTS_b/ENET0_1588_TMR3/FB_CS3_b/FB_BE7_0_BLS31_24_b/SDRAM_DQM0/FB_TA_b, direction: OUTPUT,
-    pull_select: up, pull_enable: enable}
+  - {pin_num: '126', peripheral: GPIOC, signal: 'GPIO, 19', pin_signal: PTC19/UART3_CTS_b/ENET0_1588_TMR3/FB_CS3_b/FB_BE7_0_BLS31_24_b/SDRAM_DQM0/FB_TA_b, direction: OUTPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -522,14 +521,6 @@ void RTEPIN_Digital(void)
 
     /* PORTC19 (pin 126) is configured as PTC19 */
     PORT_SetPinMux(RTEPIN_DIGITAL_BEEP_PORT, RTEPIN_DIGITAL_BEEP_PIN, kPORT_MuxAsGpio);
-
-    PORTC->PCR[19] = ((PORTC->PCR[19] &
-                       /* Mask bits to zero which are setting */
-                       (~(PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_ISF_MASK)))
-
-                      /* Pull Select: Internal pullup resistor is enabled on the corresponding pin, if the
-                       * corresponding PE field is set. */
-                      | (uint32_t)(kPORT_PullUp));
 
     /* PORTC2 (pin 105) is configured as FTM0_CH1 */
     PORT_SetPinMux(RTEPIN_DIGITAL_MOTOR_RB_PORT, RTEPIN_DIGITAL_MOTOR_RB_PIN, kPORT_MuxAlt4);

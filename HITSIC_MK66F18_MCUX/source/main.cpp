@@ -47,7 +47,7 @@
 #include "hitsic_common.h"
 
 /** HITSIC_Module_DRV */
-#include "drv_ftfx_flash.h"
+#include "drv_ftfx_flash.hpp"
 #include "drv_disp_ssd1306.hpp"
 #include "drv_imu_invensense.hpp"
 #include "drv_dmadvp.hpp"
@@ -61,7 +61,7 @@
 //#include "easyflash.h"
 
 /** HITSIC_Module_APP */
-#include "app_menu.h"
+#include "app_menu.hpp"
 #include "app_svbmp.hpp"
 
 /** FATFS */

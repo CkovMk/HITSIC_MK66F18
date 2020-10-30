@@ -14,8 +14,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#include <inc_stdlib.hpp>
 #include "hitsic_common.h"
-#include "inc_stdlib.h"
 #include "ff.h"
 
 #include  <sys/unistd.h>

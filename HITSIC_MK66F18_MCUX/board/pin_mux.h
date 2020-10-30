@@ -58,6 +58,8 @@ void BOARD_InitBootPins(void);
  */
 void RTEPIN_Basic(void);
 
+#define PORT_DFER_DFE_8_MASK 0x0100u /*!<@brief Digital Filter Enable Mask for item 8. */
+
 /*! @name PORTE0 (number 1), SD_D_1
   @{ */
 

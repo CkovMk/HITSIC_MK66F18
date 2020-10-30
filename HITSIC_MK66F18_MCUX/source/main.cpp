@@ -29,7 +29,7 @@
  */
 
 /**
- * Copyright 2018 - 2019 HITSIC
+ * Copyright 2018 - 2020 HITSIC
  * All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -103,9 +103,8 @@ void main(void)
     DbgConsole_Init(0U, 921600U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
     /** 初始化CMBackTrace */
     cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
-    PRINTF("Hello World!\n");
-    PRINTF("gcc version: %d.%d.%d\n", __GNUC__, __GNUC_MINOR__,
-    __GNUC_PATCHLEVEL__);
+    PRINTF("Welcome to HITSIC !\n");
+    PRINTF("gcc version: %d.%d.%d\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
     /** 初始化ftfx_Flash */
     FLASH_SimpleInit();
     /** 初始化EasyFlash */

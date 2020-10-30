@@ -434,6 +434,165 @@ static void DBG_LPUART_init(void) {
 }
 
 /***********************************************************************************************************************
+ * EMAG initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'EMAG'
+- type: 'adc16'
+- mode: 'ADC'
+- custom_name_enabled: 'true'
+- type_id: 'adc16_7a29cdeb84266e77f0c7ceac1b49fe2d'
+- functional_group: 'RTEPIP_Device'
+- peripheral: 'ADC0'
+- config_sets:
+  - fsl_adc16:
+    - adc16_config:
+      - referenceVoltageSource: 'kADC16_ReferenceVoltageSourceVref'
+      - clockSource: 'kADC16_ClockSourceAlt0'
+      - enableAsynchronousClock: 'true'
+      - clockDivider: 'kADC16_ClockDivider1'
+      - resolution: 'kADC16_Resolution8or9Bit'
+      - longSampleMode: 'kADC16_LongSampleDisabled'
+      - enableHighSpeed: 'true'
+      - enableLowPower: 'false'
+      - enableContinuousConversion: 'false'
+    - adc16_channel_mux_mode: 'kADC16_ChannelMuxA'
+    - adc16_hardware_compare_config:
+      - hardwareCompareModeEnable: 'false'
+    - doAutoCalibration: 'true'
+    - trigger: 'false'
+    - hardwareAverageConfiguration: 'kADC16_HardwareAverageCount8'
+    - enable_dma: 'false'
+    - enable_irq: 'false'
+    - adc_interrupt:
+      - IRQn: 'ADC0_IRQn'
+      - enable_interrrupt: 'enabled'
+      - enable_priority: 'false'
+      - priority: '0'
+      - enable_custom_name: 'false'
+    - adc16_channels_config:
+      - 0:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.16'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 1:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.23'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 2:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.17'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 3:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.18'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 4:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.10'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 5:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.11'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 6:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.12'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+      - 7:
+        - enableDifferentialConversion: 'false'
+        - channelNumber: 'SE.13'
+        - enableInterruptOnConversionCompleted: 'false'
+        - channelGroup: '0'
+        - initializeChannel: 'false'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+adc16_channel_config_t EMAG_channelsConfig[8] = {
+  {
+    .channelNumber = 16U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 23U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 17U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 18U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 10U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 11U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 12U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  },
+  {
+    .channelNumber = 13U,
+    .enableDifferentialConversion = false,
+    .enableInterruptOnConversionCompleted = false,
+  }
+};
+const adc16_config_t EMAG_config = {
+  .referenceVoltageSource = kADC16_ReferenceVoltageSourceVref,
+  .clockSource = kADC16_ClockSourceAlt0,
+  .enableAsynchronousClock = true,
+  .clockDivider = kADC16_ClockDivider1,
+  .resolution = kADC16_Resolution8or9Bit,
+  .longSampleMode = kADC16_LongSampleDisabled,
+  .enableHighSpeed = true,
+  .enableLowPower = false,
+  .enableContinuousConversion = false
+};
+const adc16_channel_mux_mode_t EMAG_muxMode = kADC16_ChannelMuxA;
+const adc16_hardware_average_mode_t EMAG_hardwareAverageMode = kADC16_HardwareAverageCount8;
+
+static void EMAG_init(void) {
+  /* Initialize ADC16 converter */
+  ADC16_Init(EMAG_PERIPHERAL, &EMAG_config);
+  /* Make sure, that software trigger is used */
+  ADC16_EnableHardwareTrigger(EMAG_PERIPHERAL, false);
+  /* Configure hardware average mode */
+  ADC16_SetHardwareAverage(EMAG_PERIPHERAL, EMAG_hardwareAverageMode);
+  /* Configure channel multiplexing mode */
+  ADC16_SetChannelMuxMode(EMAG_PERIPHERAL, EMAG_muxMode);
+  /* Perform auto calibration */
+  ADC16_DoAutoCalibration(EMAG_PERIPHERAL);
+}
+
+/***********************************************************************************************************************
  * ENCO_L initialization code
  **********************************************************************************************************************/
 /* clang-format off */
@@ -924,165 +1083,6 @@ static void WLAN_UART_init(void) {
 }
 
 /***********************************************************************************************************************
- * EMAG initialization code
- **********************************************************************************************************************/
-/* clang-format off */
-/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-instance:
-- name: 'EMAG'
-- type: 'adc16'
-- mode: 'ADC'
-- custom_name_enabled: 'true'
-- type_id: 'adc16_7a29cdeb84266e77f0c7ceac1b49fe2d'
-- functional_group: 'RTEPIP_Device'
-- peripheral: 'ADC0'
-- config_sets:
-  - fsl_adc16:
-    - adc16_config:
-      - referenceVoltageSource: 'kADC16_ReferenceVoltageSourceVref'
-      - clockSource: 'kADC16_ClockSourceAlt0'
-      - enableAsynchronousClock: 'true'
-      - clockDivider: 'kADC16_ClockDivider1'
-      - resolution: 'kADC16_Resolution8or9Bit'
-      - longSampleMode: 'kADC16_LongSampleDisabled'
-      - enableHighSpeed: 'true'
-      - enableLowPower: 'false'
-      - enableContinuousConversion: 'false'
-    - adc16_channel_mux_mode: 'kADC16_ChannelMuxA'
-    - adc16_hardware_compare_config:
-      - hardwareCompareModeEnable: 'false'
-    - doAutoCalibration: 'true'
-    - trigger: 'false'
-    - hardwareAverageConfiguration: 'kADC16_HardwareAverageCount8'
-    - enable_dma: 'false'
-    - enable_irq: 'false'
-    - adc_interrupt:
-      - IRQn: 'ADC0_IRQn'
-      - enable_interrrupt: 'enabled'
-      - enable_priority: 'false'
-      - priority: '0'
-      - enable_custom_name: 'false'
-    - adc16_channels_config:
-      - 0:
-        - enableDifferentialConversion: 'false'
-        - channelNumber: 'SE.16'
-        - enableInterruptOnConversionCompleted: 'false'
-        - channelGroup: '0'
-        - initializeChannel: 'false'
-      - 1:
-        - enableDifferentialConversion: 'false'
-        - channelNumber: 'SE.23'
-        - enableInterruptOnConversionCompleted: 'false'
-        - channelGroup: '0'
-        - initializeChannel: 'false'
-      - 2:
-        - enableDifferentialConversion: 'false'
-        - channelNumber: 'SE.17'
-        - enableInterruptOnConversionCompleted: 'false'
-        - channelGroup: '0'
-        - initializeChannel: 'false'
-      - 3:
-        - enableDifferentialConversion: 'false'
-        - channelNumber: 'SE.18'
-        - enableInterruptOnConversionCompleted: 'false'
-        - channelGroup: '0'
-        - initializeChannel: 'false'
-      - 4:
-        - enableDifferentialConversion: 'false'
-        - channelNumber: 'SE.10'
-        - enableInterruptOnConversionCompleted: 'false'
-        - channelGroup: '0'
-        - initializeChannel: 'false'
-      - 5:
-        - enableDifferentialConversion: 'false'
-        - channelNumber: 'SE.11'
-        - enableInterruptOnConversionCompleted: 'false'
-        - channelGroup: '0'
-        - initializeChannel: 'false'
-      - 6:
-        - enableDifferentialConversion: 'false'
-        - channelNumber: 'SE.12'
-        - enableInterruptOnConversionCompleted: 'false'
-        - channelGroup: '0'
-        - initializeChannel: 'false'
-      - 7:
-        - enableDifferentialConversion: 'false'
-        - channelNumber: 'SE.13'
-        - enableInterruptOnConversionCompleted: 'false'
-        - channelGroup: '0'
-        - initializeChannel: 'false'
- * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
-/* clang-format on */
-adc16_channel_config_t EMAG_channelsConfig[8] = {
-  {
-    .channelNumber = 16U,
-    .enableDifferentialConversion = false,
-    .enableInterruptOnConversionCompleted = false,
-  },
-  {
-    .channelNumber = 23U,
-    .enableDifferentialConversion = false,
-    .enableInterruptOnConversionCompleted = false,
-  },
-  {
-    .channelNumber = 17U,
-    .enableDifferentialConversion = false,
-    .enableInterruptOnConversionCompleted = false,
-  },
-  {
-    .channelNumber = 18U,
-    .enableDifferentialConversion = false,
-    .enableInterruptOnConversionCompleted = false,
-  },
-  {
-    .channelNumber = 10U,
-    .enableDifferentialConversion = false,
-    .enableInterruptOnConversionCompleted = false,
-  },
-  {
-    .channelNumber = 11U,
-    .enableDifferentialConversion = false,
-    .enableInterruptOnConversionCompleted = false,
-  },
-  {
-    .channelNumber = 12U,
-    .enableDifferentialConversion = false,
-    .enableInterruptOnConversionCompleted = false,
-  },
-  {
-    .channelNumber = 13U,
-    .enableDifferentialConversion = false,
-    .enableInterruptOnConversionCompleted = false,
-  }
-};
-const adc16_config_t EMAG_config = {
-  .referenceVoltageSource = kADC16_ReferenceVoltageSourceVref,
-  .clockSource = kADC16_ClockSourceAlt0,
-  .enableAsynchronousClock = true,
-  .clockDivider = kADC16_ClockDivider1,
-  .resolution = kADC16_Resolution8or9Bit,
-  .longSampleMode = kADC16_LongSampleDisabled,
-  .enableHighSpeed = true,
-  .enableLowPower = false,
-  .enableContinuousConversion = false
-};
-const adc16_channel_mux_mode_t EMAG_muxMode = kADC16_ChannelMuxA;
-const adc16_hardware_average_mode_t EMAG_hardwareAverageMode = kADC16_HardwareAverageCount8;
-
-static void EMAG_init(void) {
-  /* Initialize ADC16 converter */
-  ADC16_Init(EMAG_PERIPHERAL, &EMAG_config);
-  /* Make sure, that software trigger is used */
-  ADC16_EnableHardwareTrigger(EMAG_PERIPHERAL, false);
-  /* Configure hardware average mode */
-  ADC16_SetHardwareAverage(EMAG_PERIPHERAL, EMAG_hardwareAverageMode);
-  /* Configure channel multiplexing mode */
-  ADC16_SetChannelMuxMode(EMAG_PERIPHERAL, EMAG_muxMode);
-  /* Perform auto calibration */
-  ADC16_DoAutoCalibration(EMAG_PERIPHERAL);
-}
-
-/***********************************************************************************************************************
  * Initialization functions
  **********************************************************************************************************************/
 void RTEPIP_Basic(void)
@@ -1107,6 +1107,7 @@ void RTEPIP_Device(void)
   /* Initialize components */
   CAM_UART_init();
   DBG_LPUART_init();
+  EMAG_init();
   ENCO_L_init();
   ENCO_R_init();
   IMU_I2C_init();
@@ -1114,7 +1115,6 @@ void RTEPIP_Device(void)
   OLED_SPI_init();
   SERVO_init();
   WLAN_UART_init();
-  EMAG_init();
 }
 
 /***********************************************************************************************************************

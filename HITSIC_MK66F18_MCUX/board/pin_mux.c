@@ -209,7 +209,8 @@ RTEPIN_Digital:
     pull_enable: enable}
   - {pin_num: '124', peripheral: UART3, signal: TX, pin_signal: PTC17/CAN1_TX/UART3_TX/ENET0_1588_TMR1/FB_CS4_b/FB_TSIZ0/FB_BE31_24_BLS7_0_b/SDRAM_DQM3, direction: OUTPUT,
     pull_select: up, pull_enable: enable}
-  - {pin_num: '137', peripheral: I2C0, signal: SCL, pin_signal: PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16, open_drain: enable, pull_select: up, pull_enable: enable}
+  - {pin_num: '137', peripheral: I2C0, signal: SCL, pin_signal: PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16, open_drain: enable, pull_select: up, pull_enable: enable,
+    digital_filter: disable}
   - {pin_num: '138', peripheral: I2C0, signal: SDA, pin_signal: PTD9/I2C0_SDA/LPUART0_TX/FB_A17, open_drain: enable, pull_select: up, pull_enable: enable}
   - {pin_num: '104', peripheral: FTM0, signal: 'CH, 0', pin_signal: ADC0_SE15/TSI0_CH14/PTC1/LLWU_P6/SPI0_PCS3/UART1_RTS_b/FTM0_CH0/FB_AD13/SDRAM_A21/I2S0_TXD0, direction: OUTPUT}
   - {pin_num: '105', peripheral: FTM0, signal: 'CH, 1', pin_signal: ADC0_SE4b/CMP1_IN0/TSI0_CH15/PTC2/SPI0_PCS2/UART1_CTS_b/FTM0_CH1/FB_AD12/SDRAM_A20/I2S0_TX_FS,
@@ -542,6 +543,14 @@ void RTEPIN_Digital(void)
 
     /* PORTC9 (pin 114) is configured as PTC9 */
     PORT_SetPinMux(RTEPIN_DIGITAL_CAM_D_1_PORT, RTEPIN_DIGITAL_CAM_D_1_PIN, kPORT_MuxAsGpio);
+    /* Configure digital filter */
+    PORT_EnablePinsDigitalFilter(
+        /* Digital filter is configured on port D */
+        PORTD,
+        /* Digital filter is configured for PORTD0 */
+        PORT_DFER_DFE_8_MASK,
+        /* Disable digital filter */
+        false);
 
     /* PORTD12 (pin 141) is configured as SPI2_SCK */
     PORT_SetPinMux(RTEPIN_DIGITAL_OLED_SCK_PORT, RTEPIN_DIGITAL_OLED_SCK_PIN, kPORT_MuxAlt2);

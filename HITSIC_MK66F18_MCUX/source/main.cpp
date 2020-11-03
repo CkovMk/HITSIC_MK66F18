@@ -82,13 +82,21 @@ FATFS fatfs;                                   //逻辑驱动器的工作区
 /** SCLIB_TEST */
 #include "sc_test.hpp"
 
-uartMgr_t *uartMgr0 = nullptr;
+
+void MENU_DataSetUp(void);
+
+cam_zf9v034_configPacket_t cameraCfg;
+dmadvp_config_t dmadvpCfg;
+dmadvp_handle_t dmadvpHandle;
+void CAM_ZF9V034_DmaCallback(edma_handle_t *handle, void *userData, bool transferDone, uint32_t tcds);
+
+inv::i2cInterface_t imu_i2c(nullptr, IMU_INV_I2cRxBlocking, IMU_INV_I2cTxBlocking);
+inv::mpu6050_t imu_6050(imu_i2c);
 
 void main(void)
 {
     /** 初始化阶段，关闭总中断 */
     HAL_EnterCritical();
-
     /** 初始化时钟 */
     RTECLK_HsRun_180MHz();
     /** 初始化引脚路由 */
@@ -97,17 +105,15 @@ void main(void)
     RTEPIN_Analog();
     RTEPIN_LPUART0_DBG();
     RTEPIN_UART0_WLAN();
-
     /** 初始化外设 */
     RTEPIP_Basic();
     RTEPIP_Device();
-
     /** 初始化调试串口 */
     DbgConsole_Init(0U, 921600U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
-    /** 初始化CMBackTrace */
-    cm_backtrace_init("HITSIC_MK66F18", "v1.1rc", "v1.0a");
     PRINTF("Welcome to HITSIC !\n");
-    PRINTF("gcc version: %d.%d.%d\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
+    PRINTF("GCC %d.%d.%d\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
+    /** 初始化CMBackTrace */
+    cm_backtrace_init("HITSIC_MK66F18", "2020-v3.0", "v4.1.1");
     /** 初始化ftfx_Flash */
     FLASH_SimpleInit();
     /** 初始化EasyFlash */
@@ -116,26 +122,23 @@ void main(void)
     pitMgr_t::init();
     /** 初始化I/O中断管理器 */
     extInt_t::init();
-
-    /** 初始化串口管理器 */
-    uartMgr0 = &uartMgr_t::getInst(UART0);
-    uartMgr0->uprintf("Wi-Fi Test!\n");
     /** 初始化OLED屏幕 */
     DISP_SSD1306_Init();
-
+    extern const uint8_t DISP_image_100thAnniversary[8][128];
+    DISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
     /** 初始化菜单 */
     MENU_Init();
     MENU_Data_NvmReadRegionConfig();
     MENU_Data_NvmRead(menu_currRegionNum);
+    /** 菜单挂起 */
     MENU_Suspend();
-
-    extern const uint8_t DISP_image_100thAnniversary[8][128];
-    DISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
-    SDK_DelayAtLeastUs(1000 * 1000, CLOCK_GetFreq(kCLOCK_CoreSysClk));
     /** 初始化摄像头 */
-
+    //TODO: 在这里初始化摄像头
     /** 初始化IMU */
-
+    //TODO: 在这里初始化IMU（MPU6050）
+    /** 菜单就绪 */
+    /** 控制环初始化 */
+    //TODO: 在这里初始化控制环
     /** 初始化结束，开启总中断 */
     HAL_ExitCritical();
 
@@ -152,14 +155,9 @@ void main(void)
 
     float f = arm_sin_f32(0.6f);
 
-    uint8_t duty = 0;
-    uint8_t adc0, adc1, adc2, adc3, adc4, adc5, adc6, adc7;
-    int speed1, speed2;
-    uint8_t sw1_state = GPIO_PinRead(GPIOA, 9U);
-
     while (true)
     {
-
+        //TODO: 在这里添加车模保护代码
     }
 }
 
@@ -169,4 +167,11 @@ void MENU_DataSetUp(void)
     inv::IMU_UnitTest_AutoRefreshAddMenu(menu_menuRoot);
     sc::SC_UnitTest_AutoRefreshAddMenu(menu_menuRoot);
     MENU_DataSetupTest(menu_menuRoot);
+}
+
+void CAM_ZF9V034_DmaCallback(edma_handle_t *handle, void *userData, bool transferDone, uint32_t tcds)
+{
+    //TODO: 补完本回调函数
+
+    //TODO: 添加图像处理（转向控制也可以写在这里）
 }

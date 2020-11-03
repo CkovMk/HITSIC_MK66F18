@@ -62,64 +62,46 @@
     <PropertyGroup Label="UserMacros"/>
     <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">
         <NMakeOutput>HITSIC_MK66F18_MCUX.exe</NMakeOutput>
-        <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions);CPU_MK66FX1M0VLQ18;CPU_MK66FX1M0VLQ18cm7;DEBUG;DEBUG_CONSOLE_RX_ENABLE=1;FSL_RTOS_BM;SDK_DEBUGCONSOLE=1;SDK_OS_BAREMETAL;SERIAL_PORT_TYPE_SWO=0;SERIAL_PORT_TYPE_UART=1;__ARMVFP__;__GNUC__;__MCUXPRESSO;__NEWLIB__;__USE_CMSIS</NMakePreprocessorDefinitions>
+        <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions);CPU_MK66FX1M0VLQ18;CPU_MK66FX1M0VLQ18cm7;DEBUG;DEBUG_CONSOLE_RX_ENABLE=1;FSL_RTOS_BM;I2C_RETRY_TIMES=32768;SDK_DEBUGCONSOLE=1;SDK_OS_BAREMETAL;SERIAL_PORT_TYPE_SWO=0;SERIAL_PORT_TYPE_UART=1;UART_RETRY_TIMES=32768;__ARMVFP__;__GNUC__;__MCUXPRESSO;__NEWLIB__;__USE_CMSIS</NMakePreprocessorDefinitions>
         <IncludePath>$(MSBuildProjectDirectory)/CMSIS;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0/cm_backtrace;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.0.0/easyflash/port;$(MSBuildProjectDirectory)/HITSIC_Module/utilities;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/inc;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/plugins/types/struct2json/inc;$(MSBuildProjectDirectory)/HITSIC_Module/utilities_test;$(MSBuildProjectDirectory)/board;$(MSBuildProjectDirectory)/component/lists;$(MSBuildProjectDirectory)/component/osa;$(MSBuildProjectDirectory)/component/serial_manager;$(MSBuildProjectDirectory)/component/uart;$(MSBuildProjectDirectory)/device;$(MSBuildProjectDirectory)/drivers;$(MSBuildProjectDirectory)/fatfs/source;$(MSBuildProjectDirectory)/fatfs/source/fsl_ram_disk;$(MSBuildProjectDirectory)/fatfs/source/fsl_sd_disk;$(MSBuildProjectDirectory)/sdmmc/host;$(MSBuildProjectDirectory)/sdmmc/inc;$(MSBuildProjectDirectory)/sdmmc/osa;$(MSBuildProjectDirectory)/source;$(MSBuildProjectDirectory)/utilities;$(IncludePath)</IncludePath>
     </PropertyGroup>
     <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">
         <NMakeOutput>HITSIC_MK66F18_MCUX.exe</NMakeOutput>
-        <NMakePreprocessorDefinitions>_DEBUG;$(NMakePreprocessorDefinitions);CPU_MK66FX1M0VLQ18;CPU_MK66FX1M0VLQ18cm7;DEBUG;DEBUG_CONSOLE_RX_ENABLE=1;FSL_RTOS_BM;SDK_DEBUGCONSOLE=1;SDK_OS_BAREMETAL;SERIAL_PORT_TYPE_SWO=0;SERIAL_PORT_TYPE_UART=1;__ARMVFP__;__GNUC__;__MCUXPRESSO;__NEWLIB__;__USE_CMSIS</NMakePreprocessorDefinitions>
+        <NMakePreprocessorDefinitions>_DEBUG;$(NMakePreprocessorDefinitions);CPU_MK66FX1M0VLQ18;CPU_MK66FX1M0VLQ18cm7;DEBUG;DEBUG_CONSOLE_RX_ENABLE=1;FSL_RTOS_BM;I2C_RETRY_TIMES=32768;SDK_DEBUGCONSOLE=1;SDK_OS_BAREMETAL;SERIAL_PORT_TYPE_SWO=0;SERIAL_PORT_TYPE_UART=1;UART_RETRY_TIMES=32768;__ARMVFP__;__GNUC__;__MCUXPRESSO;__NEWLIB__;__USE_CMSIS</NMakePreprocessorDefinitions>
         <IncludePath>$(MSBuildProjectDirectory)/CMSIS;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0/cm_backtrace;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.0.0/easyflash/port;$(MSBuildProjectDirectory)/HITSIC_Module/utilities;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/inc;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/plugins/types/struct2json/inc;$(MSBuildProjectDirectory)/HITSIC_Module/utilities_test;$(MSBuildProjectDirectory)/board;$(MSBuildProjectDirectory)/component/lists;$(MSBuildProjectDirectory)/component/osa;$(MSBuildProjectDirectory)/component/serial_manager;$(MSBuildProjectDirectory)/component/uart;$(MSBuildProjectDirectory)/device;$(MSBuildProjectDirectory)/drivers;$(MSBuildProjectDirectory)/fatfs/source;$(MSBuildProjectDirectory)/fatfs/source/fsl_ram_disk;$(MSBuildProjectDirectory)/fatfs/source/fsl_sd_disk;$(MSBuildProjectDirectory)/sdmmc/host;$(MSBuildProjectDirectory)/sdmmc/inc;$(MSBuildProjectDirectory)/sdmmc/osa;$(MSBuildProjectDirectory)/source;$(MSBuildProjectDirectory)/utilities;$(IncludePath)</IncludePath>
     </PropertyGroup>
     <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">
         <NMakeOutput>HITSIC_MK66F18_MCUX.exe</NMakeOutput>
-        <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions);CPU_MK66FX1M0VLQ18;CPU_MK66FX1M0VLQ18cm7;DEBUG;DEBUG_CONSOLE_RX_ENABLE=1;FSL_RTOS_BM;SDK_DEBUGCONSOLE=1;SDK_OS_BAREMETAL;SERIAL_PORT_TYPE_SWO=0;SERIAL_PORT_TYPE_UART=1;__ARMVFP__;__GNUC__;__MCUXPRESSO;__NEWLIB__;__USE_CMSIS</NMakePreprocessorDefinitions>
+        <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions);CPU_MK66FX1M0VLQ18;CPU_MK66FX1M0VLQ18cm7;DEBUG;DEBUG_CONSOLE_RX_ENABLE=1;FSL_RTOS_BM;I2C_RETRY_TIMES=32768;SDK_DEBUGCONSOLE=1;SDK_OS_BAREMETAL;SERIAL_PORT_TYPE_SWO=0;SERIAL_PORT_TYPE_UART=1;UART_RETRY_TIMES=32768;__ARMVFP__;__GNUC__;__MCUXPRESSO;__NEWLIB__;__USE_CMSIS</NMakePreprocessorDefinitions>
         <IncludePath>$(MSBuildProjectDirectory)/CMSIS;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0/cm_backtrace;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.0.0/easyflash/port;$(MSBuildProjectDirectory)/HITSIC_Module/utilities;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/inc;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/plugins/types/struct2json/inc;$(MSBuildProjectDirectory)/HITSIC_Module/utilities_test;$(MSBuildProjectDirectory)/board;$(MSBuildProjectDirectory)/component/lists;$(MSBuildProjectDirectory)/component/osa;$(MSBuildProjectDirectory)/component/serial_manager;$(MSBuildProjectDirectory)/component/uart;$(MSBuildProjectDirectory)/device;$(MSBuildProjectDirectory)/drivers;$(MSBuildProjectDirectory)/fatfs/source;$(MSBuildProjectDirectory)/fatfs/source/fsl_ram_disk;$(MSBuildProjectDirectory)/fatfs/source/fsl_sd_disk;$(MSBuildProjectDirectory)/sdmmc/host;$(MSBuildProjectDirectory)/sdmmc/inc;$(MSBuildProjectDirectory)/sdmmc/osa;$(MSBuildProjectDirectory)/source;$(MSBuildProjectDirectory)/utilities;$(IncludePath)</IncludePath>
     </PropertyGroup>
     <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
         <NMakeOutput>HITSIC_MK66F18_MCUX.exe</NMakeOutput>
-        <NMakePreprocessorDefinitions>NDEBUG;$(NMakePreprocessorDefinitions);CPU_MK66FX1M0VLQ18;CPU_MK66FX1M0VLQ18cm7;DEBUG;DEBUG_CONSOLE_RX_ENABLE=1;FSL_RTOS_BM;SDK_DEBUGCONSOLE=1;SDK_OS_BAREMETAL;SERIAL_PORT_TYPE_SWO=0;SERIAL_PORT_TYPE_UART=1;__ARMVFP__;__GNUC__;__MCUXPRESSO;__NEWLIB__;__USE_CMSIS</NMakePreprocessorDefinitions>
+        <NMakePreprocessorDefinitions>NDEBUG;$(NMakePreprocessorDefinitions);CPU_MK66FX1M0VLQ18;CPU_MK66FX1M0VLQ18cm7;DEBUG;DEBUG_CONSOLE_RX_ENABLE=1;FSL_RTOS_BM;I2C_RETRY_TIMES=32768;SDK_DEBUGCONSOLE=1;SDK_OS_BAREMETAL;SERIAL_PORT_TYPE_SWO=0;SERIAL_PORT_TYPE_UART=1;UART_RETRY_TIMES=32768;__ARMVFP__;__GNUC__;__MCUXPRESSO;__NEWLIB__;__USE_CMSIS</NMakePreprocessorDefinitions>
         <IncludePath>$(MSBuildProjectDirectory)/CMSIS;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0/cm_backtrace;$(MSBuildProjectDirectory)/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.0.0/easyflash/port;$(MSBuildProjectDirectory)/HITSIC_Module/utilities;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/inc;$(MSBuildProjectDirectory)/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/plugins/types/struct2json/inc;$(MSBuildProjectDirectory)/HITSIC_Module/utilities_test;$(MSBuildProjectDirectory)/board;$(MSBuildProjectDirectory)/component/lists;$(MSBuildProjectDirectory)/component/osa;$(MSBuildProjectDirectory)/component/serial_manager;$(MSBuildProjectDirectory)/component/uart;$(MSBuildProjectDirectory)/device;$(MSBuildProjectDirectory)/drivers;$(MSBuildProjectDirectory)/fatfs/source;$(MSBuildProjectDirectory)/fatfs/source/fsl_ram_disk;$(MSBuildProjectDirectory)/fatfs/source/fsl_sd_disk;$(MSBuildProjectDirectory)/sdmmc/host;$(MSBuildProjectDirectory)/sdmmc/inc;$(MSBuildProjectDirectory)/sdmmc/osa;$(MSBuildProjectDirectory)/source;$(MSBuildProjectDirectory)/utilities;$(IncludePath)</IncludePath>
     </PropertyGroup>
     <ItemDefinitionGroup/>
     <ItemGroup>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\app_menu_port.c"/>
+        <ClCompile Include="HITSIC_Module\d_mk66f18\app_menu_port.cpp"/>
         <ClCompile Include="HITSIC_Module\d_mk66f18\drv_dmadvp_port.cpp"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\drv_imu_port.c"/>
         <ClCompile Include="HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port\ef_port.c"/>
         <ClCompile Include="HITSIC_Module\d_mk66f18\hitsic_common.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Ftm.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Upload.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Wdog.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Beep.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Boma.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Key.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_LED.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_OLED.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Systick.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\drv_cam.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_AD5206.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_ADC.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_ADC_dma.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Camera.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Pit.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Sd.c"/>
-        <ClCompile Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_TF.c"/>
         <ClCompile Include="HITSIC_Module\d_mk66f18\sys_extint_port.cpp"/>
         <ClCompile Include="HITSIC_Module\d_mk66f18\sys_pitmgr_port.cpp"/>
         <ClCompile Include="HITSIC_Module\d_mk66f18\sys_uartmgr_port.cpp"/>
-        <ClCompile Include="HITSIC_Module\utilities\app_menu.c"/>
-        <ClCompile Include="HITSIC_Module\utilities\app_menu_button.c"/>
-        <ClCompile Include="HITSIC_Module\utilities\app_menu_nvm.c"/>
-        <ClCompile Include="HITSIC_Module\utilities\app_menu_type.c"/>
+        <ClCompile Include="HITSIC_Module\utilities\app_menu.cpp"/>
+        <ClCompile Include="HITSIC_Module\utilities\app_menu_button.cpp"/>
+        <ClCompile Include="HITSIC_Module\utilities\app_menu_nvm.cpp"/>
+        <ClCompile Include="HITSIC_Module\utilities\app_menu_type.cpp"/>
         <ClCompile Include="HITSIC_Module\utilities\app_svbmp.cpp"/>
-        <ClCompile Include="HITSIC_Module\utilities\drv_button.c"/>
+        <ClCompile Include="HITSIC_Module\utilities\drv_button.cpp"/>
         <ClCompile Include="HITSIC_Module\utilities\drv_cam_zf9v034.cpp"/>
         <ClCompile Include="HITSIC_Module\utilities\drv_disp_font.cpp"/>
         <ClCompile Include="HITSIC_Module\utilities\drv_disp_ssd1306.cpp"/>
         <ClCompile Include="HITSIC_Module\utilities\drv_disp_st7789.cpp"/>
         <ClCompile Include="HITSIC_Module\utilities\drv_dmadvp.cpp"/>
-        <ClCompile Include="HITSIC_Module\utilities\drv_ftfx_flash.c"/>
-        <ClCompile Include="HITSIC_Module\utilities\drv_imu_invensense.c"/>
+        <ClCompile Include="HITSIC_Module\utilities\drv_ftfx_flash.cpp"/>
+        <ClCompile Include="HITSIC_Module\utilities\drv_imu_invensense.cpp"/>
         <ClCompile Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\cm_backtrace.c"/>
         <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\ef_types.c"/>
         <ClCompile Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\src\cJSON.c"/>
@@ -144,9 +126,7 @@
         <ClCompile Include="board\board.c"/>
         <ClCompile Include="board\clock_config.c"/>
         <ClCompile Include="board\peripherals.c"/>
-        <ClCompile Include="board\peripherals.c.bak"/>
         <ClCompile Include="board\pin_mux.c"/>
-        <ClCompile Include="board\pin_mux.c.bak"/>
         <ClCompile Include="board\sdmmc_config.c"/>
         <ClCompile Include="component\lists\generic_list.c"/>
         <ClCompile Include="component\osa\fsl_os_abstraction_bm.c"/>
@@ -258,60 +238,42 @@
         <ClInclude Include="CMSIS\mpu_armv8.h"/>
         <ClInclude Include="CMSIS\pmu_armv8.h"/>
         <ClInclude Include="CMSIS\tz_context.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\app_menu_port.h"/>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\app_menu_port.hpp"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\app_svbmp_port.hpp"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\drv_button_port.h"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\drv_cam_zf9v034_port.hpp"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\drv_disp_ssd1306_port.hpp"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\drv_dmadvp_port.hpp"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\drv_imu_port.h"/>
+        <ClInclude Include="HITSIC_Module\d_mk66f18\drv_imu_invensense_port.hpp"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\extlib_port\CmBacktrace-1.4.0\cm_backtrace\cmb_cfg.h"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\extlib_port\CmBacktrace-1.4.0\cm_backtrace\cmb_def.h"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\extlib_port\EasyFlash-4.0.0\easyflash\port\ef_cfg.h"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\hitsic_common.h"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\inc_fsl_mk66f18.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Ftm.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Upload.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\SmartCar_Wdog.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Beep.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Boma.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Key.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_LED.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_OLED.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\deprecated\SmartCar_Systick.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\drv_cam.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\drv_cam_def.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\include.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_AD5206.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_ADC.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_ADC_dma.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Camera.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Pit.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_Sd.h"/>
-        <ClInclude Include="HITSIC_Module\d_mk66f18\legacy_drivers\incompatible\SmartCar_TF.h"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\sys_extint_port.hpp"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\sys_pitmgr_port.hpp"/>
         <ClInclude Include="HITSIC_Module\d_mk66f18\sys_uartmgr_port.hpp"/>
-        <ClInclude Include="HITSIC_Module\utilities\app_menu.h"/>
-        <ClInclude Include="HITSIC_Module\utilities\app_menu_button.h"/>
-        <ClInclude Include="HITSIC_Module\utilities\app_menu_def.h"/>
-        <ClInclude Include="HITSIC_Module\utilities\app_menu_nvm.h"/>
-        <ClInclude Include="HITSIC_Module\utilities\app_menu_type.h"/>
+        <ClInclude Include="HITSIC_Module\utilities\app_menu.hpp"/>
+        <ClInclude Include="HITSIC_Module\utilities\app_menu_button.hpp"/>
+        <ClInclude Include="HITSIC_Module\utilities\app_menu_def.hpp"/>
+        <ClInclude Include="HITSIC_Module\utilities\app_menu_nvm.hpp"/>
+        <ClInclude Include="HITSIC_Module\utilities\app_menu_type.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\app_svbmp.hpp"/>
-        <ClInclude Include="HITSIC_Module\utilities\drv_button.h"/>
+        <ClInclude Include="HITSIC_Module\utilities\drv_button.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\drv_cam_zf9v034.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\drv_disp_ssd1306.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\drv_disp_st7789.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\drv_dmadvp.hpp"/>
-        <ClInclude Include="HITSIC_Module\utilities\drv_ftfx_flash.h"/>
-        <ClInclude Include="HITSIC_Module\utilities\drv_imu_invensense.h"/>
+        <ClInclude Include="HITSIC_Module\utilities\drv_ftfx_flash.hpp"/>
+        <ClInclude Include="HITSIC_Module\utilities\drv_imu_invensense.hpp"/>
+        <ClInclude Include="HITSIC_Module\utilities\drv_imu_invensense_def.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\extlib\CmBacktrace-1.4.0\cm_backtrace\cm_backtrace.h"/>
         <ClInclude Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\inc\easyflash.h"/>
         <ClInclude Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\ef_types.h"/>
         <ClInclude Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc\cJSON.h"/>
         <ClInclude Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc\s2j.h"/>
         <ClInclude Include="HITSIC_Module\utilities\extlib\EasyFlash-4.0.0\easyflash\plugins\types\struct2json\inc\s2jdef.h"/>
-        <ClInclude Include="HITSIC_Module\utilities\inc_stdlib.h"/>
+        <ClInclude Include="HITSIC_Module\utilities\inc_stdlib.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\lib_adrcctrl.h"/>
         <ClInclude Include="HITSIC_Module\utilities\lib_disp_common.hpp"/>
         <ClInclude Include="HITSIC_Module\utilities\lib_graphic.hpp"/>
@@ -325,9 +287,7 @@
         <ClInclude Include="board\board.h"/>
         <ClInclude Include="board\clock_config.h"/>
         <ClInclude Include="board\peripherals.h"/>
-        <ClInclude Include="board\peripherals.h.bak"/>
         <ClInclude Include="board\pin_mux.h"/>
-        <ClInclude Include="board\pin_mux.h.bak"/>
         <ClInclude Include="board\sdmmc_config.h"/>
         <ClInclude Include="component\lists\generic_list.h"/>
         <ClInclude Include="component\osa\fsl_os_abstraction.h"/>
@@ -406,6 +366,7 @@
         <ClInclude Include="source\ffconf.h"/>
         <ClInclude Include="source\sc_adc.h"/>
         <ClInclude Include="source\sc_ftm.h"/>
+        <ClInclude Include="source\sc_test.hpp"/>
         <ClInclude Include="utilities\fsl_debug_console.h"/>
         <ClInclude Include="utilities\fsl_debug_console_conf.h"/>
         <ClInclude Include="utilities\fsl_shell.h"/>

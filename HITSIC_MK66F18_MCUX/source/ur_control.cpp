@@ -13,9 +13,9 @@ pitMgr_t* ctrl_dirCtrlHandle = nullptr;
 
 void CTRL_Init(void)
 {
-    ctrl_spdCtrlHandle = pitMgr_t::insert(CTRL_SPD_CTRL_MS, 2U, CTRL_AngCtrl, pitMgr_t::enable);
+    ctrl_spdCtrlHandle = pitMgr_t::insert(CTRL_SPD_CTRL_MS, 2U, CTRL_SpdCtrl, pitMgr_t::enable);
     assert(ctrl_spdCtrlHandle);
-    ctrl_dirCtrlHandle = pitMgr_t::insert(CTRL_DIR_CTRL_MS, 3U, CTRL_AngCtrl, pitMgr_t::enable);
+    ctrl_dirCtrlHandle = pitMgr_t::insert(CTRL_DIR_CTRL_MS, 3U, CTRL_DirCtrl, pitMgr_t::enable);
     assert(ctrl_dirCtrlHandle);
     ctrl_angCtrlHandle = pitMgr_t::insert(CTRL_ANG_CTRL_MS, 4U, CTRL_AngCtrl, pitMgr_t::enable);
     assert(ctrl_angCtrlHandle);
@@ -109,7 +109,7 @@ void CTRL_MenuInit(menu_list_t *menuList)
                 menuItem_data_NoSave | menuItem_data_NoLoad));
         MENU_ListInsert(filterMenuList, MENU_ItemConstruct(varfType, &ctrl_filterAngle, "AngFinal", 0U,
                 menuItem_data_NoSave | menuItem_data_NoLoad));
-        MENU_ListInsert(ctrlMenuList, MENU_ItemConstruct(varfType, &ctrl_filterCompTgReciprocal, "Tg-recip", 10U,
+        MENU_ListInsert(filterMenuList, MENU_ItemConstruct(varfType, &ctrl_filterCompTgReciprocal, "Tg-recip", 10U,
                 menuItem_data_global));
 
     }
@@ -156,7 +156,6 @@ void CTRL_FilterInit(void)
 {
     const uint32_t sampleTime = 1024;
     float intergration = 0.0f;
-    extern inv::mpu6050_t imu_6050;
     for(uint32_t i = 0; i < sampleTime; ++i){
         imu_6050.ReadSensorBlocking();
         imu_6050.Convert(&ctrl_accl[0], &ctrl_accl[1], &ctrl_accl[2], &ctrl_gyro[0], &ctrl_gyro[1], &ctrl_gyro[2]);

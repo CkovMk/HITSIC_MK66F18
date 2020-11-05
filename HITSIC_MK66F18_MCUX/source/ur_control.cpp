@@ -201,6 +201,8 @@ float ctrl_angPidOutput = 0.0f; ///< 直立环输出
 
 void CTRL_AngCtrl(void *userData)
 {
+    imu_6050.ReadSensorBlocking();
+    imu_6050.Convert(&ctrl_accl[0], &ctrl_accl[1], &ctrl_accl[2], &ctrl_gyro[0], &ctrl_gyro[1], &ctrl_gyro[2]);
     if(1 == ctrl_angCtrlEn[0])
     {
         PIDCTRL_ErrUpdate(&ctrl_angPid, ctrl_filterAngle - ctrl_angSet + ctrl_spdPidOutput);

@@ -160,7 +160,7 @@ void main(void)
     if (0U != imu_6050.SelfTest()) ///> 自检时保持静止，否则会直接失败
     {
         PRINTF("IMU Self Test Fail\n");
-        while(1);
+        //while(1);
     }
     /** 菜单就绪 */
     MENU_Resume();

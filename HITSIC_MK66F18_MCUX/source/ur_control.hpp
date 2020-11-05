@@ -26,6 +26,8 @@
 
 #define CTRL_ENCO_SPD_COEFF (270.689 / ((float)CTRL_SPD_CTRL_MS))
 
+extern inv::mpu6050_t imu_6050;
+
 void CTRL_Init(void);
 
 

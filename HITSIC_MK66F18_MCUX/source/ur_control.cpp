@@ -148,7 +148,7 @@ pidCtrl_t ctrl_angFilter =
  * @ }
  */
 
-float ctrl_filterCompTgReciprocal = 1.0f / 5.7f;    ///< Tg的倒数。除以Tg -> 乘Tg的倒数，优化运算速度。
+float ctrl_filterCompTgReciprocal = 1.0f / 0.8f;    ///< Tg的倒数。除以Tg -> 乘Tg的倒数，优化运算速度。
 
 float &ctrl_filterAngle = ctrl_angFilter.errCurr; ///< 滤波后的当前角度。引用ctrl_angFilter.errCurr即可
 
@@ -203,6 +203,7 @@ void CTRL_AngCtrl(void *userData)
 {
     imu_6050.ReadSensorBlocking();
     imu_6050.Convert(&ctrl_accl[0], &ctrl_accl[1], &ctrl_accl[2], &ctrl_gyro[0], &ctrl_gyro[1], &ctrl_gyro[2]);
+    CTRL_FilterUpdate(CTRL_ANG_CTRL_MS);
     if(1 == ctrl_angCtrlEn[0])
     {
         PIDCTRL_ErrUpdate(&ctrl_angPid, ctrl_filterAngle - ctrl_angSet + ctrl_spdPidOutput);
@@ -324,7 +325,7 @@ void CTRL_MotorUpdate(float motorL, float motorR)
     else
     {
         SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_0, 20000U, 0.0f);
-        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_1, 20000U, motorL);
+        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_1, 20000U, -motorL);
     }
 
     if(motorR > 0)
@@ -335,7 +336,7 @@ void CTRL_MotorUpdate(float motorL, float motorR)
     else
     {
         SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_2, 20000U, 0.0f);
-        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_3, 20000U, motorR);
+        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_3, 20000U, -motorR);
     }
 }
 

@@ -128,7 +128,7 @@ float ctrl_gyro[3] = {0.0f, 0.0f, 0.0f};
  */
 
 float &ctrl_acclRefAxis = ctrl_accl[0]; //FIXME
-float &ctrl_gyroRefAxis = ctrl_gyro[2]; //FIXME
+float &ctrl_gyroRefAxis = ctrl_gyro[1]; //FIXME
 
 float ctrl_filterAngAccl = 0.0f, ctrl_filterAngGyro = 0.0f; ///< 由加速度计、角速度计测出的角度
 
@@ -176,7 +176,7 @@ void CTRL_FilterUpdate(uint32_t updateTime_ms)
     acclAxis = (acclAxis > CTRL_1G - 0.001) ? (CTRL_1G - 0.001) : acclAxis;
     acclAxis = (acclAxis < - (CTRL_1G - 0.001)) ? (- (CTRL_1G - 0.001)) : acclAxis;
     ctrl_filterAngAccl = CTRL_RAD2DEG(- CTRL_ASIN(acclAxis / CTRL_1G)); // - is pitch down , + is pitch up
-    ctrl_filterAngGyro += ctrl_gyroRefAxis * dT;
+    ctrl_filterAngGyro -= ctrl_gyroRefAxis * dT;
     /** 滤波运算 */
     float angleDiff = (ctrl_gyroRefAxis + ((ctrl_filterAngAccl - ctrl_filterAngle) * ctrl_filterCompTgReciprocal)) * dT;
     PIDCTRL_ErrUpdateByDiff(&ctrl_angFilter, angleDiff);
@@ -204,6 +204,7 @@ void CTRL_AngCtrl(void *userData)
     {
         imu_6050.Convert(&ctrl_accl[0], &ctrl_accl[1], &ctrl_accl[2], &ctrl_gyro[0], &ctrl_gyro[1], &ctrl_gyro[2]);
         CTRL_FilterUpdate(CTRL_ANG_CTRL_MS);
+        PRINTF("ang: %d,%d,%d\n", ctrl_filterAngAccl, ctrl_filterAngGyro,ctrl_filterAngle);
     }
     else
     {
@@ -214,6 +215,7 @@ void CTRL_AngCtrl(void *userData)
     {
         PIDCTRL_ErrUpdate(&ctrl_angPid, -(ctrl_filterAngle - ctrl_angSet + ctrl_spdPidOutput));
         ctrl_angPidOutput = PIDCTRL_CalcPIDGain(&ctrl_angPid);
+        ctrl_angPidOutput = ctrl_angPidOutput < 60.0f ? ctrl_angPidOutput : 60.0f;  ///< 限幅
     }
     else
     {
@@ -287,7 +289,7 @@ void CTRL_DirCtrl(float *err)
 
 /* *********************************************** */
 
-
+float ctrl_motorLQ = 0.0f, ctrl_motorRQ = 0.0f;
 
 void CTRL_MotorUpdate(float motorL, float motorR)
 {
@@ -322,27 +324,30 @@ void CTRL_MotorUpdate(float motorL, float motorR)
     {
         motorR = 0.0f;
     }
+    /// 平滑
+    ctrl_motorLQ = ctrl_motorLQ * 0.75f + motorL * 0.25f;
+    ctrl_motorRQ = ctrl_motorRQ * 0.75f + motorR * 0.25f;
 
-    if(motorL > 0)
+    if(ctrl_motorLQ > 0)
     {
-        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_0, 20000U, motorL);
+        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_0, 20000U, ctrl_motorLQ);
         SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_1, 20000U, 0.0f);
     }
     else
     {
         SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_0, 20000U, 0.0f);
-        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_1, 20000U, -motorL);
+        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_1, 20000U, -ctrl_motorLQ);
     }
 
-    if(motorR > 0)
+    if(ctrl_motorRQ > 0)
     {
-        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_2, 20000U, motorR);
+        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_2, 20000U, ctrl_motorRQ);
         SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_3, 20000U, 0.0f);
     }
     else
     {
         SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_2, 20000U, 0.0f);
-        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_3, 20000U, -motorR);
+        SCFTM_PWM_ChangeHiRes(MOTOR_PERIPHERAL, kFTM_Chnl_3, 20000U, -ctrl_motorRQ);
     }
 }
 

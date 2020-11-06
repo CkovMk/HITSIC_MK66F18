@@ -170,16 +170,7 @@ void main(void)
     /** 初始化结束，开启总中断 */
     HAL_ExitCritical();
 
-//    UART_WriteBlocking(UART0, "Wi-Fi Test!\n", 13U);
-//    FATFS_BasicTest();
-//    SDK_DelayAtLeastUs(1000 * 1000, CLOCK_GetFreq(kCLOCK_CoreSysClk));
-//    CAM_ZF9V034_UnitTest();
-//    SDK_DelayAtLeastUs(1000 * 1000, CLOCK_GetFreq(kCLOCK_CoreSysClk));
-//
-//    inv::IMU_UnitTest_AutoRefresh();
-//    sc::SC_UnitTest_AutoRefresh();
-
-
+    UART_WriteBlocking(UART0, "Wi-Fi Test!\n", 13U);
 
     float f = arm_sin_f32(0.6f);
 
@@ -192,9 +183,6 @@ void main(void)
 void MENU_DataSetUp(void)
 {
     MENU_ListInsert(menu_menuRoot, MENU_ItemConstruct(nullType, NULL, "EXAMPLE", 0, 0));
-//    inv::IMU_UnitTest_AutoRefreshAddMenu(menu_menuRoot);
-//    sc::SC_UnitTest_AutoRefreshAddMenu(menu_menuRoot);
-//    MENU_DataSetupTest(menu_menuRoot);
     CTRL_MenuInit(menu_menuRoot);
 }
 

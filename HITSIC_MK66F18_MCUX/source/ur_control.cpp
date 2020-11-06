@@ -200,12 +200,19 @@ float ctrl_angPidOutput = 0.0f; ///< 直立环输出
 
 void CTRL_AngCtrl(void *userData)
 {
-    imu_6050.ReadSensorBlocking();
-    imu_6050.Convert(&ctrl_accl[0], &ctrl_accl[1], &ctrl_accl[2], &ctrl_gyro[0], &ctrl_gyro[1], &ctrl_gyro[2]);
-    CTRL_FilterUpdate(CTRL_ANG_CTRL_MS);
+    if(kStatus_Success == imu_6050.ReadSensorBlocking())
+    {
+        imu_6050.Convert(&ctrl_accl[0], &ctrl_accl[1], &ctrl_accl[2], &ctrl_gyro[0], &ctrl_gyro[1], &ctrl_gyro[2]);
+        CTRL_FilterUpdate(CTRL_ANG_CTRL_MS);
+    }
+    else
+    {
+        ctrl_angCtrlEn[0] = 0;
+        PRINTF("\n[W] IMU Fail!\n");
+    }
     if(1 == ctrl_angCtrlEn[0])
     {
-        PIDCTRL_ErrUpdate(&ctrl_angPid, ctrl_filterAngle - ctrl_angSet + ctrl_spdPidOutput);
+        PIDCTRL_ErrUpdate(&ctrl_angPid, -(ctrl_filterAngle - ctrl_angSet + ctrl_spdPidOutput));
         ctrl_angPidOutput = PIDCTRL_CalcPIDGain(&ctrl_angPid);
     }
     else

@@ -78,7 +78,7 @@ extern int32_t ctrl_dirCtrlEn[3];
 extern pidCtrl_t ctrl_dirPid;
 extern float ctrl_dirPidOutput;
 
-void CTRL_DirCtrl(void *userData);
+void CTRL_DirCtrl(float *err);
 
 /* *********************************************** */
 

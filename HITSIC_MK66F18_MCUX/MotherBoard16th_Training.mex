@@ -747,7 +747,7 @@
                </feature>
             </dependency>
             <dependency resourceType="SWComponent" resourceId="platform.drivers.edma" description="工具链/IDE工程不支持EDMA Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
-               <feature name="version" evaluation="equivalent">
+               <feature name="version" evaluation="greaterOrEqual">
                   <data type="Version">2.3.0</data>
                </feature>
             </dependency>
@@ -1547,7 +1547,7 @@
                               <setting name="direction" value="kDSPI_MsbFirst"/>
                               <setting name="pcsToSckDelayInNanoSec" value="1000"/>
                               <setting name="lastSckToPcsDelayInNanoSec" value="1000"/>
-                              <setting name="betweenTransferDelayInNanoSec" value="1000"/>
+                              <setting name="betweenTransferDelayInNanoSec" value="0"/>
                            </struct>
                            <setting name="whichPcs" value="PCS0_SS"/>
                            <setting name="pcsActiveHighOrLow" value="kDSPI_PcsActiveLow"/>

@@ -60,6 +60,9 @@
 #include "cm_backtrace.h"
 //#include "easyflash.h"
 
+/** HITSIC_Module_LIB */
+#include "lib_graphic.hpp"
+
 /** HITSIC_Module_APP */
 #include "app_menu.hpp"
 #include "app_svbmp.hpp"
@@ -93,6 +96,9 @@ void CAM_ZF9V034_DmaCallback(edma_handle_t *handle, void *userData, bool transfe
 inv::i2cInterface_t imu_i2c(nullptr, IMU_INV_I2cRxBlocking, IMU_INV_I2cTxBlocking);
 inv::mpu6050_t imu_6050(imu_i2c);
 
+disp_ssd1306_frameBuffer_t dispBuffer;
+graphic::bufPrint0608_t<disp_ssd1306_frameBuffer_t> bufPrinter(dispBuffer);
+
 void main(void)
 {
     /** 初始化阶段，关闭总中断 */
@@ -124,8 +130,9 @@ void main(void)
     extInt_t::init();
     /** 初始化OLED屏幕 */
     DISP_SSD1306_Init();
+    DISP_SSD1306_spiDmaInit();
     extern const uint8_t DISP_image_100thAnniversary[8][128];
-    DISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
+    //DISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
     /** 初始化菜单 */
     MENU_Init();
     MENU_Data_NvmReadRegionConfig();
@@ -142,6 +149,12 @@ void main(void)
     //TODO: 在这里初始化控制环
     /** 初始化结束，开启总中断 */
     HAL_ExitCritical();
+    //DISP_SSD1306_delay_ms(100);
+    //DISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
+    //DISP_SSD1306_delay_ms(100);
+    //DISP_SSD1306_BufferUploadDMA((uint8_t*) DISP_image_100thAnniversary);
+    //CAM_ZF9V034_UnitTest();
+    //DISP_SSD1306_BufferUpload((uint8_t*) &dispBuffer);
 
     float f = arm_sin_f32(0.6f);
 
@@ -163,3 +176,7 @@ void CAM_ZF9V034_DmaCallback(edma_handle_t *handle, void *userData, bool transfe
 
     //TODO: 添加图像处理（转向控制也可以写在这里）
 }
+
+#if (defined(FSL_FEATURE_DSPI_HAS_GASKET) && FSL_FEATURE_DSPI_HAS_GASKET)
+
+#endif

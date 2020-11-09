@@ -23,10 +23,10 @@
          <pins_profile>
             <processor_version>8.0.1</processor_version>
             <pin_labels>
-               <pin_label pin_num="141" pin_signal="PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20" label="OLED_1" identifier="OLED_SCK"/>
-               <pin_label pin_num="142" pin_signal="PTD13/SPI2_SOUT/SDHC0_D5/FB_A21" label="OLED_3" identifier="OLED_SOT"/>
-               <pin_label pin_num="143" pin_signal="PTD14/SPI2_SIN/SDHC0_D6/FB_A22" label="OLED_2" identifier="OLED_D_C"/>
-               <pin_label pin_num="144" pin_signal="PTD15/SPI2_PCS1/SDHC0_D7/FB_A23" label="OLED_4" identifier="OLED_RST"/>
+               <pin_label pin_num="141" pin_signal="PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20" label="OLED_1" identifier="OLED_1"/>
+               <pin_label pin_num="142" pin_signal="PTD13/SPI2_SOUT/SDHC0_D5/FB_A21" label="OLED_3" identifier="OLED_3"/>
+               <pin_label pin_num="143" pin_signal="PTD14/SPI2_SIN/SDHC0_D6/FB_A22" label="OLED_2" identifier="OLED_2"/>
+               <pin_label pin_num="144" pin_signal="PTD15/SPI2_PCS1/SDHC0_D7/FB_A23" label="OLED_4" identifier="OLED_4"/>
                <pin_label pin_num="137" pin_signal="PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16" label="IMU_SCL" identifier="IMU_SCL"/>
                <pin_label pin_num="138" pin_signal="PTD9/I2C0_SDA/LPUART0_TX/FB_A17" label="IMU_SDA" identifier="IMU_SDA"/>
                <pin_label pin_num="14" pin_signal="PTE11/I2C3_SCL/I2S0_TX_FS/LPUART0_RTS_b/FTM3_CH6" label="SERVO_1" identifier="SERVO_1"/>
@@ -239,11 +239,6 @@
                         <data>true</data>
                      </feature>
                   </dependency>
-                  <dependency resourceType="Peripheral" resourceId="SPI2" description="Peripheral SPI2 is not initialized" problem_level="1" source="Pins:RTEPIN_Board">
-                     <feature name="initialized" evaluation="equal">
-                        <data>true</data>
-                     </feature>
-                  </dependency>
                   <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Pins initialization requires the COMMON Driver in the project." problem_level="2" source="Pins:RTEPIN_Board">
                      <feature name="enabled" evaluation="equal" configuration="core0">
                         <data>true</data>
@@ -261,6 +256,26 @@
                   </dependency>
                </dependencies>
                <pins>
+                  <pin peripheral="GPIOD" signal="GPIO, 12" pin_num="141" pin_signal="PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="GPIOD" signal="GPIO, 13" pin_num="142" pin_signal="PTD13/SPI2_SOUT/SDHC0_D5/FB_A21">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="GPIOD" signal="GPIO, 14" pin_num="143" pin_signal="PTD14/SPI2_SIN/SDHC0_D6/FB_A22">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="GPIOD" signal="GPIO, 15" pin_num="144" pin_signal="PTD15/SPI2_PCS1/SDHC0_D7/FB_A23">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
                   <pin peripheral="I2C0" signal="SCL" pin_num="137" pin_signal="PTD8/LLWU_P24/I2C0_SCL/LPUART0_RX/FB_A16">
                      <pin_features>
                         <pin_feature name="open_drain" value="enable"/>
@@ -434,18 +449,6 @@
                         <pin_feature name="direction" value="INPUT"/>
                      </pin_features>
                   </pin>
-                  <pin peripheral="SPI2" signal="SCK" pin_num="141" pin_signal="PTD12/SPI2_SCK/FTM3_FLT0/SDHC0_D4/FB_A20">
-                     <pin_features>
-                        <pin_feature name="identifier" value=""/>
-                     </pin_features>
-                  </pin>
-                  <pin peripheral="SPI2" signal="SOUT" pin_num="142" pin_signal="PTD13/SPI2_SOUT/SDHC0_D5/FB_A21">
-                     <pin_features>
-                        <pin_feature name="identifier" value=""/>
-                     </pin_features>
-                  </pin>
-                  <pin peripheral="GPIOD" signal="GPIO, 14" pin_num="143" pin_signal="PTD14/SPI2_SIN/SDHC0_D6/FB_A22"/>
-                  <pin peripheral="GPIOD" signal="GPIO, 15" pin_num="144" pin_signal="PTD15/SPI2_PCS1/SDHC0_D7/FB_A23"/>
                </pins>
             </function>
             <function name="RTEPIN_Uart0_EXT">
@@ -653,6 +656,16 @@
                   <data type="Version">2.1.1</data>
                </feature>
             </dependency>
+            <dependency resourceType="SWComponent" resourceId="middleware.fatfs" description="工具链/IDE工程中未找到FAT File System stack。工程不会被编译！" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="middleware.fatfs" description="工具链/IDE工程不支持FAT File System stack版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">0.14.0</data>
+               </feature>
+            </dependency>
             <dependency resourceType="SWComponent" resourceId="platform.drivers.gpio" description="工具链/IDE工程中未找到GPIO Driver。工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
@@ -693,6 +706,16 @@
                   <data type="Version">2.0.5</data>
                </feature>
             </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.dspi" description="工具链/IDE工程中未找到DSPI Driver。工程不会被编译！" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.drivers.dspi" description="工具链/IDE工程不支持DSPI Driver版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">2.2.0</data>
+               </feature>
+            </dependency>
             <dependency resourceType="SWComponent" resourceId="platform.drivers.uart" description="工具链/IDE工程中未找到UART Driver。工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data type="Boolean">true</data>
@@ -717,6 +740,7 @@
          <generated_project_files>
             <file path="board/peripherals.c" update_enabled="true"/>
             <file path="board/peripherals.h" update_enabled="true"/>
+            <file path="source/ffconf.h" update_enabled="true"/>
          </generated_project_files>
          <peripherals_profile>
             <processor_version>8.0.1</processor_version>
@@ -736,6 +760,11 @@
                         <data type="Version">2.0.2</data>
                      </feature>
                   </dependency>
+                  <dependency resourceType="SWComponent" resourceId="middleware.fatfs.sd" description="The fsl_sd_disk driver is missing in the project (required for FATFS)." problem_level="1" source="Peripherals:RTEPIP_BasicPip">
+                     <feature name="enabled" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
                   <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_BasicPip">
                      <feature name="frequency" evaluation="greaterThan">
                         <data type="Frequency" unit="Hz">0</data>
@@ -753,6 +782,102 @@
                         </struct>
                         <array name="dma_table"/>
                         <array name="edma_channels"/>
+                     </config_set>
+                  </instance>
+                  <instance name="FATFS" uuid="60166c65-dc50-479a-86f1-7eeffaee347a" type="fatfs" type_id="fatfs_2f85acf758668258920f70258052a088" mode="general" enabled="true" comment="" custom_name_enabled="false">
+                     <config_set name="init_config">
+                        <struct name="initConfig">
+                           <setting name="initPartitionsStr" value="false"/>
+                           <array name="multiplePartitions">
+                              <struct name="0">
+                                 <setting name="Volume" value="0"/>
+                                 <setting name="Partition" value="autoDetect"/>
+                              </struct>
+                              <struct name="1">
+                                 <setting name="Volume" value="0"/>
+                                 <setting name="Partition" value="autoDetect"/>
+                              </struct>
+                           </array>
+                           <setting name="enablePhysicalLayerInit" value="true"/>
+                           <struct name="diskConfig">
+                              <setting name="initFunctionID" value="FATFS_DiskInit"/>
+                           </struct>
+                           <setting name="initResultObject" value="false"/>
+                           <setting name="resultName" value="FATFS_Result"/>
+                           <array name="fatfsObjects">
+                              <struct name="0">
+                                 <setting name="objID" value="FATFS_System_0"/>
+                                 <setting name="diskMount" value="false"/>
+                                 <setting name="mountPath" value="0:"/>
+                                 <setting name="mountInitOpt" value="false"/>
+                              </struct>
+                           </array>
+                           <array name="filObjects"/>
+                           <array name="filInfoObjects"/>
+                           <array name="dirObjects"/>
+                        </struct>
+                     </config_set>
+                     <config_set name="ff_config">
+                        <setting name="revisionID" value="rev14_1"/>
+                        <setting name="MSDKadaptation" value="SD_DISK_ENABLE"/>
+                        <struct name="functionConfig">
+                           <setting name="FF_FS_READONLY" value="false"/>
+                           <setting name="FF_FS_MINIMIZE" value="level1"/>
+                           <setting name="FF_USE_STRFUNC" value="enableWithoutConversion"/>
+                           <setting name="FF_USE_FIND" value="disableDirRead"/>
+                           <setting name="FF_USE_MKFS" value="true"/>
+                           <setting name="FF_USE_FASTSEEK" value="true"/>
+                           <setting name="FF_USE_EXPAND" value="true"/>
+                           <setting name="FF_USE_CHMOD" value="true"/>
+                           <setting name="FF_USE_LABEL" value="true"/>
+                           <setting name="FF_USE_FORWARD" value="true"/>
+                        </struct>
+                        <struct name="namespaceConfig">
+                           <setting name="FF_USE_LFN" value="enableLfnHeap"/>
+                           <setting name="FF_MAX_LFN" value="255"/>
+                           <setting name="FF_LFN_BUF" value="LFNID"/>
+                           <setting name="FF_SFN_BUF" value="SFNID"/>
+                           <setting name="FF_LFN_UNICODE" value="UTF8"/>
+                           <setting name="FF_STRF_ENCODE" value="UTF8"/>
+                           <setting name="FF_CODE_PAGE" value="cpSimpleChinese"/>
+                           <setting name="FF_FS_RPATH" value="enableRP2"/>
+                        </struct>
+                        <struct name="driveConfig">
+                           <setting name="FF_VOLUMES" value="2"/>
+                           <setting name="FF_STR_VOLUME_ID" value="stringIdWindows"/>
+                           <array name="volumes">
+                              <struct name="0">
+                                 <setting name="volumeStr" value="RAM"/>
+                              </struct>
+                              <struct name="1">
+                                 <setting name="volumeStr" value="SDCard"/>
+                              </struct>
+                           </array>
+                           <setting name="FF_MULTI_PARTITION" value="false"/>
+                           <setting name="FF_MIN_SS" value="value512"/>
+                           <setting name="FF_MAX_SS" value="value512"/>
+                           <setting name="FF_LBA64" value="false"/>
+                           <setting name="FF_MIN_GPT" value="0x100000000"/>
+                           <setting name="FF_USE_TRIM" value="false"/>
+                        </struct>
+                        <struct name="systemConfig">
+                           <setting name="FF_FS_TINY" value="false"/>
+                           <setting name="FF_FS_EXFAT" value="false"/>
+                           <setting name="FF_FS_NORTC" value="false"/>
+                           <setting name="FF_NORTC_MON" value="1"/>
+                           <setting name="FF_NORTC_MDAY" value="1"/>
+                           <setting name="FF_NORTC_YEAR" value="2020"/>
+                           <set name="FF_FS_NOFSINFO">
+                              <selected/>
+                           </set>
+                           <setting name="FF_FS_LOCK" value="0"/>
+                           <setting name="FF_FS_REENTRANT" value="false"/>
+                           <setting name="FF_FS_TIMEOUT" value="1000"/>
+                           <setting name="FF_SYNC_t" value="HANDLE"/>
+                           <setting name="includeOS" value="false"/>
+                           <setting name="headerFileName" value="somertos.h"/>
+                        </struct>
+                        <struct name="fatfs_codegenerator"/>
                      </config_set>
                   </instance>
                   <instance name="GPIOA" uuid="88c41041-e34c-4d92-a12e-ca1b52625e66" type="gpio" type_id="gpio_be9de87e5addb6b0f416d9acbab34797" mode="GPIO" peripheral="GPIOA" enabled="true" comment="" custom_name_enabled="true">
@@ -968,6 +1093,31 @@
                      </feature>
                   </dependency>
                   <dependency resourceType="PeripheralUnifiedSignal" resourceId="I2C0.i2c_sda" description="Signal serial data of the peripheral I2C0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="ClockOutput" resourceId="Bus_clock" description="Bus clock is inactive." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="frequency" evaluation="greaterThan">
+                        <data type="Frequency" unit="Hz">0</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_rxd" description="Signal serial data in of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_txd" description="Signal serial data out of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_sck" description="Signal serial clock of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
+                     <feature name="routed" evaluation="">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SPI0.spi_cs0" description="Signal chip select 0 of the peripheral SPI0 is not routed." problem_level="1" source="Peripherals:RTEPIP_Digital">
                      <feature name="routed" evaluation="">
                         <data type="Boolean">true</data>
                      </feature>
@@ -1266,12 +1416,38 @@
                         </struct>
                      </config_set>
                   </instance>
+                  <instance name="OLED_SPI" uuid="48350fc3-cd3c-43c1-8d06-163ab421689b" type="dspi" type_id="dspi_305e5b03c593d065f61ded8061d15797" mode="DSPI_Polling" peripheral="SPI0" enabled="true" comment="" custom_name_enabled="true">
+                     <config_set name="fsl_dspi">
+                        <setting name="dspi_mode" value="kDSPI_Master"/>
+                        <setting name="clockSource" value="BusInterfaceClock"/>
+                        <setting name="clockSourceFreq" value="GetFreq"/>
+                        <struct name="dspi_master_config">
+                           <setting name="whichCtar" value="kDSPI_Ctar0"/>
+                           <struct name="ctarConfig">
+                              <setting name="baudRate" value="1000000"/>
+                              <setting name="bitsPerFrame" value="8"/>
+                              <setting name="cpol" value="kDSPI_ClockPolarityActiveHigh"/>
+                              <setting name="cpha" value="kDSPI_ClockPhaseFirstEdge"/>
+                              <setting name="direction" value="kDSPI_MsbFirst"/>
+                              <setting name="pcsToSckDelayInNanoSec" value="1000"/>
+                              <setting name="lastSckToPcsDelayInNanoSec" value="1000"/>
+                              <setting name="betweenTransferDelayInNanoSec" value="1000"/>
+                           </struct>
+                           <setting name="whichPcs" value="PCS0_SS"/>
+                           <setting name="pcsActiveHighOrLow" value="kDSPI_PcsActiveLow"/>
+                           <setting name="enableContinuousSCK" value="false"/>
+                           <setting name="enableRxFifoOverWrite" value="false"/>
+                           <setting name="enableModifiedTimingFormat" value="false"/>
+                           <setting name="samplePoint" value="kDSPI_SckToSin0Clock"/>
+                        </struct>
+                     </config_set>
+                  </instance>
                   <instance name="UART0" uuid="57d95f09-5822-449d-846c-ae54001b1aca" type="uart" type_id="uart_cd31a12aa8c79051fda42cc851a27c37" mode="polling" peripheral="UART0" enabled="true" comment="" custom_name_enabled="true">
-                     <config_set name="uartConfig_t" quick_selection="QuickSelection1">
+                     <config_set name="uartConfig_t">
                         <struct name="uartConfig">
                            <setting name="clockSource" value="BusInterfaceClock"/>
                            <setting name="clockSourceFreq" value="GetFreq"/>
-                           <setting name="baudRate_Bps" value="115200"/>
+                           <setting name="baudRate_Bps" value="921600"/>
                            <setting name="parityMode" value="kUART_ParityDisabled"/>
                            <setting name="stopBitCount" value="kUART_OneStopBit"/>
                            <setting name="txFifoWatermark" value="0"/>

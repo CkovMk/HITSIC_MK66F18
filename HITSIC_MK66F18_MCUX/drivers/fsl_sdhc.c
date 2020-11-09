@@ -38,6 +38,9 @@ typedef struct _sdhc_adma_table_config
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
+#if defined(__cplusplus)
+extern "C" {
+#endif
 /*!
  * @brief Get the instance.
  *
@@ -1602,11 +1605,20 @@ void SDHC_TransferHandleIRQ(SDHC_Type *base, sdhc_handle_t *handle)
 }
 
 #if defined(SDHC)
+#ifdef __cplusplus
+extern "C"{
+#endif
 void SDHC_DriverIRQHandler(void)
 {
     assert(s_sdhcHandle[0] != NULL);
 
     s_sdhcIsr(SDHC, s_sdhcHandle[0]);
     SDK_ISR_EXIT_BARRIER;
+}
+#ifdef __cplusplus
+}
+#endif
+#endif
+#if defined(__cplusplus)
 }
 #endif

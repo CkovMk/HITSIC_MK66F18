@@ -295,7 +295,8 @@ extern int main(void);
 //*****************************************************************************
 // External declaration for the pointer to the stack top from the Linker Script
 //*****************************************************************************
-extern void _vStackTop(void);
+//extern void _vStackTop(void);
+extern const int _vStackTop;
 //*****************************************************************************
 #if defined (__cplusplus)
 } // extern "C"
@@ -310,7 +311,7 @@ extern void * __Vectors __attribute__ ((alias ("g_pfnVectors")));
 __attribute__ ((used, section(".isr_vector")))
 void (* const g_pfnVectors[])(void) = {
     // Core Level - CM4
-    &_vStackTop,                       // The initial stack pointer
+    (void(*)(void))&_vStackTop,                       // The initial stack pointer
     ResetISR,                          // The reset handler
     NMI_Handler,                       // The NMI handler
     HardFault_Handler,                 // The hard fault handler

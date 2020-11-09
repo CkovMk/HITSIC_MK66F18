@@ -628,7 +628,7 @@ static int32_t ConvertFloatRadixNumToString(char *numstr, void *nump, int32_t ra
     int32_t a;
     int32_t b;
     int32_t c;
-    int32_t i;
+    uint32_t i;
     uint32_t uc;
     double fa;
     double dc;

@@ -7,15 +7,15 @@
  */
 
 /*! *********************************************************************************
-*************************************************************************************
-* Include
-*************************************************************************************
-********************************************************************************** */
+ *************************************************************************************
+ * Include
+ *************************************************************************************
+ ********************************************************************************** */
 #include "generic_list.h"
 
 static list_status_t LIST_Error_Check(list_handle_t list, list_element_handle_t newElement)
 {
-    list_status_t listStatus      = kLIST_Ok;
+    list_status_t listStatus = kLIST_Ok;
     list_element_handle_t element = list->head;
 
     if ((list->max != 0U) && (list->max == list->size))
@@ -24,7 +24,7 @@ static list_status_t LIST_Error_Check(list_handle_t list, list_element_handle_t 
     }
     else
     {
-        while (element != NULL) /*Scan list*/
+        while (element != NULL ) /*Scan list*/
         {
             /* Determine if element is duplicated */
             if (element == newElement)
@@ -40,10 +40,10 @@ static list_status_t LIST_Error_Check(list_handle_t list, list_element_handle_t 
 }
 
 /*! *********************************************************************************
-*************************************************************************************
-* Public functions
-*************************************************************************************
-********************************************************************************** */
+ *************************************************************************************
+ * Public functions
+ *************************************************************************************
+ ********************************************************************************** */
 /*! *********************************************************************************
  * \brief     Initialises the list descriptor.
  *
@@ -63,7 +63,7 @@ void LIST_Init(list_handle_t list, uint32_t max)
 {
     list->head = NULL;
     list->tail = NULL;
-    list->max  = (uint16_t)max;
+    list->max = (uint16_t) max;
     list->size = 0;
 }
 
@@ -105,7 +105,7 @@ list_handle_t LIST_GetList(list_element_handle_t element)
  ********************************************************************************** */
 list_status_t LIST_AddTail(list_handle_t list, list_element_handle_t element)
 {
-    uint32_t regPrimask      = DisableGlobalIRQ();
+    uint32_t regPrimask = DisableGlobalIRQ();
     list_status_t listStatus = kLIST_Ok;
 
     listStatus = LIST_Error_Check(list, element);
@@ -125,7 +125,7 @@ list_status_t LIST_AddTail(list_handle_t list, list_element_handle_t element)
 #endif
         element->list = list;
         element->next = NULL;
-        list->tail    = element;
+        list->tail = element;
         list->size++;
     }
 
@@ -151,7 +151,7 @@ list_status_t LIST_AddTail(list_handle_t list, list_element_handle_t element)
  ********************************************************************************** */
 list_status_t LIST_AddHead(list_handle_t list, list_element_handle_t element)
 {
-    uint32_t regPrimask      = DisableGlobalIRQ();
+    uint32_t regPrimask = DisableGlobalIRQ();
     list_status_t listStatus = kLIST_Ok;
 
     listStatus = LIST_Error_Check(list, element);
@@ -172,7 +172,7 @@ list_status_t LIST_AddHead(list_handle_t list, list_element_handle_t element)
 #endif
         element->list = list;
         element->next = list->head;
-        list->head    = element;
+        list->head = element;
         list->size++;
     }
 
@@ -221,7 +221,7 @@ list_element_handle_t LIST_RemoveHead(list_handle_t list)
         }
 #endif
         element->list = NULL;
-        list->head    = element->next; /*Is NULL if element is head*/
+        list->head = element->next; /*Is NULL if element is head*/
     }
 
     EnableGlobalIRQ(regPrimask);
@@ -310,7 +310,7 @@ list_element_handle_t LIST_GetPrev(list_element_handle_t element)
 list_status_t LIST_RemoveElement(list_element_handle_t element)
 {
     list_status_t listStatus = kLIST_Ok;
-    uint32_t regPrimask      = DisableGlobalIRQ();
+    uint32_t regPrimask = DisableGlobalIRQ();
 
     if (element->list == NULL)
     {
@@ -381,7 +381,7 @@ list_status_t LIST_RemoveElement(list_element_handle_t element)
 list_status_t LIST_AddPrevElement(list_element_handle_t element, list_element_handle_t newElement)
 {
     list_status_t listStatus = kLIST_Ok;
-    uint32_t regPrimask      = DisableGlobalIRQ();
+    uint32_t regPrimask = DisableGlobalIRQ();
 
     if (element->list == NULL)
     {
@@ -471,5 +471,5 @@ uint32_t LIST_GetSize(list_handle_t list)
  ********************************************************************************** */
 uint32_t LIST_GetAvailableSize(list_handle_t list)
 {
-    return ((uint32_t)list->max - (uint32_t)list->size); /*Gets the number of free places in the list*/
+    return ((uint32_t) list->max - (uint32_t) list->size); /*Gets the number of free places in the list*/
 }

@@ -103,36 +103,33 @@ void main(void)
 {
     /** 初始化阶段，关闭总中断 */
     HAL_EnterCritical();
-    /** 初始化时钟 */
+
+    /** BSP（板级支持包）初始化 */
     RTECLK_HsRun_180MHz();
-    /** 初始化引脚路由 */
     RTEPIN_Basic();
     RTEPIN_Digital();
     RTEPIN_Analog();
     RTEPIN_LPUART0_DBG();
     RTEPIN_UART0_WLAN();
-    /** 初始化外设 */
     RTEPIP_Basic();
     RTEPIP_Device();
-    /** 初始化调试串口 */
+
+    /** 初始化调试组件 */
     DbgConsole_Init(0U, 921600U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
     PRINTF("Welcome to HITSIC !\n");
     PRINTF("GCC %d.%d.%d\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
-    /** 初始化CMBackTrace */
     cm_backtrace_init("HITSIC_MK66F18", "2020-v3.0", "v4.1.1");
+
+    /** 初始化OLED屏幕 */
+    DISP_SSD1306_Init();
+    extern const uint8_t DISP_image_100thAnniversary[8][128];
+    DISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
     /** 初始化ftfx_Flash */
     FLASH_SimpleInit();
-    /** 初始化EasyFlash */
-    //easyflash_init();
     /** 初始化PIT中断管理器 */
     pitMgr_t::init();
     /** 初始化I/O中断管理器 */
     extInt_t::init();
-    /** 初始化OLED屏幕 */
-    DISP_SSD1306_Init();
-    DISP_SSD1306_spiDmaInit();
-    extern const uint8_t DISP_image_100thAnniversary[8][128];
-    DISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
     /** 初始化菜单 */
     MENU_Init();
     MENU_Data_NvmReadRegionConfig();
@@ -150,6 +147,7 @@ void main(void)
     /** 初始化结束，开启总中断 */
     HAL_ExitCritical();
 
+    /** 内置DSP函数测试 */
     float f = arm_sin_f32(0.6f);
 
     while (true)
@@ -166,7 +164,26 @@ void MENU_DataSetUp(void)
 
 void CAM_ZF9V034_DmaCallback(edma_handle_t *handle, void *userData, bool transferDone, uint32_t tcds)
 {
-    //TODO: 补完本回调函数
+    //TODO: 补完本回调函数，双缓存采图。
 
     //TODO: 添加图像处理（转向控制也可以写在这里）
 }
+
+/**
+ * 『灯千结的碎碎念』 Tips by C.M. :
+ * 1. 浮点数计算有时（例如除零时）会产生“nan”，即“非数（Not-a-Number）”。
+ *      要检测一个变量是否为“nan”，只需判断这个变量是否和自身相等。如果该
+ *      变量与自身不相等（表达式“var == var”的值为假），则可判定该浮点数
+ *      的值是nan，需要进行车模保护动作。
+ * 2. 由于车模震动等因素，IMU可能会断开连接。一旦发现IMU读取失败，应执行车
+ *      模保护动作。另外，IMU在单片机复位的瞬间可能正在进行传输，导致时序
+ *      紊乱，初始化失败。因此装有IMU的车模复位时必须全车断电。
+ * 3. 正常情况下图像帧率为50FPS，即20ms一帧。若摄像头时序紊乱，会导致控制周
+ *      期混乱。因而有必要在每次图像采集完成时测量距离上次图像采集完成的时
+ *      间间隔，如果明显偏离20ms，须执行车模保护动作。
+ * 4. 直立车需特别注意：有时控制输出会使两个电机向相反方向旋转，这在正常运行
+ *      中是十分危险的，可能造成车模进入“原地陀螺旋转”的状态，极易损坏车模或
+ *      导致人员受伤。在设置电机占空比时务必做好异常保护。
+ */
+
+

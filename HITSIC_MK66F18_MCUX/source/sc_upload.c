@@ -21,43 +21,25 @@
 #include "sc_upload.h"
 #include "drv_cam_zf9v034.hpp"
 
-#define VAR_NUM 7//发送数组个数
 extern uartMgr_t *uartMgr0;
-float Variable[VAR_NUM];//发送缓存数组
 
-void SCHOST_Send_Begin(void)
-{
-    uint8_t begin_cmd[3] = {0x55, 0xaa, 0x11};
-    SCHOST_UART_Tx(begin_cmd, sizeof(begin_cmd));
-}
-
-void  SCHOST_Send_Variable(void)
+void  SCHOST_SendVariable(float *my_var, uint8_t var_num)
 {
   uint8_t cmdf[7] = {0x55, 0xaa, 0x11, 0x55, 0xaa,0xff, 0x01};
   uint8_t cmdr = 0x01;
-  uint8_t temp[4] = {0};
-  uint8_t var_num = VAR_NUM;
-  SCHOST_Send_Begin();
-
-  Variable[0] = 0;          //changing your data here
-  Variable[1] = 1;
-  Variable[2] = 2;
-  Variable[3] = 3;
-  Variable[4] = 4;
-  Variable[5] = 5;
-  Variable[6] = 6;
+  uint8_t begin_cmd[3] = {0x55, 0xaa, 0x11};
+  SCHOST_UART_Tx(begin_cmd, sizeof(begin_cmd));
 
   SCHOST_UART_Tx(cmdf, sizeof(cmdf));
   SCHOST_UART_Tx(&var_num, 1);
- for(uint8_t i=0;i<VAR_NUM;i++)
+ for(uint8_t i = 0;i < var_num;i++)
   {
-    memcpy(temp,Variable+i,4);
-    SCHOST_UART_Tx(temp, sizeof(temp));
+    SCHOST_UART_Tx((uint8_t *)(my_var + i), sizeof(4));
   }
  SCHOST_UART_Tx(&cmdr, 1);
 }
 
-void SCHOST_Img_Upload(uint8_t* upload_img, uint8_t row, uint8_t col)
+void SCHOST_ImgUpload(uint8_t* upload_img, uint8_t row, uint8_t col)
 {
     uint8_t cmd = 3;
     uint8_t cmdf[2] = { cmd, ~cmd };

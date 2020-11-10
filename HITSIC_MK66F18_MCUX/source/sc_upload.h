@@ -31,18 +31,11 @@
 
 
 /**
- * @brief : 发送一个字节的数据
- *
- * @param       temp        待发送的一字节数据
- */
-void SCHOST_Send_Begin(void);
-
-/**
  * @brief : 发送数据
  *
  * @param       void        undefined
  */
-void SCHOST_Send_Variable(void);
+void SCHOST_SendVariable(float *my_var, uint8_t var_num);
 
 /**
  * @brief : 发送大小为120*188的数组数据
@@ -50,6 +43,6 @@ void SCHOST_Send_Variable(void);
  *
  * @param       upload_img      待发送数组的头地址
  */
-void SCHOST_Img_Upload(uint8_t* upload_img, uint8_t row, uint8_t col);
+void SCHOST_ImgUpload(uint8_t* upload_img, uint8_t row, uint8_t col);
 
 #endif//_SC_UPLOAD_H

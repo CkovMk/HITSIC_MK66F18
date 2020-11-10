@@ -37,7 +37,7 @@
  * @param my_var 要发送的数据指针
  * @param var_num 要发送的数据个数
  */
-void SCHOST_SendVariable(float *my_var, uint8_t var_num);
+void SCHOST_VarUpload(float *my_var, uint8_t var_num);
 
 /**
  * @brief : 发送大小为120*188的数组数据

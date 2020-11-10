@@ -20,7 +20,7 @@
 
 #include "sc_host.h"
 
-void SCHOST_SendVariable(float *my_var, uint8_t var_num)
+void SCHOST_VarUpload(float *my_var, uint8_t var_num)
 {
     uint8_t cmdf[7] =
     { 0x55, 0xaa, 0x11, 0x55, 0xaa, 0xff, 0x01 };

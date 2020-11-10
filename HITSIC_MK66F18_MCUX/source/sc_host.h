@@ -34,6 +34,8 @@
 /**
  * @brief : 发送数据
  *
+ * 适用于名优科创上位机。
+ *
  * @param my_var 要发送的数据指针
  * @param var_num 要发送的数据个数
  */
@@ -41,6 +43,8 @@ void SCHOST_VarUpload(float *my_var, uint8_t var_num);
 
 /**
  * @brief : 发送大小为120*188的数组数据
+ *
+ * 适用于红树伟业上位机。
  *
  * @param upload_img 待发送图像数据的指针
  * @param row 图像行数

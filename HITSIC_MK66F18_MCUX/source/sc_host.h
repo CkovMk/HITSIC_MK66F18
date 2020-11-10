@@ -26,22 +26,25 @@
 #include "sys_uartmgr.hpp"
 #include "fsl_uart.h"
 
-#define MY_UART UART0
-#define SCHOST_UART_Tx(data,length)  (UART_WriteBlocking(MY_UART, data, length))//uartMgr0->txPoll(data,length)
+#define SCHOST_UART_INST (UART0)
+#define SCHOST_UART_Tx(data,length)  (UART_WriteBlocking(SCHOST_UART_INST, data, length))//uartMgr0->txPoll(data,length)
 
+//extern uartMgr_t *uartMgr0;
 
 /**
  * @brief : 发送数据
  *
- * @param       void        undefined
+ * @param my_var 要发送的数据指针
+ * @param var_num 要发送的数据个数
  */
 void SCHOST_SendVariable(float *my_var, uint8_t var_num);
 
 /**
  * @brief : 发送大小为120*188的数组数据
- *注意数组类型应该是uint8_t 或者   char
  *
- * @param       upload_img      待发送数组的头地址
+ * @param upload_img 待发送图像数据的指针
+ * @param row 图像行数
+ * @param col 图像列数
  */
 void SCHOST_ImgUpload(uint8_t* upload_img, uint8_t row, uint8_t col);
 

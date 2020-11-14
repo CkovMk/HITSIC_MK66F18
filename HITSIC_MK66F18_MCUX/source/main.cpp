@@ -156,6 +156,10 @@ void main(void)
     /** 内置DSP函数测试 */
     float f = arm_sin_f32(0.6f);
 
+    menu_list_t *list = MENU_DirGetList("/TestList");
+    if(true);
+    menu_itemIfce_t *itme = MENU_DirGetItem(list, "region_i");
+
     while (true)
     {
         //TODO: 在这里添加车模保护代码
@@ -166,6 +170,7 @@ void MENU_DataSetUp(void)
 {
     MENU_ListInsert(menu_menuRoot, MENU_ItemConstruct(nullType, NULL, "EXAMPLE", 0, 0));
     //TODO: 在这里添加子菜单和菜单项
+    MENU_DataSetupTest(menu_menuRoot);
 }
 
 void CAM_ZF9V034_DmaCallback(edma_handle_t *handle, void *userData, bool transferDone, uint32_t tcds)

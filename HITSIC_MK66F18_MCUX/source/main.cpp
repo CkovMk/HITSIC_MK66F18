@@ -58,7 +58,7 @@
 #include "sys_extint.hpp"
 #include "sys_uartmgr.hpp"
 #include "cm_backtrace.h"
-//#include "easyflash.h"
+#include "easyflash.h"
 
 /** HITSIC_Module_LIB */
 #include "lib_graphic.hpp"
@@ -84,6 +84,9 @@ FATFS fatfs;                                   //逻辑驱动器的工作区
 
 /** SCLIB_TEST */
 #include "sc_test.hpp"
+
+char efTestStr[] = "This is EasyFlash test string.\n Lets see how it works!\n";
+
 
 
 void MENU_DataSetUp(void);
@@ -115,33 +118,34 @@ void main(void)
     RTEPIP_Device();
 
     /** 初始化调试组件 */
-    DbgConsole_Init(0U, 921600U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
+    //DbgConsole_Init(0U, 921600U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
     PRINTF("Welcome to HITSIC !\n");
     PRINTF("GCC %d.%d.%d\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
-    cm_backtrace_init("HITSIC_MK66F18", "2020-v3.0", "v4.1.1");
+    cm_backtrace_init("HITSIC_MK66F18", "2020-v3.0", "v4.2.0");
 
     /** 初始化OLED屏幕 */
     DISP_SSD1306_Init();
     extern const uint8_t DISP_image_100thAnniversary[8][128];
     DISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
     /** 初始化ftfx_Flash */
-    FLASH_SimpleInit();
+    //FLASH_SimpleInit();
+    easyflash_init();
     /** 初始化PIT中断管理器 */
     pitMgr_t::init();
     /** 初始化I/O中断管理器 */
     extInt_t::init();
     /** 初始化菜单 */
-    MENU_Init();
-    MENU_Data_NvmReadRegionConfig();
-    MENU_Data_NvmRead(menu_currRegionNum);
+    //MENU_Init();
+    //MENU_Data_NvmReadRegionConfig();
+    //MENU_Data_NvmRead(menu_currRegionNum);
     /** 菜单挂起 */
-    MENU_Suspend();
+    //MENU_Suspend();
     /** 初始化摄像头 */
     //TODO: 在这里初始化摄像头
     /** 初始化IMU */
     //TODO: 在这里初始化IMU（MPU6050）
     /** 菜单就绪 */
-    MENU_Resume();
+    //MENU_Resume();
     /** 控制环初始化 */
     //TODO: 在这里初始化控制环
     /** 初始化结束，开启总中断 */
@@ -152,6 +156,27 @@ void main(void)
     //DISP_SSD1306_BufferUploadDMA((uint8_t*) DISP_image_100thAnniversary);
     //CAM_ZF9V034_UnitTest();
     //DISP_SSD1306_BufferUpload((uint8_t*) &dispBuffer);
+    printf("123\n\n");
+
+    uint32_t len = 0U;
+    uint32_t result = 0U;
+
+    ef_get_env_blob("efTestStr", nullptr, 0U, &len);
+    printf("length is %ld\n", len);
+    if(0U == len)
+    {
+        printf("Not present. Creating...\n", len);
+        len = strlen(efTestStr) + 1U;
+        result = ef_set_env_blob("efTestStr", efTestStr, len);
+        printf("result is %ld\n", result);
+        len = 0U;
+        ef_get_env_blob("efTestStr", nullptr, 0U, &len);
+        printf("Write Complete. length is %ld\n", len);
+        result = ef_del_env("efTestStr");
+        printf("Delete result is %ld\n", result);
+    }
+
+    printf("%ld\n", len);
 
     /** 内置DSP函数测试 */
     float f = arm_sin_f32(0.6f);

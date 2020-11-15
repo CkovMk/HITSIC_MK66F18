@@ -31,7 +31,7 @@
 									<listOptionValue builtIn="false" value="CPU_MK66FX1M0VLQ18_cm4"/>
 									<listOptionValue builtIn="false" value="FSL_RTOS_BM"/>
 									<listOptionValue builtIn="false" value="SDK_OS_BAREMETAL"/>
-									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=1"/>
+									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=0"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_UART=1"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_SWO=0"/>
 									<listOptionValue builtIn="false" value="DEBUG_CONSOLE_RX_ENABLE=0"/>
@@ -113,7 +113,7 @@
 									<listOptionValue builtIn="false" value="CPU_MK66FX1M0VLQ18cm7"/>
 									<listOptionValue builtIn="false" value="FSL_RTOS_BM"/>
 									<listOptionValue builtIn="false" value="SDK_OS_BAREMETAL"/>
-									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=1"/>
+									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=0"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_UART=1"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_SWO=0"/>
 									<listOptionValue builtIn="false" value="DEBUG_CONSOLE_RX_ENABLE=1"/>
@@ -402,12 +402,13 @@
 									<listOptionValue builtIn="false" value="CPU_MK66FX1M0VLQ18_cm4"/>
 									<listOptionValue builtIn="false" value="FSL_RTOS_BM"/>
 									<listOptionValue builtIn="false" value="SDK_OS_BAREMETAL"/>
-									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=1"/>
+									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=0"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_UART=1"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_SWO=0"/>
 									<listOptionValue builtIn="false" value="DEBUG_CONSOLE_RX_ENABLE=0"/>
 									<listOptionValue builtIn="false" value="__MCUXPRESSO"/>
 									<listOptionValue builtIn="false" value="__USE_CMSIS"/>
+									<listOptionValue builtIn="false" value="DEBUG"/>
 									<listOptionValue builtIn="false" value="__NEWLIB__"/>
 									<listOptionValue builtIn="false" value="I2C_RETRY_TIMES=32768"/>
 									<listOptionValue builtIn="false" value="UART_RETRY_TIMES=32768"/>
@@ -483,12 +484,13 @@
 									<listOptionValue builtIn="false" value="CPU_MK66FX1M0VLQ18cm7"/>
 									<listOptionValue builtIn="false" value="FSL_RTOS_BM"/>
 									<listOptionValue builtIn="false" value="SDK_OS_BAREMETAL"/>
-									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=1"/>
+									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=0"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_UART=1"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_SWO=0"/>
 									<listOptionValue builtIn="false" value="DEBUG_CONSOLE_RX_ENABLE=1"/>
 									<listOptionValue builtIn="false" value="__MCUXPRESSO"/>
 									<listOptionValue builtIn="false" value="__USE_CMSIS"/>
+									<listOptionValue builtIn="false" value="DEBUG"/>
 									<listOptionValue builtIn="false" value="__NEWLIB__"/>
 									<listOptionValue builtIn="false" value="I2C_RETRY_TIMES=32768"/>
 									<listOptionValue builtIn="false" value="UART_RETRY_TIMES=32768"/>

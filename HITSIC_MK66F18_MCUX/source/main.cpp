@@ -156,9 +156,9 @@ void main(void)
     /** 内置DSP函数测试 */
     float f = arm_sin_f32(0.6f);
 
-    menu_list_t *list = MENU_DirGetList("/TestList");
-    if(true);
-    menu_itemIfce_t *itme = MENU_DirGetItem(list, "region_i");
+//    menu_list_t *list = MENU_DirGetList("/TestList");
+//    if(true);
+//    menu_itemIfce_t *itme = MENU_DirGetItem(list, "region_i");
 
     while (true)
     {

@@ -136,11 +136,11 @@ void main(void)
     /** 初始化I/O中断管理器 */
     extInt_t::init();
     /** 初始化菜单 */
-    //MENU_Init();
-    //MENU_Data_NvmReadRegionConfig();
-    //MENU_Data_NvmRead(menu_currRegionNum);
+    MENU_Init();
+    MENU_Data_NvmReadRegionConfig();
+    MENU_Data_NvmRead(menu_currRegionNum);
     /** 菜单挂起 */
-    //MENU_Suspend();
+    MENU_Suspend();
     /** 初始化摄像头 */
     //TODO: 在这里初始化摄像头
     /** 初始化IMU */
@@ -152,13 +152,14 @@ void main(void)
     /** 初始化结束，开启总中断 */
     HAL_ExitCritical();
     //DISP_SSD1306_delay_ms(100);
-    //DISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
+    //cDISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
     //DISP_SSD1306_delay_ms(100);
     //DISP_SSD1306_BufferUploadDMA((uint8_t*) DISP_image_100thAnniversary);
-    //CAM_ZF9V034_UnitTest();
+    CAM_ZF9V034_UnitTest();
     //DISP_SSD1306_BufferUpload((uint8_t*) &dispBuffer);
 
     //EF_BasicTest();
+    MENU_Resume();
     /** 内置DSP函数测试 */
     float f = arm_sin_f32(0.6f);
 

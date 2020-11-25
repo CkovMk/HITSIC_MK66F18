@@ -119,7 +119,9 @@ void main(void)
     /** 初始化调试组件 */
     //DbgConsole_Init(0U, 921600U, kSerialPort_Uart, CLOCK_GetFreq(kCLOCK_CoreSysClk));
     PRINTF("Welcome to HITSIC !\n");
-    PRINTF("GCC %d.%d.%d\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
+    PRINTF("Compiler: GCC %d.%d.%d\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
+    PRINTF("C++ std = %d\n", __cplusplus);
+    PRINTF("Complie time: %s %s\n", __DATE__, __TIME__);
     cm_backtrace_init("HITSIC_MK66F18", "2020-v3.0", "v4.2.0");
 
     /** 初始化OLED屏幕 */

@@ -81,11 +81,10 @@ FATFS fatfs;                                   //逻辑驱动器的工作区
 #include "drv_imu_invensense_test.hpp"
 #include "sys_fatfs_test.hpp"
 #include "sys_fatfs_diskioTest.hpp"
+#include "extlib_easyflash_test.hpp"
 
 /** SCLIB_TEST */
 #include "sc_test.hpp"
-
-char efTestStr[] = "This is EasyFlash test string.\n Lets see how it works!\n";
 
 
 
@@ -128,8 +127,8 @@ void main(void)
     extern const uint8_t DISP_image_100thAnniversary[8][128];
     DISP_SSD1306_BufferUpload((uint8_t*) DISP_image_100thAnniversary);
     /** 初始化ftfx_Flash */
-    //FLASH_SimpleInit();
-    easyflash_init();
+    FLASH_SimpleInit();
+    //easyflash_init();
     /** 初始化PIT中断管理器 */
     pitMgr_t::init();
     /** 初始化I/O中断管理器 */
@@ -156,28 +155,8 @@ void main(void)
     //DISP_SSD1306_BufferUploadDMA((uint8_t*) DISP_image_100thAnniversary);
     //CAM_ZF9V034_UnitTest();
     //DISP_SSD1306_BufferUpload((uint8_t*) &dispBuffer);
-    printf("123\n\n");
 
-    uint32_t len = 0U;
-    uint32_t result = 0U;
-
-    ef_get_env_blob("efTestStr", nullptr, 0U, &len);
-    printf("length is %ld\n", len);
-    if(0U == len)
-    {
-        printf("Not present. Creating...\n", len);
-        len = strlen(efTestStr) + 1U;
-        result = ef_set_env_blob("efTestStr", efTestStr, len);
-        printf("result is %ld\n", result);
-        len = 0U;
-        ef_get_env_blob("efTestStr", nullptr, 0U, &len);
-        printf("Write Complete. length is %ld\n", len);
-        result = ef_del_env("efTestStr");
-        printf("Delete result is %ld\n", result);
-    }
-
-    printf("%ld\n", len);
-
+    //EF_BasicTest();
     /** 内置DSP函数测试 */
     float f = arm_sin_f32(0.6f);
 

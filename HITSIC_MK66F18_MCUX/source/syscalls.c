@@ -51,19 +51,19 @@ int close(int file)
 
 }
 
-int lseek(int file, int ptr, int dir)
+int _lseek(int file, int ptr, int dir)
 {
     return 0;
 }
-int open(const char *name, int flags, int mode)
+int _open(const char *name, int flags, int mode)
 {
     return -1;
 }
-int read(int file, char *ptr, int len)
+int _read(int file, char *ptr, int len)
 {
     return 0;
 }
-int write(int file, char *ptr, int len)
+int _write(int file, char *ptr, int len)
 {
 
     return len;

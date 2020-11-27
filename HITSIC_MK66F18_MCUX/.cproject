@@ -31,7 +31,7 @@
 									<listOptionValue builtIn="false" value="CPU_MK66FX1M0VLQ18_cm4"/>
 									<listOptionValue builtIn="false" value="FSL_RTOS_BM"/>
 									<listOptionValue builtIn="false" value="SDK_OS_BAREMETAL"/>
-									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=1"/>
+									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=0"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_UART=1"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_SWO=0"/>
 									<listOptionValue builtIn="false" value="DEBUG_CONSOLE_RX_ENABLE=0"/>
@@ -62,12 +62,12 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/utilities}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities_test}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/plugins/types/struct2json/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.0.0/easyflash/port}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.1.0/easyflash/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.1.0/easyflash/plugins/types/struct2json/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.1.0/easyflash/port}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.include.files.1460525962" name="Include files (-include)" superClass="gnu.cpp.compiler.option.include.files" useByScannerDiscovery="false"/>
 								<option id="com.crt.advproject.cpp.exe.debug.option.optimization.level.553324492" name="Optimization Level" superClass="com.crt.advproject.cpp.exe.debug.option.optimization.level" useByScannerDiscovery="false"/>
@@ -85,7 +85,7 @@
 								<option id="gnu.cpp.compiler.option.warnings.extrawarn.79091095" name="Extra warnings (-Wextra)" superClass="gnu.cpp.compiler.option.warnings.extrawarn" useByScannerDiscovery="false"/>
 								<option id="gnu.cpp.compiler.option.warnings.toerrors.1259539515" name="Warnings as errors (-Werror)" superClass="gnu.cpp.compiler.option.warnings.toerrors" useByScannerDiscovery="false"/>
 								<option id="gnu.cpp.compiler.option.warnings.wconversion.1090658904" name="Implicit conversion warnings (-Wconversion)" superClass="gnu.cpp.compiler.option.warnings.wconversion" useByScannerDiscovery="false"/>
-								<option id="gnu.cpp.compiler.option.other.other.2097819865" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -frtti -fexceptions -fpermissive" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.other.other.2097819865" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -frtti -fno-exceptions -fpermissive -fstack-protector-all" valueType="string"/>
 								<option id="gnu.cpp.compiler.option.other.verbose.968687832" name="Verbose (-v)" superClass="gnu.cpp.compiler.option.other.verbose" useByScannerDiscovery="false"/>
 								<option id="gnu.cpp.compiler.option.other.pic.1854156921" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" useByScannerDiscovery="false"/>
 								<option id="com.crt.advproject.cpp.lto.797201820" name="Enable Link-time optimization (-flto)" superClass="com.crt.advproject.cpp.lto" useByScannerDiscovery="false"/>
@@ -113,7 +113,7 @@
 									<listOptionValue builtIn="false" value="CPU_MK66FX1M0VLQ18cm7"/>
 									<listOptionValue builtIn="false" value="FSL_RTOS_BM"/>
 									<listOptionValue builtIn="false" value="SDK_OS_BAREMETAL"/>
-									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=1"/>
+									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=0"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_UART=1"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_SWO=0"/>
 									<listOptionValue builtIn="false" value="DEBUG_CONSOLE_RX_ENABLE=1"/>
@@ -144,12 +144,12 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/utilities}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities_test}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/plugins/types/struct2json/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.0.0/easyflash/port}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.1.0/easyflash/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.1.0/easyflash/plugins/types/struct2json/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.1.0/easyflash/port}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.include.files.1842852847" name="Include files (-include)" superClass="gnu.c.compiler.option.include.files" useByScannerDiscovery="false"/>
 								<option id="com.crt.advproject.gcc.exe.debug.option.optimization.level.40456240" name="Optimization Level" superClass="com.crt.advproject.gcc.exe.debug.option.optimization.level" useByScannerDiscovery="false"/>
@@ -167,7 +167,7 @@
 								<option id="gnu.c.compiler.option.warnings.extrawarn.1807239339" name="Extra warnings (-Wextra)" superClass="gnu.c.compiler.option.warnings.extrawarn" useByScannerDiscovery="false"/>
 								<option id="gnu.c.compiler.option.warnings.toerrors.281311317" name="Warnings as errors (-Werror)" superClass="gnu.c.compiler.option.warnings.toerrors" useByScannerDiscovery="false"/>
 								<option id="gnu.c.compiler.option.warnings.wconversion.928302488" name="Implicit conversion warnings (-Wconversion)" superClass="gnu.c.compiler.option.warnings.wconversion" useByScannerDiscovery="false"/>
-								<option id="gnu.c.compiler.option.misc.other.1249383879" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -frtti -fexceptions -fpermissive" valueType="string"/>
+								<option id="gnu.c.compiler.option.misc.other.1249383879" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -frtti -fno-exceptions -fpermissive -fstack-protector-all" valueType="string"/>
 								<option id="gnu.c.compiler.option.misc.verbose.453560712" name="Verbose (-v)" superClass="gnu.c.compiler.option.misc.verbose" useByScannerDiscovery="false"/>
 								<option id="gnu.c.compiler.option.misc.ansi.895087042" name="Support ANSI programs (-ansi)" superClass="gnu.c.compiler.option.misc.ansi" useByScannerDiscovery="false"/>
 								<option id="gnu.c.compiler.option.misc.pic.1934635232" name="Position Independent Code (-fPIC)" superClass="gnu.c.compiler.option.misc.pic" useByScannerDiscovery="false"/>
@@ -354,8 +354,8 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry flags="LOCAL|VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="CMSIS"/>
-						<entry excluding="legacy_drivers" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="HITSIC_Module/d_mk66f18"/>
-						<entry excluding="extlib/CmBacktrace-1.4.0/cm_backtrace/fault_handler/keil|extlib/CmBacktrace-1.4.0/cm_backtrace/fault_handler/iar" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="HITSIC_Module/utilities"/>
+						<entry excluding="extlib_port/EasyFlash-4.0.0|legacy_drivers" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="HITSIC_Module/d_mk66f18"/>
+						<entry excluding="extlib/EasyFlash-4.0.0|extlib/CmBacktrace-1.4.0/cm_backtrace/fault_handler/keil|extlib/CmBacktrace-1.4.0/cm_backtrace/fault_handler/iar" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="HITSIC_Module/utilities"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="board"/>
 						<entry excluding="uart/uart_adapter.c" flags="LOCAL|VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="component"/>
 						<entry flags="LOCAL|VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="device"/>
@@ -402,12 +402,13 @@
 									<listOptionValue builtIn="false" value="CPU_MK66FX1M0VLQ18_cm4"/>
 									<listOptionValue builtIn="false" value="FSL_RTOS_BM"/>
 									<listOptionValue builtIn="false" value="SDK_OS_BAREMETAL"/>
-									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=1"/>
+									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=0"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_UART=1"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_SWO=0"/>
 									<listOptionValue builtIn="false" value="DEBUG_CONSOLE_RX_ENABLE=0"/>
 									<listOptionValue builtIn="false" value="__MCUXPRESSO"/>
 									<listOptionValue builtIn="false" value="__USE_CMSIS"/>
+									<listOptionValue builtIn="false" value="RELEASE"/>
 									<listOptionValue builtIn="false" value="__NEWLIB__"/>
 									<listOptionValue builtIn="false" value="I2C_RETRY_TIMES=32768"/>
 									<listOptionValue builtIn="false" value="UART_RETRY_TIMES=32768"/>
@@ -432,12 +433,12 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/utilities}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities_test}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/plugins/types/struct2json/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.0.0/easyflash/port}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.1.0/easyflash/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.1.0/easyflash/plugins/types/struct2json/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.1.0/easyflash/port}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.include.files.1117594253" name="Include files (-include)" superClass="gnu.cpp.compiler.option.include.files" useByScannerDiscovery="false"/>
 								<option id="com.crt.advproject.cpp.exe.debug.option.optimization.level.1514327042" name="Optimization Level" superClass="com.crt.advproject.cpp.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.more" valueType="enumerated"/>
@@ -455,7 +456,7 @@
 								<option id="gnu.cpp.compiler.option.warnings.extrawarn.618308041" name="Extra warnings (-Wextra)" superClass="gnu.cpp.compiler.option.warnings.extrawarn" useByScannerDiscovery="false"/>
 								<option id="gnu.cpp.compiler.option.warnings.toerrors.268127595" name="Warnings as errors (-Werror)" superClass="gnu.cpp.compiler.option.warnings.toerrors" useByScannerDiscovery="false"/>
 								<option id="gnu.cpp.compiler.option.warnings.wconversion.833950090" name="Implicit conversion warnings (-Wconversion)" superClass="gnu.cpp.compiler.option.warnings.wconversion" useByScannerDiscovery="false"/>
-								<option id="gnu.cpp.compiler.option.other.other.1566233145" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -frtti -fexceptions -fpermissive" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.other.other.1566233145" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -frtti -fno-exceptions -fpermissive -fstack-protector-all" valueType="string"/>
 								<option id="gnu.cpp.compiler.option.other.verbose.2132208027" name="Verbose (-v)" superClass="gnu.cpp.compiler.option.other.verbose" useByScannerDiscovery="false"/>
 								<option id="gnu.cpp.compiler.option.other.pic.287092681" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" useByScannerDiscovery="false"/>
 								<option id="com.crt.advproject.cpp.lto.2017408780" name="Enable Link-time optimization (-flto)" superClass="com.crt.advproject.cpp.lto" useByScannerDiscovery="false" value="false" valueType="boolean"/>
@@ -483,12 +484,13 @@
 									<listOptionValue builtIn="false" value="CPU_MK66FX1M0VLQ18cm7"/>
 									<listOptionValue builtIn="false" value="FSL_RTOS_BM"/>
 									<listOptionValue builtIn="false" value="SDK_OS_BAREMETAL"/>
-									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=1"/>
+									<listOptionValue builtIn="false" value="SDK_DEBUGCONSOLE=0"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_UART=1"/>
 									<listOptionValue builtIn="false" value="SERIAL_PORT_TYPE_SWO=0"/>
 									<listOptionValue builtIn="false" value="DEBUG_CONSOLE_RX_ENABLE=1"/>
 									<listOptionValue builtIn="false" value="__MCUXPRESSO"/>
 									<listOptionValue builtIn="false" value="__USE_CMSIS"/>
+									<listOptionValue builtIn="false" value="RELEASE"/>
 									<listOptionValue builtIn="false" value="__NEWLIB__"/>
 									<listOptionValue builtIn="false" value="I2C_RETRY_TIMES=32768"/>
 									<listOptionValue builtIn="false" value="UART_RETRY_TIMES=32768"/>
@@ -513,12 +515,12 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/utilities}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities_test}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.0.0/easyflash/plugins/types/struct2json/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.0.0/easyflash/port}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/CmBacktrace-1.4.0/cm_backtrace}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.1.0/easyflash/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/utilities/extlib/EasyFlash-4.1.0/easyflash/plugins/types/struct2json/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HITSIC_Module/d_mk66f18/extlib_port/EasyFlash-4.1.0/easyflash/port}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.include.files.365453481" name="Include files (-include)" superClass="gnu.c.compiler.option.include.files" useByScannerDiscovery="false"/>
 								<option id="com.crt.advproject.gcc.exe.debug.option.optimization.level.856530375" name="Optimization Level" superClass="com.crt.advproject.gcc.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.more" valueType="enumerated"/>
@@ -536,7 +538,7 @@
 								<option id="gnu.c.compiler.option.warnings.extrawarn.1248204883" name="Extra warnings (-Wextra)" superClass="gnu.c.compiler.option.warnings.extrawarn" useByScannerDiscovery="false"/>
 								<option id="gnu.c.compiler.option.warnings.toerrors.2048494528" name="Warnings as errors (-Werror)" superClass="gnu.c.compiler.option.warnings.toerrors" useByScannerDiscovery="false"/>
 								<option id="gnu.c.compiler.option.warnings.wconversion.618069784" name="Implicit conversion warnings (-Wconversion)" superClass="gnu.c.compiler.option.warnings.wconversion" useByScannerDiscovery="false"/>
-								<option id="gnu.c.compiler.option.misc.other.1887741149" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -frtti -fexceptions -fpermissive" valueType="string"/>
+								<option id="gnu.c.compiler.option.misc.other.1887741149" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -frtti -fno-exceptions -fpermissive -fstack-protector-all" valueType="string"/>
 								<option id="gnu.c.compiler.option.misc.verbose.283444272" name="Verbose (-v)" superClass="gnu.c.compiler.option.misc.verbose" useByScannerDiscovery="false"/>
 								<option id="gnu.c.compiler.option.misc.ansi.1933350356" name="Support ANSI programs (-ansi)" superClass="gnu.c.compiler.option.misc.ansi" useByScannerDiscovery="false"/>
 								<option id="gnu.c.compiler.option.misc.pic.1654719985" name="Position Independent Code (-fPIC)" superClass="gnu.c.compiler.option.misc.pic" useByScannerDiscovery="false"/>
@@ -723,8 +725,8 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry flags="LOCAL|VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="CMSIS"/>
-						<entry excluding="legacy_drivers" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="HITSIC_Module/d_mk66f18"/>
-						<entry excluding="extlib/CmBacktrace-1.4.0/cm_backtrace/fault_handler/keil|extlib/CmBacktrace-1.4.0/cm_backtrace/fault_handler/iar" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="HITSIC_Module/utilities"/>
+						<entry excluding="extlib_port/EasyFlash-4.0.0|legacy_drivers" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="HITSIC_Module/d_mk66f18"/>
+						<entry excluding="extlib/EasyFlash-4.0.0|extlib/CmBacktrace-1.4.0/cm_backtrace/fault_handler/keil|extlib/CmBacktrace-1.4.0/cm_backtrace/fault_handler/iar" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="HITSIC_Module/utilities"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="board"/>
 						<entry excluding="uart/uart_adapter.c" flags="LOCAL|VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="component"/>
 						<entry flags="LOCAL|VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="device"/>

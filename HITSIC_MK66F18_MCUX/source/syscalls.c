@@ -14,11 +14,73 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include <inc_stdlib.hpp>
+#include "inc_stdlib.hpp"
 #include "hitsic_common.h"
 #include "ff.h"
 
 #include  <sys/unistd.h>
+
+
+#define RETARGET_INST   (LPUART0)
+
+#ifdef __cplusplus
+extern "C"{
+#endif
+
+#if defined (__NEWLIB__)
+
+// ******************************************************************
+// Redlib C Library function : __sys_write
+// Newlib C library function : _write
+//
+// Function called by bottom level of printf routine within C library
+// to write multiple characters.
+// ******************************************************************
+int _write(int iFileHandle, char *pcBuffer, int iLength)
+{
+    // Check that iFileHandle == 1 to confirm that read is from stdout
+    if(1 == iFileHandle)
+    {
+    if(kStatus_Success == LPUART_WriteBlocking(RETARGET_INST, pcBuffer, iLength))
+    {
+        return 0;
+    }
+    else
+    {
+        // Function returns number of unwritten bytes if error
+        return iLength;
+    }
+    }
+}
+
+// ******************************************************************
+// Function _read
+//
+// Called by bottom level of scanf routine within Newlib C library
+// to read multiple characters.
+// ******************************************************************
+int _read(int iFileHandle, char *pcBuffer, int iLength)
+{
+    // Check that iFileHandle == 0 to confirm that read is from stdin
+    if(0 == iFileHandle)
+    {
+    if(kStatus_Success == LPUART_ReadBlocking(RETARGET_INST, pcBuffer, iLength))
+    {
+        return iLength;
+    }
+    else
+    {
+        return 0;// Count of characters read
+    }
+    }
+}
+
+#endif // ! __NEWLIB__
+
+
+#ifdef __cplusplus
+}
+#endif
 
 #if 0 // DISABLED. this is not completed yet.
 
@@ -46,7 +108,7 @@ extern "C"
 
 /* Provide prototypes for most of the _<systemcall> names that are
  provided in newlib for some compilers.  */
-int close(int file)
+int _close(int file)
 {
 
 }
@@ -58,15 +120,6 @@ int _lseek(int file, int ptr, int dir)
 int _open(const char *name, int flags, int mode)
 {
     return -1;
-}
-int _read(int file, char *ptr, int len)
-{
-    return 0;
-}
-int _write(int file, char *ptr, int len)
-{
-
-    return len;
 }
 
 void _exit(void)

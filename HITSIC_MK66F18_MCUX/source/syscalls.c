@@ -51,6 +51,7 @@ int _write(int iFileHandle, char *pcBuffer, int iLength)
         return iLength;
     }
     }
+    return iLength;
 }
 
 // ******************************************************************
@@ -73,6 +74,7 @@ int _read(int iFileHandle, char *pcBuffer, int iLength)
         return 0;// Count of characters read
     }
     }
+    return 0;
 }
 
 #endif // ! __NEWLIB__
